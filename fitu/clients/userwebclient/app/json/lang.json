@@ -45,7 +45,8 @@
     "UPDATEEMAIL_LABEL_PWD": "密码",
     "UPDATEEMAIL_BTN_UPDATE": "修改登录邮箱",
     "UPDATEEMAIL_BTN_UPDATING": "正在修改...",
-
+    
+    "PROFILE_LABEL_HEAD": "头像",
     "PROFILE_LABEL_NICKNAME": "大名",
     "PROFILE_LABEL_PHONE": "手机",
     "PROFILE_LABEL_CONTACT": "联系邮箱",

@@ -2,3 +2,4 @@
 2. user head pic uploading
 3. activity members display(head?)
 4. user profile public view(limited info)
+GLOBAL_BTN_IMAGEUPLOAD_1_1

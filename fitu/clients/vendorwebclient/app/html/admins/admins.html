@@ -33,7 +33,7 @@
             </tr>
         </tfoot>
     </table>
-    <loading style="margin:10px;" src="const.resources.loadingImg" show="loading" word="lang.ADMINS_LOADING"></loading>
+    <loading style="margin:10px;" show="loading" word="lang.ADMINS_LOADING"></loading>
     <div ng-show="admins.length == 0 && !loading" style="margin:10px;" ng-bind="lang.ADMINS_LABEL_NOADMIN"></div>
     <table style="width: 100%;">
         <tbody>
@@ -43,7 +43,7 @@
                 </td>
                 <td style="padding:5px;">
                     <button class="btn btn-default" ng-click="addAdmin()" ng-class="{disabled: adding}">
-                        <img ng-src="{{const.resources.loadingImg}}" ng-show="adding" style="height: 14px;" />
+                        <i class="fa fa-spinner fa-spin" ng-show="adding"></i>
                         <span ng-bind="lang.ADMINS_BTN_ADD" ng-show="!adding"></span>
                         <span ng-bind="lang.ADMINS_BTN_ADDING" ng-show="adding"></span>
                     </button>

@@ -10,7 +10,7 @@
         <div class="empty-sm"></div>
     </div>
     <button ng-click="signup()" class="btn btn-success col-xs-offset-2 col-xs-8" ng-class="{'disabled': !user || processing}">
-        <img ng-src="{{const.resources.loadingImg}}" ng-show="processing" style="height: 14px;" />
+        <i class="fa fa-spinner fa-spin" ng-show="processing"></i>
         <span ng-bind="lang.SIGNUP_BTN_SIGNUP" ng-show="!processing"></span>
         <span ng-bind="lang.SIGNUP_BTN_SIGNUPING" ng-show="processing"></span>
     </button>

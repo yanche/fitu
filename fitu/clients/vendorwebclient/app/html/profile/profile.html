@@ -41,10 +41,10 @@
             <img class="img-responsive" id="profile_logo" ng-src="{{vendorModel.logoProp.val}}" style="margin-top:5px;" />
         </div>
         <button ng-click="updateVendor()" class="btn btn-default" ng-class="{disabled: updating || !vendorModel.validate()}">
-            <img ng-src="{{const.resources.loadingImg}}" ng-show="updating" style="height: 14px;" />
+            <i class="fa fa-spinner fa-spin" ng-show="updating"></i>
             <span ng-bind="lang.PROFILE_BTN_UPDATE" ng-show="!updating"></span>
             <span ng-bind="lang.PROFILE_BTN_UPDATING" ng-show="updating"></span>
         </button>
     </div>
-    <loading src="const.resources.loadingImg" show="!vendorModel" word="lang.PROFILE_LOADING"></loading>
+    <loading show="!vendorModel" word="lang.PROFILE_LOADING"></loading>
 </div>

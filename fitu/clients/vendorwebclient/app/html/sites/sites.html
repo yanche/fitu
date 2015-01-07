@@ -59,7 +59,7 @@
                 <img class="img-responsive" ng-src="{{site.model.picProp.val}}" style="margin-top:5px;max-width:80%;"></img>
             </div>
             <button ng-click="updateSite(site)" class="btn btn-default" style="position:absolute;bottom:15px;right:15px;" ng-class="{disabled: site.updating || !site.model.validate()}">
-                <img ng-src="{{const.resources.loadingImg}}" ng-show="site.updating" style="height: 14px;" />
+                <i class="fa fa-spinner fa-spin" ng-show="site.updating"></i>
                 <span ng-bind="lang.SITE_BTN_UPDATE" ng-show="!site.updating"></span>
                 <span ng-bind="lang.SITE_BTN_UPDATING" ng-show="site.updating"></span>
             </button>
@@ -117,7 +117,7 @@
             <img class="img-responsive" id="profile_logo" ng-src="{{siteModel.picProp.val}}" style="margin-top:5px;"></img>
         </div>
         <button ng-click="addSite()" class="btn btn-default" ng-class="{disabled: adding || !siteModel.validate()}">
-            <img ng-src="{{const.resources.loadingImg}}" ng-show="adding" style="height: 14px;" />
+            <i class="fa fa-spinner fa-spin" ng-show="adding"></i>
             <span ng-bind="lang.SITE_BTN_CREATE" ng-show="!adding"></span>
             <span ng-bind="lang.SITE_BTN_CREATING" ng-show="adding"></span>
         </button>

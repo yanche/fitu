@@ -6,6 +6,7 @@
             templateUrl: '/app/html/directives/imageInput.html',
             replace: true,
             link: function (scope, element, attrs) {
+                scope.head = 'head' in attrs;
                 var h = Number(attrs.imageHeight), w = Number(attrs.imageWidth);
                 var modelGet = $parse(attrs.imageBind);
                 var modelSet = modelGet.assign;

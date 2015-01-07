@@ -9,9 +9,11 @@
                 $scope.updating = true;
                 user.updateUser(data)
                 .then(function () {
-                    angular.extend($rootScope.user, data);
-                    console.log($rootScope.user);
-                    console.log('更新成功');
+                    return user.getLoginUser(true);
+                })
+                .then(function (updateduser) {
+                    angular.extend($rootScope.user, updateduser);
+                    $scope.profileModel.init(updateduser);
                     $scope.updating = false;
                 })
                 .catch(function (err) {

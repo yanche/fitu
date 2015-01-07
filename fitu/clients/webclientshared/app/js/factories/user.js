@@ -8,11 +8,11 @@
                     defer.reject('no user id in cookie, need login');
                 }
                 else {
+                    console.log('trying get login user from server');
                     $http({
                         method: 'GET',
                         url: url.generate('users'),
-                        params: { id: $.cookie('userId') },
-                        cache: !Boolean(refresh)
+                        params: { id: $.cookie('userId') }
                     }).success(function (data) {
                         data.headUrl = utility.getStaticUrl(data.headUrl);
                         defer.resolve(data);
