@@ -31,6 +31,7 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include=".gitignore" />
     <Content Include="bower.json" />
     <Content Include="client pages spec.docx" />
     <Content Include="fitu\clients\userwebclient\app\html\activities\actlocation.html" />
@@ -106,7 +107,6 @@
     <Content Include="fitu\open issues.txt" />
     <Content Include="package.json" />
     <Content Include="README.md" />
-    <Content Include="TODO.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="fitu\" />
