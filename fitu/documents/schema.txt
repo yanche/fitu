@@ -1,0 +1,124 @@
+﻿
+users
+{
+'_id':,
+'personal':{
+	'nickName':,
+	'phone':,
+	'contact':,
+	'gender':
+	},
+'email':,
+'hash_pwd':,
+'headUrl':,
+'special': 1:god, 2:ob
+}
+
+site
+{
+'_id':,
+'name':,
+'tags': [],
+'location':{
+	'address':,
+	'geo':,
+	},
+'intro':,
+'picUrl':
+'vendorId':,
+'createdBy':
+'createdOn':
+}
+
+siteidle
+{
+'_id':,
+'slots':,
+'price':,
+'startsOn':,
+'endsOn':,
+'tags': [],
+'siteId':,
+'vendorId':,
+'createdBy':
+'createdOn':
+}
+
+vendor
+{
+'_id':,
+'name':,
+'tags': [],
+'location':{
+	'address':,
+	'geo':,
+	},
+'intro':,
+'logoUrl':,
+'ownerId':,
+'admins': [],
+'createdOn':,
+'createdBy':,
+}
+
+activity
+{
+'_id':,
+'siteIdleId':,
+'siteId':,
+'vendorId':,
+'name':,
+'price':,
+'startsOn':,
+'endsOn':,
+'createdOn':,
+'createdBy':,
+'tags': [],
+'intro':,
+'recruitment':,
+'picUrl':,
+'capacity':
+}
+
+member
+{
+'_id':,
+'userId':,
+'actId':,
+'createdOn':,
+'statusId'
+}
+
+session:
+{
+'_id':,
+'userId':,
+'sessionId':,
+'createdOn':,
+'lastAccess':,
+}
+
+//public
+message:
+{
+'_id':,
+'targetType':,
+'targetId':,
+'words':,
+'authorId':,
+'replyToId':,
+'createdOn':,
+'like': [ array of user id]
+}
+
+//private
+notes: {
+'_id':,
+'type':,
+'authorId':,
+'createdOn':,
+'recipients': [],
+'subject':,
+'content': [],
+'emphasis':,
+}

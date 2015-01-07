@@ -1,0 +1,50 @@
+﻿@import 'variables';
+
+body {
+    background-color: #F2F2F2;
+}
+
+.clr {
+    clear: both;
+}
+
+.splitter + .splitter {
+    border-top: solid 1px lightgrey;
+}
+
+.loading-backdrop {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-color: black;
+    opacity: 0.5;
+    z-index: 9999;
+
+    .loading-main {
+        position: fixed;
+        top: 40%;
+        left: 0px;
+        right: 0px;
+        text-align: center;
+    }
+}
+
+/* from https://github.com/blueimp/jQuery-File-Upload */
+.fileinput-button {
+    position: relative;
+    overflow: hidden;
+
+    input {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0;
+        opacity: 0;
+        -ms-filter: 'alpha(opacity=0)';
+        font-size: 200px;
+        direction: ltr;
+        cursor: pointer;
+    }
+}

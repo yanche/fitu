@@ -1,0 +1,77 @@
+﻿<div class="col-xs-12 paddingLR0px">
+    <div class="col-xs-12 text-right" ng-click="goSignup()">
+        <span>前去报名</span>
+        <i class="fa fa-arrow-circle-right fa-lg"></i>
+    </div>
+    <div class="col-xs-12 paddingLR0px" style="position:relative;">
+        <img style="width:100%;" ng-src="{{activity.picUrl}}" />
+        <div style="position:absolute;bottom:0px;right:0px;left:0px;background-color:black;color:white;opacity:0.6;min-height:25%;">
+            <div style="font-size:150%;padding:5px 10px;overflow:hidden;text-overflow:ellipsis;" ng-bind="activity.name"></div>
+            <div style="padding:5px 10px;overflow:hidden;text-overflow:ellipsis;">
+                <span>时间：</span>
+                <span ng-bind="(activity.startsOn | datetime) + ' ' + (activity.endsOn | datetime)"></span>
+            </div>
+        </div>
+    </div>
+    <div class="empty-xs"></div>
+    <div class="col-xs-12">
+        <div class="col-xs-12 paddingLR0px fontbold">地址</div>
+        <div class="col-xs-12 paddingLR0px" ng-click="goLocation()">
+            <span ng-bind="activity.site.location.address"></span>
+            <i class="fa fa-map-marker"></i>
+        </div>
+        <div class="col-xs-12 paddingLR0px fontbold">介绍</div>
+        <div class="col-xs-12 paddingLR0px" ng-bind="activity.intro"></div>
+        <div class="col-xs-12 paddingLR0px fontbold">已报名</div>
+        <div class="col-xs-12 paddingLR0px" ng-bind="activity.memberCount"></div>
+        <div class="empty-xs"></div>
+        <div class="col-xs-12 padding10px" style="border-radius:5px;background-color:white;" ng-show="getMsgPageNavs().total > 0">
+            <div class="col-xs-12 paddingLR0px fontbold">留言墙</div>
+            <div class="col-xs-12 paddingLR0px" ng-repeat="msg in msgVisibles">
+                <pre ng-bind="msg.words" style="margin-bottom: 0px;"></pre>
+                <div class="text-right small" style="margin-bottom: 10px;">
+                    <span ng-show="msg.replyToUser">回复给：</span>
+                    <span ng-show="msg.replyToUser" ng-bind="msg.replyToUser.personal.nickName"></span>
+                    <span >by </span>
+                    <span ng-bind="msg.author.personal.nickName"></span>
+                    <span>@</span>
+                    <span ng-bind="msg.createdOn | sensitiveDatetime"></span>
+                    <i class="fa fa-reply" ng-click="replyToClick(msg)"></i>
+                    <i class="fa" style="margin-left:5px;" ng-class="{'fa-heart': msg.like.me, 'fa-heart-o': !msg.like.me}" ng-click="likeMessage(msg)"></i>
+                    <span class="small" style="margin-left: -3px;" ng-bind="msg.like.count"></span>
+                </div>
+            </div>
+            <div class="col-xs-12 text-right paddingLR0px" ng-show="getMsgPageNavs().max > 0">
+                <ul class="pagination">
+                    <li ng-class="{disabled: currentMsgPage == 0}" ng-click="currentMsgPage <= 0 || switchMsgPage(0)"><span class="fa fa-angle-double-left"></span></li>
+                    <li ng-class="{disabled: currentMsgPage == 0}" ng-click="currentMsgPage <= 0 || switchMsgPage(currentMsgPage - 1)"><span class="fa fa-angle-left"></span></li>
+                    <li ng-repeat="pg in getMsgPageNavs().nav" ng-class="{active: currentMsgPage == pg}" ng-click="pg == currentMsgPage || switchMsgPage(pg)"><span ng-bind="pg + 1"></span></li>
+                    <li ng-class="{disabled: currentMsgPage == getMsgPageNavs().max}" ng-click="currentMsgPage >= getMsgPageNavs().max || switchMsgPage(currentMsgPage + 1)"><span class="fa fa-angle-right"></span></li>
+                    <li ng-class="{disabled: currentMsgPage == getMsgPageNavs().max}" ng-click="currentMsgPage >= getMsgPageNavs().max || switchMsgPage(getMsgPageNavs().max)"><span class="fa fa-angle-double-right"></span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-xs-12 paddingLR0px" ng-show="getMsgPageNavs().total == 0">
+            暂无评论
+        </div>
+        <div class="empty-xs"></div>
+        <div class="col-xs-12 paddingLR0px">
+            <div class="col-xs-12 paddingLR0px fontbold">
+                留言
+            </div>
+            <div class="col-xs-12 paddingLR0px small" ng-init="replyToClick(null)" ng-show="replyToMsg">
+                <i class="fa fa-times clickable remove" ng-click="replyToMsg = null"></i>
+                <span>回复给：</span>
+                <span ng-bind="replyToMsg.author.personal.nickName"></span>
+            </div>
+            <div class="col-xs-12 paddingLR0px">
+                <textarea class="form-control" ng-model="newMessage"></textarea>
+            </div>
+            <div class="col-xs-12 marginT5px text-right">
+                <button class="btn btn-warning btn-xs" ng-class="{disabled: !user}" ng-click="sendNewActMessage()">留言</button>
+                <button class="btn btn-danger btn-xs" ng-class="{disabled: !user}" ng-click="newMessage = ''">清空</button>
+            </div>
+        </div>
+    </div>
+    <div class="empty-sm"></div>
+</div>

@@ -1,0 +1,54 @@
+﻿<div class="col-sm-6 col-xs-12" style="margin-bottom: 100px;">
+    <h3 ng-bind="lang.ADMINS_TITLE"></h3>
+    <table class="table table-striped table-hover" ng-show="admins.length > 0">
+        <thead>
+            <tr>
+                <th ng-bind="lang.ADMINS_LABEL_NICKNAME"></th>
+                <th ng-bind="lang.ADMINS_LABEL_PHONE"></th>
+                <th ng-bind="lang.ADMINS_LABEL_CONTACT"></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="admin in visibles">
+                <td ng-bind="admin.personal.nickName"></td>
+                <td ng-bind="admin.personal.phone"></td>
+                <td ng-bind="admin.personal.contact"></td>
+                <td>
+                    <i class="fa fa-times clickable remove" ng-click="removeAdmin(admin)"></i>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot ng-show="getPageNavs().max > 0">
+            <tr>
+                <td colspan="5" style="text-align:right;">
+                    <ul class="pagination">
+                        <li ng-class="{disabled: currentPage == 0}" ng-click="currentPage <= 0 || switchPage(0)"><span class="fa fa-angle-double-left"></span></li>
+                        <li ng-class="{disabled: currentPage == 0}" ng-click="currentPage <= 0 || switchPage(currentPage - 1)"><span class="fa fa-angle-left"></span></li>
+                        <li ng-repeat="pg in getPageNavs().nav" ng-class="{active: currentPage == pg}" ng-click="pg == currentPage || switchPage(pg)"><span ng-bind="pg + 1"></span></li>
+                        <li ng-class="{disabled: currentPage == getPageNavs().max}" ng-click="currentPage >= getPageNavs().max || switchPage(currentPage + 1)"><span class="fa fa-angle-right"></span></li>
+                        <li ng-class="{disabled: currentPage == getPageNavs().max}" ng-click="currentPage >= getPageNavs().max || switchPage(getPageNavs().max)"><span class="fa fa-angle-double-right"></span></li>
+                    </ul>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+    <loading style="margin:10px;" src="const.resources.loadingImg" show="loading" word="lang.ADMINS_LOADING"></loading>
+    <div ng-show="admins.length == 0 && !loading" style="margin:10px;" ng-bind="lang.ADMINS_LABEL_NOADMIN"></div>
+    <table style="width: 100%;">
+        <tbody>
+            <tr>
+                <td style="padding:5px;">
+                    <auto-complete class="form-control" type="text" select-bind="selectedUser" ng-model="searchWords"></auto-complete>
+                </td>
+                <td style="padding:5px;">
+                    <button class="btn btn-default" ng-click="addAdmin()" ng-class="{disabled: adding}">
+                        <img ng-src="{{const.resources.loadingImg}}" ng-show="adding" style="height: 14px;" />
+                        <span ng-bind="lang.ADMINS_BTN_ADD" ng-show="!adding"></span>
+                        <span ng-bind="lang.ADMINS_BTN_ADDING" ng-show="adding"></span>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

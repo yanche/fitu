@@ -1,0 +1,31 @@
+
+
+user client
+1. main: activity, siteIdles, profile(footprint, leadership), doodles
+2. activities: list of current available activities(search, filter by position, tag, time), -> signup
+3. signup(activity detail, including map)
+4. myself -> profile, footprint, leadership, changeemail/pwd
+5. profile -> personal info, edit
+6. footprint -> my history
+7. leadership -> 
+8. siteIdles: list of available sites(search, filter) -> site, vendor, activities
+9. site: show site detail -> vendor, site idles, activities
+10. vendor: show vendor detail -> site idles, activities
+11. doodles: not clear enough
+12. for all pages: share to Weixin
+
+
+vendor client
+1. vendor/site tags(how to design)
+
+
+admin client
+1. add vendor
+2. *statistics
+
+
+backend
+1. image uploading, public storage
+2. request trace, info/perf log
+3. anti-forgery token
+4. session cleanup

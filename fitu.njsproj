@@ -1,0 +1,384 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <Name>fitu</Name>
+    <RootNamespace>fitu</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>154213bd-9067-464b-8f9a-a28397772ba5</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>
+    </StartupFile>
+    <StartWebBrowser>False</StartWebBrowser>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <ProjectView>ShowAllFiles</ProjectView>
+    <StartWebBrowser>false</StartWebBrowser>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="bower.json" />
+    <Content Include="client pages spec.docx" />
+    <Content Include="fitu\clients\userwebclient\app\html\activities\actlocation.html" />
+    <Content Include="fitu\clients\userwebclient\app\html\activities\signup.html" />
+    <Content Include="fitu\clients\userwebclient\app\html\gym\gym.html" />
+    <Content Include="fitu\clients\userwebclient\app\html\myself\actlead.html" />
+    <Content Include="fitu\clients\userwebclient\app\html\myself\profile.html" />
+    <Content Include="fitu\clients\userwebclient\app\html\myself\sendnote.html" />
+    <Content Include="fitu\clients\userwebclient\app\html\myself\updateemail.html" />
+    <Content Include="fitu\clients\userwebclient\app\html\myself\updatepwd.html" />
+    <Content Include="fitu\clients\userwebclient\app\html\gym\siteidles.html" />
+    <Content Include="fitu\clients\userwebclient\app\html\gym\vendor.html" />
+    <Content Include="fitu\clients\vendorwebclient\app\css\basic.scss" />
+    <Content Include="fitu\clients\vendorwebclient\app\css\nav.scss" />
+    <Content Include="fitu\clients\vendorwebclient\app\html\admins\admins.html" />
+    <Content Include="fitu\clients\vendorwebclient\app\html\profile\profile.html" />
+    <Content Include="fitu\clients\vendorwebclient\app\html\siteidles\siteidles.html" />
+    <Content Include="fitu\clients\vendorwebclient\app\html\login\login.html" />
+    <Content Include="fitu\clients\vendorwebclient\app\html\layout.html" />
+    <Content Include="fitu\clients\vendorwebclient\app\json\lang.json" />
+    <Content Include="fitu\clients\webclientshared\app\css\basic.scss" />
+    <Content Include="fitu\clients\webclientshared\app\css\button.scss" />
+    <Content Include="fitu\clients\webclientshared\app\css\position.scss" />
+    <Content Include="fitu\clients\webclientshared\app\css\fitu_sh.scss" />
+    <Content Include="fitu\clients\webclientshared\app\css\messenger.scss" />
+    <Content Include="fitu\clients\webclientshared\app\css\table.scss" />
+    <Content Include="fitu\clients\webclientshared\app\css\text.scss" />
+    <Content Include="fitu\clients\webclientshared\app\html\directives\loading.html" />
+    <Content Include="fitu\clients\webclientshared\app\html\directives\map.html" />
+    <Content Include="fitu\clients\webclientshared\app\html\directives\messenger.html" />
+    <Content Include="fitu\clients\webclientshared\app\image\actpic.jpg" />
+    <Content Include="fitu\clients\webclientshared\app\image\head.jpg" />
+    <Content Include="fitu\clients\webclientshared\app\image\icon.jpg" />
+    <Content Include="fitu\clients\webclientshared\app\image\loading.gif" />
+    <Content Include="fitu\clients\webclientshared\app\image\sitepic.jpg" />
+    <Content Include="fitu\clients\webclientshared\app\image\vendorpic.jpg" />
+    <Content Include="fitu doc.docx" />
+    <Content Include="fitu\clients\webclientshared\app\json\global_lang.json" />
+    <Content Include="fitu\documents\api interface.txt" />
+    <Content Include="fitu\documents\db clean up.txt" />
+    <Content Include="fitu\documents\db.txt" />
+    <Content Include="fitu\documents\index.txt" />
+    <Content Include="fitu\documents\schema.txt" />
+    <Content Include="fitu\clients\userwebclient\app.jade" />
+    <Content Include="fitu\clients\userwebclient\app\css\basic.scss" />
+    <Content Include="fitu\clients\userwebclient\app\css\bs_ext.scss" />
+    <Content Include="fitu\clients\userwebclient\app\css\button.scss" />
+    <Content Include="fitu\clients\userwebclient\app\css\fitu_user.scss" />
+    <Content Include="fitu\clients\userwebclient\app\css\form.scss" />
+    <Content Include="fitu\clients\userwebclient\app\css\input.scss" />
+    <Content Include="fitu\clients\userwebclient\app\css\leadership.scss" />
+    <Content Include="fitu\clients\userwebclient\app\css\nav.scss" />
+    <Content Include="fitu\clients\userwebclient\app\css\preview.scss" />
+    <Content Include="fitu\clients\userwebclient\app\css\variables.scss" />
+    <Content Include="fitu\clients\userwebclient\app\html\activities\activities.html" />
+    <Content Include="fitu\clients\vendorwebclient\app\css\fitu_vd.scss" />
+    <Content Include="fitu\clients\webclientshared\app\html\directives\imageInput.html" />
+    <Content Include="fitu\clients\webclientshared\app\html\directives\preview.html" />
+    <Content Include="fitu\clients\userwebclient\app\html\myself\footprint.html" />
+    <Content Include="fitu\clients\userwebclient\app\html\myself\leadership.html" />
+    <Content Include="fitu\clients\userwebclient\app\html\login\login.html" />
+    <Content Include="fitu\clients\userwebclient\app\html\main.html" />
+    <Content Include="fitu\clients\userwebclient\app\html\myself\myself.html" />
+    <Content Include="fitu\clients\userwebclient\app\html\activities\actdetail.html" />
+    <Content Include="fitu\clients\userwebclient\app\html\gym\site.html" />
+    <Content Include="fitu\clients\userwebclient\app\json\lang.json" />
+    <Content Include="fitu\clients\adminwebclient\app.jade" />
+    <Content Include="fitu\clients\vendorwebclient\app.jade" />
+    <Content Include="fitu\clients\vendorwebclient\app\html\main.html" />
+    <Content Include="fitu\open issues.txt" />
+    <Content Include="package.json" />
+    <Content Include="README.md" />
+    <Content Include="TODO.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="fitu\" />
+    <Folder Include="fitu\clients\userwebclient\app\html\gym\" />
+    <Folder Include="fitu\clients\userwebclient\app\js\controllers\myself\" />
+    <Folder Include="fitu\clients\userwebclient\app\js\controllers\activities\" />
+    <Folder Include="fitu\clients\userwebclient\app\js\controllers\gym\" />
+    <Folder Include="fitu\clients\userwebclient\app\js\factories\" />
+    <Folder Include="fitu\clients\vendorwebclient\app\html\admins\" />
+    <Folder Include="fitu\clients\vendorwebclient\app\html\profile\" />
+    <Folder Include="fitu\clients\vendorwebclient\app\html\siteidles\" />
+    <Folder Include="fitu\clients\vendorwebclient\app\html\login\" />
+    <Folder Include="fitu\clients\vendorwebclient\app\js\controllers\login\" />
+    <Folder Include="fitu\clients\vendorwebclient\app\js\controllers\siteidles\" />
+    <Folder Include="fitu\clients\vendorwebclient\app\js\factories\" />
+    <Folder Include="fitu\clients\webclientshared\app\image\" />
+    <Folder Include="fitu\clients\webclientshared\app\json\" />
+    <Folder Include="fitu\documents\" />
+    <Folder Include="fitu\clients\" />
+    <Folder Include="fitu\node_modules\" />
+    <Folder Include="fitu\node_modules\api\node_modules\imageUpload\" />
+    <Folder Include="fitu\node_modules\api\node_modules\resources\" />
+    <Folder Include="fitu\node_modules\api\node_modules\" />
+    <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\" />
+    <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\activities\" />
+    <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\members\" />
+    <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\messages\" />
+    <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\availability\" />
+    <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\notes\" />
+    <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\sitepreview\" />
+    <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\vendorpreview\" />
+    <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\usercontacts\" />
+    <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\siteidles\" />
+    <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\sites\" />
+    <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\vendors\" />
+    <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\sessions\" />
+    <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\resxutil\" />
+    <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\resource\" />
+    <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\usercredentials\" />
+    <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\users\" />
+    <Folder Include="fitu\node_modules\infra\" />
+    <Folder Include="fitu\node_modules\models\" />
+    <Folder Include="fitu\node_modules\webpageservice\" />
+    <Folder Include="fitu\clients\vendorwebclient\app\html\sites\" />
+    <Folder Include="fitu\clients\vendorwebclient\app\html\statistics\" />
+    <Folder Include="fitu\clients\vendorwebclient\app\js\controllers\" />
+    <Folder Include="fitu\clients\vendorwebclient\app\js\controllers\admins\" />
+    <Folder Include="fitu\clients\vendorwebclient\app\js\controllers\profile\" />
+    <Folder Include="fitu\clients\vendorwebclient\app\js\controllers\sites\" />
+    <Folder Include="fitu\clients\vendorwebclient\app\js\controllers\statistics\" />
+    <Folder Include="fitu\clients\webclientshared\app\" />
+    <Folder Include="fitu\clients\webclientshared\app\css\" />
+    <Folder Include="fitu\clients\webclientshared\app\html\" />
+    <Folder Include="fitu\clients\webclientshared\app\js\" />
+    <Folder Include="fitu\node_modules\extension\" />
+    <Folder Include="fitu\node_modules\errdef\" />
+    <Folder Include="fitu\node_modules\config\" />
+    <Folder Include="fitu\node_modules\const\" />
+    <Folder Include="fitu\node_modules\api\" />
+    <Folder Include="fitu\node_modules\dbaccess\" />
+    <Folder Include="fitu\node_modules\logaccess\" />
+    <Folder Include="fitu\node_modules\fileuploader\" />
+    <Folder Include="fitu\node_modules\fileclient\" />
+    <Folder Include="fitu\node_modules\fileservice\" />
+    <Folder Include="fitu\clients\webclientshared\" />
+    <Folder Include="fitu\clients\userwebclient\app\" />
+    <Folder Include="fitu\clients\userwebclient\app\css\" />
+    <Folder Include="fitu\clients\userwebclient\app\html\" />
+    <Folder Include="fitu\clients\userwebclient\app\html\activities\" />
+    <Folder Include="fitu\clients\webclientshared\app\html\directives\" />
+    <Folder Include="fitu\clients\userwebclient\app\html\login\" />
+    <Folder Include="fitu\clients\userwebclient\app\html\myself\" />
+    <Folder Include="fitu\clients\userwebclient\app\json\" />
+    <Folder Include="fitu\clients\userwebclient\app\js\" />
+    <Folder Include="fitu\clients\userwebclient\app\js\controllers\" />
+    <Folder Include="fitu\clients\webclientshared\app\js\directives\" />
+    <Folder Include="fitu\clients\webclientshared\app\js\factories\" />
+    <Folder Include="fitu\clients\webclientshared\app\js\filters\" />
+    <Folder Include="fitu\clients\adminwebclient\" />
+    <Folder Include="fitu\clients\adminwebclient\app\" />
+    <Folder Include="fitu\clients\adminwebclient\app\css\" />
+    <Folder Include="fitu\clients\adminwebclient\app\html\" />
+    <Folder Include="fitu\clients\adminwebclient\app\json\" />
+    <Folder Include="fitu\clients\adminwebclient\app\js\" />
+    <Folder Include="fitu\clients\vendorwebclient\" />
+    <Folder Include="fitu\clients\userwebclient\" />
+    <Folder Include="fitu\node_modules\schema\" />
+    <Folder Include="fitu\node_modules\validate\" />
+    <Folder Include="fitu\clients\vendorwebclient\app\" />
+    <Folder Include="fitu\clients\vendorwebclient\app\json\" />
+    <Folder Include="fitu\clients\vendorwebclient\app\js\" />
+    <Folder Include="fitu\clients\vendorwebclient\app\css\" />
+    <Folder Include="fitu\clients\vendorwebclient\app\html\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\actlead.js" />
+    <Compile Include="fitu\clients\userwebclient\app\js\controllers\activities\actlocation.js" />
+    <Compile Include="fitu\clients\userwebclient\app\js\controllers\activities\signup.js" />
+    <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\myself.js" />
+    <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\sendnote.js" />
+    <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\updatepwd.js" />
+    <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\updateemail.js" />
+    <Compile Include="fitu\clients\userwebclient\app\js\controllers\gym\siteidles.js" />
+    <Compile Include="fitu\clients\userwebclient\app\js\controllers\gym\vendor.js" />
+    <Compile Include="fitu\clients\userwebclient\app\js\factories\ucdatamodel.js" />
+    <Compile Include="fitu\clients\userwebclient\app\js\factories\ucconst.js" />
+    <Compile Include="fitu\clients\vendorwebclient\app\js\controllers\login\login.js" />
+    <Compile Include="fitu\clients\vendorwebclient\app\js\controllers\siteidles\siteidles.js" />
+    <Compile Include="fitu\clients\vendorwebclient\app\js\controllers\vendor.js" />
+    <Compile Include="fitu\clients\vendorwebclient\app\js\factories\vcconst.js" />
+    <Compile Include="fitu\clients\vendorwebclient\app\js\factories\vcdatamodel.js" />
+    <Compile Include="fitu\clients\webclientshared\app\js\directives\autoComplete.js" />
+    <Compile Include="fitu\clients\webclientshared\app\js\directives\focusOut.js" />
+    <Compile Include="fitu\clients\webclientshared\app\js\directives\loading.js" />
+    <Compile Include="fitu\clients\webclientshared\app\js\directives\map.js" />
+    <Compile Include="fitu\clients\webclientshared\app\js\directives\messenger.js" />
+    <Compile Include="fitu\clients\webclientshared\app\js\factories\datamodel.js" />
+    <Compile Include="fitu\clients\webclientshared\app\js\factories\geo.js" />
+    <Compile Include="fitu\clients\webclientshared\app\js\factories\message.js" />
+    <Compile Include="fitu\clients\webclientshared\app\js\factories\messenger.js" />
+    <Compile Include="fitu\clients\webclientshared\app\js\factories\note.js" />
+    <Compile Include="fitu\clients\webclientshared\app\js\factories\pagination.js" />
+    <Compile Include="fitu\clients\webclientshared\app\js\factories\siteidle.js" />
+    <Compile Include="fitu\clients\webclientshared\app\js\factories\utility.js" />
+    <Compile Include="fitu\clients\webclientshared\app\js\filters\datetime.js" />
+    <Compile Include="fitu\clients\webclientshared\app\js\filters\sensitiveDatetime.js" />
+    <Compile Include="fitu\clients\webclientshared\app\js\filters\tag.js" />
+    <Compile Include="fitu\clients\webclientshared\app\js\filters\wordbarrier.js" />
+    <Compile Include="fitu\documents\fakedata.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\imageUpload\index.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\index.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\activities\activities.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\activities\index.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\activities\singleactivity.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\availability\index.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\members\index.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\members\members.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\members\singlemember.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\messages\index.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\messages\singlemessage.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\messages\messages.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\notes\index.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\notes\notes.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\notes\singlenote.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\resource\index.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\resxutil\activity.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\resxutil\member.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\resxutil\message.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\resxutil\note.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\resxutil\site.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\resxutil\siteidle.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\resxutil\sitepreview.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\resxutil\user.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\resxutil\usercontact.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\resxutil\usercredentials.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\resxutil\vendor.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\resxutil\vendorpreview.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\sessions\index.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\sessions\sessions.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\sessions\singlesession.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\sitepreview\index.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\sitepreview\singlesitepreview.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\sitepreview\sitepreview.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\sites\index.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\sites\singlesite.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\sites\sites.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\siteidles\index.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\siteidles\singlesiteidle.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\siteidles\siteidles.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\usercontacts\index.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\usercontacts\usercontacts.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\usercredentials\index.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\users\index.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\users\singleuser.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\resxutil\index.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\vendorpreview\index.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\vendorpreview\singlevendorpreview.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\vendorpreview\vendorpreview.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\users\users.js" />
+    <Compile Include="fitu\node_modules\api\index.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\vendors\index.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\vendors\singlevendor.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\vendors\vendors.js" />
+    <Compile Include="fitu\node_modules\const\common.js" />
+    <Compile Include="fitu\node_modules\const\index.js" />
+    <Compile Include="fitu\node_modules\config\index.js" />
+    <Compile Include="fitu\node_modules\const\note.js" />
+    <Compile Include="fitu\node_modules\const\message.js" />
+    <Compile Include="fitu\node_modules\const\mime.js" />
+    <Compile Include="fitu\node_modules\const\status.js" />
+    <Compile Include="fitu\node_modules\const\tags.js" />
+    <Compile Include="fitu\node_modules\dbaccess\member.js" />
+    <Compile Include="fitu\node_modules\dbaccess\activity.js" />
+    <Compile Include="fitu\node_modules\dbaccess\note.js" />
+    <Compile Include="fitu\node_modules\dbaccess\message.js" />
+    <Compile Include="fitu\node_modules\dbaccess\session.js" />
+    <Compile Include="fitu\node_modules\dbaccess\site.js" />
+    <Compile Include="fitu\node_modules\dbaccess\siteidle.js" />
+    <Compile Include="fitu\node_modules\dbaccess\vendor.js" />
+    <Compile Include="fitu\node_modules\dbaccess\user.js" />
+    <Compile Include="fitu\node_modules\dbaccess\index.js" />
+    <Compile Include="fitu\node_modules\dbaccess\mongoclient.js" />
+    <Compile Include="fitu\node_modules\errdef\index.js" />
+    <Compile Include="fitu\node_modules\extension\array.js" />
+    <Compile Include="fitu\node_modules\extension\file.js" />
+    <Compile Include="fitu\node_modules\extension\json.js" />
+    <Compile Include="fitu\node_modules\extension\pagination.js" />
+    <Compile Include="fitu\node_modules\extension\regex.js" />
+    <Compile Include="fitu\node_modules\fileservice\FileCacher.js" />
+    <Compile Include="fitu\node_modules\infra\CachedLoader.js" />
+    <Compile Include="fitu\node_modules\infra\Webreq.js" />
+    <Compile Include="fitu\node_modules\extension\image.js" />
+    <Compile Include="fitu\node_modules\extension\index.js" />
+    <Compile Include="fitu\node_modules\extension\mongo.js" />
+    <Compile Include="fitu\node_modules\extension\http.js" />
+    <Compile Include="fitu\node_modules\extension\obj.js" />
+    <Compile Include="fitu\node_modules\extension\random.js" />
+    <Compile Include="fitu\node_modules\fileclient\index.js" />
+    <Compile Include="fitu\node_modules\fileservice\CachedFile.js" />
+    <Compile Include="fitu\node_modules\fileservice\index.js" />
+    <Compile Include="fitu\node_modules\fileuploader\index.js" />
+    <Compile Include="fitu\node_modules\infra\index.js" />
+    <Compile Include="fitu\node_modules\models\index.js" />
+    <Compile Include="fitu\node_modules\models\User.js" />
+    <Compile Include="fitu\node_modules\schema\act.js" />
+    <Compile Include="fitu\node_modules\schema\index.js" />
+    <Compile Include="fitu\node_modules\schema\member.js" />
+    <Compile Include="fitu\node_modules\schema\session.js" />
+    <Compile Include="fitu\node_modules\schema\site.js" />
+    <Compile Include="fitu\node_modules\schema\user.js" />
+    <Compile Include="fitu\node_modules\schema\usertoken.js" />
+    <Compile Include="fitu\node_modules\schema\vendor.js" />
+    <Compile Include="fitu\clients\userwebclient\app\js\config.js" />
+    <Compile Include="fitu\clients\userwebclient\app\js\controllers\activities\activities.js" />
+    <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\footprint.js" />
+    <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\leadership.js" />
+    <Compile Include="fitu\clients\userwebclient\app\js\controllers\login.js" />
+    <Compile Include="fitu\clients\userwebclient\app\js\controllers\main.js" />
+    <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\profile.js" />
+    <Compile Include="fitu\clients\userwebclient\app\js\controllers\activities\actdetail.js" />
+    <Compile Include="fitu\clients\userwebclient\app\js\controllers\gym\site.js" />
+    <Compile Include="fitu\clients\vendorwebclient\app\html\sites\sites.html" />
+    <Compile Include="fitu\clients\vendorwebclient\app\html\statistics\statistics.html" />
+    <Compile Include="fitu\clients\vendorwebclient\app\js\controllers\admins\admins.js" />
+    <Compile Include="fitu\clients\vendorwebclient\app\js\controllers\profile\profile.js" />
+    <Compile Include="fitu\clients\vendorwebclient\app\js\controllers\main.js" />
+    <Compile Include="fitu\clients\vendorwebclient\app\js\controllers\sites\sites.js" />
+    <Compile Include="fitu\clients\vendorwebclient\app\js\controllers\statistics\statistics.js" />
+    <Compile Include="fitu\clients\webclientshared\app\js\directives\confirmField.js" />
+    <Compile Include="fitu\clients\webclientshared\app\js\directives\datetimePicker.js" />
+    <Compile Include="fitu\clients\webclientshared\app\js\directives\emailField.js" />
+    <Compile Include="fitu\clients\webclientshared\app\js\directives\genderField.js" />
+    <Compile Include="fitu\clients\webclientshared\app\js\directives\imageInput.js" />
+    <Compile Include="fitu\clients\webclientshared\app\js\directives\phoneField.js" />
+    <Compile Include="fitu\clients\webclientshared\app\js\directives\preview.js" />
+    <Compile Include="fitu\clients\webclientshared\app\js\directives\pwdField.js" />
+    <Compile Include="fitu\clients\webclientshared\app\js\directives\requiredField.js" />
+    <Compile Include="fitu\clients\webclientshared\app\js\factories\activity.js" />
+    <Compile Include="fitu\clients\webclientshared\app\js\factories\const.js" />
+    <Compile Include="fitu\clients\webclientshared\app\js\factories\lang.js" />
+    <Compile Include="fitu\clients\webclientshared\app\js\factories\member.js" />
+    <Compile Include="fitu\clients\webclientshared\app\js\factories\site.js" />
+    <Compile Include="fitu\clients\webclientshared\app\js\factories\url.js" />
+    <Compile Include="fitu\clients\webclientshared\app\js\factories\user.js" />
+    <Compile Include="fitu\clients\webclientshared\app\js\factories\validate.js" />
+    <Compile Include="fitu\clients\webclientshared\app\js\factories\vendor.js" />
+    <Compile Include="fitu\clients\webclientshared\app\js\filters\memberStatus.js" />
+    <Compile Include="fitu\node_modules\webpageservice\index.js" />
+    <Compile Include="fitu\node_modules\validate\index.js" />
+    <Compile Include="fitu\node_modules\logaccess\index.js" />
+    <Compile Include="fitu\clients\vendorwebclient\app\js\config.js" />
+    <Compile Include="fitu\clients\webclientshared\app\js\fitulib.js" />
+    <Compile Include="fitu\start.js" />
+    <Compile Include="Gruntfile.js" />
+    <Compile Include="fitu\node_modules\infra\Webres.js" />
+  </ItemGroup>
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
+</Project>

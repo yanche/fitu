@@ -1,0 +1,41 @@
+﻿.clickable {
+    cursor: pointer;
+
+    &:hover {
+        color: #2CA5FF;
+    }
+
+    &.remove {
+        &:hover {
+            color: red;
+        }
+    }
+}
+
+.selectable {
+    cursor: pointer;
+
+    &:hover {
+        background-color: #E9F6FF;
+    }
+
+    &.selected {
+        background-color: #2CA5FF;
+    }
+}
+
+.fontbold {
+    font-weight: bold;
+}
+
+.fontbig {
+    font-size: 120%;
+}
+
+.datacell {
+    padding: 7px 15px 7px 0px;
+}
+
+.red {
+    color: red;
+}

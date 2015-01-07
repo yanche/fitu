@@ -1,0 +1,126 @@
+﻿<div class="col-sm-6 col-xs-12" style="margin-bottom: 100px;">
+    <h3 ng-bind="lang.SITE_TITLE" class="col-xs-12 nopadding"></h3>
+    <div class="col-xs-12 nopadding fontbold fontbig borderbottom-bold" ng-show="getSiteCount() > 0">
+        <div class="col-xs-3 datacell" ng-bind="lang.SITE_LABEL_NAME"></div>
+        <div class="col-xs-3 datacell" ng-bind="lang.SITE_LABEL_INTRO"></div>
+        <div class="col-xs-3 datacell" ng-bind="lang.SITE_LABEL_ADDRESS"></div>
+        <div class="col-xs-3 datacell" ng-bind="lang.SITE_LABEL_TAGS"></div>
+    </div>
+    <div ng-repeat="site in visibles" class="col-xs-12 nopadding borderbottom">
+        <div class="col-xs-12 nopadding selectable" ng-class="{selected: site.editing}" style="position:relative;" ng-click="site.editing = !site.editing">
+            <div class="col-xs-3 datacell" ng-bind="site.name"></div>
+            <div class="col-xs-3 datacell" ng-bind="site.intro"></div>
+            <div class="col-xs-3 datacell" ng-bind="site.location.address"></div>
+            <div class="col-xs-3 datacell" ng-bind="site.tags[0] | tag"></div>
+            <i style="position:absolute;right:0px;top:50%;margin-top:-10px;font-size:20px;" class="fa fa-paw clickable" ng-click="goSiteIdle(site, $event)"></i>
+        </div>
+        <div role="form" class="col-xs-12 nopadding" style="padding-top:15px;background-color:#F2F2F2" ng-show="site.editing">
+            <div class="form-group col-xs-6">
+                <div class="form-group">
+                    <label ng-bind="lang.SITE_LABEL_NAME"></label>
+                    <div ng-class="{'has-error': !site.model.nameProp.validate()}">
+                        <input type="text" class="form-control" ng-model="site.model.nameProp.val" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label ng-bind="lang.SITE_LABEL_INTRO"></label>
+                    <div ng-class="{'has-error': !site.model.introProp.validate()}">
+                        <input type="text" class="form-control" ng-model="site.model.introProp.val" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-xs-6">
+                <div class="form-group">
+                    <label ng-bind="lang.SITE_LABEL_ADDRESS"></label>
+                    <div ng-class="{'has-error': !site.model.addrProp.validate()}">
+                        <input type="text" class="form-control" ng-model="site.model.addrProp.val" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label ng-bind="lang.SITE_LABEL_TAGS"></label>
+                    <div>
+                        <select class="form-control" ng-options="tag.key as tag.value for tag in const.tags" ng-model="site.model.tagProp.val"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-xs-6">
+                <label ng-bind="lang.SITE_LABEL_GEO"></label>
+                <div>
+                    <span ng-bind="lang.GLOBAL_LABEL_LONGTITUDE"></span>
+                    <span ng-bind="site.model.geoProp.val.lng"></span>
+                    <span ng-bind="lang.GLOBAL_LABEL_LATITUDE"></span>
+                    <span ng-bind="site.model.geoProp.val.lat"></span>
+                </div>
+                <map style="height:300px;" need-search="true" lat="site.model.geoProp.val.lat" lng="site.model.geoProp.val.lng"></map>
+            </div>
+            <div class="form-group col-xs-6">
+                <label ng-bind="lang.SITE_LABEL_PIC"></label>
+                <image-input image-bind="site.model.picProp.val" image-height="120" image-width="160"></image-input>
+                <img class="img-responsive" ng-src="{{site.model.picProp.val}}" style="margin-top:5px;max-width:80%;"></img>
+            </div>
+            <button ng-click="updateSite(site)" class="btn btn-default" style="position:absolute;bottom:15px;right:15px;" ng-class="{disabled: site.updating || !site.model.validate()}">
+                <img ng-src="{{const.resources.loadingImg}}" ng-show="site.updating" style="height: 14px;" />
+                <span ng-bind="lang.SITE_BTN_UPDATE" ng-show="!site.updating"></span>
+                <span ng-bind="lang.SITE_BTN_UPDATING" ng-show="site.updating"></span>
+            </button>
+        </div>
+    </div>
+    <div class="col-xs-12 nopadding" ng-show="getPageNavs().max > 0">
+        <ul class="pagination">
+            <li ng-class="{disabled: currentPage == 0}" ng-click="currentPage <= 0 || switchPage(0)"><span class="fa fa-angle-double-left"></span></li>
+            <li ng-class="{disabled: currentPage == 0}" ng-click="currentPage <= 0 || switchPage(currentPage - 1)"><span class="fa fa-angle-left"></span></li>
+            <li ng-repeat="pg in getPageNavs().nav" ng-class="{active: currentPage == pg}" ng-click="pg == currentPage || switchPage(pg)"><span ng-bind="pg + 1"></span></li>
+            <li ng-class="{disabled: currentPage == getPageNavs().max}" ng-click="currentPage >= getPageNavs().max || switchPage(currentPage + 1)"><span class="fa fa-angle-right"></span></li>
+            <li ng-class="{disabled: currentPage == getPageNavs().max}" ng-click="currentPage >= getPageNavs().max || switchPage(getPageNavs().max)"><span class="fa fa-angle-double-right"></span></li>
+        </ul>
+    </div>
+    <div style="margin: 10px;" ng-show="getSiteCount() == 0" ng-bind="lang.SITE_LABEL_NOSITE"></div>
+    <h4 style="margin-top: 50px;" class="col-xs-12 nopadding" ng-bind="lang.SITE_TITLE_ADDSITE"></h4>
+    <div role="form" class="col-sm-6 col-xs-12 nopadding">
+        <div class="form-group">
+            <label for="new_site_name" ng-bind="lang.SITE_LABEL_NAME"></label>
+            <div ng-class="{'has-error': !siteModel.nameProp.validate()}">
+                <input type="text" class="form-control" id="new_site_name" ng-model="siteModel.nameProp.val" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="new_site_intro" ng-bind="lang.SITE_LABEL_INTRO"></label>
+            <div ng-class="{'has-error': !siteModel.introProp.validate()}">
+                <input type="text" class="form-control" id="new_site_intro" ng-model="siteModel.introProp.val" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label ng-bind="lang.SITE_LABEL_TAGS"></label>
+            <div>
+                <select class="form-control" ng-options="tag.key as tag.value for tag in const.tags" ng-model="siteModel.tagProp.val"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="new_site_addr" ng-bind="lang.SITE_LABEL_ADDRESS"></label>
+            <div ng-class="{'has-error': !siteModel.addrProp.validate()}">
+                <input type="text" class="form-control" id="new_site_addr" ng-model="siteModel.addrProp.val" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label ng-bind="lang.SITE_LABEL_GEO"></label>
+            <div>
+                <span ng-bind="lang.GLOBAL_LABEL_LONGTITUDE"></span>
+                <span ng-bind="siteModel.geoProp.val.lng"></span>
+                <span ng-bind="lang.GLOBAL_LABEL_LATITUDE"></span>
+                <span ng-bind="siteModel.geoProp.val.lat"></span>
+            </div>
+            <map style="height:500px;" need-search="true" lat="siteModel.geoProp.val.lat" lng="siteModel.geoProp.val.lng"></map>
+        </div>
+        <div class="form-group">
+            <label for="new_site_pic" ng-bind="lang.SITE_LABEL_PIC"></label>
+            <image-input image-bind="siteModel.picProp.val" image-height="120" image-width="160"></image-input>
+            <img class="img-responsive" id="profile_logo" ng-src="{{siteModel.picProp.val}}" style="margin-top:5px;"></img>
+        </div>
+        <button ng-click="addSite()" class="btn btn-default" ng-class="{disabled: adding || !siteModel.validate()}">
+            <img ng-src="{{const.resources.loadingImg}}" ng-show="adding" style="height: 14px;" />
+            <span ng-bind="lang.SITE_BTN_CREATE" ng-show="!adding"></span>
+            <span ng-bind="lang.SITE_BTN_CREATING" ng-show="adding"></span>
+        </button>
+        <button ng-click="resetAddModel()" class="btn btn-default" ng-bind="lang.SITE_BTN_RESET"></button>
+    </div>
+</div>

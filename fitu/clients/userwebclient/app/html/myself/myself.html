@@ -1,0 +1,50 @@
+﻿<div class="col-xs-12" ng-show="currentState() == 'fitu.myself'">
+    <div class="empty-xs"></div>
+    <div class="col-xs-12 nopadding fontbold" ng-bind="lang.MYSELF_TITLE_ME "></div>
+    <div class="col-xs-12 nopadding borderbottom-bold paddingTB10px" style="background-color:white;">
+        <div class="col-xs-4">
+            <img ng-src="{{user.headUrl}}" style="width: 100%;" />
+        </div>
+        <div class="col-xs-8">
+            <div ng-bind="user.personal.nickName" class="fontbig fontbold"></div>
+            <div>
+                <i class="fa" ng-class="{'fa-female': user.personal.gender == '女', 'fa-male': user.personal.gender == '男'}"></i>
+            </div>
+            <div ui-sref="fitu.myself.profile">
+                <i class="fa fa-gear"></i>
+                <span ng-bind="lang.MYSELF_LABEL_PROFILE"></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 nopadding" style="background-color:white;text-align:center;">
+        <div class="col-xs-4 paddingTB10px borderright-bold" ui-sref="fitu.myself.footprint">
+            <div class="fa fa-history"></div>
+            <div ng-bind="lang.MYSELF_LABEL_FOOTPRINT"></div>
+        </div>
+        <div class="col-xs-4 paddingTB10px" ui-sref="fitu.myself.leadership">
+            <div class="fa fa-tags"></div>
+            <div ng-bind="lang.MYSELF_LABEL_LEADERSHIP"></div>
+        </div>
+        <div class="col-xs-4 paddingTB10px borderleft-bold">
+            <div class="fa fa-question"></div>
+            <div>未定</div>
+        </div>
+    </div>
+    <div class="empty-xs"></div>
+    <div class="col-xs-12 nopadding fontbold" ng-bind="lang.MYSELF_TITLE_SYS"></div>
+    <div class="col-xs-12 nopadding" style="background-color:white;text-align:center;">
+        <div class="col-xs-4 paddingTB10px borderright-bold" ui-sref="fitu.myself.updateemail">
+            <div class="fa fa-user"></div>
+            <div ng-bind="lang.MYSELF_LABEL_UPDATEEMAIL"></div>
+        </div>
+        <div class="col-xs-4 paddingTB10px" ui-sref="fitu.myself.updatepwd">
+            <div class="fa fa-key"></div>
+            <div ng-bind="lang.MYSELF_LABEL_UPDATEPWD"></div>
+        </div>
+        <div class="col-xs-4 paddingTB10px borderleft-bold" ng-click="logout()">
+            <div class="fa fa-sign-out"></div>
+            <div ng-bind="lang.MYSELF_LABEL_LOGOUT"></div>
+        </div>
+    </div>
+</div>
+<div ui-view></div>

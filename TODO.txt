@@ -1,0 +1,37 @@
+前台:
+1. activity site edit
+2. logo user head
+3. admin WEB
+4. error handling, show message
+5. UI, UX
+6. no delayed callback
+7. no multi-click
+
+后台:
+2. anti-forgery token
+3. request trace, info log, perf log
+
+###########VIEW 'client page spec.docs' to get more details##################
+user client:
+0. main: activity, siteIdles, doodles, (footprint, profile, leadership)
+1. activities -> activity, signup
+2. activity(edit, view detail)
+3. signup(signup)
+4. footprint
+5. leadership
+6. sites -> siteIdles, vendors, activity
+7. siteIdles -> sites, vendors, activity, matrix
+8. vendors -> sites, siteIdles
+9. matrix
+10. user profile
+
+vendor client:
+0. details, admins (owner auth)
+1. sites -> siteIdles, activity
+2. siteIdles -> activity, site
+3. activity
+
+admin client:
+0. vendors
+1. activity
+2. web statistics

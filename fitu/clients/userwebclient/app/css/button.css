@@ -1,0 +1,10 @@
+button {
+  background-color: #B3D66E;
+  border: none;
+  padding: 5px 10px;
+  cursor: point;
+  height: 30px; }
+  button:active {
+    background-color: #83ad31; }
+
+/*# sourceMappingURL=button.css.map */

@@ -1,0 +1,51 @@
+﻿
+user:
+GET /api/users        R god ob
+GET /api/users/:id    R god ob user
+POST /api/users:id    U god user
+POST /api/users       C
+PUT /api/users/:id    U god user
+DELETE /api/users/:id D god
+
+usertoken:
+POST /api/usertokens/:id U god user
+PUT  /api/usertokens/:id U god user
+
+site:
+GET /api/sites/:id    R
+GET /api/sites        R
+POST /api/sites/:id   U
+POST /api/sites       C
+PUT /api/sites/:id    U
+DELETE /api/sites/:id D god
+
+vendor:
+GET /api/vendors/:id    R
+GET /api/vendors        R
+POST /api/vendors/:id   U god vendor
+POST /api/vendors       C god
+PUT /api/vendors/:id    U god vendor
+DELETE /api/vendors/:id D god
+
+activity:
+GET /api/activities/:id    R
+GET /api/activities        R
+POST /api/activities/:id   U god owner
+POST /api/activities       C
+PUT /api/activities/:id    U god owner
+DELETE /api/activities/:id D god
+
+activity preview
+GET /api/activitypreviews/:id    R
+GET /api/activitypreviews        R
+
+member:
+GET /api/members/:id    R actowner user
+GET /api/members        R actowner
+POST /api/members/:id   U actowner user
+POST /api/members       C actowner user
+PUT /api/members/:id    U actowner user
+DELETE /api/members/:id D god
+
+session:
+POST /api/sessions C

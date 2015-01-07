@@ -1,0 +1,13 @@
+﻿use fitu
+
+db.users.remove({});
+db.sites.remove({});
+db.activities.remove({});
+db.members.remove({});
+db.siteidles.remove({});
+db.vendors.remove({});
+db.sessions.remove({});
+
+db.users.ensureIndex({'email':1}, {'unique':true});
+db.sessions.ensureIndex({'sessionId':1}, {'unique':true});
+db.users.ensureIndex({'personal.nickName':1}, {'unique':true, 'sparse': true});

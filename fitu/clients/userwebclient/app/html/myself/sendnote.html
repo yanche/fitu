@@ -1,0 +1,29 @@
+﻿<div class="col-xs-12">
+    <h4 class="col-xs-12 paddingLR0px fontbold" ng-bind="lang.SENDNOTE_HEADER"></h4>
+    <div class="col-xs-12 paddingLR0px" ng-show="!badState">
+        <div class="empty-xs"></div>
+        <div class="col-xs-12 paddingLR0px fontbold">
+            <span ng-bind="lang.SENDNOTE_LABEL_SUBJECT"></span>
+            <i class="fa fa-exclamation" ng-class="{red: sendNoteModel.emphasisProp.val}" ng-click="sendNoteModel.emphasisProp.val = !sendNoteModel.emphasisProp.val"></i>
+        </div>
+        <div class="col-xs-12 paddingLR0px" ng-class="{'has-error': !sendNoteModel.subjectProp.validate(true)}">
+            <input type="text" class="form-control" ng-model="sendNoteModel.subjectProp.val" />
+        </div>
+        <div class="empty-xs"></div>
+        <span class="col-xs-12 paddingLR0px fontbold" ng-bind="lang.SENDNOTE_LABEL_CONTENT"></span>
+        <div class="col-xs-12 paddingLR0px" ng-class="{'has-error': !sendNoteModel.contentProp.validate(true)}">
+            <textarea type="text" class="form-control" style="min-height: 150px; max-width: 100%;" ng-model="sendNoteModel.contentProp.val" />
+        </div>
+        <div class="empty-xs"></div>
+        <div class="col-xs-12 paddingLR0px text-right">
+            <button class="btn btn-success" ng-disabled="sending || !sendNoteModel.validate()" ng-click="sendNote()">
+                <i class="fa fa-spinner fa-spin" ng-show="sending" />
+                <span ng-bind="lang.SENDNOTE_BTN_SENDING" ng-show="sending"></span>
+                <span ng-bind="lang.SENDNOTE_BTN_SEND" ng-show="!sending"></span>
+            </button>
+            <button class="btn btn-warning" ng-disabled="sending" ng-click="resetNote()">
+                <span ng-bind="lang.SENDNOTE_BTN_RESET"></span>
+            </button>
+        </div>
+    </div>
+</div>

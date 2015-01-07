@@ -1,0 +1,18 @@
+﻿<div class="col-xs-12">
+    <div class="empty-sm"></div>
+    <div ng-show="!user">
+        <div class="fontbold" ng-bind="lang.SIGNUP_TEXT_NEEDLOGIN"></div>
+        <div class="empty-xs"></div>
+        <div class="small">
+            <span ng-bind="goLoginTimeout"></span>
+            <span ng-bind="lang.SIGNUP_TEXT_GOLOGIN"></span>
+        </div>
+        <div class="empty-sm"></div>
+    </div>
+    <button ng-click="signup()" class="btn btn-success col-xs-offset-2 col-xs-8" ng-class="{'disabled': !user || processing}">
+        <img ng-src="{{const.resources.loadingImg}}" ng-show="processing" style="height: 14px;" />
+        <span ng-bind="lang.SIGNUP_BTN_SIGNUP" ng-show="!processing"></span>
+        <span ng-bind="lang.SIGNUP_BTN_SIGNUPING" ng-show="processing"></span>
+    </button>
+    <div class="empty-sm"></div>
+</div>

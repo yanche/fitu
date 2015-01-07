@@ -1,0 +1,11 @@
+/bower_components
+/node_modules
+/statics
+.sass-cache
+.ntvs_analysis.dat
+.ntvs_analysis.dat.tmp
+.gitattributes
+fitu.v12.suo
+/fitu/clients/adminwebclient/app/json/global_lang.json
+/fitu/clients/userwebclient/app/json/global_lang.json
+/fitu/clients/vendorwebclient/app/json/global_lang.json

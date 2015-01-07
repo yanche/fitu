@@ -1,0 +1,29 @@
+{
+  "name": "fitu",
+  "version": "0.0.0",
+  "description": "fitu",
+  "dependencies": {
+    "bluebird": "^2.3.11",
+    "jade": "^1.8.1",
+    "less": "^1.7.4",
+    "mime": "^1.2.11",
+    "mkdirp": "^0.5.0",
+    "moment": "^2.8.4",
+    "mongodb": "^1.4.9",
+    "redis": "^0.12.1",
+    "underscore": "^1.7.0"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-concurrent": "^1.0.0",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-concat": "^0.5.0",
+    "grunt-contrib-copy": "^0.7.0",
+    "grunt-contrib-sass": "^0.8.1",
+    "grunt-contrib-uglify": "^0.6.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-html2js": "^0.2.9",
+    "mocha": "^1.21.4"
+  },
+  "author": "yanche"
+}

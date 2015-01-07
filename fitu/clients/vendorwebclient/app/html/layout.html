@@ -1,0 +1,44 @@
+﻿<div id="vendorswitchpanel" ng-class="{show: vendors.length > 1 && showVendorSwitchPanel}" style="overflow-y:auto;">
+    <div class="item" ng-class="{current: currentVendor == vd}" ng-repeat="vd in vendors" ng-click="switchVendor(vd)">
+        <img class="image" style="width: 100%; max-width: 100%;" ng-src="{{vd.logoUrl}}" />
+        <span class="name textoverflowhidden" ng-bind="vd.name"></span>
+        <span class="hint4current">
+            <i class="fa fa-check"></i>
+        </span>
+    </div>
+</div>
+<div id="vendorswitchmodal" ng-click="showVendorSwitchPanel = !showVendorSwitchPanel" ng-show="vendors.length > 1 && showVendorSwitchPanel"></div>
+<div id="mainnav" ng-show="vendors.length > 0">
+    <div ng-click="showVendorSwitchPanel = !showVendorSwitchPanel">
+        <img ng-src="{{currentVendor.logoUrl}}" class="img-responsive" />
+    </div>
+    <div style="height: 50px;"></div>
+    <div class="item" ng-class="{current: state.current.name == vcconst.states.profile}" ng-click="goProfile()">
+        <div class="content">
+            <i class="fa fa-info icon"></i>
+            <div>基本信息</div>
+        </div>
+    </div>
+    <div class="item" ng-class="{current: state.current.name == vcconst.states.admins}" ng-click="goAdmins()">
+        <div class="content">
+            <i class="fa fa-group icon"></i>
+            <div>管理员</div>
+        </div>
+    </div>
+    <div class="item" ng-class="{current: state.current.name == vcconst.states.sites || state.current.name == vcconst.states.siteidles}" ng-click="goSites()">
+        <div class="content">
+            <i class="fa fa-bookmark icon"></i>
+            <div>场馆</div>
+        </div>
+    </div>
+    <div class="item last" ng-class="{current: state.current.name == vcconst.states.statistics}" ng-click="goStatistics()">
+        <div class="content">
+            <i class="fa fa-pie-chart icon"></i>
+            <div>统计数据</div>
+        </div>
+    </div>
+    <div style="position:fixed;bottom:15px;left:15px;">
+        <span ng-click="logout()" class="fa fa-sign-out fa-lg" style="cursor:pointer;color:white;"></span>
+    </div>
+</div>
+<div style="margin-left: 150px;" ui-view ng-show="vendors.length > 0"></div>

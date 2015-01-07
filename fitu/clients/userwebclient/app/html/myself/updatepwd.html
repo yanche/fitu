@@ -1,0 +1,32 @@
+﻿<div class="col-xs-12">
+    <div class="empty-md"></div>
+    <form class="form-horizontal col-xs-12 nopadding" role="form">
+        <div class="form-group">
+            <label for="updatepwd_oldpwd" class="col-xs-3 control-label" ng-bind="lang.UPDATEPWD_LABEL_OLDPWD"></label>
+            <div class="col-xs-8">
+                <input type="password" class="form-control" id="updatepwd_oldpwd" ng-model="updatePWDModel.oldPwdProp.val" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="updatepwd_newpwd" class="col-xs-3 control-label" ng-bind="lang.UPDATEPWD_LABEL_NEWPWD"></label>
+            <div class="col-xs-8" ng-class="{'has-error': !updatePWDModel.newPwdProp.validate(true)}">
+                <input type="password" class="form-control" id="updatepwd_newpwd" ng-model="updatePWDModel.newPwdProp.val" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="updatepwd_newpwd2" class="col-xs-3 control-label" ng-bind="lang.UPDATEPWD_LABEL_NEWPWDCONFIRM"></label>
+            <div class="col-xs-8" ng-class="{'has-error': !updatePWDModel.newPwdConfirmProp.validate(true)}">
+                <input type="password" class="form-control" id="updatepwd_newpwd2" ng-model="updatePWDModel.newPwdConfirmProp.val" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-offset-3 col-xs-8">
+                <button ng-class="{disabled: !updatePWDModel.validate() || updating}" type="submit" class="btn btn-default" ng-click="updatePWD()">
+                    <img ng-src="{{const.resources.loadingImg}}" ng-show="updating" style="height: 14px;" />
+                    <span ng-bind="lang.UPDATEPWD_BTN_UPDATE" ng-show="!updating"></span>
+                    <span ng-bind="lang.UPDATEPWD_BTN_UPDATING" ng-show="updating"></span>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

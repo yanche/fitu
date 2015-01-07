@@ -1,0 +1,30 @@
+﻿<div class="col-xs-12" style="height:20px;"></div>
+<div id="mainview" class="col-xs-12 nopadding" ui-view></div>
+<div class="col-xs-12" style="height:54px;"></div>
+<div id="navtop" style="z-index:100;">
+    <span>寻找活动</span>
+    <select>
+        <option>随便看看</option>
+        <option>瑜伽</option>
+        <option>游泳</option>
+    </select>
+</div>
+<div id="navbottom" style="z-index:100;">
+    <div class="navitem" ui-sref="fitu.activities({tag:null,vendorId:null,siteId:null})" ng-class="{selected: currentNav() =='activities'}">
+        <div class="fa fa-group fa-lg"></div>
+        <div ng-bind="lang.NAV_LABEL_ACTIVITY"></div>
+    </div>
+    <div class="navitem" ui-sref="fitu.gym.siteidles({tag:null,vendorId:null,siteId:null})" ng-class="{selected: currentNav() =='gym'}">
+        <div class="fa fa-paw fa-lg"></div>
+        <div ng-bind="lang.NAV_LABEL_SITEIDLES"></div>
+    </div>
+    <div class="navitem" ui-sref="fitu.myself" ng-class="{selected: currentNav() =='myself'}">
+        <div class="fa fa-gear fa-lg"></div>
+        <div ng-bind="lang.NAV_LABEL_ME"></div>
+    </div>
+</div>
+<div class="loading-backdrop" ng-show="loading">
+    <div class="loading-main">
+        <img ng-src="{{const.siteInfo.staticBase + '/app/image/webclientshared/loading.gif'}}"></img>
+    </div>
+</div>

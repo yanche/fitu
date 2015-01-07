@@ -1,0 +1,83 @@
+﻿{
+    "NAV_LABEL_ME": "我",
+    "NAV_LABEL_ACTIVITY": "活动",
+    "NAV_LABEL_SITEIDLES": "场馆",
+
+    "MYSELF_TITLE_ME": "我",
+    "MYSELF_LABEL_PROFILE": "编辑资料",
+    "MYSELF_LABEL_FOOTPRINT": "参加过",
+    "MYSELF_LABEL_LEADERSHIP": "组织过",
+    "MYSELF_TITLE_SYS": "系统",
+    "MYSELF_LABEL_UPDATEEMAIL": "修改登录",
+    "MYSELF_LABEL_UPDATEPWD": "修改密码",
+    "MYSELF_LABEL_LOGOUT": "退出",
+
+    "LOGIN_LABEL_REGISTER": "注册",
+    "LOGIN_LABEL_EMAIL": "邮箱",
+    "LOGIN_LABEL_PASSWORD": "密码",
+    "LOGIN_BTN_LOGIN": "登录！",
+    "LOGIN_BTN_LOGINING": "正在登录...",
+    "LOGIN_BTN_LOADING":  "正在加载...",
+    "LOGIN_BTN_REGISTERING": "正在注册...",
+
+    "REGISTER_LABEL_LOGIN": "登录",
+    "REGISTER_LABEL_EMAIL": "登录邮箱*",
+    "REGISTER_LABEL_PASSWORD": "密码*",
+    "REGISTER_LABEL_PWDCONFIRM": "密码确认*",
+    "REGISTER_LABEL_NICKNAME": "昵称",
+    "REGISTER_LABEL_PHONE": "电话",
+    "REGISTER_LABEL_CONTACT": "联系邮箱",
+    "REGISTER_LABEL_GENDER": "性别",
+    "REGISTER_BTN_REGISTER": "注册！",
+
+    "UPDATEPWD_LABEL_OLDPWD": "旧密码",
+    "UPDATEPWD_LABEL_NEWPWD": "新密码",
+    "UPDATEPWD_LABEL_NEWPWDCONFIRM": "密码确认",
+    "UPDATEPWD_BTN_UPDATE": "修改密码",
+    "UPDATEPWD_BTN_UPDATING": "正在修改...",
+
+    "UPDATEEMAIL_LABEL_OLDEMAIL": "当前",
+    "UPDATEEMAIL_LABEL_NEWEMAIL": "新邮箱",
+    "UPDATEEMAIL_LABEL_NEWEMAILCONFIRM": "邮箱确认",
+    "UPDATEEMAIL_LABEL_PWD": "密码",
+    "UPDATEEMAIL_BTN_UPDATE": "修改登录邮箱",
+    "UPDATEEMAIL_BTN_UPDATING": "正在修改...",
+
+    "PROFILE_LABEL_NICKNAME": "大名",
+    "PROFILE_LABEL_PHONE": "手机",
+    "PROFILE_LABEL_CONTACT": "联系邮箱",
+    "PROFILE_LABEL_GENDER": "性别",
+    "PROFILE_BTN_UPDATE": "更新个人信息",
+    "PROFILE_BTN_UPDATING": "正在更新...",
+
+    "VENDOR_HEADER": "商户",
+
+    "SITE_HEADER": "场地",
+
+    "SITEIDLES_HEADER": "空闲场馆",
+
+    "ACTIVITY_HEADER": "当前活动",
+
+    "SITE_LABEL_SITEDIG_1": "没有心仪的场馆？",
+    "SITE_LABEL_SITEDIG_2": "发布场馆！",
+
+    "FOOTPRINT_HEADER": "参加过的",
+    "FOOTPRINT_TAB_MEMBERSHIP": "我参与的",
+    "FOOTPRINT_TAB_LEADERSHIP": "我组织的",
+    "FOOTPRINT_LABEL_MEMCOUNT": "已报名：",
+
+    "SIGNUP_BTN_SIGNUP": "马上报名！",
+    "SIGNUP_BTN_SIGNUPING": "正在报名...",
+    "SIGNUP_TEXT_NEEDLOGIN": "抱歉，你还没有登陆 TAT，请登陆或注册之后报名喔！",
+    "SIGNUP_TEXT_GOLOGIN": "秒之后跳转到登陆页面...",
+
+    "LEADERSHIP_HEADER": "我带的活动",
+
+    "SENDNOTE_HEADER": "发私信",
+    "SENDNOTE_LABEL_SUBJECT": "主题",
+    "SENDNOTE_LABEL_CONTENT": "内容",
+    "SENDNOTE_LABEL_SENDNOTEALL": "全体",
+    "SENDNOTE_BTN_SEND": "发送",
+    "SENDNOTE_BTN_SENDING": "发送中...",
+    "SENDNOTE_BTN_RESET": "清空"
+}

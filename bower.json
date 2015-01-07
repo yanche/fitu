@@ -1,0 +1,31 @@
+{
+  "name": "fitu",
+  "version": "0.0.0",
+  "keywords": [
+    "fitu"
+  ],
+  "authors": [
+    "yanche"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-ui-router": "~0.2.13",
+    "jquery": "~2.1.1",
+    "bootstrap": "~3.3.1",
+    "angular": "~1.3.7",
+    "underscore": "~1.7.0",
+    "jquery-cookie": "~1.4.1",
+    "jquery-md5": "*",
+    "angular-ui-router.stateHelper": "~1.2.0",
+    "eonasdan-bootstrap-datetimepicker": "~3.1.3",
+    "moment": "~2.8.4"
+  }
+}

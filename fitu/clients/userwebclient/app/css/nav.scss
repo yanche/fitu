@@ -1,0 +1,28 @@
+﻿#navbottom {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background-color: white;
+    text-align: center;
+    padding: 7px 20px;
+
+    .navitem {
+        box-sizing: border-box;
+        width: 33.33%;
+        float: left;
+        display: inline-block;
+
+        &.selected {
+            color: #5cb85c;
+        }
+    }
+}
+
+#navtop {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    background-color: white;
+}

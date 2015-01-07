@@ -1,0 +1,14 @@
+﻿<div class="col-xs-12">
+    <div class="empty-xs"></div>
+    <div class ="col-xs-12 paddingLR0px">
+        <i class="fa fa-arrow-circle-left fa-lg" ng-click="goDetail()"></i>
+    </div>
+    <div class="empty-xs"></div>
+    <loading src="const.resources.loadingImg" show="loading" word="'正在加载...'"></loading>
+    <div class="col-xs-12 paddingLR0px" ng-show="!loading">
+        <map class="col-xs-12 paddingLR0px" style="height:300px;" lat="activity.site.location.geo.lat" lng="activity.site.location.geo.lng"></map>
+        <div class="empty-xs"></div>
+        <div class="text-center col-xs-12" ng-bind="activity.site.location.address"></div>
+    </div>
+    <div class="empty-sm"></div>
+</div>

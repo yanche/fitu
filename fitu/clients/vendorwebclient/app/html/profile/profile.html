@@ -1,0 +1,50 @@
+﻿<div class="col-sm-4 col-xs-12" style="margin-bottom: 100px;">
+    <h3 ng-bind="lang.PROFILE_TITLE"></h3>
+    <div role="form" ng-show="vendorModel">
+        <div class="form-group">
+            <label for="name" ng-bind="lang.PROFILE_LABEL_NAME"></label>
+            <div ng-class="{'has-error': !vendorModel.nameProp.validate()}">
+                <input type="text" class="form-control" id="name" ng-model="vendorModel.nameProp.val">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="profile_intro" ng-bind="lang.PROFILE_LABEL_INTRO"></label>
+            <div ng-class="{'has-error': !vendorModel.introProp.validate()}">
+                <input type="text" class="form-control" id="profile_intro" ng-model="vendorModel.introProp.val">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="profile_tag" ng-bind="lang.PROFILE_LABEL_TAGS"></label>
+            <div>
+                <select id="profile_tag" class="form-control" ng-options="tag.key as tag.value for tag in const.tags" ng-model="vendorModel.tagProp.val"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="profile_addr" ng-bind="lang.PROFILE_LABEL_ADDRESS"></label>
+            <div ng-class="{'has-error': !vendorModel.addrProp.validate()}">
+                <input type="text" class="form-control" id="profile_addr" ng-model="vendorModel.addrProp.val">
+            </div>
+        </div>
+        <div class="form-group">
+            <label ng-bind="lang.PROFILE_LABEL_GEO"></label>
+            <div>
+                <span ng-bind="lang.GLOBAL_LABEL_LONGTITUDE"></span>
+                <span ng-bind="vendorModel.geoProp.val.lng"></span>
+                <span ng-bind="lang.GLOBAL_LABEL_LATITUDE"></span>
+                <span ng-bind="vendorModel.geoProp.val.lat"></span>
+            </div>
+            <map style="height:500px;" need-search="true" lat="vendorModel.geoProp.val.lat" lng="vendorModel.geoProp.val.lng"></map>
+        </div>
+        <div class="form-group">
+            <label for="profile_logo" ng-bind="lang.PROFILE_LABEL_LOGO"></label>
+            <image-input image-bind="vendorModel.logoProp.val" image-height="120" image-width="160"></image-input>
+            <img class="img-responsive" id="profile_logo" ng-src="{{vendorModel.logoProp.val}}" style="margin-top:5px;" />
+        </div>
+        <button ng-click="updateVendor()" class="btn btn-default" ng-class="{disabled: updating || !vendorModel.validate()}">
+            <img ng-src="{{const.resources.loadingImg}}" ng-show="updating" style="height: 14px;" />
+            <span ng-bind="lang.PROFILE_BTN_UPDATE" ng-show="!updating"></span>
+            <span ng-bind="lang.PROFILE_BTN_UPDATING" ng-show="updating"></span>
+        </button>
+    </div>
+    <loading src="const.resources.loadingImg" show="!vendorModel" word="lang.PROFILE_LOADING"></loading>
+</div>

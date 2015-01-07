@@ -1,0 +1,101 @@
+﻿
+var http = require('http');
+var api = require('api');
+var config = require('config');
+var dbaccess = require('dbaccess');
+var mongodb = require('mongodb');
+var extension = require('extension');
+var path = require('path');
+var infra = require('infra');
+var FileUploader = require('fileuploader');
+var FileService = require('fileservice');
+var WebPageService = require('webpageservice');
+var moment = require('moment');
+
+//init mongodb connection
+mongodb.MongoClient.connect(config.dbConnStr, function (err, db) {
+    if (err)
+        throw new Error('failed connect to db: ' + dbConnStr);
+    else
+        dbaccess.connect(db);
+});
+
+//page & data server
+var userClientService = new WebPageService({ wdir: path.join(__dirname, 'clients', 'userwebclient') });
+var vendorClientService = new WebPageService({ wdir: path.join(__dirname, 'clients', 'vendorwebclient') });
+var adminClientService = new WebPageService({ wdir: path.join(__dirname, 'clients', 'adminwebclient') });
+var httpEntry = function (req, res) {
+    var webreq = new infra.Webreq(req);
+    webreq.init()
+    .then(function () {
+        var type = webreq._raw.headers.host.split('.')[0];
+        switch (type) {
+            case 'api':
+                return api.handle(webreq);
+            case 'www':
+                return userClientService.handle(webreq);
+            case 'vendor':
+                return vendorClientService.handle(webreq);
+            case 'admin':
+                return adminClientService.handle(webreq);
+            default:
+                return extension.http.webres404();
+        }
+    })
+    .then(function (webres) {
+        webres.response(res);
+    });
+};
+http.createServer(httpEntry)
+.listen(config.userWebServer.port, function () {
+    console.log('main server listening at port: ' + config.userWebServer.port);
+});
+
+//image upload server
+var fuploader = new FileUploader({ fsBase: path.join(__dirname, '../statics'), urlBase: '/app/image/uploaded', token: config.uploadFileToken });
+http.createServer(function (req, res) {
+    var webreq = new infra.Webreq(req);
+    webreq.init()
+    .then(function () {
+        return fuploader.handle(webreq);
+    })
+    .then(function (webres) {
+        webres.response(res);
+    });
+})
+.listen(config.imageUploaderServer.port, function () {
+    console.log('image uploading service listening at port: ' + config.imageUploaderServer.port);
+});
+
+//simulate a static file service
+var fservice = new FileService({ wdir: path.join(__dirname, '../statics') });
+http.createServer(function (req, res) {
+    var webreq = new infra.Webreq(req);
+    webreq.init()
+    .then(function () {
+        return fservice.handle(webreq);
+    })
+    .then(function (webres) {
+        //webres.setHeader('Access-Control-Allow-Origin', webreq.headers.origin);
+        webres.response(res);
+    });
+})
+.listen(config.staticFileServer.port, function () {
+    console.log('file server listening at port: ' + config.staticFileServer.port);
+});
+
+var removeSessions = function () {
+    dbaccess.session.removeSessions({ lastAccess: { $lt: moment().add({ seconds: -config.sessionTTLInSec })._d } })
+    .then(function (ct) {
+        console.log(ct + ' sessions removed.');
+    })
+    .catch(function (err) {
+        console.log('failed to remove sessions');
+        console.log(err.stack);
+    });
+};
+var removeSessionsScheduler = function () {
+    removeSessions();
+    setTimeout(removeSessionsScheduler, config.sessionClearFrequencyInSec * 1000);
+};
+setTimeout(removeSessionsScheduler, 1000); //wait 10 seconds for mongodb initialization
