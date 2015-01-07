@@ -5,8 +5,17 @@
         activity.getOne(ctx.actId)
         .then(function (data) {
             $scope.activity = data;
-        }, function (err) {
+        })
+        .catch(function (err) {
             console.log(err);
+        });
+        
+        member.getList({ actId: ctx.actId, preview: 0, page: 0, pageSize: 6 })
+        .then(function (data) {
+            $scope.memCount = data.total;
+            $scope.members = data.list;
+        })
+        .catch(function (err) {
         });
         
         $scope.goLocation = function () {
@@ -15,6 +24,10 @@
         
         $scope.goSignup = function () {
             $state.gox(ucconst.states.signup, { actId: ctx.actId });
+        };
+        
+        $scope.goUserPreview = function (user) {
+            $state.gox(ucconst.states.userpreview, { userId: user.id });
         };
         
         /*

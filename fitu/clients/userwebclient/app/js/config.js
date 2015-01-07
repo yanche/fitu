@@ -56,9 +56,12 @@
                 if (!$rootScope.user) {
                     evt.preventDefault();
                     $timeout(function () {
-                        var ctx = $location.search();
-                        ctx.state = toState.name;
-                        $state.gox(ucconst.states.login, ctx);
+                        var params = angular.extend({}, toParams);
+                        params.state = toState.name;
+                        for (var i in params)
+                            if (params[i] === undefined)
+                                delete params[i];
+                        $state.gox(ucconst.states.login, params);
                     });
                 }
             }
@@ -74,6 +77,7 @@
                 case ucconst.states.signup:
                 case ucconst.states.actdetail:
                 case ucconst.states.actlocation:
+                case ucconst.states.userpreview:
                     return 'activities';
                 case ucconst.states.login:
                 case ucconst.states.myself:
@@ -84,6 +88,8 @@
                 case ucconst.states.leadership:
                 case ucconst.states.actlead:
                 case ucconst.states.sendnote:
+                case ucconst.states.noteoutbox:
+                case ucconst.states.noteinbox:
                     return 'myself';
                 case ucconst.states.siteidles:
                 case ucconst.states.site:
@@ -145,15 +151,30 @@
                     controller: 'actlead'
                 },{
                     name: 'sendnote',
-                    url: '/sendnote?recipientId&actId',
+                    url: '/sendnote?recipientId&actId&re',
                     templateUrl: '/app/html/myself/sendnote.html',
                     controller: 'sendnote'
+                },{
+                    name: 'noteinbox',
+                    url: '/noteinbox',
+                    templateUrl: '/app/html/myself/noteinbox.html',
+                    controller: 'noteinbox'
+                },{
+                    name: 'noteoutbox',
+                    url: '/noteoutbox',
+                    templateUrl: '/app/html/myself/noteoutbox.html',
+                    controller: 'noteoutbox'
                 }]
             },{
                 name: 'activities',
                 url: '/activities?tag&siteId&vendorId',
                 templateUrl: '/app/html/activities/activities.html',
                 controller: 'activities'
+            },{
+                name: 'userpreview',
+                url: '/userpreview?userId',
+                templateUrl: '/app/html/activities/userpreview.html',
+                controller: 'userpreview'
             },{
                 name: 'signup',
                 url: '/signup?actId',

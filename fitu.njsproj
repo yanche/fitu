@@ -35,8 +35,11 @@
     <Content Include="client pages spec.docx" />
     <Content Include="fitu\clients\userwebclient\app\html\activities\actlocation.html" />
     <Content Include="fitu\clients\userwebclient\app\html\activities\signup.html" />
+    <Content Include="fitu\clients\userwebclient\app\html\activities\userpreview.html" />
     <Content Include="fitu\clients\userwebclient\app\html\gym\gym.html" />
     <Content Include="fitu\clients\userwebclient\app\html\myself\actlead.html" />
+    <Content Include="fitu\clients\userwebclient\app\html\myself\noteinbox.html" />
+    <Content Include="fitu\clients\userwebclient\app\html\myself\noteoutbox.html" />
     <Content Include="fitu\clients\userwebclient\app\html\myself\profile.html" />
     <Content Include="fitu\clients\userwebclient\app\html\myself\sendnote.html" />
     <Content Include="fitu\clients\userwebclient\app\html\myself\updateemail.html" />
@@ -132,6 +135,7 @@
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\members\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\messages\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\availability\" />
+    <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\footprints\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\notes\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\sitepreview\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\vendorpreview\" />
@@ -199,10 +203,13 @@
     <Folder Include="fitu\clients\vendorwebclient\app\html\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="fitu\clients\userwebclient\app\js\controllers\activities\userpreview.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\actlead.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\activities\actlocation.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\activities\signup.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\myself.js" />
+    <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\noteoutbox.js" />
+    <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\noteinbox.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\sendnote.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\updatepwd.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\updateemail.js" />
@@ -222,6 +229,7 @@
     <Compile Include="fitu\clients\webclientshared\app\js\directives\messenger.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\factories\datamodel.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\factories\geo.js" />
+    <Compile Include="fitu\clients\webclientshared\app\js\factories\footprint.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\factories\message.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\factories\messenger.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\factories\note.js" />
@@ -239,6 +247,9 @@
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\activities\index.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\activities\singleactivity.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\availability\index.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\footprints\index.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\footprints\footprints.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\footprints\singlefootprint.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\members\index.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\members\members.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\members\singlemember.js" />
@@ -250,6 +261,7 @@
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\notes\singlenote.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\resource\index.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\resxutil\activity.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\resxutil\footprint.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\resxutil\member.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\resxutil\message.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\resxutil\note.js" />

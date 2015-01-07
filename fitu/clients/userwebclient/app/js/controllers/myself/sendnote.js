@@ -19,7 +19,7 @@
                 }
             };
             $scope.resetNote = function () {
-                $scope.sendNoteModel.init({ subject: '', content: '', emphasis: false });
+                $scope.sendNoteModel.init({ subject: ctx.re || '', content: '', emphasis: false });
             };
             $scope.resetNote();
         }

@@ -12,6 +12,7 @@
                 signup: 'fitu.signup',
                 actdetail: 'fitu.actdetail',
                 actlocation: 'fitu.actlocation',
+                userpreview: 'fitu.userpreview',
                 myself: 'fitu.myself',
                 profile: 'fitu.myself.profile',
                 updateemail: 'fitu.myself.updateemail',
@@ -20,6 +21,8 @@
                 leadership: 'fitu.myself.leadership',
                 actlead: 'fitu.myself.actlead',
                 sendnote: 'fitu.myself.sendnote',
+                noteinbox: 'fitu.myself.noteinbox',
+                noteoutbox: 'fitu.myself.noteoutbox',
                 siteidles: 'fitu.gym.siteidles',
                 site: 'fitu.gym.site',
                 vendor: 'fitu.gym.vendor'

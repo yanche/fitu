@@ -1,10 +1,10 @@
 ﻿(function () {
     angular.module('fitu')
-    .controller('footprint', ['$scope', 'footprint', 'pagination', function ($scope, footprint, pagination) {
+    .controller('noteoutbox', ['$scope', 'note', 'pagination', function ($scope, note, pagination) {
         var pageStore = new pagination.PageStore(function (page, pageSize) {
-            return footprint.getMyself({ page: page, pageSize: pageSize });
+            return note.getMyNotes_OUT({ page: page, pageSize: pageSize });
         });
-
+        
         var pageSize = 5;
         $scope.visibles = [];
         $scope.loading = false;

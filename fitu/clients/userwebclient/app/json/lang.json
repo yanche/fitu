@@ -7,6 +7,9 @@
     "MYSELF_LABEL_PROFILE": "编辑资料",
     "MYSELF_LABEL_FOOTPRINT": "参加过",
     "MYSELF_LABEL_LEADERSHIP": "组织过",
+    "MYSELF_TITLE_NOTEBOX": "信箱",
+    "MYSELF_LABEL_NOTEINBOX": "收件箱",
+    "MYSELF_LABEL_NOTEOUTBOX": "发件箱",
     "MYSELF_TITLE_SYS": "系统",
     "MYSELF_LABEL_UPDATEEMAIL": "修改登录",
     "MYSELF_LABEL_UPDATEPWD": "修改密码",
@@ -79,5 +82,8 @@
     "SENDNOTE_LABEL_SENDNOTEALL": "全体",
     "SENDNOTE_BTN_SEND": "发送",
     "SENDNOTE_BTN_SENDING": "发送中...",
-    "SENDNOTE_BTN_RESET": "清空"
+    "SENDNOTE_BTN_RESET": "清空",
+
+    "NOTEOUTBOX_HEADER": "发件箱",
+    "NOTEINBOX_HEADER": "收件箱"
 }

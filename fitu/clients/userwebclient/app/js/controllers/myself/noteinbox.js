@@ -1,11 +1,11 @@
 ﻿(function () {
     angular.module('fitu')
-    .controller('footprint', ['$scope', 'footprint', 'pagination', function ($scope, footprint, pagination) {
+    .controller('noteinbox', ['$scope', 'note', 'pagination', '$state', 'ucconst', function ($scope, note, pagination, $state, ucconst) {
         var pageStore = new pagination.PageStore(function (page, pageSize) {
-            return footprint.getMyself({ page: page, pageSize: pageSize });
+            return note.getMyNotes_IN({ page: page, pageSize: pageSize });
         });
-
-        var pageSize = 5;
+        
+        var pageSize = 10;
         $scope.visibles = [];
         $scope.loading = false;
         $scope.currentPage = 0;
@@ -27,6 +27,11 @@
         
         $scope.getPageNavs = function () {
             return pageStore.getPageNavs(pageSize, 3, $scope.currentPage);
+        };
+
+        $scope.replyNote = function (nt, evt) {
+            $state.gox(ucconst.states.sendnote, { recipientId: nt.author.id, re: 'RE:' + nt.subject });
+            evt.stopPropagation();
         };
     }]);
 })();

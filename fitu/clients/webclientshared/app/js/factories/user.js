@@ -24,6 +24,21 @@
                 }
                 return defer.promise;
             },
+            getPreview: function (id) {
+                var defer = new $q.defer();
+                $http({
+                    method: 'GET',
+                    url: url.generate('users'),
+                    params: { id: id, preview: 1 }
+                }).success(function (data) {
+                    data.headUrl = utility.getStaticUrl(data.headUrl);
+                    defer.resolve(data);
+                }).error(function (data, status, headers, config) {
+                    console.log('failed to retrieve user preview: ' + status);
+                    defer.reject(status);
+                });
+                return defer.promise;
+            },
             login: function (email, hash_pwd) {
                 var defer = new $q.defer();
                 $http({
