@@ -74,6 +74,11 @@
     "SIGNUP_BTN_SIGNUPING": "正在报名...",
     "SIGNUP_TEXT_NEEDLOGIN": "抱歉，你还没有登陆 TAT，请登陆或注册之后报名喔！",
     "SIGNUP_TEXT_GOLOGIN": "秒之后跳转到登陆页面...",
+    "SIGNUP_BTN_GOLOGIN": "前去登录",
+    "SIGNUP_LABEL_NAME": "活动",
+    "SIGNUP_LABEL_TIME": "时间",
+    "SIGNUP_LABEL_ADDR": "地址",
+    "SIGNUP_LABEL_INTRO": "介绍",
 
     "LEADERSHIP_HEADER": "我带的活动",
 

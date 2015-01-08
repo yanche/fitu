@@ -1,6 +1,6 @@
 ﻿(function () {
     angular.module('fitu')
-    .controller('signup', ['$scope', 'member', '$state', '$location', 'ucconst', '$rootScope', '$timeout', function ($scope, member, $state, $location, ucconst, $rootScope, $timeout) {
+    .controller('signup', ['$scope', 'member', '$state', '$location', 'ucconst', '$rootScope', '$timeout', 'activity', function ($scope, member, $state, $location, ucconst, $rootScope, $timeout, activity) {
         var ctx = $location.search();
         
         if (!$rootScope.user) {
@@ -18,8 +18,23 @@
                 }
             };
             $timeout(waiter, 1000);
+
+            $scope.goLogin = function () {
+                $state.gox(ucconst.states.login, { state: ucconst.states.signup, actId: ctx.actId });
+            };
         }
         else {
+            $scope.loading = true;
+            activity.getOne(ctx.actId)
+            .then(function (data) {
+                $scope.activity = data;
+                $scope.loading = false;
+            })
+            .catch(function (err) {
+                console.log(err);
+                $scope.loading = false;
+            });
+            
             $scope.processing = false;
             $scope.signup = function () {
                 $scope.processing = true;
