@@ -2,12 +2,15 @@
     angular.module('fitu')
     .controller('actdetail', ['$scope', '$location', '$state', 'activity', 'member', 'ucconst', 'geo', 'pagination', 'message', 'validate', '$rootScope', function ($scope, $location, $state, activity, member, ucconst, geo, pagination, message, validate, $rootScope) {
         var ctx = $location.search();
+        $scope.loading = true;
         activity.getOne(ctx.actId)
         .then(function (data) {
             $scope.activity = data;
+            $scope.loading = false;
         })
         .catch(function (err) {
             console.log(err);
+            $scope.loading = false;
         });
         
         member.getList({ actId: ctx.actId, preview: 0, page: 0, pageSize: 6 })

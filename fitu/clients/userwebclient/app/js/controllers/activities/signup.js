@@ -6,12 +6,15 @@
         if (!$rootScope.user) {
             $scope.goLoginTimeout = 3;
             var waiter = function () {
-                var nowleft = $scope.goLoginTimeout - 1;
-                if (nowleft == -1)
-                    $state.gox(ucconst.states.login, { state: ucconst.states.signup, actId: ctx.actId });
-                else {
-                    $scope.goLoginTimeout = nowleft;
-                    $timeout(waiter, 1000);
+                //TODO: in-out-in
+                if ($state.current.name == ucconst.states.signup) {
+                    var nowleft = $scope.goLoginTimeout - 1;
+                    if (nowleft == -1)
+                        $state.gox(ucconst.states.login, { state: ucconst.states.signup, actId: ctx.actId });
+                    else {
+                        $scope.goLoginTimeout = nowleft;
+                        $timeout(waiter, 1000);
+                    }
                 }
             };
             $timeout(waiter, 1000);

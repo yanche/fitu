@@ -5,5 +5,6 @@
     "GLOBAL_LABEL_LONGTITUDE": "经度",
     "GLOBAL_LABEL_SEXNON":  "秘密",
     "GLOBAL_LABEL_SEXMALE":  "男",
-    "GLOBAL_LABEL_SEXFEMALE":  "女"
+    "GLOBAL_LABEL_SEXFEMALE": "女",
+    "GLOBAL_MSG_LOADING": "正在加载..."
 }

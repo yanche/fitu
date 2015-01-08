@@ -20,7 +20,7 @@
     "LOGIN_LABEL_PASSWORD": "密码",
     "LOGIN_BTN_LOGIN": "登录！",
     "LOGIN_BTN_LOGINING": "正在登录...",
-    "LOGIN_BTN_LOADING":  "正在加载...",
+    "LOGIN_BTN_LOADING": "正在加载...",
     "LOGIN_BTN_REGISTERING": "正在注册...",
 
     "REGISTER_LABEL_LOGIN": "登录",
@@ -45,7 +45,7 @@
     "UPDATEEMAIL_LABEL_PWD": "密码",
     "UPDATEEMAIL_BTN_UPDATE": "修改登录邮箱",
     "UPDATEEMAIL_BTN_UPDATING": "正在修改...",
-    
+
     "PROFILE_LABEL_HEAD": "头像",
     "PROFILE_LABEL_NICKNAME": "大名",
     "PROFILE_LABEL_PHONE": "手机",
@@ -86,5 +86,20 @@
     "SENDNOTE_BTN_RESET": "清空",
 
     "NOTEOUTBOX_HEADER": "发件箱",
-    "NOTEINBOX_HEADER": "收件箱"
+    "NOTEINBOX_HEADER": "收件箱",
+    
+    "ACTDETAIL_LABEL_TIME": "活动时间：",
+    "ACTDETAIL_LABEL_ADDR": "地址",
+    "ACTDETAIL_LABEL_INTRO": "介绍",
+    "ACTDETAIL_LABEL_CREATOR": "带头大哥",
+    "ACTDETAIL_BTN_GOSIGNUP": "前去报名",
+    "ACTDETAIL_LABEL_MEMBER_1": "已报名（",
+    "ACTDETAIL_LABEL_MEMBER_2": "）人",
+    "ACTDETAIL_LABEL_MSGBOARD": "留言墙",
+    "ACTDETAIL_LABEL_REPLYTO": "回复给：",
+    "ACTDETAIL_LABEL_LEAVEMSG": "留言",
+    "ACTDETAIL_BTN_LEAVEMSG": "留言",
+    "ACTDETAIL_BTN_RESETMSG": "清空",
+    "ACTDETAIL_MSG_LEAVEMSGAFTERLOGIN": "请登录后留言喔！",
+    "ACTDETAIL_MSG_NOMSG": "暂无评论，快来吐槽！"
 }
