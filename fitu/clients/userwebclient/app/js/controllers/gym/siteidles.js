@@ -38,5 +38,9 @@
             else
                 $state.gox(ucconst.states.siteidles);
         };
+        
+        $scope.goSite = function (siteId) {
+            $state.gox(ucconst.states.site, { id: siteId });
+        };
     }]);
 })();

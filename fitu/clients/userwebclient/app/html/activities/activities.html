@@ -16,12 +16,12 @@
         <option>余量最多</option>
     </select>
     <loading class="col-xs-12 paddingLR0px" show="loading" word="lang.GLOBAL_MSG_LOADING"></loading>
-    <div class="col-xs-12 paddingLR0px paddingTB10px splitter" ng-repeat="act in visibles">
+    <div class="col-xs-12 paddingLR0px paddingTB10px splitter" ng-repeat="act in visibles" ng-click="goDetail(act.id)">
         <div class="col-xs-12 paddingLR0px fontbold fontbig text-center textoverflowhidden" ng-bind="act.name"></div>
         <div class="col-xs-3 paddingLR0px">
             <img ng-src="{{act.picUrl}}" style="width:100%;" />
         </div>
-        <div class="col-xs-9 paddingLR0px small textoverflowhidden" ng-click="goDetail(act.id)" style="padding-left: 10px;">
+        <div class="col-xs-9 paddingLR0px small textoverflowhidden" style="padding-left: 10px;">
             <div class="col-xs-12 paddingLR0px">
                 <i class="fa fa-clock-o"></i>
                 <span ng-bind="act.startsOn | datetime : const.actTimeFormat"></span>

@@ -15,9 +15,39 @@
         <option>位置最近</option>
         <option>余量最多</option>
     </select>
-    <!--<h4 class="col-xs-12 paddingLR0px fontbold" ng-bind="lang.SITEIDLES_HEADER"></h4>-->
-    <preview ng-repeat="idle in visibles" class="paddingLR0px paddingTB5px col-xs-12" title="idle.site.name" subtitle="idle.slots + ' ' + idle.price"
-             content="(idle.startsOn | datetime) + ' -> ' + (idle.endsOn | datetime)" imgsrc="idle.site.picUrl" ui-sref="fitu.gym.site({id:idle.site.id})"></preview>
+    <loading class="col-xs-12 paddingLR0px" show="loading" word="lang.GLOBAL_MSG_LOADING"></loading>
+    <div class="col-xs-12 paddingLR0px paddingTB10px splitter" ng-repeat="idle in visibles" ng-click="goSite(idle.site.id)">
+        <div class="col-xs-12 paddingLR0px fontbold fontbig text-center textoverflowhidden" ng-bind="idle.site.name"></div>
+        <div class="col-xs-3 paddingLR0px">
+            <img ng-src="{{idle.site.picUrl}}" style="width:100%;" />
+        </div>
+        <div class="col-xs-9 paddingLR0px small textoverflowhidden" style="padding-left: 10px;">
+            <div class="col-xs-12 paddingLR0px">
+                <i class="fa fa-clock-o"></i>
+                <span ng-bind="idle.startsOn | datetime : const.actTimeFormat"></span>
+                <span> ~ </span>
+                <span ng-bind="idle.endsOn | datetime : const.actTimeFormat"></span>
+            </div>
+            <div class="col-xs-12 paddingLR0px">
+                <i class="fa fa-map-marker"></i>
+                <span ng-bind="idle.site.location.address"></span>
+            </div>
+            <div class="col-xs-12 paddingLR0px">
+                <div class="col-xs-4 paddingLR0px">
+                    <i class="fa fa-rmb"></i>
+                    <span ng-bind="idle.price"></span>
+                </div>
+                <div class="col-xs-4 paddingLR0px">
+                    <i class="fa fa-user"></i>
+                    <span ng-bind="idle.slots"></span>
+                </div>
+            </div>
+            <div class="col-xs-12 paddingLR0px">
+                <i class="fa fa-home"></i>
+                <span ng-bind="idle.tags[0] | tag"></span>
+            </div>
+        </div>
+    </div>
     <div class="col-xs-12 text-right paddingLR0px" ng-show="getPageNavs().max > 0">
         <ul class="pagination">
             <li ng-class="{disabled: currentPage == 0}" ng-click="currentPage <= 0 || switchPage(0)"><span class="fa fa-angle-double-left"></span></li>
