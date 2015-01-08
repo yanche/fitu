@@ -14,6 +14,7 @@
             },
             dateFormat: 'YYYY/MM/DD',
             dateTimeFormat: 'YYYY/MM/DD HH:mm',
+            actTimeFormat: 'MM.Ddd HH:mm',
             tags: [
                 { value: '瑜伽', key: 'yg' },
                 { value: '游泳', key: 'sw' },

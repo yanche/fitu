@@ -18,7 +18,12 @@
                         lead: options.lead
                     }
                 }).success(function (data) {
-                    data.list = data.list.map(function (act) { act.picUrl = utility.getStaticUrl(act.picUrl); return act; });
+                    data.list = data.list.map(function (act) {
+                        act.picUrl = utility.getStaticUrl(act.picUrl);
+                        if (act.creator && act.creator.headUrl)
+                            act.creator.headUrl = utility.getStaticUrl(act.creator.headUrl);
+                        return act;
+                    });
                     defer.resolve(data);
                 }).error(function (data, status, headers, config) {
                     console.log(arguments);
@@ -34,6 +39,8 @@
                     params: { id: actId }
                 }).success(function (data) {
                     data.picUrl = utility.getStaticUrl(data.picUrl);
+                    if (data.creator && data.creator.headUrl)
+                        data.creator.headUrl = utility.getStaticUrl(data.creator.headUrl);
                     defer.resolve(data);
                 }).error(function (data, status, headers, config) {
                     console.log(arguments);
