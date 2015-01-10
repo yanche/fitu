@@ -21,19 +21,20 @@
             wxsign: function (refresh) {
                 wx_CL.load(refresh)
                 .then(function (data) {
+                    /*
                     var ticket = data.ticket;
                     var ts = new Date().getTime().toString();
                     var nonceStr = ret.sha1(ts);
                     var url = $location.absUrl();
                     var hashIndex = url.indexOf('#');
                     url = url.slice(0, hashIndex >= 0 ? hashIndex : url.length);
-                    /*
+                    
                     return {
                         signiture: ret.sha1(['jsapi_ticket=' + ticket, 'noncestr=' + nonceStr, 'timestamp=' + ts, 'url=' + url].join('&')),
                         timestamp: ts,
                         nonceStr: nonceStr,
                         url: url
-                    };*/
+                    };
                     //wx is a global reference, for WX JS API
                     //http://mp.weixin.qq.com/wiki/7/aaa137b55fb2e0456bf8dd9148dd613f.html
                     console.log('url for wx api is: ' + url);
@@ -43,7 +44,7 @@
                         timestamp: ts, // 必填，生成签名的时间戳
                         nonceStr: nonceStr, // 必填，生成签名的随机串
                         signature: ret.sha1(['jsapi_ticket=' + ticket, 'noncestr=' + nonceStr, 'timestamp=' + ts, 'url=' + url].join('&')),// 必填，签名，见附录1
-                        jsApiList: ['onMenuShareTimeline'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+                        jsApiList: ['chooseImage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
                     });
                     wx.ready(function () {
                         console.log(arguments);
@@ -51,6 +52,14 @@
                     wx.error(function () {
                         console.log(arguments);
                     });
+                    wx.checkJsApi({
+                        jsApiList: ['chooseImage'], // 需要检测的JS接口列表，所有JS接口列表见附录2,
+                        success: function (res) {
+                            alert(JSON.stringify(res));
+                            // 以键值对的形式返回，可用的api值true，不可用为false
+                            // 如：{"checkResult":{"chooseImage":true},"errMsg":"checkJsApi:ok"}
+                        }
+                    });*/
                 });
             }
         };
