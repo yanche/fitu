@@ -24,7 +24,7 @@
                 }
                 return defer.promise;
             },
-            getPreview: function (id) {
+            getOnePreview: function (id) {
                 var defer = new $q.defer();
                 $http({
                     method: 'GET',
@@ -32,6 +32,26 @@
                     params: { id: id, preview: 1 }
                 }).success(function (data) {
                     data.headUrl = utility.getStaticUrl(data.headUrl);
+                    defer.resolve(data);
+                }).error(function (data, status, headers, config) {
+                    console.log('failed to retrieve user preview: ' + status);
+                    defer.reject(status);
+                });
+                return defer.promise;
+            },
+            getPreviews: function (options) {
+                options = options || {};
+                var defer = new $q.defer();
+                $http({
+                    method: 'GET',
+                    url: url.generate('users'),
+                    params: { preview: 1, fansOf: options.fansOf, subscribedUsersOf: options.subscribedUsersOf, page: options.page, pageSize: options.pageSize }
+                }).success(function (data) {
+                    data.list = data.list.map(function (u) {
+                        if (u.headUrl)
+                            u.headUrl = utility.getStaticUrl(u.headUrl);
+                        return u;
+                    });
                     defer.resolve(data);
                 }).error(function (data, status, headers, config) {
                     console.log('failed to retrieve user preview: ' + status);

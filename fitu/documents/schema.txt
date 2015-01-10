@@ -11,7 +11,11 @@ users
 'email':,
 'hash_pwd':,
 'headUrl':,
-'special': 1:god, 2:ob
+'special': 1:god, 2:ob,
+'subscribe': {
+		'users': []
+	}
+'fans': []
 }
 
 site

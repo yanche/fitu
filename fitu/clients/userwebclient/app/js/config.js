@@ -95,6 +95,8 @@
                 case ucconst.states.sendnote:
                 case ucconst.states.noteoutbox:
                 case ucconst.states.noteinbox:
+                case ucconst.states.fans:
+                case ucconst.states.subscribedusers:
                     return 'myself';
                 case ucconst.states.siteidles:
                 case ucconst.states.site:
@@ -169,6 +171,16 @@
                     url: '/noteoutbox',
                     templateUrl: '/app/html/myself/noteoutbox.html',
                     controller: 'noteoutbox'
+                },{
+                    name: 'fans',
+                    url: '/fans',
+                    templateUrl: '/app/html/myself/fans.html',
+                    controller: 'fans'
+                },{
+                    name: 'subscribedusers',
+                    url: '/subscribedusers',
+                    templateUrl: '/app/html/myself/subscribedusers.html',
+                    controller: 'subscribedusers'
                 }]
             },{
                 name: 'activities',

@@ -39,10 +39,12 @@
     <Content Include="fitu\clients\userwebclient\app\html\activities\userpreview.html" />
     <Content Include="fitu\clients\userwebclient\app\html\gym\gym.html" />
     <Content Include="fitu\clients\userwebclient\app\html\myself\actlead.html" />
+    <Content Include="fitu\clients\userwebclient\app\html\myself\fans.html" />
     <Content Include="fitu\clients\userwebclient\app\html\myself\noteinbox.html" />
     <Content Include="fitu\clients\userwebclient\app\html\myself\noteoutbox.html" />
     <Content Include="fitu\clients\userwebclient\app\html\myself\profile.html" />
     <Content Include="fitu\clients\userwebclient\app\html\myself\sendnote.html" />
+    <Content Include="fitu\clients\userwebclient\app\html\myself\subscribedusers.html" />
     <Content Include="fitu\clients\userwebclient\app\html\myself\updateemail.html" />
     <Content Include="fitu\clients\userwebclient\app\html\myself\updatepwd.html" />
     <Content Include="fitu\clients\userwebclient\app\html\gym\siteidles.html" />
@@ -136,6 +138,7 @@
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\messages\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\availability\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\footprints\" />
+    <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\userfans\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\wxticket\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\notes\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\sitepreview\" />
@@ -208,10 +211,12 @@
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\actlead.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\activities\actlocation.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\activities\signup.js" />
+    <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\fans.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\myself.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\noteoutbox.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\noteinbox.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\sendnote.js" />
+    <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\subscribedusers.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\updatepwd.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\updateemail.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\gym\siteidles.js" />
@@ -237,6 +242,7 @@
     <Compile Include="fitu\clients\webclientshared\app\js\factories\note.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\factories\pagination.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\factories\siteidle.js" />
+    <Compile Include="fitu\clients\webclientshared\app\js\factories\userfan.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\factories\utility.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\filters\datetime.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\filters\sensitiveDatetime.js" />
@@ -290,6 +296,7 @@
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\usercontacts\index.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\usercontacts\usercontacts.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\usercredentials\index.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\userfans\index.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\users\index.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\users\singleuser.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\resxutil\index.js" />

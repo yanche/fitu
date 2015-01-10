@@ -35,6 +35,8 @@
                     <i class="fa fa-female red" ng-show="activity.creator.personal.gender == '女'"></i>
                     <i class="fa fa-question" ng-show="activity.creator.personal.gender != '男' && activity.creator.personal.gender != '女'"></i>
                     <span ng-bind="activity.creator.personal.nickName"></span>
+                    <i style="margin-left: 15px;" class="fa fa-heart" ng-class="{red: activity.creator.fansCount > 0}"></i>
+                    <span ng-bind="activity.creator.fansCount"></span>
                 </div>
                 <div class="col-xs-12 paddingLR0px">
                     <i class="fa fa-phone"></i>

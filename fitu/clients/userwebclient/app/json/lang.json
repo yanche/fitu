@@ -7,6 +7,9 @@
     "MYSELF_LABEL_PROFILE": "编辑资料",
     "MYSELF_LABEL_FOOTPRINT": "参加过",
     "MYSELF_LABEL_LEADERSHIP": "组织过",
+    "MYSELF_LABEL_FANS": "粉丝",
+    "MYSELF_TITLE_SUBSCRIBE": "关注",
+    "MYSELF_LABEL_SUBSCRIBEDUSERS": "关注用户",
     "MYSELF_TITLE_NOTEBOX": "信箱",
     "MYSELF_LABEL_NOTEINBOX": "收件箱",
     "MYSELF_LABEL_NOTEOUTBOX": "发件箱",
@@ -92,7 +95,7 @@
 
     "NOTEOUTBOX_HEADER": "发件箱",
     "NOTEINBOX_HEADER": "收件箱",
-    
+
     "ACTDETAIL_LABEL_TIME": "活动时间：",
     "ACTDETAIL_LABEL_ADDR": "地址",
     "ACTDETAIL_LABEL_INTRO": "介绍",
@@ -106,5 +109,22 @@
     "ACTDETAIL_BTN_LEAVEMSG": "留言",
     "ACTDETAIL_BTN_RESETMSG": "清空",
     "ACTDETAIL_MSG_LEAVEMSGAFTERLOGIN": "请登录后留言喔！",
-    "ACTDETAIL_MSG_NOMSG": "暂无评论，快来吐槽！"
+    "ACTDETAIL_MSG_NOMSG": "暂无评论，快来吐槽！",
+
+    "USERPREVIEW_LABEL_FAN": "已关注",
+    "USERPREVIEW_LABEL_NOFAN": "未关注",
+    "USERPREVIEW_BTN_FAN": "关注TA！",
+    "USERPREVIEW_BTN_FANNING": "正在关注...",
+    "USERPREVIEW_BTN_NOFAN": "不关注TA了",
+    "USERPREVIEW_BTN_NOFANNING": "正在取消...",
+    "USERPREVIEW_MSG_SUBSCRIBED": "PS：TA关注了你哟~~",
+    "USERPREVIEW_MSG_WHYFAN_LOGIN": "注：关注了TA之后，一旦TA召集活动，会立即通知到你喔！",
+    "USERPREVIEW_MSG_WHYFAN_NOLOGIN": "注：登录之后可以关注TA，关注之后，一旦TA召集活动，会立即通知到你喔！",
+
+    "FANS_HEADER": "我的粉丝",
+    "FANS_LABEL_NOFANS": "OH！你还没有粉丝呢 \\(╯-╰)/",
+
+    "SUBCRIBEDUSERS_HEADER": "我关注的用户",
+    "SUBCRIBEDUSERS_LABEL_NOUSERS": "你还没有关注用户呢~~",
+    "SUBCRIBEDUSERS_MSG_WHYFAN": "注：关注用户之后，一旦TA召集活动，会立即通知到你喔！"
 }

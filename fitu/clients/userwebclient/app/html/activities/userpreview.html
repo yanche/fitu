@@ -14,8 +14,34 @@
             </div>
             <div class="col-xs-12 paddingLR0px" ng-bind="userpublic.personal.contact"></div>
             <div class="col-xs-12 paddingLR0px">
+                <i class="fa fa-heart" ng-class="{red: userpublic.fansCount > 0}"></i>
+                <span ng-bind="userpublic.fansCount"></span>
+            </div>
+            <div class="col-xs-12 paddingLR0px">
                 <i class="fa fa-envelope-o" ng-click="goSendNote(userpublic)"></i>
             </div>
         </div>
     </div>
+    <div class="col-xs-12 paddingLR0px" ng-show="!loadingFanRel && user">
+        <div class="col-xs-12 paddingLR0px" ng-show="!selfView && fanRelationship.fan">
+            <span ng-bind="lang.USERPREVIEW_LABEL_FAN"></span>
+            <button class="btn btn-danger btn-xs" ng-click="noFan()" ng-disabled="nofanning">
+                <i class="fa fa-spinner fa-spin" ng-show="nofanning"></i>
+                <span ng-bind="lang.USERPREVIEW_BTN_NOFANNING" ng-show="nofanning"></span>
+                <span ng-bind="lang.USERPREVIEW_BTN_NOFAN" ng-show="!nofanning"></span>
+            </button>
+        </div>
+        <div class="col-xs-12 paddingLR0px" ng-show="!selfView && !fanRelationship.fan">
+            <span ng-bind="lang.USERPREVIEW_LABEL_NOFAN"></span>
+            <button class="btn btn-success btn-xs" ng-click="fan()" ng-disabled="fanning">
+                <i class="fa fa-spinner fa-spin" ng-show="fanning"></i>
+                <span ng-bind="lang.USERPREVIEW_BTN_FANNING" ng-show="fanning"></span>
+                <span ng-bind="lang.USERPREVIEW_BTN_FAN" ng-show="!fanning"></span>
+            </button>
+        </div>
+        <div class="col-xs-12 paddingLR0px small fontbold" ng-bind="lang.USERPREVIEW_MSG_SUBSCRIBED" ng-show="!selfView && fanRelationship.subscribed"></div>
+    </div>
+    <div class="empty-xs"></div>
+    <div class="col-xs-12 paddingLR0px small" ng-bind="lang.USERPREVIEW_MSG_WHYFAN_LOGIN" ng-show="user"></div>
+    <div class="col-xs-12 paddingLR0px small" ng-bind="lang.USERPREVIEW_MSG_WHYFAN_NOLOGIN" ng-show="!user"></div>
 </div>

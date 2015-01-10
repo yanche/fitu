@@ -14,7 +14,9 @@ var god = {
     email: 'god@fitu.com',
     hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
     headUrl: config.defaultHeadUrl,
-    special: 1
+    special: 1,
+    subscribe: { users: [] },
+    fans: []
 };
 var ob = {
     personal: {
@@ -26,7 +28,9 @@ var ob = {
     email: 'ob@fitu.com',
     hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
     headUrl: config.defaultHeadUrl,
-    special: 2
+    special: 2,
+    subscribe: { users: [] },
+    fans: []
 };
 var vdOwner1 = {
     personal: {
@@ -38,7 +42,9 @@ var vdOwner1 = {
     email: 'vd1@fitu.com',
     hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
     headUrl: config.defaultHeadUrl,
-    special: 0
+    special: 0,
+    subscribe: { users: [] },
+    fans: []
 };
 var vdOwner2 = {
     personal: {
@@ -50,7 +56,9 @@ var vdOwner2 = {
     email: 'vd2@fitu.com',
     hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
     headUrl: config.defaultHeadUrl,
-    special: 0
+    special: 0,
+    subscribe: { users: [] },
+    fans: []
 };
 var vdAdmin1 = {
     personal: {
@@ -62,7 +70,9 @@ var vdAdmin1 = {
     email: 'admin1@fitu.com',
     hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
     headUrl: config.defaultHeadUrl,
-    special: 0
+    special: 0,
+    subscribe: { users: [] },
+    fans: []
 };
 var vdAdmin2 = {
     personal: {
@@ -74,7 +84,9 @@ var vdAdmin2 = {
     email: 'admin2@fitu.com',
     hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
     headUrl: config.defaultHeadUrl,
-    special: 0
+    special: 0,
+    subscribe: { users: [] },
+    fans: []
 };
 var actOrganizer1 = {
     personal: {
@@ -86,7 +98,9 @@ var actOrganizer1 = {
     email: 'organizer1@fitu.com',
     hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
     headUrl: config.defaultHeadUrl,
-    special: 0
+    special: 0,
+    subscribe: { users: [] },
+    fans: []
 };
 var actOrganizer2 = {
     personal: {
@@ -98,7 +112,9 @@ var actOrganizer2 = {
     email: 'organizer12@fitu.com',
     hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
     headUrl: config.defaultHeadUrl,
-    special: 0
+    special: 0,
+    subscribe: { users: [] },
+    fans: []
 };
 var user1 = {
     personal: {
@@ -110,7 +126,9 @@ var user1 = {
     email: 'user1@fitu.com',
     hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
     headUrl: config.defaultHeadUrl,
-    special: 0
+    special: 0,
+    subscribe: { users: [] },
+    fans: []
 };
 var user2 = {
     personal: {
@@ -122,7 +140,9 @@ var user2 = {
     email: 'user2@fitu.com',
     hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
     headUrl: config.defaultHeadUrl,
-    special: 0
+    special: 0,
+    subscribe: { users: [] },
+    fans: []
 };
 var user3 = {
     personal: {
@@ -134,7 +154,9 @@ var user3 = {
     email: 'user3@fitu.com',
     hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
     headUrl: config.defaultHeadUrl,
-    special: 0
+    special: 0,
+    subscribe: { users: [] },
+    fans: []
 };
 
 var vendor1 = {

@@ -1,0 +1,9 @@
+
+
+
+frontend:
+pagination
+activity filter
+create activity
+centralize linkage functions(userPreview, actDetail, sendNote...)
+centralize little control(fans heart, gender hint, mem capacity hint)

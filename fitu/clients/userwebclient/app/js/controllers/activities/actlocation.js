@@ -11,9 +11,5 @@
             console.log(err);
             $scope.loading = false;
         });
-
-        $scope.goDetail = function () {
-            $state.gox(ucconst.states.actdetail, { actId: ctx.actId });
-        };
     }]);
 })();
