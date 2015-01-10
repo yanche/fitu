@@ -1,7 +1,8 @@
 ﻿(function () {
     angular.module('fitu', ['ui.router', 'ui.router.stateHelper', 'ngRoute', 'fitulib', 'fituhtml'])
-    .run(['$rootScope', 'user', 'ucconst', 'lang', '$state', '$timeout', '$location', function ($rootScope, user, ucconst, lang, $state, $timeout, $location) {
+    .run(['$rootScope', 'user', 'ucconst', 'lang', '$state', '$timeout', '$location', 'crypto', function ($rootScope, user, ucconst, lang, $state, $timeout, $location, crypto) {
         var loadUser = function (obj, state, params) {
+            x = $location;
             //TODO, state transfer need optimization
             $rootScope.loadingUser = true;
             user.getLoginUser()
@@ -47,7 +48,7 @@
             console.log(arguments);
         });
         $rootScope.$on('$stateChangeStart', function (evt, toState, toParams, fromState, fromParams) {
-            console.log('state chaging from: ' + $state.href(fromState.name, toParams) + ', to: ' + $state.href(toState.name, toParams));
+            console.log('state chaging from: ' + $state.href(fromState.name, toParams) + ', to: ' + $state.href(toState.name, toParams) + ' starts');
             if (toState.name == ucconst.states.login) {
                 if ($rootScope.user)
                     evt.preventDefault();
@@ -65,6 +66,10 @@
                     });
                 }
             }
+        });
+        $rootScope.$on('$stateChangeSuccess', function (evt, toState, toParams, fromState, fromParams) {
+            console.log('state chaging from: ' + $state.href(fromState.name, toParams) + ', to: ' + $state.href(toState.name, toParams) + ' ends');
+            crypto.wxsign();
         });
         $rootScope.lang = lang;
         $rootScope.currentState = function () {

@@ -3,7 +3,7 @@
     .factory('validate', [function () {
         var emailRegex = new RegExp('^(\\w)+(\\.\\w+)*@(\\w)+((\\.\\w+)+)$');
         var phoneRegex = new RegExp('^[0-9]{11}$');
-        var md5Regex = new RegExp('^[a-fA-F0-9]{32}$');
+        var hashRegex = new RegExp('^[a-fA-F0-9]{32}$');
         var dateRegex = new RegExp('^[0-9]{1,4}/(((0?[1-9]|1[0-2])/(0?[1-9]|[12][0-9]))|((0?[13-9]|1[0-2])/30)|((0?[13578]|1[02])/31))$');
         var numletterReg = new RegExp('^[a-zA-Z0-9]+$');
         

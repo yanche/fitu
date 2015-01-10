@@ -136,6 +136,7 @@
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\messages\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\availability\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\footprints\" />
+    <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\wxticket\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\notes\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\sitepreview\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\vendorpreview\" />
@@ -227,6 +228,7 @@
     <Compile Include="fitu\clients\webclientshared\app\js\directives\loading.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\directives\map.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\directives\messenger.js" />
+    <Compile Include="fitu\clients\webclientshared\app\js\factories\crypto.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\factories\datamodel.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\factories\geo.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\factories\footprint.js" />
@@ -299,6 +301,7 @@
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\vendors\index.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\vendors\singlevendor.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\vendors\vendors.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\wxticket\index.js" />
     <Compile Include="fitu\node_modules\const\common.js" />
     <Compile Include="fitu\node_modules\const\index.js" />
     <Compile Include="fitu\node_modules\config\index.js" />

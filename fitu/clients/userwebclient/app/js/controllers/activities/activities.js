@@ -42,5 +42,21 @@
             else
                 $state.gox(ucconst.states.activities);
         };
+        
+        $scope.testWX = function () {
+            wx.onMenuShareTimeline({
+                title: 'title', // 分享标题
+                link: 'http://www.belongscy.com', // 分享链接
+                imgUrl: 'http://static.belongscy.com:9000/app/image/webclientshared/actpic.jpg', // 分享图标
+                success: function () { 
+                    console.log(arguments);
+        // 用户确认分享后执行的回调函数
+                },
+                cancel: function () {
+                    console.log(arguments);
+        // 用户取消分享后执行的回调函数
+                }
+            });
+        };
     }]);
 })();

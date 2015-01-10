@@ -1,6 +1,6 @@
 ﻿(function () {
     angular.module('fituvd')
-    .controller('login', ['$scope', '$state', 'user', 'vendor', 'validate', '$rootScope', '$location', 'messenger', '$q', function ($scope, $state, user, vendor, validate, $rootScope, $location, messenger, $q) {
+    .controller('login', ['$scope', '$state', 'user', 'vendor', 'validate', '$rootScope', '$location', 'messenger', '$q', 'crypto', function ($scope, $state, user, vendor, validate, $rootScope, $location, messenger, $q, crypto) {
         var ctx = $location.search();
         
         $scope.logining = false;
@@ -55,7 +55,7 @@
         $scope.login = function () {
             if (validate.email($scope.email) && validate.valuedString($scope.password)) {
                 $scope.logining = true;
-                user.login($scope.email.toLowerCase(), $.md5($scope.password))
+                user.login($scope.email.toLowerCase(), crypto.sha1($scope.password))
                 .then(function () {
                     $scope.logining = false;
                     return loadVendor();

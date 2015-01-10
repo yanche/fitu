@@ -12,7 +12,7 @@ var god = {
         gender: '男'
     },
     email: 'god@fitu.com',
-    hash_pwd: '900150983cd24fb0d6963f7d28e17f72',
+    hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
     headUrl: config.defaultHeadUrl,
     special: 1
 };
@@ -24,7 +24,7 @@ var ob = {
         gender: '女'
     },
     email: 'ob@fitu.com',
-    hash_pwd: '900150983cd24fb0d6963f7d28e17f72',
+    hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
     headUrl: config.defaultHeadUrl,
     special: 2
 };
@@ -36,7 +36,7 @@ var vdOwner1 = {
         gender: '男'
     },
     email: 'vd1@fitu.com',
-    hash_pwd: '900150983cd24fb0d6963f7d28e17f72',
+    hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
     headUrl: config.defaultHeadUrl,
     special: 0
 };
@@ -48,7 +48,7 @@ var vdOwner2 = {
         gender: '男'
     },
     email: 'vd2@fitu.com',
-    hash_pwd: '900150983cd24fb0d6963f7d28e17f72',
+    hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
     headUrl: config.defaultHeadUrl,
     special: 0
 };
@@ -60,7 +60,7 @@ var vdAdmin1 = {
         gender: '男'
     },
     email: 'admin1@fitu.com',
-    hash_pwd: '900150983cd24fb0d6963f7d28e17f72',
+    hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
     headUrl: config.defaultHeadUrl,
     special: 0
 };
@@ -72,7 +72,7 @@ var vdAdmin2 = {
         gender: '女'
     },
     email: 'admin2@fitu.com',
-    hash_pwd: '900150983cd24fb0d6963f7d28e17f72',
+    hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
     headUrl: config.defaultHeadUrl,
     special: 0
 };
@@ -84,7 +84,7 @@ var actOrganizer1 = {
         gender: '男'
     },
     email: 'organizer1@fitu.com',
-    hash_pwd: '900150983cd24fb0d6963f7d28e17f72',
+    hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
     headUrl: config.defaultHeadUrl,
     special: 0
 };
@@ -96,7 +96,7 @@ var actOrganizer2 = {
         gender: ''
     },
     email: 'organizer12@fitu.com',
-    hash_pwd: '900150983cd24fb0d6963f7d28e17f72',
+    hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
     headUrl: config.defaultHeadUrl,
     special: 0
 };
@@ -108,7 +108,7 @@ var user1 = {
         gender: '男'
     },
     email: 'user1@fitu.com',
-    hash_pwd: '900150983cd24fb0d6963f7d28e17f72',
+    hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
     headUrl: config.defaultHeadUrl,
     special: 0
 };
@@ -120,7 +120,7 @@ var user2 = {
         gender: '女'
     },
     email: 'user2@fitu.com',
-    hash_pwd: '900150983cd24fb0d6963f7d28e17f72',
+    hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
     headUrl: config.defaultHeadUrl,
     special: 0
 };
@@ -132,7 +132,7 @@ var user3 = {
         gender: ''
     },
     email: 'user3@fitu.com',
-    hash_pwd: '900150983cd24fb0d6963f7d28e17f72',
+    hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
     headUrl: config.defaultHeadUrl,
     special: 0
 };

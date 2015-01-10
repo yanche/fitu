@@ -95,11 +95,12 @@
                     { expand: true, cwd: 'bower_components/moment/min', src: ['moment.min.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
                     { expand: true, cwd: 'bower_components/moment/locale', src: ['zh-cn.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
                     { expand: true, cwd: 'bower_components/jquery-cookie', src: ['jquery.cookie.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
-                    { expand: true, cwd: 'bower_components/jquery-md5', src: ['jquery.md5.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
+                    //{ expand: true, cwd: 'bower_components/jquery-md5', src: ['jquery.md5.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
                     { expand: true, cwd: 'bower_components/eonasdan-bootstrap-datetimepicker/build/js', src: ['bootstrap-datetimepicker.min.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
                     { expand: true, cwd: 'bower_components/eonasdan-bootstrap-datetimepicker/build/css', src: ['bootstrap-datetimepicker.min.css'], dest: 'statics/app/css/libs', filter: 'isFile' },
                     { expand: true, cwd: 'bower_components/angular-ui-router.stateHelper', src: ['statehelper.min.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
-                    { expand: true, cwd: 'bower_components/angular-ui-router/release', src: ['angular-ui-router.min.js'], dest: 'statics/app/js/libs', filter: 'isFile' }
+                    { expand: true, cwd: 'bower_components/angular-ui-router/release', src: ['angular-ui-router.min.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
+                    { expand: true, cwd: 'bower_components/crypto.js/components', src: ['sha1.js'], dest: 'statics/app/js/libs', filter: 'isFile' }
                 ]
             },
             sharedjson: {

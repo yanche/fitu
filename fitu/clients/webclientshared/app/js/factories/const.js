@@ -28,7 +28,10 @@
                 { value: '骑行', key: 'cl' },
                 { value: '攀岩', key: 'rk' },
                 { value: '健身', key: 'ft' }
-            ]
+            ],
+            wx: {
+                appId: 'wxcdcdc23de5d4f1f8'
+            }
         };
     }]);
 })();

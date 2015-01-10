@@ -1,6 +1,6 @@
 ﻿(function () {
     angular.module('fitu')
-    .factory('ucdatamodel', ['datamodel', 'validate', function (datamodel, validate) {
+    .factory('ucdatamodel', ['datamodel', 'validate', 'crypto', function (datamodel, validate, crypto) {
         var ModelProp = datamodel.ModelProp, DataModel = datamodel.DataModel;
 
         var LoginModel = function () {
@@ -14,7 +14,7 @@
         LoginModel.prototype.toPOJO = function () {
             return {
                 email: this.emailProp.val,
-                hash_pwd: $.md5(this.pwdProp.val)
+                hash_pwd: crypto.sha1(this.pwdProp.val)
             };
         };
         LoginModel.prototype.init = function (data) {
@@ -46,7 +46,7 @@
         RegisterModel.prototype.toPOJO = function () {
             return {
                 email: this.emailProp.val,
-                hash_pwd: $.md5(this.pwdProp.val),
+                hash_pwd: crypto.sha1(this.pwdProp.val),
                 personal: {
                     contact: this.contactProp.val || this.emailProp.val,
                     phone: this.phoneProp.val,
@@ -121,7 +121,7 @@
         UpdateLoginEmailModel.prototype.toPOJO = function () {
             return {
                 email: this.emailProp.val,
-                confirm_hash_pwd: $.md5(this.pwdProp.val)
+                confirm_hash_pwd: crypto.sha1(this.pwdProp.val)
             };
         };
         UpdateLoginEmailModel.prototype.init = function (data) {
@@ -149,8 +149,8 @@
         UpdateLoginPWDModel.prototype = Object.create(DataModel.prototype);
         UpdateLoginPWDModel.prototype.toPOJO = function () {
             return {
-                hash_pwd: $.md5(this.newPwdProp.val),
-                confirm_hash_pwd: $.md5(this.oldPwdProp.val)
+                hash_pwd: crypto.sha1(this.newPwdProp.val),
+                confirm_hash_pwd: crypto.sha1(this.oldPwdProp.val)
             };
         };
         UpdateLoginPWDModel.prototype.init = function (data) {
