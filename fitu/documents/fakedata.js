@@ -15,7 +15,7 @@ var god = {
     hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
     headUrl: config.defaultHeadUrl,
     special: 1,
-    subscribe: { users: [] },
+    subscribe: { users: [], sites: [] },
     fans: []
 };
 var ob = {
@@ -29,7 +29,7 @@ var ob = {
     hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
     headUrl: config.defaultHeadUrl,
     special: 2,
-    subscribe: { users: [] },
+    subscribe: { users: [], sites: [] },
     fans: []
 };
 var vdOwner1 = {
@@ -43,7 +43,7 @@ var vdOwner1 = {
     hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
     headUrl: config.defaultHeadUrl,
     special: 0,
-    subscribe: { users: [] },
+    subscribe: { users: [], sites: [] },
     fans: []
 };
 var vdOwner2 = {
@@ -57,7 +57,7 @@ var vdOwner2 = {
     hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
     headUrl: config.defaultHeadUrl,
     special: 0,
-    subscribe: { users: [] },
+    subscribe: { users: [], sites: [] },
     fans: []
 };
 var vdAdmin1 = {
@@ -71,7 +71,7 @@ var vdAdmin1 = {
     hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
     headUrl: config.defaultHeadUrl,
     special: 0,
-    subscribe: { users: [] },
+    subscribe: { users: [], sites: [] },
     fans: []
 };
 var vdAdmin2 = {
@@ -85,7 +85,7 @@ var vdAdmin2 = {
     hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
     headUrl: config.defaultHeadUrl,
     special: 0,
-    subscribe: { users: [] },
+    subscribe: { users: [], sites: [] },
     fans: []
 };
 var actOrganizer1 = {
@@ -99,7 +99,7 @@ var actOrganizer1 = {
     hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
     headUrl: config.defaultHeadUrl,
     special: 0,
-    subscribe: { users: [] },
+    subscribe: { users: [], sites: [] },
     fans: []
 };
 var actOrganizer2 = {
@@ -113,7 +113,7 @@ var actOrganizer2 = {
     hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
     headUrl: config.defaultHeadUrl,
     special: 0,
-    subscribe: { users: [] },
+    subscribe: { users: [], sites: [] },
     fans: []
 };
 var user1 = {
@@ -127,7 +127,7 @@ var user1 = {
     hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
     headUrl: config.defaultHeadUrl,
     special: 0,
-    subscribe: { users: [] },
+    subscribe: { users: [], sites: [] },
     fans: []
 };
 var user2 = {
@@ -141,7 +141,7 @@ var user2 = {
     hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
     headUrl: config.defaultHeadUrl,
     special: 0,
-    subscribe: { users: [] },
+    subscribe: { users: [], sites: [] },
     fans: []
 };
 var user3 = {
@@ -155,7 +155,7 @@ var user3 = {
     hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
     headUrl: config.defaultHeadUrl,
     special: 0,
-    subscribe: { users: [] },
+    subscribe: { users: [], sites: [] },
     fans: []
 };
 
@@ -198,9 +198,13 @@ var site1 = {
             lng: 121.5103
         }
     },
+    prices: [{ amount: 50, freq: { num: 2, measure: 'h' }, people: 1, comments: 'test comment1' },{ amount: 5000, freq: { num: 1, measure: 'y' }, people: 1, comments: 'test comment2' }],
+    open: { startsOn: new Date('2000/1/1 8:30:00'), endsOn: new Date('2000/1/1 20:00:00') },
+    contact: '15201928369',
     intro: 'intro for site 1',
     picUrl: config.defaultSitePicUrl,
-    createdOn: new Date()
+    createdOn: new Date(),
+    fans: []
 };
 var site2 = {
     name: '某健身场地',
@@ -212,9 +216,13 @@ var site2 = {
             lng: 121.5103
         }
     },
+    prices: [{ amount: 30, freq: { num: 1, measure: 'h' }, people: 1, comments: 'test comment3' },{ amount: 3000, freq: { num: 6, measure: 'M' }, people: 1, comments: 'test comment4' }],
+    open: { startsOn: new Date('2000/1/1 9:00:00'), endsOn: new Date('2000/1/1 17:00:00') },
+    contact: '15201928369',
     intro: 'intro for site 2',
     picUrl: config.defaultSitePicUrl,
-    createdOn: new Date()
+    createdOn: new Date(),
+    fans: []
 };
 var site3 = {
     name: '某游泳场地',
@@ -227,8 +235,12 @@ var site3 = {
         }
     },
     intro: 'intro for site 3',
+    prices: [{ amount: 60, freq: { num: 1, measure: 'h' }, people: 1, comments: 'test comment5' }],
+    open: { startsOn: new Date('2000/1/1 12:00:00'), endsOn: new Date('2000/1/1 23:00:00') },
+    contact: '15201928369',
     picUrl: config.defaultSitePicUrl,
-    createdOn: new Date()
+    createdOn: new Date(),
+    fans: []
 };
 var site4 = {
     name: '某攀岩场地',
@@ -240,40 +252,44 @@ var site4 = {
             lng: 121.5103
         }
     },
+    prices: [{ amount: 30, freq: { num: 2, measure: 'h' }, people: 1, comments: 'test comment6' },{ amount: 200, freq: { num: 2, measure: 'h' }, people: 10, comments: 'test comment7' }],
+    open: { startsOn: new Date('2000/1/1 7:00:00'), endsOn: new Date('2000/1/1 21:30:00') },
+    contact: '15201928369',
     intro: 'intro for site 4',
     picUrl: config.defaultSitePicUrl,
-    createdOn: new Date()
+    createdOn: new Date(),
+    fans: []
 };
 
 var siteidle1 = {
     slots: 10,
     price: 30.5,
-    startsOn: new Date('2014/10/1'),
-    endsOn: new Date('2014/10/1'),
+    startsOn: new Date('2015/2/1 15:00:00'),
+    endsOn: new Date('2015/2/1 16:00:00'),
     tags: ['yg'],
     createdOn: new Date()
 };
 var siteidle2 = {
     slots: 5,
     price: 30.6,
-    startsOn: new Date('2014/11/1'),
-    endsOn: new Date('2014/11/1'),
+    startsOn: new Date('2015/1/25 11:00:00'),
+    endsOn: new Date('2015/1/25 13:30:00'),
     tags: ['ft'],
     createdOn: new Date()
 };
 var siteidle3 = {
     slots: 100,
     price: 50,
-    startsOn: new Date('2014/12/1'),
-    endsOn: new Date('2014/12/1'),
+    startsOn: new Date('2015/1/15 10:00:00'),
+    endsOn: new Date('2015/1/15 11:00:00'),
     tags: ['sw'],
     createdOn: new Date()
 };
 var siteidle4 = {
     slots: 15,
     price: 25,
-    startsOn: new Date('2014/12/12'),
-    endsOn: new Date('2014/12/12'),
+    startsOn: new Date('2015/11/12 9:00:00'),
+    endsOn: new Date('2015/11/12 20:00:00'),
     tags: ['rk'],
     createdOn: new Date()
 };

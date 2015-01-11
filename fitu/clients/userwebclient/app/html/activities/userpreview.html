@@ -23,7 +23,7 @@
         </div>
     </div>
     <div class="col-xs-12 paddingLR0px" ng-show="!loadingFanRel && user">
-        <div class="col-xs-12 paddingLR0px" ng-show="!selfView && fanRelationship.fan">
+        <div class="col-xs-12 paddingLR0px" ng-show="!selfView && fanRelationship.subscribe">
             <span ng-bind="lang.USERPREVIEW_LABEL_FAN"></span>
             <button class="btn btn-danger btn-xs" ng-click="noFan()" ng-disabled="nofanning">
                 <i class="fa fa-spinner fa-spin" ng-show="nofanning"></i>
@@ -31,7 +31,7 @@
                 <span ng-bind="lang.USERPREVIEW_BTN_NOFAN" ng-show="!nofanning"></span>
             </button>
         </div>
-        <div class="col-xs-12 paddingLR0px" ng-show="!selfView && !fanRelationship.fan">
+        <div class="col-xs-12 paddingLR0px" ng-show="!selfView && !fanRelationship.subscribe">
             <span ng-bind="lang.USERPREVIEW_LABEL_NOFAN"></span>
             <button class="btn btn-success btn-xs" ng-click="fan()" ng-disabled="fanning">
                 <i class="fa fa-spinner fa-spin" ng-show="fanning"></i>

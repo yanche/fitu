@@ -14,8 +14,10 @@
             },
             dateFormat: 'YYYY/MM/DD',
             dateTimeFormat: 'YYYY/MM/DD HH:mm',
-            actTimeFormat: 'MM.Ddd HH:mm',
-            actTimeFormat2: 'MM.Dddd HH:mm',
+            timeFormat: 'HH:mm',
+            timeAFormat: 'aHH:mm',
+            actTimeFormat: 'M.Ddd HH:mm',
+            actTimeFormat2: 'M.Dddd HH:mm',
             tags: [
                 { value: '瑜伽', key: 'yg' },
                 { value: '游泳', key: 'sw' },
@@ -31,6 +33,12 @@
             ],
             wx: {
                 appId: 'wxcdcdc23de5d4f1f8'
+            },
+            priceMeasure: {
+                m: '分',
+                h: '小时',
+                M: '月',
+                y: '年'
             }
         };
     }]);

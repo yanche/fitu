@@ -1,0 +1,12 @@
+﻿<div class="col-xs-12">
+    <div class="empty-xs"></div>
+    <loading show="loading" word="lang.GLOBAL_MSG_LOADING"></loading>
+    <div class="col-xs-12 paddingLR0px" ng-show="!loading">
+        <div class="text-center col-xs-12 fontbold fontbig" ng-bind="site.name"></div>
+        <div class="empty-xs"></div>
+        <map class="col-xs-12 paddingLR0px" style="height:300px;" lat="site.location.geo.lat" lng="site.location.geo.lng"></map>
+        <div class="empty-xs"></div>
+        <div class="text-center col-xs-12" ng-bind="site.location.address"></div>
+    </div>
+    <div class="empty-sm"></div>
+</div>

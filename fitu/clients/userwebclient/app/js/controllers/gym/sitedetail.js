@@ -1,54 +1,73 @@
 ﻿(function () {
     angular.module('fitu')
-    .controller('actdetail', ['$scope', '$location', '$state', 'activity', 'member', 'ucconst', 'geo', 'pagination', 'message', 'validate', '$rootScope', function ($scope, $location, $state, activity, member, ucconst, geo, pagination, message, validate, $rootScope) {
+    .controller('sitedetail', ['$scope', '$state', 'site', '$location', 'ucconst', 'pagination', 'validate', '$rootScope', 'message', 'sitefan', function ($scope, $state, site, $location, ucconst, pagination, validate, $rootScope, message, sitefan) {
         var ctx = $location.search();
         $scope.loading = true;
-        activity.getOne(ctx.actId)
+        site.getOne({ id: ctx.siteId })
         .then(function (data) {
-            $scope.activity = data;
+            $scope.site = data;
             $scope.loading = false;
-        })
-        .catch(function (err) {
+        }, function (err) {
             console.log(err);
             $scope.loading = false;
         });
         
-        member.getList({ actId: ctx.actId, preview: 0, page: 0, pageSize: 6 })
-        .then(function (data) {
-            $scope.memCount = data.total;
-            $scope.members = data.list;
-        })
-        .catch(function (err) {
-        });
-        
         $scope.goLocation = function () {
-            $state.gox(ucconst.states.actlocation, { actId: ctx.actId });
+            $state.gox(ucconst.states.sitelocation, { siteId: $scope.site.id });
         };
         
-        $scope.goSignup = function () {
-            $state.gox(ucconst.states.signup, { actId: ctx.actId });
+        $scope.goVendorDetail = function (vd) {
+            $state.gox(ucconst.states.vendordetail, { vendorId: vd.id });
         };
         
-        $scope.goUserPreview = function (user) {
-            $state.gox(ucconst.states.userpreview, { userId: user.id });
-        };
+        if ($rootScope.user) {
+            var loadFanRel = function () {
+                $scope.loadingFanRel = true;
+                sitefan.relationship({ siteId: ctx.siteId })
+                .then(function (data) {
+                    $scope.fanRelationship = data;
+                    $scope.loadingFanRel = false;
+                })
+                .catch(function (err) {
+                    $scope.loadingFanRel = false;
+                });
+            };
+            loadFanRel();
+            
+            $scope.fan = function () {
+                $scope.fanning = true;
+                sitefan.fan({ siteId: ctx.siteId })
+                .then(function () {
+                    $scope.fanning = false;
+                    $scope.site.fansCount++;
+                    $rootScope.user.subscribe.sitesCount++;
+                    loadFanRel();
+                })
+                .catch(function (err) {
+                    $scope.fanning = false;
+                });
+            };
+            
+            $scope.noFan = function () {
+                $scope.nofanning = true;
+                sitefan.noFan({ siteId: ctx.siteId })
+                .then(function () {
+                    $scope.nofanning = false;
+                    $scope.site.fansCount--;
+                    $rootScope.user.subscribe.sitesCount--;
+                    loadFanRel();
+                })
+                .catch(function (err) {
+                    $scope.nofanning = false;
+                });
+            };
+        }
         
-        /*
-        $scope.gettingUserPos = true;
-        geo.getLocation()
-        .then(function (position) {
-            $scope.userPos = { lat: position.coords.latitude, lng: position.coords.longitude };
-            $scope.gettingUserPos = false;
-        })
-        .catch(function (err) {
-            $scope.userPos = null;
-            $scope.gettingUserPos = false;
-        });*/
         $scope.newMessage = '';
-        $scope.sendNewActMessage = function () {
+        $scope.sendNewSiteMessage = function () {
             if (validate.valuedString($scope.newMessage) && $rootScope.user) {
                 $scope.sendingMsg = true;
-                activity.createMessage({ id: ctx.actId, message: $scope.newMessage, replyToId: $scope.replyToMsg ? $scope.replyToMsg.id : null })
+                site.createMessage({ id: ctx.siteId, message: $scope.newMessage, replyToId: $scope.replyToMsg ? $scope.replyToMsg.id : null })
                 .then(function () {
                     pageStore.refresh();
                     $scope.switchMsgPage(0); //first page
@@ -85,7 +104,7 @@
         
         var messagePageSize = 5;
         var pageStore = new pagination.PageStore(function (page, pageSize) {
-            return activity.getMessages({ page: page, pageSize: pageSize, id: ctx.actId });
+            return site.getMessages({ page: page, pageSize: pageSize, id: ctx.siteId });
         });
         
         $scope.msgVisibles = [];

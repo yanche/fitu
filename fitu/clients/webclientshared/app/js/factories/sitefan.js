@@ -1,14 +1,14 @@
 ﻿(function () {
     angular.module('fitulib')
-    .factory('userfan', ['$http', '$q', 'url', function ($http, $q, url) {
+    .factory('sitefan', ['$http', '$q', 'url', function ($http, $q, url) {
         return {
             relationship: function (options) {
                 options = options || {};
                 var defer = new $q.defer();
                 $http({
                     method: 'GET',
-                    url: url.generate('userfans'),
-                    params: { userId: options.userId }
+                    url: url.generate('sitefans'),
+                    params: { siteId: options.siteId }
                 }).success(function (data) {
                     defer.resolve(data);
                 }).error(function (data, status, headers, config) {
@@ -21,8 +21,8 @@
                 var defer = new $q.defer();
                 $http({
                     method: 'POST',
-                    url: url.generate('userfans'),
-                    params: { userId: options.userId }
+                    url: url.generate('sitefans'),
+                    params: { siteId: options.siteId }
                 }).success(function (data) {
                     defer.resolve(data);
                 }).error(function (data, status, headers, config) {
@@ -35,8 +35,8 @@
                 var defer = new $q.defer();
                 $http({
                     method: 'DELETE',
-                    url: url.generate('userfans'),
-                    params: { userId: options.userId }
+                    url: url.generate('sitefans'),
+                    params: { siteId: options.siteId }
                 }).success(function (data) {
                     defer.resolve(data);
                 }).error(function (data, status, headers, config) {

@@ -1,11 +1,11 @@
 ﻿(function () {
     angular.module('fitu')
-    .controller('actlocation', ['$scope', '$location', 'activity', function ($scope, $location, activity) {
+    .controller('sitelocation', ['$scope', '$location', 'site', function ($scope, $location, site) {
         var ctx = $location.search();
         $scope.loading = true;
-        activity.getOne(ctx.actId)
+        site.getOne({ id: ctx.siteId })
         .then(function (data) {
-            $scope.activity = data;
+            $scope.site = data;
             $scope.loading = false;
         }, function (err) {
             console.log(err);

@@ -98,9 +98,10 @@
                 case ucconst.states.fans:
                 case ucconst.states.subscribedusers:
                     return 'myself';
-                case ucconst.states.siteidles:
-                case ucconst.states.site:
-                case ucconst.states.vendor:
+                case ucconst.states.sites:
+                case ucconst.states.sitedetail:
+                case ucconst.states.sitelocation:
+                case ucconst.states.vendordetail:
                     return 'gym';
                 default:
                     return '';
@@ -213,20 +214,25 @@
                 templateUrl: '/app/html/gym/gym.html',
                 abstract: true,
                 children: [{
-                    name: 'vendor',
-                    url: '/vendor?id',
-                    templateUrl: '/app/html/gym/vendor.html',
-                    controller: 'vendor'
+                    name: 'vendordetail',
+                    url: '/vendordetail?vendorId',
+                    templateUrl: '/app/html/gym/vendordetail.html',
+                    controller: 'vendordetail'
                 },{
-                    name: 'site',
-                    url: '/site?id',
-                    templateUrl: '/app/html/gym/site.html',
-                    controller: 'site'
+                    name: 'sitedetail',
+                    url: '/sitedetail?siteId',
+                    templateUrl: '/app/html/gym/sitedetail.html',
+                    controller: 'sitedetail'
                 },{
-                    name: 'siteidles',
-                    url: '/siteidles?vendorId&siteId&tag',
-                    templateUrl: '/app/html/gym/siteidles.html',
-                    controller: 'siteidles'
+                    name: 'sites',
+                    url: '/sites?vendorId&siteId&tag',
+                    templateUrl: '/app/html/gym/sites.html',
+                    controller: 'sites'
+                },{
+                    name: 'sitelocation',
+                    url: '/sitelocation?siteId',
+                    templateUrl: '/app/html/gym/sitelocation.html',
+                    controller: 'sitelocation'
                 }]
             }]
         });

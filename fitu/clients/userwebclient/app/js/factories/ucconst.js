@@ -25,9 +25,10 @@
                 noteoutbox: 'fitu.myself.noteoutbox',
                 fans: 'fitu.myself.fans',
                 subscribedusers: 'fitu.myself.subscribedusers',
-                siteidles: 'fitu.gym.siteidles',
-                site: 'fitu.gym.site',
-                vendor: 'fitu.gym.vendor'
+                sites: 'fitu.gym.sites',
+                sitedetail: 'fitu.gym.sitedetail',
+                sitelocation: 'fitu.gym.sitelocation',
+                vendordetail: 'fitu.gym.vendordetail'
             }
         };
     }]);

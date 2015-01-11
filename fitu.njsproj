@@ -37,6 +37,7 @@
     <Content Include="fitu\clients\userwebclient\app\html\activities\actlocation.html" />
     <Content Include="fitu\clients\userwebclient\app\html\activities\signup.html" />
     <Content Include="fitu\clients\userwebclient\app\html\activities\userpreview.html" />
+    <Content Include="fitu\clients\userwebclient\app\html\gym\sitelocation.html" />
     <Content Include="fitu\clients\userwebclient\app\html\gym\gym.html" />
     <Content Include="fitu\clients\userwebclient\app\html\myself\actlead.html" />
     <Content Include="fitu\clients\userwebclient\app\html\myself\fans.html" />
@@ -47,8 +48,8 @@
     <Content Include="fitu\clients\userwebclient\app\html\myself\subscribedusers.html" />
     <Content Include="fitu\clients\userwebclient\app\html\myself\updateemail.html" />
     <Content Include="fitu\clients\userwebclient\app\html\myself\updatepwd.html" />
-    <Content Include="fitu\clients\userwebclient\app\html\gym\siteidles.html" />
-    <Content Include="fitu\clients\userwebclient\app\html\gym\vendor.html" />
+    <Content Include="fitu\clients\userwebclient\app\html\gym\sites.html" />
+    <Content Include="fitu\clients\userwebclient\app\html\gym\vendordetail.html" />
     <Content Include="fitu\clients\vendorwebclient\app\css\basic.scss" />
     <Content Include="fitu\clients\vendorwebclient\app\css\nav.scss" />
     <Content Include="fitu\clients\vendorwebclient\app\html\admins\admins.html" />
@@ -101,7 +102,7 @@
     <Content Include="fitu\clients\userwebclient\app\html\main.html" />
     <Content Include="fitu\clients\userwebclient\app\html\myself\myself.html" />
     <Content Include="fitu\clients\userwebclient\app\html\activities\actdetail.html" />
-    <Content Include="fitu\clients\userwebclient\app\html\gym\site.html" />
+    <Content Include="fitu\clients\userwebclient\app\html\gym\sitedetail.html" />
     <Content Include="fitu\clients\userwebclient\app\json\lang.json" />
     <Content Include="fitu\clients\adminwebclient\app.jade" />
     <Content Include="fitu\clients\vendorwebclient\app.jade" />
@@ -138,6 +139,7 @@
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\messages\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\availability\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\footprints\" />
+    <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\sitefans\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\userfans\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\wxticket\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\notes\" />
@@ -208,6 +210,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\activities\userpreview.js" />
+    <Compile Include="fitu\clients\userwebclient\app\js\controllers\gym\sitelocation.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\actlead.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\activities\actlocation.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\activities\signup.js" />
@@ -219,8 +222,8 @@
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\subscribedusers.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\updatepwd.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\updateemail.js" />
-    <Compile Include="fitu\clients\userwebclient\app\js\controllers\gym\siteidles.js" />
-    <Compile Include="fitu\clients\userwebclient\app\js\controllers\gym\vendor.js" />
+    <Compile Include="fitu\clients\userwebclient\app\js\controllers\gym\sites.js" />
+    <Compile Include="fitu\clients\userwebclient\app\js\controllers\gym\vendordetail.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\factories\ucdatamodel.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\factories\ucconst.js" />
     <Compile Include="fitu\clients\vendorwebclient\app\js\controllers\login\login.js" />
@@ -233,6 +236,8 @@
     <Compile Include="fitu\clients\webclientshared\app\js\directives\loading.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\directives\map.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\directives\messenger.js" />
+    <Compile Include="fitu\clients\webclientshared\app\js\factories\sitefan.js" />
+    <Compile Include="fitu\clients\webclientshared\app\js\filters\price.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\factories\crypto.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\factories\datamodel.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\factories\geo.js" />
@@ -296,6 +301,7 @@
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\usercontacts\index.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\usercontacts\usercontacts.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\usercredentials\index.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\sitefans\index.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\userfans\index.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\users\index.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\users\singleuser.js" />
@@ -366,7 +372,7 @@
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\main.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\profile.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\activities\actdetail.js" />
-    <Compile Include="fitu\clients\userwebclient\app\js\controllers\gym\site.js" />
+    <Compile Include="fitu\clients\userwebclient\app\js\controllers\gym\sitedetail.js" />
     <Compile Include="fitu\clients\vendorwebclient\app\html\sites\sites.html" />
     <Compile Include="fitu\clients\vendorwebclient\app\html\statistics\statistics.html" />
     <Compile Include="fitu\clients\vendorwebclient\app\js\controllers\admins\admins.js" />

@@ -95,7 +95,7 @@
         <div class="empty-xs"></div>
         <div class="col-xs-12 paddingLR0px">
             <div class="col-xs-12 paddingLR0px fontbold">
-                <span ng-bind="lang.ACTDETAIL_LABEL_LEAVEMSG"></span>
+                <span ng-bind="lang.ACTDETAIL_LABEL_SENDMSG"></span>
                 <i class="fa fa-comment-o"></i>
             </div>
             <div class="col-xs-12 paddingLR0px small" ng-init="replyToClick(null)" ng-show="replyToMsg">
@@ -107,9 +107,13 @@
                 <textarea class="form-control" ng-model="newMessage"></textarea>
             </div>
             <div class="col-xs-12 paddingLR0px marginT5px text-right">
-                <span ng-show="!user" ng-bind="lang.ACTDETAIL_MSG_LEAVEMSGAFTERLOGIN"></span>
-                <button class="btn btn-warning btn-xs" ng-show="user" ng-click="sendNewActMessage()" ng-bind="lang.ACTDETAIL_BTN_LEAVEMSG"></button>
-                <button class="btn btn-danger btn-xs" ng-show="user" ng-click="newMessage = ''" ng-bind="lang.ACTDETAIL_BTN_RESETMSG"></button>
+                <span ng-show="!user" ng-bind="lang.ACTDETAIL_MSG_SENDMSGAFTERLOGIN"></span>
+                <button class="btn btn-warning btn-xs" ng-show="user" ng-click="sendNewActMessage()" ng-disabled="sendingMsg">
+                    <i class="fa fa-spinner fa-spin" ng-show="sendingMsg"></i>
+                    <span ng-bind="lang.ACTDETAIL_BTN_SENDINGMSG" ng-show="sendingMsg"></span>
+                    <span ng-bind="lang.ACTDETAIL_BTN_SENDMSG" ng-show="!sendingMsg"></span>
+                </button>
+                <button class="btn btn-danger btn-xs" ng-show="user" ng-click="newMessage = ''" ng-bind="lang.ACTDETAIL_BTN_RESETMSG" ng-disabled="sendingMsg"></button>
             </div>
         </div>
     </div>

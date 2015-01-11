@@ -15,7 +15,12 @@
                         pageSize: options.pageSize
                     }
                 }).success(function (data) {
-                    data.list = data.list.map(function (st) { st.picUrl = utility.getStaticUrl(st.picUrl); return st; });
+                    data.list = data.list.map(function (st) {
+                        st.picUrl = utility.getStaticUrl(st.picUrl);
+                        if (st.vendor && st.vendor.logoUrl)
+                            st.vendor.logoUrl = utility.getStaticUrl(st.vendor.logoUrl);
+                        return st;
+                    });
                     defer.resolve(data);
                 }).error(function (data, status, headers, config) {
                     console.log(arguments);
@@ -32,6 +37,8 @@
                         params: { id: options.id }
                     }).success(function (data) {
                         data.picUrl = utility.getStaticUrl(data.picUrl);
+                        if (data.vendor && data.vendor.logoUrl)
+                            data.vendor.logoUrl = utility.getStaticUrl(data.vendor.logoUrl);
                         defer.resolve(data);
                     }).error(function (data, status, headers, config) {
                         console.log(arguments);
@@ -73,6 +80,37 @@
                 }).error(function (data, status, headers, config) {
                     console.log(arguments);
                     defer.reject('failed to update sites: ' + status);
+                });
+                return defer.promise;
+            },
+            createMessage: function (options) {
+                options = options || {};
+                var defer = new $q.defer();
+                $http({
+                    method: 'POST',
+                    url: url.generate('messages'),
+                    data: { words: options.message, replyToId: options.replyToId },
+                    params: { targetType: 'site', targetId: options.id }
+                }).success(function (data) {
+                    defer.resolve(data);
+                }).error(function (data, status, headers, config) {
+                    console.log(arguments);
+                    defer.reject('failed to create new site message: ' + status);
+                });
+                return defer.promise;
+            },
+            getMessages: function (options) {
+                options = options || {};
+                var defer = new $q.defer();
+                $http({
+                    method: 'GET',
+                    url: url.generate('messages'),
+                    params: { targetType: 'site', targetId: options.id, page: options.page, pageSize: options.pageSize }
+                }).success(function (data) {
+                    defer.resolve(data);
+                }).error(function (data, status, headers, config) {
+                    console.log(arguments);
+                    defer.reject('failed to get site messages: ' + status);
                 });
                 return defer.promise;
             }

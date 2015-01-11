@@ -1,10 +1,10 @@
 ﻿(function () {
     angular.module('fitu')
-    .controller('siteidles', ['$scope', '$location', '$state', 'pagination', 'siteidle', 'ucconst', function ($scope, $location, $state, pagination, siteidle, ucconst) {
+    .controller('sites', ['$scope', '$location', '$state', 'pagination', 'site', 'ucconst', function ($scope, $location, $state, pagination, site, ucconst) {
         var ctx = $location.search();
 
         var pageStore = new pagination.PageStore(function (page, pageSize) {
-            return siteidle.getList({ page: page, pageSize: pageSize, tag: ctx.tag, siteId: ctx.siteId, vendorId: ctx.vendorId });
+            return site.getList({ page: page, pageSize: pageSize, tag: ctx.tag, siteId: ctx.siteId, vendorId: ctx.vendorId });
         });
         
         var pageSize = 10;
@@ -34,13 +34,13 @@
         $scope.tag = ctx.tag;
         $scope.switchTag = function () {
             if ($scope.tag)
-                $state.gox(ucconst.states.siteidles, { tag: $scope.tag });
+                $state.gox(ucconst.states.sites, { tag: $scope.tag });
             else
-                $state.gox(ucconst.states.siteidles);
+                $state.gox(ucconst.states.sites);
         };
         
-        $scope.goSite = function (siteId) {
-            $state.gox(ucconst.states.site, { id: siteId });
+        $scope.goSiteDetail = function (st) {
+            $state.gox(ucconst.states.sitedetail, { siteId: st.id });
         };
     }]);
 })();
