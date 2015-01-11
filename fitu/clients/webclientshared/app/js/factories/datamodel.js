@@ -30,9 +30,24 @@
             this.val = data;
             return this;
         };
-
+        
+        var ModelArrayProp = function (arrayValidator, itemValidator) {
+            this.arrayValidator = arrayValidator;
+            this.itemValidator = itemValidator;
+            this.array = [];
+        };
+        ModelArrayProp.prototype.validate = function (optional) {
+            var me = this;
+            return me.arrayValidator(me.array, optional) && me.array.every(function (item) { return me.itemValidator(item, optional); });
+        };
+        ModelArrayProp.prototype.init = function (data) {
+            this.array = data || [];
+            return this;
+        };
+        
         return {
             ModelProp: ModelProp,
+            ModelArrayProp: ModelArrayProp,
             DataModel: DataModel
         };
     }]);

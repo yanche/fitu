@@ -6,9 +6,9 @@
             <div style="font-size:150%;padding:5px 10px;overflow:hidden;text-overflow:ellipsis;" ng-bind="site.name"></div>
             <div style="padding:5px 10px;overflow:hidden;text-overflow:ellipsis;">
                 <span ng-bind="lang.SITEDETAIL_LABEL_OPENTIME"></span>
-                <span ng-bind="site.open.startsOn | datetime : const.timeAFormat"></span>
+                <span ng-bind="site.open.startsOn | siteopen | datetime : const.timeAFormat"></span>
                 <span> ~ </span>
-                <span ng-bind="site.open.endsOn | datetime : const.timeAFormat"></span>
+                <span ng-bind="site.open.endsOn | siteopen | datetime : const.timeAFormat"></span>
             </div>
         </div>
     </div>

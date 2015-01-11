@@ -1,7 +1,11 @@
+feature:
+site related edit
+create site
+create activity
+subscribed notes
 
 
-
-frontend:
+optimization:
 pagination
 activity filter
 create activity

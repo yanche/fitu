@@ -41,6 +41,16 @@
                     return !isNaN(num) && num > 0 && Math.ceil(num) == num;
                 }
             },
+            positiveFloat: function (input, optional) {
+                if (optional && isNullOrEmpty(input))
+                    return true;
+                else if (isNullOrEmpty(input))
+                    return false;
+                else {
+                    var num = Number(input);
+                    return !isNaN(num) && num > 0;
+                }
+            },
             nonNegFloat: function (input, optional) {
                 if (optional && isNullOrEmpty(input))
                     return true;

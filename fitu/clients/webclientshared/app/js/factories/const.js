@@ -34,12 +34,14 @@
             wx: {
                 appId: 'wxcdcdc23de5d4f1f8'
             },
-            priceMeasure: {
-                m: '分',
-                h: '小时',
-                M: '月',
-                y: '年'
-            }
+            priceMeasure: [
+                { value: '分', key: 'm' },
+                { value: '小时', key: 'h' },
+                { value: '月', key: 'M' },
+                { value: '年', key: 'y' }
+            ],
+            hour24: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23],
+            minutesQuarter: [0,15,30,45]
         };
     }]);
 })();

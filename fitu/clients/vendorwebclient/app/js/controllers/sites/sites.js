@@ -50,12 +50,27 @@
             
             $scope.siteModel = new vcdatamodel.SiteModel();
             $scope.resetAddModel = function () {
-                if ($scope.vendor)
-                    $scope.siteModel.init({ name: '', intro: '', location: { address: $scope.vendor.location.address, geo: $scope.vendor.location.geo }, picUrl: $rootScope.const.resources.defaultSitePic, tags: $scope.vendor.tags });
-                else
-                    $scope.siteModel.init({ name: '', intro: '', location: { address: '', geo: '' }, picUrl: $rootScope.const.resources.defaultSitePic, tags: [] });
+                var init = {
+                    name: '', intro: '', location: { address: '', geo: '' }, picUrl: $rootScope.const.resources.defaultSitePic, tags: [],
+                    open: { startsOn: { hour: 10, min: 0 }, endsOn: { hour: 20, min: 0 } }, prices: [{ amount: 30, freq: { num: 1, measure: 'h' }, people: 1, comments: 'test' }]
+                };
+                if ($scope.vendor) {
+                    init.location.address = $scope.vendor.location.address;
+                    init.location.geo = $scope.vendor.location.geo;
+                    init.tags = $scope.vendor.tags;
+                }
+                $scope.siteModel.init(init);
             };
             $scope.resetAddModel();
+            
+            $scope.addPrice = function (model) {
+                model.pricesProp.array.push({ amount: 30, freq: { num: 1, measure: 'h' }, people: 1, comments: 'test' });
+            };
+            
+            $scope.removePrice = function (model, index) {
+                model.pricesProp.array.splice(index, 1);
+            };
+
             $scope.adding = false;
             $scope.addSite = function () {
                 //TODO: data check

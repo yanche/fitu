@@ -28,8 +28,8 @@ site
 	'address':,
 	'geo':,
 	},
-'prices': [{'amount', 'measure':, 'comments': }],
-'open': {'startsOn':, 'endsOn': },
+'prices': [{'amount', 'freq': {'num':, 'measure': }, 'comments': }],
+'open': {'startsOn': {hour:, min: }, 'endsOn': {hour:, min: } },
 'contact':,
 'intro':,
 'picUrl':

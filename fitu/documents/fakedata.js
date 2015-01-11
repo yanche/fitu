@@ -199,7 +199,7 @@ var site1 = {
         }
     },
     prices: [{ amount: 50, freq: { num: 2, measure: 'h' }, people: 1, comments: 'test comment1' },{ amount: 5000, freq: { num: 1, measure: 'y' }, people: 1, comments: 'test comment2' }],
-    open: { startsOn: new Date('2000/1/1 8:30:00'), endsOn: new Date('2000/1/1 20:00:00') },
+    open: { startsOn: { hour: 8, min: 0 }, endsOn: { hour: 20, min: 0 } },
     contact: '15201928369',
     intro: 'intro for site 1',
     picUrl: config.defaultSitePicUrl,
@@ -217,7 +217,7 @@ var site2 = {
         }
     },
     prices: [{ amount: 30, freq: { num: 1, measure: 'h' }, people: 1, comments: 'test comment3' },{ amount: 3000, freq: { num: 6, measure: 'M' }, people: 1, comments: 'test comment4' }],
-    open: { startsOn: new Date('2000/1/1 9:00:00'), endsOn: new Date('2000/1/1 17:00:00') },
+    open: { startsOn: { hour: 9, min: 30 }, endsOn: { hour: 17, min: 0 } },
     contact: '15201928369',
     intro: 'intro for site 2',
     picUrl: config.defaultSitePicUrl,
@@ -236,7 +236,7 @@ var site3 = {
     },
     intro: 'intro for site 3',
     prices: [{ amount: 60, freq: { num: 1, measure: 'h' }, people: 1, comments: 'test comment5' }],
-    open: { startsOn: new Date('2000/1/1 12:00:00'), endsOn: new Date('2000/1/1 23:00:00') },
+    open: { startsOn: { hour: 12, min: 0 }, endsOn: { hour: 23, min: 0 } },
     contact: '15201928369',
     picUrl: config.defaultSitePicUrl,
     createdOn: new Date(),
@@ -253,7 +253,7 @@ var site4 = {
         }
     },
     prices: [{ amount: 30, freq: { num: 2, measure: 'h' }, people: 1, comments: 'test comment6' },{ amount: 200, freq: { num: 2, measure: 'h' }, people: 10, comments: 'test comment7' }],
-    open: { startsOn: new Date('2000/1/1 7:00:00'), endsOn: new Date('2000/1/1 21:30:00') },
+    open: { startsOn: { hour: 10, min: 0 }, endsOn: { hour: 15, min: 45 } },
     contact: '15201928369',
     intro: 'intro for site 4',
     picUrl: config.defaultSitePicUrl,

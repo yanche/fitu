@@ -1,8 +1,8 @@
 ﻿(function () {
     angular.module('fituvd')
     .factory('vcdatamodel', ['datamodel', 'validate', function (datamodel, validate) {
-        var ModelProp = datamodel.ModelProp, DataModel = datamodel.DataModel;
-
+        var ModelProp = datamodel.ModelProp, ModelArrayProp = datamodel.ModelArrayProp, DataModel = datamodel.DataModel;
+        
         var VendorModel = function () {
             DataModel.call(this);
             
@@ -54,7 +54,12 @@
                 return validate.picBase64(input, optional) || validate.url(input, optional);
             });
             this.tagProp = new ModelProp(function () { return true; });
-            this.addProp(this.nameProp).addProp(this.introProp).addProp(this.addrProp).addProp(this.geoProp).addProp(this.picProp).addProp(this.tagProp);
+            this.openStartHourProp = new ModelProp(function () { return true; });
+            this.openStartMinProp = new ModelProp(function () { return true; });
+            this.openEndHourProp = new ModelProp(function () { return true; });
+            this.openEndMinProp = new ModelProp(function () { return true; });
+            this.pricesProp = new ModelArrayProp(function (arr) { return arr.length > 0; }, function (item, optional) { return validate.nonNegFloat(item.amount, optional) && validate.positiveFloat(item.freq.num, optional) && validate.positiveInteger(item.people, optional); });
+            this.addProp(this.nameProp).addProp(this.introProp).addProp(this.addrProp).addProp(this.geoProp).addProp(this.picProp).addProp(this.tagProp).addProp(this.openStartHourProp).addProp(this.openStartMinProp).addProp(this.openEndHourProp).addProp(this.openEndMinProp).addProp(this.pricesProp);
         };
         SiteModel.prototype = Object.create(DataModel.prototype);
         SiteModel.prototype.toPOJO = function () {
@@ -66,7 +71,9 @@
                     geo: this.geoProp.val
                 },
                 picUrl: this.picProp.val,
-                tags: [this.tagProp.val] //TODO
+                tags: [this.tagProp.val], //TODO
+                open: { startsOn: { hour: this.openStartHourProp.val, min: this.openStartMinProp.val }, endsOn: { hour: this.openEndHourProp.val, min: this.openEndMinProp.val } },
+                prices: this.pricesProp.array
             };
         };
         SiteModel.prototype.init = function (data) {
@@ -79,6 +86,11 @@
                 this.geoProp.init(data.location.geo);
                 this.picProp.init(data.picUrl);
                 this.tagProp.init(data.tags[0]);
+                this.openStartHourProp.init(data.open.startsOn.hour);
+                this.openStartMinProp.init(data.open.startsOn.min);
+                this.openEndHourProp.init(data.open.endsOn.hour);
+                this.openEndMinProp.init(data.open.endsOn.min);
+                this.pricesProp.init(data.prices);
             }
             return this;
         };

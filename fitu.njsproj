@@ -239,6 +239,7 @@
     <Compile Include="fitu\clients\webclientshared\app\js\directives\map.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\directives\messenger.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\factories\sitefan.js" />
+    <Compile Include="fitu\clients\webclientshared\app\js\filters\siteopen.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\filters\price.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\factories\crypto.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\factories\datamodel.js" />
@@ -323,6 +324,7 @@
     <Compile Include="fitu\node_modules\const\note.js" />
     <Compile Include="fitu\node_modules\const\message.js" />
     <Compile Include="fitu\node_modules\const\mime.js" />
+    <Compile Include="fitu\node_modules\const\site.js" />
     <Compile Include="fitu\node_modules\const\status.js" />
     <Compile Include="fitu\node_modules\const\tags.js" />
     <Compile Include="fitu\node_modules\dbaccess\member.js" />
@@ -401,6 +403,7 @@
     <Compile Include="fitu\clients\webclientshared\app\js\factories\validate.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\factories\vendor.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\filters\memberStatus.js" />
+    <Compile Include="fitu\node_modules\validate\site.js" />
     <Compile Include="fitu\node_modules\webpageservice\index.js" />
     <Compile Include="fitu\node_modules\validate\index.js" />
     <Compile Include="fitu\node_modules\logaccess\index.js" />
