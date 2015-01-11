@@ -45,6 +45,7 @@
     <Content Include="fitu\clients\userwebclient\app\html\myself\noteoutbox.html" />
     <Content Include="fitu\clients\userwebclient\app\html\myself\profile.html" />
     <Content Include="fitu\clients\userwebclient\app\html\myself\sendnote.html" />
+    <Content Include="fitu\clients\userwebclient\app\html\myself\subscribedsites.html" />
     <Content Include="fitu\clients\userwebclient\app\html\myself\subscribedusers.html" />
     <Content Include="fitu\clients\userwebclient\app\html\myself\updateemail.html" />
     <Content Include="fitu\clients\userwebclient\app\html\myself\updatepwd.html" />
@@ -219,6 +220,7 @@
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\noteoutbox.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\noteinbox.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\sendnote.js" />
+    <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\subscribedsites.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\subscribedusers.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\updatepwd.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\updateemail.js" />

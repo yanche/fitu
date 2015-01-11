@@ -97,6 +97,7 @@
                 case ucconst.states.noteinbox:
                 case ucconst.states.fans:
                 case ucconst.states.subscribedusers:
+                case ucconst.states.subscribedsites:
                     return 'myself';
                 case ucconst.states.sites:
                 case ucconst.states.sitedetail:
@@ -182,6 +183,11 @@
                     url: '/subscribedusers',
                     templateUrl: '/app/html/myself/subscribedusers.html',
                     controller: 'subscribedusers'
+                },{
+                    name: 'subscribedsites',
+                    url: '/subscribedsites',
+                    templateUrl: '/app/html/myself/subscribedsites.html',
+                    controller: 'subscribedsites'
                 }]
             },{
                 name: 'activities',

@@ -126,9 +126,9 @@
     "FANS_HEADER": "我的粉丝",
     "FANS_LABEL_NOFANS": "OH！你还没有粉丝呢 \\(╯-╰)/",
 
-    "SUBCRIBEDUSERS_HEADER": "我关注的用户",
-    "SUBCRIBEDUSERS_LABEL_NOUSERS": "你还没有关注用户呢~~",
-    "SUBCRIBEDUSERS_MSG_WHYFAN": "注：关注用户之后，一旦TA召集活动，会立即通知到你喔！",
+    "SUBCRIBEUSERS_HEADER": "我关注的用户",
+    "SUBCRIBEUSERS_LABEL_NOUSERS": "你还没有关注任何用户呢~~",
+    "SUBCRIBEUSERS_MSG_WHYFAN": "注：关注用户之后，一旦TA召集活动，会立即通知到你喔！",
 
     "SITEDETAIL_LABEL_OPENTIME": "开放时间",
     "SITEDETAIL_LABEL_ADDR": "地址",
@@ -152,5 +152,9 @@
     "SITEDETAIL_BTN_NOFAN": "不关注了",
     "SITEDETAIL_BTN_NOFANNING": "正在取消...",
     "SITEDETAIL_MSG_WHYFAN_LOGIN": "注：关注场馆之后，一旦有人在这儿召集活动，会立即通知到你喔！",
-    "SITEDETAIL_MSG_WHYFAN_NOLOGIN": "注：登录之后可以关注场馆，关注之后，一旦有人在这儿召集活动，会立即通知到你喔！"
+    "SITEDETAIL_MSG_WHYFAN_NOLOGIN": "注：登录之后可以关注场馆，关注之后，一旦有人在这儿召集活动，会立即通知到你喔！",
+
+    "SUBCRIBESITES_HEADER": "我关注的场馆",
+    "SUBCRIBESITES_LABEL_NOSITES": "你还没有关注任何场馆呢~~",
+    "SUBCRIBESITES_MSG_WHYFAN": "注：关注场馆之后，一旦有人在那儿召集活动，会立即通知到你喔！"
 }

@@ -10,6 +10,7 @@
                     method: 'GET',
                     url: url.generate(options.preview ? 'sitepreview' : 'sites'),
                     params: {
+                        subscribedSitesOf: options.subscribedSitesOf,
                         vendorId: options.vendorId,
                         page: options.page,
                         pageSize: options.pageSize
