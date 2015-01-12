@@ -43,11 +43,47 @@
             return this;
         };
         
+        var SitePriceModel = function () {
+            DataModel.call(this);
+            
+            this.amountProp = new ModelProp(validate.nonNegFloat);
+            this.freqNumProp = new ModelProp(validate.positiveFloat);
+            this.freqMeasureProp = new ModelProp(function () { return true; });
+            this.peopleProp = new ModelProp(validate.positiveInteger);
+            this.commentsProp = new ModelProp(function () { return true; });
+            this.addProp(this.amountProp).addProp(this.freqNumProp).addProp(this.freqMeasureProp).addProp(this.peopleProp).addProp(this.commentsProp);
+        };
+        SitePriceModel.prototype = Object.create(DataModel.prototype);
+        SitePriceModel.prototype.toPOJO = function () {
+            return {
+                amount: this.amountProp.val,
+                freq: {
+                    num: this.freqNumProp.val,
+                    measure: this.freqMeasureProp.val
+                },
+                people: this.peopleProp.val,
+                comments: this.commentsProp.val
+            };
+        };
+        SitePriceModel.prototype.init = function (data) {
+            if (!data)
+                DataModel.prototype.init.call();
+            else {
+                this.amountProp.init(data.amount);
+                this.freqNumProp.init(data.freq.num);
+                this.freqMeasureProp.init(data.freq.measure);
+                this.peopleProp.init(data.people);
+                this.commentsProp.init(data.comments);
+            }
+            return this;
+        };
+        
         var SiteModel = function () {
             DataModel.call(this);
             
             this.nameProp = new ModelProp(validate.valuedString);
             this.introProp = new ModelProp(validate.valuedString);
+            this.contactProp = new ModelProp(function () { return true; });
             this.addrProp = new ModelProp(validate.valuedString);
             this.geoProp = new ModelProp(function () { return true; });
             this.picProp = new ModelProp(function (input, optional) {
@@ -58,7 +94,11 @@
             this.openStartMinProp = new ModelProp(function () { return true; });
             this.openEndHourProp = new ModelProp(function () { return true; });
             this.openEndMinProp = new ModelProp(function () { return true; });
-            this.pricesProp = new ModelArrayProp(function (arr) { return arr.length > 0; }, function (item, optional) { return validate.nonNegFloat(item.amount, optional) && validate.positiveFloat(item.freq.num, optional) && validate.positiveInteger(item.people, optional); });
+            this.pricesProp = new ModelArrayProp(function (arr) {
+                return arr.length > 0;
+            }, function (item, optional) {
+                return item.validate(optional);
+            });
             this.addProp(this.nameProp).addProp(this.introProp).addProp(this.addrProp).addProp(this.geoProp).addProp(this.picProp).addProp(this.tagProp).addProp(this.openStartHourProp).addProp(this.openStartMinProp).addProp(this.openEndHourProp).addProp(this.openEndMinProp).addProp(this.pricesProp);
         };
         SiteModel.prototype = Object.create(DataModel.prototype);
@@ -66,6 +106,7 @@
             return {
                 name: this.nameProp.val,
                 intro: this.introProp.val,
+                contact: this.contactProp.val,
                 location: {
                     address: this.addrProp.val,
                     geo: this.geoProp.val
@@ -73,7 +114,7 @@
                 picUrl: this.picProp.val,
                 tags: [this.tagProp.val], //TODO
                 open: { startsOn: { hour: this.openStartHourProp.val, min: this.openStartMinProp.val }, endsOn: { hour: this.openEndHourProp.val, min: this.openEndMinProp.val } },
-                prices: this.pricesProp.array
+                prices: this.pricesProp.array.map(function (p) { return p.toPOJO(); })
             };
         };
         SiteModel.prototype.init = function (data) {
@@ -82,6 +123,7 @@
             else {
                 this.nameProp.init(data.name);
                 this.introProp.init(data.intro);
+                this.contactProp.init(data.contact);
                 this.addrProp.init(data.location.address);
                 this.geoProp.init(data.location.geo);
                 this.picProp.init(data.picUrl);
@@ -90,7 +132,7 @@
                 this.openStartMinProp.init(data.open.startsOn.min);
                 this.openEndHourProp.init(data.open.endsOn.hour);
                 this.openEndMinProp.init(data.open.endsOn.min);
-                this.pricesProp.init(data.prices);
+                this.pricesProp.array = data.prices.map(function (p) { return new SitePriceModel().init(p); });
             }
             return this;
         };
@@ -139,6 +181,7 @@
         return {
             VendorModel: VendorModel,
             SiteModel: SiteModel,
+            SitePriceModel: SitePriceModel,
             SiteIdleModel: SiteIdleModel
         };
     }]);

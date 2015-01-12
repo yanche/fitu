@@ -51,7 +51,7 @@
             $scope.siteModel = new vcdatamodel.SiteModel();
             $scope.resetAddModel = function () {
                 var init = {
-                    name: '', intro: '', location: { address: '', geo: '' }, picUrl: $rootScope.const.resources.defaultSitePic, tags: [],
+                    name: '', intro: '', contact: '', location: { address: '', geo: '' }, picUrl: $rootScope.const.resources.defaultSitePic, tags: [],
                     open: { startsOn: { hour: 10, min: 0 }, endsOn: { hour: 20, min: 0 } }, prices: [{ amount: 30, freq: { num: 1, measure: 'h' }, people: 1, comments: 'test' }]
                 };
                 if ($scope.vendor) {
@@ -64,11 +64,12 @@
             $scope.resetAddModel();
             
             $scope.addPrice = function (model) {
-                model.pricesProp.array.push({ amount: 30, freq: { num: 1, measure: 'h' }, people: 1, comments: 'test' });
+                model.pricesProp.array.push(new vcdatamodel.SitePriceModel().init({ amount: 30, freq: { num: 1, measure: 'h' }, people: 1, comments: 'test' }));
             };
             
             $scope.removePrice = function (model, index) {
-                model.pricesProp.array.splice(index, 1);
+                //no less than one price record
+                model.pricesProp.array.length > 1 && model.pricesProp.array.splice(index, 1);
             };
 
             $scope.adding = false;

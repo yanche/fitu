@@ -15,32 +15,116 @@
             <i style="position:absolute;right:0px;top:50%;margin-top:-10px;font-size:20px;" class="fa fa-paw clickable" ng-click="goSiteIdle(site, $event)"></i>
         </div>
         <div role="form" class="col-xs-12 nopadding" style="padding-top:15px;background-color:#F2F2F2" ng-show="site.editing">
-            <div class="form-group col-xs-6">
-                <div class="form-group">
-                    <label ng-bind="lang.SITE_LABEL_NAME"></label>
-                    <div ng-class="{'has-error': !site.model.nameProp.validate()}">
-                        <input type="text" class="form-control" ng-model="site.model.nameProp.val" />
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label ng-bind="lang.SITE_LABEL_INTRO"></label>
-                    <div ng-class="{'has-error': !site.model.introProp.validate()}">
-                        <input type="text" class="form-control" ng-model="site.model.introProp.val" />
-                    </div>
+            <div class="form-group  col-xs-6">
+                <label ng-bind="lang.SITE_LABEL_NAME"></label>
+                <div ng-class="{'has-error': !site.model.nameProp.validate()}">
+                    <input type="text" class="form-control" ng-model="site.model.nameProp.val" />
                 </div>
             </div>
             <div class="form-group col-xs-6">
-                <div class="form-group">
-                    <label ng-bind="lang.SITE_LABEL_ADDRESS"></label>
-                    <div ng-class="{'has-error': !site.model.addrProp.validate()}">
-                        <input type="text" class="form-control" ng-model="site.model.addrProp.val" />
+                <label ng-bind="'联系方式'"></label>
+                <div ng-class="{'has-error': !site.model.contactProp.validate(true)}">
+                    <input type="text" class="form-control" ng-model="site.model.contactProp.val" />
+                </div>
+            </div>
+            <div class="form-group  col-xs-12">
+                <label ng-bind="lang.SITE_LABEL_INTRO"></label>
+                <div ng-class="{'has-error': !site.model.introProp.validate()}">
+                    <textarea class="form-control" ng-model="site.model.introProp.val" style="max-width:100%;" />
+                </div>
+            </div>
+            <div class="form-group col-xs-12">
+                <label class="col-xs-12 paddingLR0px" ng-bind="'开放时间'"></label>
+                <div class="col-xs-12 paddingLR0px">
+                    <label class="col-xs-12 paddingLR0px" ng-bind="'开始'"></label>
+                    <div>
+                        <div class="col-xs-4 paddingLR0px">
+                            <select class="form-control" ng-options="h for h in const.hour24" ng-model="site.model.openStartHourProp.val"></select>
+                        </div>
+                        <div class="col-xs-2 paddingLR0px fontbold text-center" style="margin-top:7px;">时</div>
+                        <div class="col-xs-4 paddingLR0px">
+                            <select class="form-control" ng-options="m for m in const.minutesQuarter" ng-model="site.model.openStartMinProp.val"></select>
+                        </div>
+                        <div class="col-xs-2 paddingLR0px fontbold text-center" style="margin-top:7px;">分</div>
+                    </div>
+                    <label class="col-xs-12 paddingLR0px" ng-bind="'结束'"></label>
+                    <div>
+                        <div class="col-xs-4 paddingLR0px">
+                            <select class="form-control" ng-options="h for h in const.hour24" ng-model="site.model.openEndHourProp.val"></select>
+                        </div>
+                        <div class="col-xs-2 paddingLR0px fontbold text-center" style="margin-top:7px;">时</div>
+                        <div class="col-xs-4 paddingLR0px">
+                            <select class="form-control" ng-options="m for m in const.minutesQuarter" ng-model="site.model.openEndMinProp.val"></select>
+                        </div>
+                        <div class="col-xs-2 paddingLR0px fontbold text-center" style="margin-top:7px;">分</div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label ng-bind="lang.SITE_LABEL_TAGS"></label>
-                    <div>
-                        <select class="form-control" ng-options="tag.key as tag.value for tag in const.tags" ng-model="site.model.tagProp.val"></select>
-                    </div>
+            </div>
+            <div class="form-group col-xs-12">
+                <label>
+                    <span ng-bind="'收费模式'"></span>
+                    <i class="fa fa-plus clickable" ng-click="addPrice(site.model)"></i>
+                </label>
+                <table>
+                    <thead>
+                        <tr ng-show="site.model.pricesProp.array.length > 1">
+                            <th style="width:5%;"></th>
+                            <th style="width:19%;">价格（RMB）</th>
+                            <th style="width:19%;">时间</th>
+                            <th style="width:19%;">单位</th>
+                            <th style="width:19%;">人数</th>
+                            <th style="width:19%;">备注</th>
+                        </tr>
+                        <tr ng-show="site.model.pricesProp.array.length <= 1">
+                            <th style="width:20%;">价格（RMB）</th>
+                            <th style="width:20%;">时间</th>
+                            <th style="width:20%;">单位</th>
+                            <th style="width:20%;">人数</th>
+                            <th style="width:20%;">备注</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="price in site.model.pricesProp.array">
+                            <td ng-show="site.model.pricesProp.array.length > 1">
+                                <i class="fa fa-times clickable remove" ng-click="removePrice(site.model, $index)"></i>
+                            </td>
+                            <td>
+                                <div ng-class="{'has-error': !price.amountProp.validate()}">
+                                    <input type="text" class="form-control" ng-model="price.amountProp.val" />
+                                </div>
+                            </td>
+                            <td>
+                                <div ng-class="{'has-error': !price.freqNumProp.validate()}">
+                                    <input type="text" class="form-control" ng-model="price.freqNumProp.val" />
+                                </div>
+                            </td>
+                            <td>
+                                <select class="form-control" ng-options="price.key as price.value for price in const.priceMeasure" ng-model="price.freqMeasureProp.val"></select>
+                            </td>
+                            <td>
+                                <div ng-class="{'has-error': !price.peopleProp.validate()}">
+                                    <input type="text" class="form-control" ng-model="price.peopleProp.val" />
+                                </div>
+                            </td>
+                            <td>
+                                <div ng-class="{'has-error': !price.commentsProp.validate(true)}">
+                                    <input type="text" class="form-control" ng-model="price.commentsProp.val" />
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="form-group col-xs-6">
+                <label ng-bind="lang.SITE_LABEL_ADDRESS"></label>
+                <div ng-class="{'has-error': !site.model.addrProp.validate()}">
+                    <input type="text" class="form-control" ng-model="site.model.addrProp.val" />
+                </div>
+            </div>
+            <div class="form-group col-xs-6">
+                <label ng-bind="lang.SITE_LABEL_TAGS"></label>
+                <div>
+                    <select class="form-control" ng-options="tag.key as tag.value for tag in const.tags" ng-model="site.model.tagProp.val"></select>
                 </div>
             </div>
             <div class="form-group col-xs-6">
@@ -86,45 +170,58 @@
         <div class="form-group col-xs-12 paddingLR0px">
             <label class="col-xs-12 paddingLR0px" for="new_site_intro" ng-bind="lang.SITE_LABEL_INTRO"></label>
             <div ng-class="{'has-error': !siteModel.introProp.validate()}">
-                <textarea class="form-control" id="new_site_intro" ng-model="siteModel.introProp.val" />
+                <textarea class="form-control" id="new_site_intro" ng-model="siteModel.introProp.val" style="max-width:100%;" />
+            </div>
+        </div>
+        <div class="form-group col-xs-12 paddingLR0px">
+            <label class="col-xs-12 paddingLR0px" for="new_site_contact" ng-bind="'联系方式'"></label>
+            <div ng-class="{'has-error': !siteModel.contactProp.validate(true)}">
+                <input type="text" class="form-control" id="new_site_contact" ng-model="siteModel.contactProp.val" />
             </div>
         </div>
         <div class="form-group col-xs-12 paddingLR0px">
             <label class="col-xs-12 paddingLR0px" ng-bind="'开放时间'"></label>
-            <div class="form-group col-xs-12 paddingLR0px">
+            <div class="col-xs-12 paddingLR0px">
                 <label class="col-xs-12 paddingLR0px" ng-bind="'开始'"></label>
-                <div class="form-group col-xs-12 paddingLR0px">
-                    <div class="form-group col-xs-4 paddingLR0px">
+                <div class="col-xs-12 paddingLR0px">
+                    <div class="col-xs-4 paddingLR0px">
                         <select class="form-control" ng-options="h for h in const.hour24" ng-model="siteModel.openStartHourProp.val"></select>
                     </div>
-                    <div class="form-group col-xs-2 paddingLR0px fontbold text-center" style="margin-top:7px;">时</div>
-                    <div class="form-group col-xs-4 paddingLR0px">
+                    <div class="col-xs-2 paddingLR0px fontbold text-center" style="margin-top:7px;">时</div>
+                    <div class="col-xs-4 paddingLR0px">
                         <select class="form-control" ng-options="m for m in const.minutesQuarter" ng-model="siteModel.openStartMinProp.val"></select>
                     </div>
-                    <div class="form-group col-xs-2 paddingLR0px fontbold text-center" style="margin-top:7px;">分</div>
+                    <div class="col-xs-2 paddingLR0px fontbold text-center" style="margin-top:7px;">分</div>
                 </div>
                 <label class="col-xs-12 paddingLR0px" ng-bind="'结束'"></label>
-                <div class="form-group col-xs-12 paddingLR0px">
-                    <div class="form-group col-xs-4 paddingLR0px">
+                <div class="col-xs-12 paddingLR0px">
+                    <div class="col-xs-4 paddingLR0px">
                         <select class="form-control" ng-options="h for h in const.hour24" ng-model="siteModel.openEndHourProp.val"></select>
                     </div>
-                    <div class="form-group col-xs-2 paddingLR0px fontbold text-center" style="margin-top:7px;">时</div>
-                    <div class="form-group col-xs-4 paddingLR0px">
+                    <div class="col-xs-2 paddingLR0px fontbold text-center" style="margin-top:7px;">时</div>
+                    <div class="col-xs-4 paddingLR0px">
                         <select class="form-control" ng-options="m for m in const.minutesQuarter" ng-model="siteModel.openEndMinProp.val"></select>
                     </div>
-                    <div class="form-group col-xs-2 paddingLR0px fontbold text-center" style="margin-top:7px;">分</div>
+                    <div class="col-xs-2 paddingLR0px fontbold text-center" style="margin-top:7px;">分</div>
                 </div>
             </div>
         </div>
         <div class="form-group col-xs-12 paddingLR0px">
             <label class="col-xs-12 paddingLR0px">
                 <span ng-bind="'收费模式'"></span>
-                <i class="fa fa-plus" ng-click="addPrice(siteModel)"></i>
+                <i class="fa fa-plus clickable" ng-click="addPrice(siteModel)"></i>
             </label>
             <table>
                 <thead>
-                    <tr>
-                        <th></th>
+                    <tr ng-show="siteModel.pricesProp.array.length > 1">
+                        <th style="width:5%;"></th>
+                        <th style="width:19%;">价格（RMB）</th>
+                        <th style="width:19%;">时间</th>
+                        <th style="width:19%;">单位</th>
+                        <th style="width:19%;">人数</th>
+                        <th style="width:19%;">备注</th>
+                    </tr>
+                    <tr ng-show="siteModel.pricesProp.array.length <= 1">
                         <th style="width:20%;">价格（RMB）</th>
                         <th style="width:20%;">时间</th>
                         <th style="width:20%;">单位</th>
@@ -134,23 +231,31 @@
                 </thead>
                 <tbody>
                     <tr ng-repeat="price in siteModel.pricesProp.array">
-                        <td>
-                            <i class="fa fa-times" ng-click="removePrice(siteModel, $index)"></i>
+                        <td ng-show="siteModel.pricesProp.array.length > 1">
+                            <i class="fa fa-times clickable remove" ng-click="removePrice(siteModel, $index)"></i>
                         </td>
                         <td>
-                            <input type="text" class="form-control" ng-model="price.amount" />
+                            <div ng-class="{'has-error': !price.amountProp.validate()}">
+                                <input type="text" class="form-control" ng-model="price.amountProp.val" />
+                            </div>
                         </td>
                         <td>
-                            <input type="text" class="form-control" ng-model="price.freq.num" />
+                            <div ng-class="{'has-error': !price.freqNumProp.validate()}">
+                                <input type="text" class="form-control" ng-model="price.freqNumProp.val" />
+                            </div>
                         </td>
                         <td>
-                            <select class="form-control" ng-options="price.key as price.value for price in const.priceMeasure" ng-model="price.freq.measure"></select>
+                            <select class="form-control" ng-options="price.key as price.value for price in const.priceMeasure" ng-model="price.freqMeasureProp.val"></select>
                         </td>
                         <td>
-                            <input type="text" class="form-control" ng-model="price.people" />
+                            <div ng-class="{'has-error': !price.peopleProp.validate()}">
+                                <input type="text" class="form-control" ng-model="price.peopleProp.val" />
+                            </div>
                         </td>
                         <td>
-                            <input type="text" class="form-control" ng-model="price.comments" />
+                            <div ng-class="{'has-error': !price.commentsProp.validate(true)}">
+                                <input type="text" class="form-control" ng-model="price.commentsProp.val" />
+                            </div>
                         </td>
                     </tr>
                 </tbody>
