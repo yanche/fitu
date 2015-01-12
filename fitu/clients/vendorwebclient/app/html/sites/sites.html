@@ -7,12 +7,11 @@
         <div class="col-xs-3 datacell" ng-bind="lang.SITE_LABEL_TAGS"></div>
     </div>
     <div ng-repeat="site in visibles" class="col-xs-12 nopadding borderbottom">
-        <div class="col-xs-12 nopadding selectable" ng-class="{selected: site.editing}" style="position:relative;" ng-click="site.editing = !site.editing">
+        <div class="col-xs-12 nopadding selectable" ng-class="{selected: site.editing}" ng-click="site.editing = !site.editing">
             <div class="col-xs-3 datacell" ng-bind="site.name"></div>
             <div class="col-xs-3 datacell" ng-bind="site.intro"></div>
             <div class="col-xs-3 datacell" ng-bind="site.location.address"></div>
             <div class="col-xs-3 datacell" ng-bind="site.tags[0] | tag"></div>
-            <i style="position:absolute;right:0px;top:50%;margin-top:-10px;font-size:20px;" class="fa fa-paw clickable" ng-click="goSiteIdle(site, $event)"></i>
         </div>
         <div role="form" class="col-xs-12 nopadding" style="padding-top:15px;background-color:#F2F2F2" ng-show="site.editing">
             <div class="form-group  col-xs-6">

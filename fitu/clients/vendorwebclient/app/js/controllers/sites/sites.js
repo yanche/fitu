@@ -42,12 +42,6 @@
                 return pageStore.getTotal();
             };
             
-            $scope.goSiteIdle = function (site, evt) {
-                ctx.siteId = site.id;
-                $state.gox($rootScope.vcconst.states.siteidles, ctx);
-                evt.stopPropagation();
-            };
-            
             $scope.siteModel = new vcdatamodel.SiteModel();
             $scope.resetAddModel = function () {
                 var init = {
