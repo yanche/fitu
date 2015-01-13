@@ -41,6 +41,7 @@
     <Content Include="fitu\clients\userwebclient\app\html\gym\gym.html" />
     <Content Include="fitu\clients\userwebclient\app\html\myself\actlead.html" />
     <Content Include="fitu\clients\userwebclient\app\html\myself\fans.html" />
+    <Content Include="fitu\clients\userwebclient\app\html\myself\matrix.html" />
     <Content Include="fitu\clients\userwebclient\app\html\myself\noteinbox.html" />
     <Content Include="fitu\clients\userwebclient\app\html\myself\noteoutbox.html" />
     <Content Include="fitu\clients\userwebclient\app\html\myself\profile.html" />
@@ -216,6 +217,7 @@
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\activities\actlocation.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\activities\signup.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\fans.js" />
+    <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\matrix.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\myself.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\noteoutbox.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\noteinbox.js" />

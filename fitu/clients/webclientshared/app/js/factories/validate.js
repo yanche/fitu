@@ -73,6 +73,15 @@
             },
             nickName: function (input, optional) {
                 return (isString(input) && input.length >= 1 && input[0] != ' ' && input[input.length - 1] != ' ') || (optional && isNullOrEmpty(input));
+            },
+            alwaysTrue: function () {
+                return true;
+            },
+            alwaysFalse: function () {
+                return false;
+            },
+            datetime: function (input, optional) {
+                return (input && !isNaN(new Date(input).getTime())) || (optional && isNullOrEmpty(input));
             }
         };
     }]);

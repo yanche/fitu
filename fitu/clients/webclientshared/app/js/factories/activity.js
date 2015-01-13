@@ -48,17 +48,18 @@
                 });
                 return defer.promise;
             },
-            create: function (siteId, siteIdleId, act) {
-                if (act.picUrl)
-                    act.logoUrl = picUrl.getRelativeUrl(act.picUrl);
+            create: function (options) {
+                options = options || {};
+                if (options.data && options.data.picUrl)
+                    options.data.picUrl = utility.getRelativeUrl(options.data.picUrl);
                 var defer = new $q.defer();
                 $http({
                     method: 'POST',
                     url: url.generate('activities'),
-                    data: act,
-                    params: { siteId: siteId, siteIdleId: siteIdleId }
-                }).success(function (data) {
-                    defer.resolve(data);
+                    data: options.data,
+                    params: { siteId: options.siteId }
+                }).success(function (data, status, headers, config) {
+                    defer.resolve({ id: data ? data.id : null });
                 }).error(function (data, status, headers, config) {
                     console.log(arguments);
                     defer.reject('failed to create new act: ' + status);

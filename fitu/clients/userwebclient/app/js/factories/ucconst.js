@@ -25,6 +25,7 @@
                 noteoutbox: 'fitu.myself.noteoutbox',
                 fans: 'fitu.myself.fans',
                 subscribedusers: 'fitu.myself.subscribedusers',
+                matrix: 'fitu.myself.matrix',
                 sites: 'fitu.gym.sites',
                 sitedetail: 'fitu.gym.sitedetail',
                 sitelocation: 'fitu.gym.sitelocation',

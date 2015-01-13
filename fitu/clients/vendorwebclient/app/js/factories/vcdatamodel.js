@@ -9,11 +9,11 @@
             this.nameProp = new ModelProp(validate.valuedString);
             this.introProp = new ModelProp(validate.valuedString);
             this.addrProp = new ModelProp(validate.valuedString);
-            this.geoProp = new ModelProp(function () { return true; });
+            this.geoProp = new ModelProp(validate.alwaysTrue);
             this.logoProp = new ModelProp(function (input, optional) {
                 return validate.picBase64(input, optional) || validate.url(input, optional);
             });
-            this.tagProp = new ModelProp(function () { return true; });
+            this.tagProp = new ModelProp(validate.alwaysTrue);
             this.addProp(this.nameProp).addProp(this.introProp).addProp(this.addrProp).addProp(this.geoProp).addProp(this.logoProp).addProp(this.tagProp);
         };
         VendorModel.prototype = Object.create(DataModel.prototype);
@@ -48,9 +48,9 @@
             
             this.amountProp = new ModelProp(validate.nonNegFloat);
             this.freqNumProp = new ModelProp(validate.positiveFloat);
-            this.freqMeasureProp = new ModelProp(function () { return true; });
+            this.freqMeasureProp = new ModelProp(validate.alwaysTrue);
             this.peopleProp = new ModelProp(validate.positiveInteger);
-            this.commentsProp = new ModelProp(function () { return true; });
+            this.commentsProp = new ModelProp(validate.alwaysTrue);
             this.addProp(this.amountProp).addProp(this.freqNumProp).addProp(this.freqMeasureProp).addProp(this.peopleProp).addProp(this.commentsProp);
         };
         SitePriceModel.prototype = Object.create(DataModel.prototype);
@@ -83,17 +83,17 @@
             
             this.nameProp = new ModelProp(validate.valuedString);
             this.introProp = new ModelProp(validate.valuedString);
-            this.contactProp = new ModelProp(function () { return true; });
+            this.contactProp = new ModelProp(validate.alwaysTrue);
             this.addrProp = new ModelProp(validate.valuedString);
-            this.geoProp = new ModelProp(function () { return true; });
+            this.geoProp = new ModelProp(validate.alwaysTrue);
             this.picProp = new ModelProp(function (input, optional) {
                 return validate.picBase64(input, optional) || validate.url(input, optional);
             });
-            this.tagProp = new ModelProp(function () { return true; });
-            this.openStartHourProp = new ModelProp(function () { return true; });
-            this.openStartMinProp = new ModelProp(function () { return true; });
-            this.openEndHourProp = new ModelProp(function () { return true; });
-            this.openEndMinProp = new ModelProp(function () { return true; });
+            this.tagProp = new ModelProp(validate.alwaysTrue);
+            this.openStartHourProp = new ModelProp(validate.alwaysTrue);
+            this.openStartMinProp = new ModelProp(validate.alwaysTrue);
+            this.openEndHourProp = new ModelProp(validate.alwaysTrue);
+            this.openEndMinProp = new ModelProp(validate.alwaysTrue);
             this.pricesProp = new ModelArrayProp(function (arr) {
                 return arr.length > 0;
             }, function (item, optional) {
@@ -152,7 +152,7 @@
                 if (isNaN(startsOn.getTime())) startsOn = new Date();
                 return (!isNaN(date.getTime()) && date.getTime() > startsOn.getTime()) || (optional && validate.nullOrEmpty(input));
             });
-            me.tagProp = new ModelProp(function () { return true; });
+            me.tagProp = new ModelProp(validate.alwaysTrue);
             me.addProp(me.slotsProp).addProp(me.priceProp).addProp(me.startsOnProp).addProp(me.endsOnProp).addProp(me.tagProp);
         };
         SiteIdleModel.prototype = Object.create(DataModel.prototype);

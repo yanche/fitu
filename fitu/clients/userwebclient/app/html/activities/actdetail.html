@@ -24,6 +24,16 @@
             <i class="fa fa-info"></i>
             <span ng-bind="activity.intro"></span>
         </div>
+        <div class="col-xs-12 paddingLR0px fontbold" ng-bind="lang.ACTDETAIL_LABEL_PRICE"></div>
+        <div class="col-xs-12 paddingLR0px">
+            <i class="fa fa-rmb"></i>
+            <span ng-bind="activity.price"></span>
+        </div>
+        <div class="col-xs-12 paddingLR0px fontbold" ng-bind="lang.ACTDETAIL_LABEL_CAPACITY"></div>
+        <div class="col-xs-12 paddingLR0px">
+            <i class="fa fa-users"></i>
+            <span ng-bind="activity.capacity"></span>
+        </div>
         <div class="col-xs-12 paddingLR0px fontbold" ng-bind="lang.ACTDETAIL_LABEL_CREATOR"></div>
         <div class="col-xs-12 paddingLR0px small" ng-click="goUserPreview(activity.creator)">
             <div class="col-xs-2 paddingLR0px">
@@ -58,7 +68,7 @@
             <span ng-bind="activity.memberCount"></span>
             <span ng-bind="lang.ACTDETAIL_LABEL_MEMBER_2"></span>
         </div>
-        <div class="col-xs-12 paddingLR0px" style="background-color: white;">
+        <div class="col-xs-12 paddingLR0px" ng-show="members.length > 0" style="background-color: white;">
             <img ng-repeat="m in members" ng-src="{{m.user.headUrl}}" class="col-xs-2 padding5px" ng-click="goUserPreview(m.user)" />
         </div>
         <div class="empty-xs"></div>

@@ -1,0 +1,76 @@
+﻿<div class="col-xs-12">
+    <h4 class="col-xs-12 paddingLR0px fontbold" ng-bind="lang.MATRIX_HEADER"></h4>
+    <loading class="col-xs-12 paddingLR0px" show="loading" word="lang.GLOBAL_MSG_LOADING"></loading>
+    <div class="col-xs-12 paddingLR0px" ng-show="!loading && site">
+        <div class="form-group">
+            <label class="control-label" ng-bind="lang.MATRIX_LABEL_SITE"></label>
+            <div class="fontbold" ng-bind="site.name"></div>
+            <div class="small" ng-bind="site.location.address"></div>
+        </div>
+        <div class="form-group">
+            <label for="matrix_name" class="control-label" ng-bind="lang.MATRIX_LABEL_NAME"></label>
+            <div ng-class="{'has-error': !matrixModel.nameProp.validate()}">
+                <input id="matrix_name" type="text" class="form-control" ng-model="matrixModel.nameProp.val" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="matrix_intro" class="control-label" ng-bind="lang.MATRIX_LABEL_INTRO"></label>
+            <div ng-class="{'has-error': !matrixModel.introProp.validate()}">
+                <textarea id="matrix_intro" class="form-control" style="max-width: 100%;" ng-model="matrixModel.introProp.val" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="matrix_startsOn" class="control-label" ng-bind="lang.MATRIX_LABEL_STARTSON"></label>
+            <div class="small">
+                <span ng-bind="lang.MATRIX_LABEL_SITEOPEN"></span>
+                <span ng-bind="site.open.startsOn | siteopen | datetime: const.timeAFormat"></span>
+            </div>
+            <div ng-class="{'has-error': !matrixModel.startsOnProp.validate()}">
+                <input id="matrix_startsOn" type="text" class="form-control" datetime-picker ng-model="matrixModel.startsOnProp.val" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="matrix_endsOn" class="control-label" ng-bind="lang.MATRIX_LABEL_ENDSON"></label>
+            <div class="small">
+                <span ng-bind="lang.MATRIX_LABEL_SITECLOSE"></span>
+                <span ng-bind="site.open.endsOn | siteopen | datetime: const.timeAFormat"></span>
+            </div>
+            <div ng-class="{'has-error': !matrixModel.endsOnProp.validate()}">
+                <input id="matrix_endsOn" type="text" class="form-control" datetime-picker ng-model="matrixModel.endsOnProp.val" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="matrix_capacity" class="control-label" ng-bind="lang.MATRIX_LABEL_CAPACITY"></label>
+            <div ng-class="{'has-error': !matrixModel.capacityProp.validate()}">
+                <input id="matrix_capacity" type="text" class="form-control" ng-model="matrixModel.capacityProp.val" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="matrix_price" class="control-label" ng-bind="lang.MATRIX_LABEL_PRICE"></label>
+            <div class="small">
+                <div ng-bind="lang.MATRIX_LABEL_SITEPRICES"></div>
+                <div ng-repeat="price in site.prices" ng-bind="price | price"></div>
+            </div>
+            <div ng-class="{'has-error': !matrixModel.priceProp.validate()}">
+                <input id="matrix_price" type="text" class="form-control" ng-model="matrixModel.priceProp.val" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="matrix_pic" class="control-label" ng-bind="lang.MATRIX_LABEL_ATTACHPIC"></label>
+            <div>
+                <image-input image-bind="matrixModel.picUrlProp.val" image-height="300" image-width="400"></image-input>
+            </div>
+            <div style="margin-top:5px;">
+                <img id="matrix_pic" ng-src="{{matrixModel.picUrlProp.val}}" style="width:100%;" />
+            </div>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-success" ng-click="submit()" ng-disabled="!matrixModel.validate() || adding">
+                <i class="fa fa-spinner fa-spin" ng-show="adding"></i>
+                <span ng-bind="lang.MATRIX_BTN_SUBMITING" ng-show="adding"></span>
+                <span ng-bind="lang.MATRIX_BTN_SUBMIT" ng-show="!adding"></span>
+            </button>
+            <button class="btn btn-warning" ng-click="reset()" ng-bind="lang.MATRIX_BTN_RESET"></button>
+        </div>
+    </div>
+</div>

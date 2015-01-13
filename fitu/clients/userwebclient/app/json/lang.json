@@ -100,6 +100,8 @@
     "ACTDETAIL_LABEL_TIME": "活动时间：",
     "ACTDETAIL_LABEL_ADDR": "地址",
     "ACTDETAIL_LABEL_INTRO": "介绍",
+    "ACTDETAIL_LABEL_PRICE": "价格（每人）",
+    "ACTDETAIL_LABEL_CAPACITY": "人数",
     "ACTDETAIL_LABEL_CREATOR": "带头大哥",
     "ACTDETAIL_BTN_GOSIGNUP": "前去报名",
     "ACTDETAIL_LABEL_MEMBER_1": "已报名（",
@@ -153,8 +155,25 @@
     "SITEDETAIL_BTN_NOFANNING": "正在取消...",
     "SITEDETAIL_MSG_WHYFAN_LOGIN": "注：关注场馆之后，一旦有人在这儿召集活动，会立即通知到你喔！",
     "SITEDETAIL_MSG_WHYFAN_NOLOGIN": "注：登录之后可以关注场馆，关注之后，一旦有人在这儿召集活动，会立即通知到你喔！",
+    "SITEDETAIL_LABEL_MATRIX": "在此召集活动！",
 
     "SUBCRIBESITES_HEADER": "我关注的场馆",
     "SUBCRIBESITES_LABEL_NOSITES": "你还没有关注任何场馆呢~~",
-    "SUBCRIBESITES_MSG_WHYFAN": "注：关注场馆之后，一旦有人在那儿召集活动，会立即通知到你喔！"
+    "SUBCRIBESITES_MSG_WHYFAN": "注：关注场馆之后，一旦有人在那儿召集活动，会立即通知到你喔！",
+    
+    "MATRIX_HEADER": "发起活动",
+    "MATRIX_LABEL_SITE": "场馆",
+    "MATRIX_LABEL_NAME": "名称",
+    "MATRIX_LABEL_INTRO": "简介",
+    "MATRIX_LABEL_STARTSON": "开始时间",
+    "MATRIX_LABEL_ENDSON": "结束时间",
+    "MATRIX_LABEL_SITEOPEN": "场馆开放时间：",
+    "MATRIX_LABEL_SITECLOSE": "场馆打烊时间：",
+    "MATRIX_LABEL_CAPACITY": "人数",
+    "MATRIX_LABEL_PRICE": "价格（￥每人）",
+    "MATRIX_LABEL_SITEPRICES": "场馆收费参考",
+    "MATRIX_LABEL_ATTACHPIC": "来张照片吧",
+    "MATRIX_BTN_SUBMITING": "正在提交...",
+    "MATRIX_BTN_SUBMIT": "提交",
+    "MATRIX_BTN_RESET": "重置"
 }

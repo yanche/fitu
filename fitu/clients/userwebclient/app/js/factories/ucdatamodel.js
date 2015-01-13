@@ -2,7 +2,7 @@
     angular.module('fitu')
     .factory('ucdatamodel', ['datamodel', 'validate', 'crypto', function (datamodel, validate, crypto) {
         var ModelProp = datamodel.ModelProp, DataModel = datamodel.DataModel;
-
+        
         var LoginModel = function () {
             DataModel.call(this);
             
@@ -170,7 +170,7 @@
             
             me.subjectProp = new ModelProp(validate.valuedString);
             me.contentProp = new ModelProp(validate.valuedString);
-            me.emphasisProp = new ModelProp(function () { return true; });
+            me.emphasisProp = new ModelProp(validate.alwaysTrue);
             me.addProp(me.subjectProp).addProp(me.contentProp).addProp(me.emphasisProp);
         };
         SendNoteModel.prototype = Object.create(DataModel.prototype);
@@ -192,13 +192,62 @@
             return this;
         };
         
+        var MatrixModel = function () {
+            var me = this;
+            DataModel.call(me);
+            
+            me.nameProp = new ModelProp(validate.valuedString);
+            me.introProp = new ModelProp(validate.valuedString);
+            me.startsOnProp = new ModelProp(function (input, optional) {
+                return (optional && validate.nullOrEmpty(input)) || (validate.datetime(input, optional) && (new Date(input).getTime() > new Date().getTime()));
+            });
+            me.endsOnProp = new ModelProp(function (input, optional) {
+                return (optional && validate.nullOrEmpty(input)) ||
+            (validate.datetime(input, optional) && (new Date(input).getTime() > new Date(me.startsOnProp.val || '').getTime()));
+            });
+            me.capacityProp = new ModelProp(validate.positiveInteger);
+            me.priceProp = new ModelProp(validate.nonNegFloat);
+            me.picUrlProp = new ModelProp(validate.alwaysTrue);
+            me.tagProp = new ModelProp(validate.alwaysTrue);
+            me.addProp(me.nameProp).addProp(me.introProp).addProp(me.startsOnProp).addProp(me.endsOnProp).addProp(me.capacityProp).addProp(me.priceProp).addProp(me.picUrlProp).addProp(me.tagProp);
+        };
+        MatrixModel.prototype = Object.create(DataModel.prototype);
+        MatrixModel.prototype.toPOJO = function () {
+            return {
+                name: this.nameProp.val,
+                intro: this.introProp.val,
+                startsOn: this.startsOnProp.val,
+                endsOn: this.endsOnProp.val,
+                capacity: this.capacityProp.val,
+                price: this.priceProp.val,
+                picUrl: this.picUrlProp.val,
+                tags: [this.tagProp.val]
+            };
+        };
+        MatrixModel.prototype.init = function (data) {
+            if (!data)
+                DataModel.prototype.init.call();
+            else {
+                this.nameProp.init(data.name);
+                this.introProp.init(data.intro);
+                this.startsOnProp.init(data.startsOn);
+                this.endsOnProp.init(data.endsOn);
+                this.capacityProp.init(data.capacity);
+                this.priceProp.init(data.price);
+                this.picUrlProp.init(data.picUrl);
+                this.tagProp.init(data.tags[0]);
+            }
+            return this;
+        };
+        
         return {
             LoginModel: LoginModel,
             RegisterModel: RegisterModel,
             UserProfileModel: UserProfileModel,
             UpdateLoginEmailModel: UpdateLoginEmailModel,
             UpdateLoginPWDModel: UpdateLoginPWDModel,
-            SendNoteModel: SendNoteModel
+            SendNoteModel: SendNoteModel,
+            MatrixModel: MatrixModel
         };
     }]);
 })();

@@ -98,6 +98,7 @@
                 case ucconst.states.fans:
                 case ucconst.states.subscribedusers:
                 case ucconst.states.subscribedsites:
+                case ucconst.states.matrix:
                     return 'myself';
                 case ucconst.states.sites:
                 case ucconst.states.sitedetail:
@@ -188,6 +189,11 @@
                     url: '/subscribedsites',
                     templateUrl: '/app/html/myself/subscribedsites.html',
                     controller: 'subscribedsites'
+                },{
+                    name: 'matrix',
+                    url: '/matrix?siteId',
+                    templateUrl: '/app/html/myself/matrix.html',
+                    controller: 'matrix'
                 }]
             },{
                 name: 'activities',
