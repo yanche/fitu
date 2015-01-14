@@ -191,7 +191,7 @@
                     controller: 'subscribedsites'
                 },{
                     name: 'matrix',
-                    url: '/matrix?siteId',
+                    url: '/matrix?siteId&actId',
                     templateUrl: '/app/html/myself/matrix.html',
                     controller: 'matrix'
                 }]

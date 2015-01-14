@@ -66,6 +66,24 @@
                 });
                 return defer.promise;
             },
+            update: function (options) {
+                options = options || {};
+                if (options.data && options.data.picUrl)
+                    options.data.picUrl = utility.getRelativeUrl(options.data.picUrl);
+                var defer = new $q.defer();
+                $http({
+                    method: 'PUT',
+                    url: url.generate('activities'),
+                    data: options.data,
+                    params: { id: options.id }
+                }).success(function (data, status, headers, config) {
+                    defer.resolve();
+                }).error(function (data, status, headers, config) {
+                    console.log(arguments);
+                    defer.reject('failed to update new act: ' + status);
+                });
+                return defer.promise;
+            },
             createMessage: function (options) {
                 options = options || {};
                 var defer = new $q.defer();

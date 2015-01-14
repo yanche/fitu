@@ -3,13 +3,14 @@
         <span ng-bind="activity.name"></span>
         <span>, </span>
         <span ng-bind="activity.startsOn | date"></span>
+        <i class="fa fa-edit clickable" ng-click="editAct()"></i>
     </h4>
-    <div class="paddingLR0px col-xs-12" ng-click="goSendNote()">
+    <div class="paddingLR0px col-xs-12" ng-click="goSendNote()" ng-show="getPageNavs().total > 0">
         <i class="fa fa-envelope-o"></i>
         <span ng-bind="lang.SENDNOTE_LABEL_SENDNOTEALL"></span>
     </div>
     <div class="paddingLR0px paddingTB5px col-xs-12 splitter" ng-repeat="mem in visibles">
-        <div class="col-xs-3 paddingLR0px">
+        <div class="col-xs-3 paddingLR0px" ng-click="goUserPreview(mem.user)">
             <img style="width:100%;" ng-src="{{mem.user.headUrl}}" />
         </div>
         <div class="col-xs-9" style="padding:0px 0px 0px 10px">

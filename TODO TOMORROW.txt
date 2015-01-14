@@ -1,7 +1,5 @@
 feature:
-site related edit
-create site
-create activity
+activity edit
 subscribed notes
 
 

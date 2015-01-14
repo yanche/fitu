@@ -1,5 +1,6 @@
 ﻿<div class="col-xs-12">
-    <h4 class="col-xs-12 paddingLR0px fontbold" ng-bind="lang.MATRIX_HEADER"></h4>
+    <h4 class="col-xs-12 paddingLR0px fontbold" ng-show="!loading && !activity" ng-bind="lang.MATRIX_HEADER"></h4>
+    <h4 class="col-xs-12 paddingLR0px fontbold" ng-show="!loading && activity" ng-bind="lang.MATRIX_HEADER_UPDATE"></h4>
     <loading class="col-xs-12 paddingLR0px" show="loading" word="lang.GLOBAL_MSG_LOADING"></loading>
     <div class="col-xs-12 paddingLR0px" ng-show="!loading && site">
         <div class="form-group">
@@ -65,10 +66,15 @@
             </div>
         </div>
         <div class="form-group">
-            <button class="btn btn-success" ng-click="submit()" ng-disabled="!matrixModel.validate() || adding">
+            <button class="btn btn-success" ng-click="submit()" ng-disabled="!matrixModel.validate() || adding" ng-show="!activity">
                 <i class="fa fa-spinner fa-spin" ng-show="adding"></i>
-                <span ng-bind="lang.MATRIX_BTN_SUBMITING" ng-show="adding"></span>
-                <span ng-bind="lang.MATRIX_BTN_SUBMIT" ng-show="!adding"></span>
+                <span ng-bind="lang.MATRIX_BTN_ADDING" ng-show="adding"></span>
+                <span ng-bind="lang.MATRIX_BTN_ADD" ng-show="!adding"></span>
+            </button>
+            <button class="btn btn-success" ng-click="submit()" ng-disabled="!matrixModel.validate() || updating" ng-show="activity">
+                <i class="fa fa-spinner fa-spin" ng-show="updating"></i>
+                <span ng-bind="lang.MATRIX_BTN_UPDATING" ng-show="updating"></span>
+                <span ng-bind="lang.MATRIX_BTN_UPDATE" ng-show="!updating"></span>
             </button>
             <button class="btn btn-warning" ng-click="reset()" ng-bind="lang.MATRIX_BTN_RESET"></button>
         </div>

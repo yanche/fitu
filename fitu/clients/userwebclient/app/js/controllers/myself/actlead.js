@@ -44,6 +44,14 @@
                 else
                     $state.gox(ucconst.states.sendnote, { actId: ctx.actId });
             };
+            
+            $scope.editAct = function () {
+                $state.gox(ucconst.states.matrix, { actId: ctx.actId });
+            };
+            
+            $scope.goUserPreview = function (user) {
+                $state.gox(ucconst.states.userpreview, { userId: user.id });
+            };
         }
     }]);
 })();
