@@ -2,7 +2,6 @@
     angular.module('fitu', ['ui.router', 'ui.router.stateHelper', 'ngRoute', 'fitulib', 'fituhtml'])
     .run(['$rootScope', 'user', 'ucconst', 'lang', '$state', '$timeout', '$location', 'crypto', function ($rootScope, user, ucconst, lang, $state, $timeout, $location, crypto) {
         var loadUser = function (obj, state, params) {
-            x = $location;
             //TODO, state transfer need optimization
             $rootScope.loadingUser = true;
             user.getLoginUser()

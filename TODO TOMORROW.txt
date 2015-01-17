@@ -1,6 +1,7 @@
 feature:
-activity edit
 subscribed notes
+--exp. level up, credits
+--want to, been to
 
 
 optimization:
