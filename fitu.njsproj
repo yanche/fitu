@@ -34,6 +34,8 @@
     <Content Include=".gitignore" />
     <Content Include="bower.json" />
     <Content Include="client pages spec.docx" />
+    <Content Include="fitu\clients\adminwebclient\app\html\main.html" />
+    <Content Include="fitu\clients\adminwebclient\app\json\lang.json" />
     <Content Include="fitu\clients\userwebclient\app\html\activities\actlocation.html" />
     <Content Include="fitu\clients\userwebclient\app\html\activities\signup.html" />
     <Content Include="fitu\clients\userwebclient\app\html\activities\userpreview.html" />
@@ -116,6 +118,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="fitu\" />
+    <Folder Include="fitu\clients\adminwebclient\app\js\controllers\" />
     <Folder Include="fitu\clients\userwebclient\app\html\gym\" />
     <Folder Include="fitu\clients\userwebclient\app\js\controllers\myself\" />
     <Folder Include="fitu\clients\userwebclient\app\js\controllers\activities\" />
@@ -212,6 +215,8 @@
     <Folder Include="fitu\clients\vendorwebclient\app\html\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="fitu\clients\adminwebclient\app\js\config.js" />
+    <Compile Include="fitu\clients\adminwebclient\app\js\controllers\main.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\activities\userpreview.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\gym\sitelocation.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\actlead.js" />

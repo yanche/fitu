@@ -1,19 +1,19 @@
 ﻿doctype html
-html(lang='zh-CN' token='abc' ng-app='fitu')
+html(lang='zh-CN' token='abc' ng-app='fitu_ad')
     head
         base(href='/')
         meta(name='keywords' content='fitu,fit you')
         meta(charset='utf-8')
         meta(http-equiv='charset' content='utf-8')
         meta(name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
-        title FITU
+        title FITU ADMIN
         link(rel='shortcut icon' href='#{staticBase}/app/image/webclientshared/icon.jpg' type='image/x-icon')
         link(rel='icon' href='#{staticBase}/app/image/webclientshared/icon.jpg' type='image/ico')
 
         link(rel='stylesheet' href='http://cdn.bootcss.com/bootstrap/3.3.1/css/bootstrap.min.css')
         link(rel='stylesheet' href='http://cdn.bootcss.com/font-awesome/4.2.0/css/font-awesome.min.css')
         link(rel='stylesheet' href='#{staticBase}/app/css/libs/bootstrap-datetimepicker.min.css')
-        link(rel='stylesheet' href='#{staticBase}/app/css/userwebclient/fitu_user.css')
+        //link(rel='stylesheet' href='#{staticBase}/app/css/userwebclient/fitu_user.css')
         link(rel='stylesheet' href='#{staticBase}/app/css/webclientshared/fitu_sh.css')
         
         script.
@@ -37,6 +37,8 @@ html(lang='zh-CN' token='abc' ng-app='fitu')
         script(src='http://res.wx.qq.com/open/js/jweixin-1.0.0.js')
         //app scripts
         if (env == 'dev')
+            script(src='#{staticBase}/app/js/adminwebclient/config.js')
+            script(src='#{staticBase}/app/js/adminwebclient/controllers/main.js')
             script(src='#{staticBase}/app/js/webclientshared/fitulib.js')
             script(src='#{staticBase}/app/js/webclientshared/fituhtml.js')
             script(src='#{staticBase}/app/js/webclientshared/factories/activity.js')
@@ -84,7 +86,7 @@ html(lang='zh-CN' token='abc' ng-app='fitu')
             script(src='#{staticBase}/app/js/webclientshared/filters/price.js')
             script(src='#{staticBase}/app/js/webclientshared/filters/siteopen.js')
         else
-            script(src='#{staticBase}/app/js/userwebclient/built.min.js')
+            script(src='#{staticBase}/app/js/adminwebclient/built.min.js')
             script(src='#{staticBase}/app/js/webclientshared/built.min.js')
     body
-        div a
+        div(ui-view)
