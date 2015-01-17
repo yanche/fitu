@@ -1,5 +1,5 @@
 ﻿doctype html
-html(lang='zh-CN' token='abc' ng-app='fitu_ad')
+html(lang='zh-CN' token='abc')
     head
         base(href='/')
         meta(name='keywords' content='fitu,fit you')
@@ -37,8 +37,9 @@ html(lang='zh-CN' token='abc' ng-app='fitu_ad')
         script(src='http://res.wx.qq.com/open/js/jweixin-1.0.0.js')
         //app scripts
         if (env == 'dev')
-            script(src='#{staticBase}/app/js/adminwebclient/config.js')
-            script(src='#{staticBase}/app/js/adminwebclient/controllers/main.js')
+            script(src='#{staticBase}/app/js/adminwebclient/wtf.js')
+            //script(src='#{staticBase}/app/js/adminwebclient/config.js')
+            //script(src='#{staticBase}/app/js/adminwebclient/controllers/main.js')
             script(src='#{staticBase}/app/js/webclientshared/fitulib.js')
             script(src='#{staticBase}/app/js/webclientshared/fituhtml.js')
             script(src='#{staticBase}/app/js/webclientshared/factories/activity.js')

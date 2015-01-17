@@ -217,6 +217,7 @@
   <ItemGroup>
     <Compile Include="fitu\clients\adminwebclient\app\js\config.js" />
     <Compile Include="fitu\clients\adminwebclient\app\js\controllers\main.js" />
+    <Compile Include="fitu\clients\adminwebclient\app\js\wtf.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\activities\userpreview.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\gym\sitelocation.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\actlead.js" />
