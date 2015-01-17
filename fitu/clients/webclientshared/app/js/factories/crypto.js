@@ -17,6 +17,7 @@
                 }).success(function (data) {
                     data.debug = true;
                     data.jsApiList = ['chooseImage'];
+                    alert(JSON.stringify(data));
                     wx.config(data);
                     wx.ready(function () {
                         console.log('config ready');
