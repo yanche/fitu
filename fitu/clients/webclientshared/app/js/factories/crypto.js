@@ -44,7 +44,7 @@
                         timestamp: ts, // 必填，生成签名的时间戳
                         nonceStr: nonceStr, // 必填，生成签名的随机串
                         signature: ret.sha1(['jsapi_ticket=' + ticket, 'noncestr=' + nonceStr, 'timestamp=' + ts, 'url=' + url].join('&')),// 必填，签名，见附录1
-                        jsApiList: ['chooseImage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+                        jsApiList: ['chooseImage', 'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
                     });
                     wx.ready(function () {
                         alert('config ready');
