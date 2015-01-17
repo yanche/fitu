@@ -16,7 +16,7 @@
                     url: url.generate('wx')
                 }).success(function (data) {
                     data.debug = true;
-                    data.jsApiList = ['chooseImage'];
+                    data.jsApiList = ['startRecord'];
                     alert(JSON.stringify(data));
                     wx.config(data);
                     wx.ready(function () {

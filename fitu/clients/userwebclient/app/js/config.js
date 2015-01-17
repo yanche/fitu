@@ -1,6 +1,6 @@
 ﻿(function () {
     angular.module('fitu', ['ui.router', 'ui.router.stateHelper', 'ngRoute', 'fitulib', 'fituhtml'])
-    .run(['$rootScope', 'user', 'ucconst', 'lang', '$state', '$timeout', '$location', 'crypto', function ($rootScope, user, ucconst, lang, $state, $timeout, $location, crypto) {
+    .run(['$rootScope', 'user', 'ucconst', 'lang', '$state', '$timeout', '$location', 'crypto', 'wxb', function ($rootScope, user, ucconst, lang, $state, $timeout, $location, crypto, wxb) {
         var loadUser = function (obj, state, params) {
             //TODO, state transfer need optimization
             $rootScope.loadingUser = true;
@@ -68,7 +68,27 @@
         });
         $rootScope.$on('$stateChangeSuccess', function (evt, toState, toParams, fromState, fromParams) {
             console.log('state chaging from: ' + $state.href(fromState.name, toParams) + ', to: ' + $state.href(toState.name, toParams) + ' ends');
-            $timeout(crypto.wxsign, 10);
+            //$timeout(crypto.wxsign, 10);
+            wxb.api.ready(function (api) {
+                var wxCallbacks = {
+                    async: true,
+                    ready: function () {
+                        var self = this;
+                        var wxData = {
+                            'appId': '',
+                            'imgUrl': 'http://static.1dong.me:9000/app/image/webclientshared/sitepic.jpg',
+                            'link': window.location.href,
+                            'desc': '测试desc',
+                            'title': '测试title'
+                        };
+                        self.dataLoaded(wxData);
+                    }
+                };
+                
+                api.showOptionMenu();
+                api.shareToFriend({}, wxCallbacks);
+                api.shareToTimeline({}, wxCallbacks);
+            });
         });
         $rootScope.lang = lang;
         $rootScope.currentState = function () {

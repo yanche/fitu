@@ -243,6 +243,7 @@
     <Compile Include="fitu\clients\webclientshared\app\js\directives\map.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\directives\messenger.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\factories\sitefan.js" />
+    <Compile Include="fitu\clients\webclientshared\app\js\factories\wxb.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\filters\siteopen.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\filters\price.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\factories\crypto.js" />
