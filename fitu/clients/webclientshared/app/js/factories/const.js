@@ -31,9 +31,6 @@
                 { value: '攀岩', key: 'rk' },
                 { value: '健身', key: 'ft' }
             ],
-            wx: {
-                appId: 'wxcdcdc23de5d4f1f8'
-            },
             priceMeasure: [
                 { value: '分', key: 'm' },
                 { value: '小时', key: 'h' },

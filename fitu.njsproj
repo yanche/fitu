@@ -144,7 +144,7 @@
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\footprints\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\sitefans\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\userfans\" />
-    <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\wxticket\" />
+    <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\wx\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\notes\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\sitepreview\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\vendorpreview\" />
@@ -321,7 +321,7 @@
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\vendors\index.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\vendors\singlevendor.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\vendors\vendors.js" />
-    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\wxticket\index.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\wx\index.js" />
     <Compile Include="fitu\node_modules\const\common.js" />
     <Compile Include="fitu\node_modules\const\index.js" />
     <Compile Include="fitu\node_modules\config\index.js" />
@@ -344,11 +344,13 @@
     <Compile Include="fitu\node_modules\dbaccess\mongoclient.js" />
     <Compile Include="fitu\node_modules\errdef\index.js" />
     <Compile Include="fitu\node_modules\extension\array.js" />
+    <Compile Include="fitu\node_modules\extension\crypto.js" />
     <Compile Include="fitu\node_modules\extension\file.js" />
     <Compile Include="fitu\node_modules\extension\json.js" />
     <Compile Include="fitu\node_modules\extension\pagination.js" />
     <Compile Include="fitu\node_modules\extension\regex.js" />
     <Compile Include="fitu\node_modules\fileservice\FileCacher.js" />
+    <Compile Include="fitu\node_modules\infra\WxCachedLoader.js" />
     <Compile Include="fitu\node_modules\infra\CachedLoader.js" />
     <Compile Include="fitu\node_modules\infra\Webreq.js" />
     <Compile Include="fitu\node_modules\extension\image.js" />
@@ -362,6 +364,7 @@
     <Compile Include="fitu\node_modules\fileservice\index.js" />
     <Compile Include="fitu\node_modules\fileuploader\index.js" />
     <Compile Include="fitu\node_modules\infra\index.js" />
+    <Compile Include="fitu\node_modules\infra\WxSecret.js" />
     <Compile Include="fitu\node_modules\models\index.js" />
     <Compile Include="fitu\node_modules\models\User.js" />
     <Compile Include="fitu\node_modules\schema\act.js" />

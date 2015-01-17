@@ -68,7 +68,7 @@
         });
         $rootScope.$on('$stateChangeSuccess', function (evt, toState, toParams, fromState, fromParams) {
             console.log('state chaging from: ' + $state.href(fromState.name, toParams) + ', to: ' + $state.href(toState.name, toParams) + ' ends');
-            crypto.wxsign();
+            $timeout(crypto.wxsign, 10);
         });
         $rootScope.lang = lang;
         $rootScope.currentState = function () {
