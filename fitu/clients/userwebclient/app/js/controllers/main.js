@@ -5,7 +5,7 @@
             $window.history.back();
         };
         
-        $scope.checkSth = function () {
+        $scope.checkSth = function () {/*
             console.log('check sth');
             wx.checkJsApi({
                 jsApiList: ['startRecord'], // 需要检测的JS接口列表，所有JS接口列表见附录2,
@@ -15,7 +15,7 @@
                             // 以键值对的形式返回，可用的api值true，不可用为false
                             // 如：{"checkResult":{"chooseImage":true},"errMsg":"checkJsApi:ok"}
                 }
-            });
+            });*/
             
             /*
             wx.onMenuShareAppMessage({
@@ -37,13 +37,14 @@
         };
         
         $scope.checkSth2 = function () {
+            /*
             console.log('check sth2');
             wx.startRecord({
                 success: function (res) {
                     alert('checkSth2 success');
                     alert(JSON.stringify(arguments));
                 }
-            });
+            });*/
         };
     }]);
 })();

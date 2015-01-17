@@ -1,9 +1,9 @@
 ﻿<div class="col-xs-12" style="height:28px;"></div>
 <div id="mainview" class="col-xs-12 nopadding" ui-view></div>
 <div class="col-xs-12" style="height:54px;"></div>
-<div id="navtop" style="z-index:100;text-align:center;">
+<div id="navtop" style="z-index:100;">
     <i class="fa fa-arrow-left fa-2x" ng-click="goBack();"></i>
-    <i class="fa fa-times fa-2x" ng-click="checkSth();" ng-dblclick="checkSth2();"></i>
+    <!--<i class="fa fa-times fa-2x" ng-click="checkSth();" ng-dblclick="checkSth2();"></i>-->
 </div>
 <div id="navbottom" style="z-index:100;">
     <div class="navitem" ui-sref="fitu.activities({tag:null,vendorId:null,siteId:null})" ng-class="{selected: currentNav() =='activities'}">

@@ -11,6 +11,7 @@
                 return CryptoJS.SHA1(input).toString();
             },
             wxsign: function () {
+                /*
                 $http({
                     method: 'GET',
                     url: url.generate('wx')
@@ -29,7 +30,7 @@
                     });
                 }).error(function (data, status, headers, config) {
                     console.log('failed to retrieve wx js api config obj: ' + status);
-                });
+                });*/
             }
         };
         return ret;
