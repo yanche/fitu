@@ -123,11 +123,11 @@ message:
 //private
 notes: {
 '_id':,
-'type':,
-'authorId':,
+'type':, //'sys' if sys notes
+'authorId':, // 0 if sys notes
 'createdOn':,
 'recipients': [],
-'subject':,
-'content': [],
+'subject': {content:, type: },
+'body': {content:, type: },
 'emphasis':,
 }

@@ -1,0 +1,7 @@
+﻿<div>
+    <div ng-click="expand = !expand">
+        <div class="_noteSys_subject"></div>
+        <div class="small" ng-bind="note.createdOn | sensitiveDatetime"></div>
+    </div>
+    <pre ng-show="expand" class="_noteSys_body"></pre>
+</div>

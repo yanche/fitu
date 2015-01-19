@@ -14,6 +14,7 @@
     "MYSELF_TITLE_NOTEBOX": "信箱",
     "MYSELF_LABEL_NOTEINBOX": "收件箱",
     "MYSELF_LABEL_NOTEOUTBOX": "发件箱",
+    "MYSELF_LABEL_NOTESYS": "系统消息",
     "MYSELF_TITLE_SYS": "系统",
     "MYSELF_LABEL_UPDATEEMAIL": "修改登录",
     "MYSELF_LABEL_UPDATEPWD": "修改密码",
@@ -96,6 +97,7 @@
 
     "NOTEOUTBOX_HEADER": "发件箱",
     "NOTEINBOX_HEADER": "收件箱",
+    "NOTESYSBOX_HEADER": "系统消息",
 
     "ACTDETAIL_LABEL_TIME": "活动时间：",
     "ACTDETAIL_LABEL_ADDR": "地址",

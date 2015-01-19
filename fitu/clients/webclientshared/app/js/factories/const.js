@@ -38,7 +38,8 @@
                 { value: '年', key: 'y' }
             ],
             hour24: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23],
-            minutesQuarter: [0,15,30,45]
+            minutesQuarter: [0,15,30,45],
+            noteContentTypes: { plain: 'plain', html: 'html', markdown: 'markdown' }
         };
     }]);
 })();

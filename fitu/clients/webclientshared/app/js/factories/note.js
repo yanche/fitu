@@ -65,6 +65,29 @@
                     defer.reject('failed to get my out notes: ' + status);
                 });
                 return defer.promise;
+            },
+            getMyNotes_SYS: function (options) {
+                options = options || {};
+                var defer = new $q.defer();
+                $http({
+                    method: 'GET',
+                    url: url.generate('notes'),
+                    params: { recipientId: $.cookie('userId'), page: options.page, pageSize: options.pageSize, sys: 1 },
+                    data: options.data
+                }).success(function (data) {
+                    data.list = data.list.map(function (nt) {
+                        nt.recipients = nt.recipients.map(function (recp) {
+                            recp.headUrl = utility.getStaticUrl(recp.headUrl);
+                            return recp;
+                        });
+                        return nt;
+                    });
+                    defer.resolve(data);
+                }).error(function (data, status, headers, config) {
+                    console.log(arguments);
+                    defer.reject('failed to get my sys notes: ' + status);
+                });
+                return defer.promise;
             }
         };
     }]);

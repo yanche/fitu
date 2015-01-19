@@ -23,6 +23,7 @@
                 sendnote: 'fitu.myself.sendnote',
                 noteinbox: 'fitu.myself.noteinbox',
                 noteoutbox: 'fitu.myself.noteoutbox',
+                notesys: 'fitu.myself.notesys',
                 fans: 'fitu.myself.fans',
                 subscribedusers: 'fitu.myself.subscribedusers',
                 matrix: 'fitu.myself.matrix',

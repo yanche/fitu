@@ -93,6 +93,7 @@
                 case ucconst.states.actlead:
                 case ucconst.states.sendnote:
                 case ucconst.states.noteoutbox:
+                case ucconst.states.notesys:
                 case ucconst.states.noteinbox:
                 case ucconst.states.fans:
                 case ucconst.states.subscribedusers:
@@ -173,6 +174,11 @@
                     url: '/noteoutbox',
                     templateUrl: '/app/html/myself/noteoutbox.html',
                     controller: 'noteoutbox'
+                },{
+                    name: 'notesys',
+                    url: '/notesys',
+                    templateUrl: '/app/html/myself/notesys.html',
+                    controller: 'notesys'
                 },{
                     name: 'fans',
                     url: '/fans',
