@@ -39,20 +39,6 @@ site
 'fans': []
 }
 
-siteidle
-{
-'_id':,
-'slots':,
-'price':,
-'startsOn':,
-'endsOn':,
-'tags': [],
-'siteId':,
-'vendorId':,
-'createdBy':
-'createdOn':
-}
-
 vendor
 {
 '_id':,
@@ -73,7 +59,6 @@ vendor
 activity
 {
 '_id':,
-'siteIdleId':,
 'siteId':,
 'vendorId':,
 'name':,

@@ -1,13 +1,14 @@
 feature:
-subscribed notes
+##subscribed notes
 --exp. level up, credits
 --want to, been to
 
 
 optimization:
+notes unread count
+entity status, act, user, site, vendor
+page error messages
 pagination
 activity filter
-create activity
 centralize linkage functions(userPreview, actDetail, sendNote...)
 centralize little control(fans heart, gender hint, mem capacity hint)
-inactive things(act, vendor, site, user...)
