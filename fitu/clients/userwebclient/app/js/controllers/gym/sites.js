@@ -1,6 +1,6 @@
 ﻿(function () {
     angular.module('fitu')
-    .controller('sites', ['$scope', '$location', '$state', 'pagination', 'site', 'ucconst', function ($scope, $location, $state, pagination, site, ucconst) {
+    .controller('sites', ['$scope', '$location', '$state', 'pagination', 'site', 'ucconst', 'const', function ($scope, $location, $state, pagination, site, ucconst, constants) {
         var ctx = $location.search();
 
         var pageStore = new pagination.PageStore(function (page, pageSize) {
@@ -31,16 +31,21 @@
             return pageStore.getPageNavs(pageSize, 5, $scope.currentPage);
         };
         
-        $scope.tag = ctx.tag;
-        $scope.switchTag = function () {
-            if ($scope.tag)
-                $state.gox(ucconst.states.sites, { tag: $scope.tag });
-            else
-                $state.gox(ucconst.states.sites);
-        };
-        
         $scope.goSiteDetail = function (st) {
             $state.gox(ucconst.states.sitedetail, { siteId: st.id });
+        };
+         
+        $scope.tags = Array.prototype.concat([], constants.tags);
+        var defaultTag = { value: '所有类型' };
+        $scope.currentTag = $scope.tags.filter(function (tag) { return tag.key == ctx.tag; })[0] || defaultTag;
+        $scope.tags.unshift(defaultTag);
+        $scope.switchTag = function () {
+            if ($scope.currentTag) {
+                if ($scope.currentTag.key)
+                    $state.gox(ucconst.states.sites, { tag: $scope.currentTag.key });
+                else
+                    $state.gox(ucconst.states.sites);
+            }
         };
     }]);
 })();

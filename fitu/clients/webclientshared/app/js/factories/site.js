@@ -13,7 +13,8 @@
                         subscribedSitesOf: options.subscribedSitesOf,
                         vendorId: options.vendorId,
                         page: options.page,
-                        pageSize: options.pageSize
+                        pageSize: options.pageSize,
+                        tag: options.tag
                     }
                 }).success(function (data) {
                     data.list = data.list.map(function (st) {
