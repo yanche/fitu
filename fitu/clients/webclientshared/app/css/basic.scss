@@ -1,4 +1,8 @@
-﻿.clickable {
+﻿* {
+    outline: none;
+}
+
+.clickable {
     cursor: pointer;
 
     &:hover {

@@ -1,0 +1,9 @@
+﻿<div class="_dropdown_container" tabindex="-1">
+    <div class="_dropdown_selector" ng-click="expand = !expand">
+        <span class="_dropdown_selected" ng-bind="selectedItem[labelName]"></span>
+        <span class="_dropdown_angle"><i class="fa" ng-class="{'fa-angle-down': !up, 'fa-angle-up': up}"></i></span>
+    </div>
+    <div class="_dropdown_list" ng-class="{_dropdown_up: up, _dropdown_expand: expand}">
+        <div class="_dropdown_item" ng-repeat="it in items" ng-bind="it[labelName]" ng-click="select(it)"></div>
+    </div>
+</div>
