@@ -102,7 +102,6 @@
     <Content Include="fitu\clients\userwebclient\app\html\activities\activities.html" />
     <Content Include="fitu\clients\vendorwebclient\app\css\fitu_vd.scss" />
     <Content Include="fitu\clients\webclientshared\app\html\directives\imageInput.html" />
-    <Content Include="fitu\clients\webclientshared\app\html\directives\preview.html" />
     <Content Include="fitu\clients\userwebclient\app\html\myself\footprint.html" />
     <Content Include="fitu\clients\userwebclient\app\html\myself\leadership.html" />
     <Content Include="fitu\clients\userwebclient\app\html\login\login.html" />
@@ -403,15 +402,8 @@
     <Compile Include="fitu\clients\vendorwebclient\app\js\controllers\main.js" />
     <Compile Include="fitu\clients\vendorwebclient\app\js\controllers\sites\sites.js" />
     <Compile Include="fitu\clients\vendorwebclient\app\js\controllers\statistics\statistics.js" />
-    <Compile Include="fitu\clients\webclientshared\app\js\directives\confirmField.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\directives\datetimePicker.js" />
-    <Compile Include="fitu\clients\webclientshared\app\js\directives\emailField.js" />
-    <Compile Include="fitu\clients\webclientshared\app\js\directives\genderField.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\directives\imageInput.js" />
-    <Compile Include="fitu\clients\webclientshared\app\js\directives\phoneField.js" />
-    <Compile Include="fitu\clients\webclientshared\app\js\directives\preview.js" />
-    <Compile Include="fitu\clients\webclientshared\app\js\directives\pwdField.js" />
-    <Compile Include="fitu\clients\webclientshared\app\js\directives\requiredField.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\factories\activity.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\factories\const.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\factories\lang.js" />
