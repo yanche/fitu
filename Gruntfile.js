@@ -92,6 +92,7 @@
             },
             libsjs: {
                 files: [
+                    { expand: true, cwd: 'bower_components/markdown/lib', src: ['markdown.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
                     { expand: true, cwd: 'bower_components/moment/min', src: ['moment.min.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
                     { expand: true, cwd: 'bower_components/moment/locale', src: ['zh-cn.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
                     { expand: true, cwd: 'bower_components/jquery-cookie', src: ['jquery.cookie.js'], dest: 'statics/app/js/libs', filter: 'isFile' },

@@ -1,6 +1,18 @@
 ﻿(function () {
     angular.module('fitulib')
-    .directive('sysnote', ['const', function (constants) {
+    .directive('sysnote', ['const', 'markdown', function (constants, markdown) {
+        var handlers = {
+            html: function (element, content) {
+                element.html(content);
+            },
+            plain: function (element, content) {
+                element.text(content);
+            },
+            markdown: function (element, content) {
+                element.html(markdown.toHTML(content));
+            }
+        };
+
         return {
             restrict: 'E',
             templateUrl: '/app/html/directives/sysnote.html',
@@ -10,14 +22,12 @@
             },
             link: function (scope, element, attrs) {
                 var sj = element.find('._noteSys_subject'), bd = element.find('._noteSys_body');
-                if (scope.note.subject.type == constants.noteContentTypes.html)
-                    sj.html(scope.note.subject.content);
-                else
-                    sj.text(scope.note.subject.content);
-                if (scope.note.body.type == constants.noteContentTypes.html)
-                    bd.html(scope.note.body.content);
-                else
-                    bd.text(scope.note.body.content);
+                var subjectHandler = handlers[scope.note.subject.type];
+                var bodyHandler = handlers[scope.note.body.type];
+                if (subjectHandler)
+                    subjectHandler(sj, scope.note.subject.content);
+                if (bodyHandler)
+                    bodyHandler(bd, scope.note.body.content);
             }
         };
     }]);
