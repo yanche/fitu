@@ -448,25 +448,25 @@ var start = function () {
             userId: user1._id,
             actId: acts[0]._id,
             createdOn: new Date(),
-            statusId: constants.status.memberStatus.queued
+            //statusId: constants.status.memberStatus.queued
         };
         var mem2 = {
             userId: user2._id,
             actId: acts[1]._id,
             createdOn: new Date(),
-            statusId: constants.status.memberStatus.quit
+            //statusId: constants.status.memberStatus.quit
         };
         var mem3 = {
             userId: user2._id,
             actId: acts[2]._id,
             createdOn: new Date(),
-            statusId: constants.status.memberStatus.queued
+            //statusId: constants.status.memberStatus.queued
         };
         var mem4 = {
             userId: user3._id,
             actId: acts[3]._id,
             createdOn: new Date(),
-            statusId: constants.status.memberStatus.confirmed
+            //statusId: constants.status.memberStatus.confirmed
         };
         return bluebird.all([
             db.member.insertOneMember(mem1),

@@ -1,4 +1,4 @@
-﻿(function () {
+﻿/*(function () {
     angular.module('fitulib')
     .filter('memberStatus', ['const', function (constants) {
         return function (input) {
@@ -14,4 +14,4 @@
             }
         };
     }]);
-})();
+})();*/

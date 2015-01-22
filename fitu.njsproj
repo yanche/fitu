@@ -210,7 +210,6 @@
     <Folder Include="fitu\clients\adminwebclient\app\js\" />
     <Folder Include="fitu\clients\vendorwebclient\" />
     <Folder Include="fitu\clients\userwebclient\" />
-    <Folder Include="fitu\node_modules\schema\" />
     <Folder Include="fitu\node_modules\validate\" />
     <Folder Include="fitu\clients\vendorwebclient\app\" />
     <Folder Include="fitu\clients\vendorwebclient\app\json\" />
@@ -382,14 +381,6 @@
     <Compile Include="fitu\node_modules\infra\WxSecret.js" />
     <Compile Include="fitu\node_modules\models\index.js" />
     <Compile Include="fitu\node_modules\models\User.js" />
-    <Compile Include="fitu\node_modules\schema\act.js" />
-    <Compile Include="fitu\node_modules\schema\index.js" />
-    <Compile Include="fitu\node_modules\schema\member.js" />
-    <Compile Include="fitu\node_modules\schema\session.js" />
-    <Compile Include="fitu\node_modules\schema\site.js" />
-    <Compile Include="fitu\node_modules\schema\user.js" />
-    <Compile Include="fitu\node_modules\schema\usertoken.js" />
-    <Compile Include="fitu\node_modules\schema\vendor.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\config.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\activities\activities.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\footprint.js" />
