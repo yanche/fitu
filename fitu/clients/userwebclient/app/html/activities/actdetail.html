@@ -59,18 +59,19 @@
             </div>
         </div>
         <div class="empty-xs"></div>
-        <div class="col-xs-12 paddingLR0px fontbold" ng-click="goSignup()">
+        <div class="col-xs-12 paddingLR0px fontbold" ng-click="goSignup()" ng-show="!actNotActive()">
             <i class="fa fa-plus"></i>
             <span ng-bind="lang.ACTDETAIL_BTN_GOSIGNUP"></span>
         </div>
-        <div class="col-xs-12 paddingLR0px fontbold">
+        <div class="col-xs-12 paddingLR0px fontbold" ng-show="!actNotActive()">
             <span ng-bind="lang.ACTDETAIL_LABEL_MEMBER_1"></span>
             <span ng-bind="activity.memberCount"></span>
             <span ng-bind="lang.ACTDETAIL_LABEL_MEMBER_2"></span>
         </div>
-        <div class="col-xs-12 paddingLR0px" ng-show="members.length > 0" style="background-color: white;">
+        <div class="col-xs-12 paddingLR0px" ng-show="members.length > 0 && !actNotActive()" style="background-color: white;">
             <img ng-repeat="m in members" ng-src="{{m.user.headUrl}}" class="col-xs-2 padding5px" ng-click="goUserPreview(m.user)" />
         </div>
+        <div class="col-xs-12 paddingLR0px fontbold" ng-show="actNotActive()" ng-bind="actStatus()"></div>
         <div class="empty-xs"></div>
         <div class="col-xs-12 padding10px" style="border-radius:5px;background-color:white;" ng-show="getMsgPageNavs().total > 0">
             <div class="col-xs-12 paddingLR0px fontbold">

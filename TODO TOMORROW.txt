@@ -2,6 +2,7 @@ feature:
 ##subscribed notes
 --exp. level up, credits
 --want to, been to
+mem status: confirmed, pending
 
 
 optimization:

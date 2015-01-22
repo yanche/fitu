@@ -13,7 +13,8 @@
                         actId: options.actId,
                         page: options.page,
                         pageSize: options.pageSize,
-                        preview: options.preview
+                        preview: options.preview,
+                        active: options.active
                     }
                 }).success(function (data) {
                     data.list = data.list.map(function (mem) {

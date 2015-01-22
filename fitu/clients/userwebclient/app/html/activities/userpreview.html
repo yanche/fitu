@@ -42,6 +42,6 @@
         <div class="col-xs-12 paddingLR0px small fontbold" ng-bind="lang.USERPREVIEW_MSG_SUBSCRIBED" ng-show="!selfView && fanRelationship.subscribed"></div>
     </div>
     <div class="empty-xs"></div>
-    <div class="col-xs-12 paddingLR0px small" ng-bind="lang.USERPREVIEW_MSG_WHYFAN_LOGIN" ng-show="user"></div>
+    <div class="col-xs-12 paddingLR0px small" ng-bind="lang.USERPREVIEW_MSG_WHYFAN_LOGIN" ng-show="user && !selfView"></div>
     <div class="col-xs-12 paddingLR0px small" ng-bind="lang.USERPREVIEW_MSG_WHYFAN_NOLOGIN" ng-show="!user"></div>
 </div>

@@ -85,6 +85,8 @@
     "SIGNUP_LABEL_TIME": "时间",
     "SIGNUP_LABEL_ADDR": "地址",
     "SIGNUP_LABEL_INTRO": "介绍",
+    "SIGNUP_MSG_ACTNOTACTIVE": "抱歉，此活动已经过期，不能再报名啦 TAT...",
+    "SIGNUP_MSG_NOTFOUND": "抱歉，没有找到你想报名的活动，是不是弄错啦 TAT...",
 
     "LEADERSHIP_HEADER": "我带的活动",
 

@@ -1,6 +1,6 @@
 ﻿(function () {
     angular.module('fitu')
-    .controller('actdetail', ['$scope', '$location', '$state', 'activity', 'member', 'ucconst', 'geo', 'pagination', 'message', 'validate', '$rootScope', function ($scope, $location, $state, activity, member, ucconst, geo, pagination, message, validate, $rootScope) {
+    .controller('actdetail', ['$scope', '$location', '$state', 'activity', 'member', 'ucconst', 'geo', 'pagination', 'message', 'validate', '$rootScope', 'const', function ($scope, $location, $state, activity, member, ucconst, geo, pagination, message, validate, $rootScope, constants) {
         var ctx = $location.search();
         $scope.loading = true;
         activity.getOne(ctx.actId)
@@ -13,7 +13,7 @@
             $scope.loading = false;
         });
         
-        member.getList({ actId: ctx.actId, preview: 0, page: 0, pageSize: 6 })
+        member.getList({ actId: ctx.actId, preview: 1, page: 0, pageSize: 6, active: 1 })
         .then(function (data) {
             $scope.memCount = data.total;
             $scope.members = data.list;
@@ -109,6 +109,14 @@
         
         $scope.getMsgPageNavs = function () {
             return pageStore.getPageNavs(messagePageSize, 3, $scope.currentMsgPage);
+        };
+
+        $scope.actNotActive = function () {
+            return activity.actNotActive($scope.activity);
+        };
+
+        $scope.actStatus = function () {
+            return activity.actStatus($scope.activity);
         };
     }]);
 })();
