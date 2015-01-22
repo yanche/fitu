@@ -69,6 +69,7 @@
     <Content Include="fitu\clients\webclientshared\app\css\position.scss" />
     <Content Include="fitu\clients\webclientshared\app\css\fitu_sh.scss" />
     <Content Include="fitu\clients\webclientshared\app\css\messenger.scss" />
+    <Content Include="fitu\clients\webclientshared\app\css\sysnote.scss" />
     <Content Include="fitu\clients\webclientshared\app\css\table.scss" />
     <Content Include="fitu\clients\webclientshared\app\css\text.scss" />
     <Content Include="fitu\clients\webclientshared\app\css\variables.scss" />

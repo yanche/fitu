@@ -2,23 +2,6 @@
     <div class="col-xs-12 paddingLR0px">
         <dropdown items="tags" label-name="'value'" selected-item="currentTag" change="switchTag()" style="width:100px;"></dropdown>
     </div>
-    <!--
-    <select ng-options="tag.key as tag.value for tag in const.tags" ng-model="tag" ng-change="switchTag()">
-        <option value="">所有类型</option>
-    </select>
-    <select>
-        <option>所有地点</option>
-        <option>徐汇</option>
-        <option>杨浦</option>
-        <option>浦东</option>
-        <option>闵行</option>
-    </select>
-    <select>
-        <option>时间最近</option>
-        <option>价格最低</option>
-        <option>位置最近</option>
-        <option>余量最多</option>
-    </select>-->
     <loading class="col-xs-12 paddingLR0px" show="loading" word="lang.GLOBAL_MSG_LOADING"></loading>
     <div class="col-xs-12 paddingLR0px paddingTB10px splitter" ng-repeat="site in visibles" ng-click="goSiteDetail(site)">
         <div class="col-xs-12 paddingLR0px fontbold fontbig text-center textoverflowhidden" ng-bind="site.name"></div>
