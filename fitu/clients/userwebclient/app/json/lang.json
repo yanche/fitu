@@ -73,7 +73,8 @@
     "FOOTPRINT_HEADER": "参加过的",
     "FOOTPRINT_TAB_MEMBERSHIP": "我参与的",
     "FOOTPRINT_TAB_LEADERSHIP": "我组织的",
-    "FOOTPRINT_LABEL_MEMCOUNT": "已报名：",
+    "FOOTPRINT_LABEL_QUIT": "已退出",
+    "FOOTPRINT_LABEL_DOQUIT": "我想退出",
 
     "SIGNUP_BTN_SIGNUP": "马上报名！",
     "SIGNUP_BTN_SIGNUPING": "正在报名...",

@@ -8,18 +8,15 @@
             <div class="col-xs-12 paddingLR0px" ng-bind="fp.activity.name"></div>
             <div class="col-xs-12 paddingLR0px">
                 <i class="fa fa-clock-o"></i>
-                <span ng-bind="fp.activity.startsOn | datetime : const.actTimeFormat"></span>
-                <span> ~ </span>
-                <span ng-bind="fp.activity.endsOn | datetime : const.actTimeFormat"></span>
+                <span ng-bind="fp.activity.startsOn | activityDatetime : fp.activity.endsOn : true"></span>
             </div>
-            <!--
-            <div class="col-xs-12 paddingLR0px">
-                <i class="fa fa-user"></i>
-                <span ng-bind="fp.statusId | memberStatus"></span>
-            </div>-->
             <div class="col-xs-12 paddingLR0px">
                 <i class="fa fa-home"></i>
                 <span ng-bind="fp.activity.tags[0] | tag"></span>
+            </div>
+            <div class="col-xs-12 paddingLR0px">
+                <span ng-bind="lang.FOOTPRINT_LABEL_QUIT" ng-show="fp.statusId == const.memberStatus.quit"></span>
+                <span ng-bind="lang.FOOTPRINT_LABEL_DOQUIT" ng-show="fp.statusId == const.memberStatus.active" style="border-bottom: 1px solid black;" ng-click="doQuit(fp.id)"></span>
             </div>
         </div>
     </div>

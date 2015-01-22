@@ -1,10 +1,10 @@
 ﻿(function () {
     angular.module('fitu')
-    .controller('footprint', ['$scope', 'footprint', 'pagination', function ($scope, footprint, pagination) {
+    .controller('footprint', ['$scope', 'footprint', 'pagination', 'member', function ($scope, footprint, pagination, member) {
         var pageStore = new pagination.PageStore(function (page, pageSize) {
             return footprint.getMyself({ page: page, pageSize: pageSize });
         });
-
+            
         var pageSize = 5;
         $scope.visibles = [];
         $scope.loading = false;
@@ -24,9 +24,18 @@
             });
         };
         $scope.switchPage(0);
-        
+            
         $scope.getPageNavs = function () {
             return pageStore.getPageNavs(pageSize, 3, $scope.currentPage);
+        };
+            
+        $scope.doQuit = function (memId) {
+            member.quit(memId)
+            .then(function () {
+                pageStore.refresh();
+                $scope.switchPage(0); //first page
+            })
+            .catch(function (err) { });
         };
     }]);
 })();

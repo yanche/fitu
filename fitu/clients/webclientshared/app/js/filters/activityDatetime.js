@@ -1,13 +1,13 @@
 ﻿(function () {
     angular.module('fitulib')
     .filter('activityDatetime', ['const', function (constants) {
-            return function (startsOn, endsOn) {
+            return function (startsOn, endsOn, showPassedDate) {
                 var s = moment(startsOn), e = moment(endsOn), now = moment(), tomorrow = moment().add({ days: 1 });
                 if (!s.isValid() || !e.isValid())
                     return '';
-                else if (e <= now)
+                else if (!showPassedDate && e <= now)
                     return '已结束';
-                else if (s <= now)
+                else if (!showPassedDate && s <= now)
                     return '已开始';
                 else {
                     var date_s = s.format('M/D'), date_e = e.format('M/D'), yeardate_s = s.format('YYYY/M/D'), yeardate_e = e.format('YYYY/M/D'), yeardate_now = now.format('YYYY/M/D'), yeardate_tomorrow = tomorrow.format('YYYY/M/D'), time_s = s.format('HH:mm'), time_e = e.format('HH:mm');

@@ -55,6 +55,20 @@
                     defer.reject('failed to create new member: ' + status);
                 });
                 return defer.promise;
+            },
+            quit: function (memId) {
+                var defer = new $q.defer();
+                $http({
+                    method: 'DELETE',
+                    url: url.generate('members'),
+                    params: { id: memId }
+                }).success(function (data) {
+                    defer.resolve(data);
+                }).error(function (data, status, headers, config) {
+                    console.log(arguments);
+                    defer.reject('failed to do member quit: ' + status);
+                });
+                return defer.promise;
             }
         };
     }]);
