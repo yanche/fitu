@@ -261,86 +261,57 @@ var site4 = {
     fans: []
 };
 
-var siteidle1 = {
-    slots: 10,
-    price: 30.5,
-    startsOn: new Date('2015/2/1 15:00:00'),
-    endsOn: new Date('2015/2/1 16:00:00'),
-    tags: ['yg'],
-    createdOn: new Date()
-};
-var siteidle2 = {
-    slots: 5,
-    price: 30.6,
-    startsOn: new Date('2015/1/25 11:00:00'),
-    endsOn: new Date('2015/1/25 13:30:00'),
-    tags: ['ft'],
-    createdOn: new Date()
-};
-var siteidle3 = {
-    slots: 100,
-    price: 50,
-    startsOn: new Date('2015/1/15 10:00:00'),
-    endsOn: new Date('2015/1/15 11:00:00'),
-    tags: ['sw'],
-    createdOn: new Date()
-};
-var siteidle4 = {
-    slots: 15,
-    price: 25,
-    startsOn: new Date('2015/11/12 9:00:00'),
-    endsOn: new Date('2015/11/12 20:00:00'),
-    tags: ['rk'],
-    createdOn: new Date()
-};
-
 var act1 = {
     name: 'act 1',
-    price: siteidle1.price,
-    startsOn: siteidle1.startsOn,
-    endsOn: siteidle1.endsOn,
+    price: 30,
+    startsOn: new Date('2015/10/1 13:00'),
+    endsOn: new Date('2015/10/1 14:00'),
     createdOn: new Date(),
     tags: ['yg'],
     intro: 'intro for act 1',
     recruitment: [],
     picUrl: config.defaultActivityPicUrl,
-    capacity: siteidle1.slots
+    capacity: 10,
+    statusId: constants.status.actStatus.active
 };
 var act2 = {
     name: 'act 2',
-    price: siteidle2.price,
-    startsOn: siteidle2.startsOn,
-    endsOn: siteidle2.endsOn,
+    price: 12.5,
+    startsOn: new Date('2015/1/2 9:00'),
+    endsOn: new Date('2015/1/2 10:00'),
     createdOn: new Date(),
     tags: ['ft'],
     intro: 'intro for act 2',
     recruitment: [],
     picUrl: config.defaultActivityPicUrl,
-    capacity: siteidle2.slots
+    capacity: 15,
+    statusId: constants.status.actStatus.active
 };
 var act3 = {
     name: 'act 3',
-    price: siteidle3.price,
-    startsOn: siteidle3.startsOn,
-    endsOn: siteidle3.endsOn,
+    price: 50,
+    startsOn: new Date('2015/5/6 19:00'),
+    endsOn: new Date('2015/5/6 22:00'),
     createdOn: new Date(),
     tags: ['sw'],
     intro: 'intro for act 3',
     recruitment: [],
     picUrl: config.defaultActivityPicUrl,
-    capacity: siteidle3.slots
+    capacity: 60,
+    statusId: constants.status.actStatus.active
 };
 var act4 = {
     name: 'act 4',
-    price: siteidle4.price,
-    startsOn: siteidle4.startsOn,
-    endsOn: siteidle4.endsOn,
+    price: 288,
+    startsOn: new Date('2015/2/14 12:00'),
+    endsOn: new Date('2015/2/14 23:00'),
     createdOn: new Date(),
     tags: ['rk'],
     intro: 'intro for act 4',
     recruitment: [],
     picUrl: config.defaultActivityPicUrl,
-    capacity: siteidle4.slots
+    capacity: 4,
+    statusId: constants.status.actStatus.cancel
 };
 
 var start = function () {
@@ -349,7 +320,6 @@ var start = function () {
         db.site.removeSites({}),
         db.activity.removeActs({}),
         db.member.removeMembers({}),
-        db.siteidle.removeSiteIdles({}),
         db.vendor.removeVendors({}),
         db.session.removeSessions({})
     ])
@@ -400,41 +370,17 @@ var start = function () {
         ]);
     })
     .then(function (sites) {
-        siteidle1.siteId = sites[0]._id;
-        siteidle1.vendorId = sites[0].vendorId;
-        siteidle1.createdBy = sites[0].createdBy;
-        siteidle2.siteId = sites[0]._id;
-        siteidle2.vendorId = sites[0].vendorId;
-        siteidle2.createdBy = sites[1].createdBy;
-        siteidle3.siteId = sites[2]._id;
-        siteidle3.vendorId = sites[2].vendorId;
-        siteidle3.createdBy = sites[2].createdBy;
-        siteidle4.siteId = sites[3]._id;
-        siteidle4.vendorId = sites[3].vendorId;
-        siteidle4.createdBy = sites[3].createdBy;
-        return bluebird.all([
-            db.siteidle.insertOneSiteIdle(siteidle1),
-            db.siteidle.insertOneSiteIdle(siteidle2),
-            db.siteidle.insertOneSiteIdle(siteidle3),
-            db.siteidle.insertOneSiteIdle(siteidle4)
-        ]);
-    })
-    .then(function (idles) {
-        act1.siteIdleId = idles[0]._id;
-        act1.siteId = idles[0].siteId;
-        act1.vendorId = idles[0].vendorId;
-        act1.createdBy = idles[0].createdBy;
-        act2.siteIdleId = idles[1]._id;
-        act2.siteId = idles[1].siteId;
-        act2.vendorId = idles[1].vendorId;
+        act1.siteId = sites[0]._id;
+        act1.vendorId = sites[0].vendorId;
+        act1.createdBy = actOrganizer1._id;
+        act2.siteId = sites[1]._id;
+        act2.vendorId = sites[1].vendorId;
         act2.createdBy = actOrganizer1._id;
-        act3.siteIdleId = idles[2]._id;
-        act3.siteId = idles[2].siteId;
-        act3.vendorId = idles[2].vendorId;
-        act3.createdBy = idles[2].createdBy;
-        act4.siteIdleId = idles[3]._id;
-        act4.siteId = idles[3].siteId;
-        act4.vendorId = idles[3].vendorId;
+        act3.siteId = sites[2]._id;
+        act3.vendorId = sites[2].vendorId;
+        act3.createdBy = actOrganizer2._id;
+        act4.siteId = sites[3]._id;
+        act4.vendorId = sites[3].vendorId;
         act4.createdBy = actOrganizer2._id;
         return bluebird.all([
             db.activity.insertOneAct(act1),

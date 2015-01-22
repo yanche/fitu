@@ -257,6 +257,7 @@
     <Compile Include="fitu\clients\webclientshared\app\js\factories\markdown.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\factories\sitefan.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\factories\wxb.js" />
+    <Compile Include="fitu\clients\webclientshared\app\js\filters\activityDatetime.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\filters\siteopen.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\filters\price.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\factories\crypto.js" />

@@ -2,7 +2,7 @@
     angular.module('fitulib')
     .filter('sensitiveDatetime', ['const', function (constants) {
         return function (input) {
-            var d = new Date(input)
+            var d = new Date(input);
             if (isNaN(d.getTime()))
                 return '';
             else {

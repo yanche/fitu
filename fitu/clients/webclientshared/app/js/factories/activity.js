@@ -15,7 +15,8 @@
                         tag: options.tag,
                         siteId: options.siteId,
                         vendorId: options.vendorId,
-                        lead: options.lead
+                        lead: options.lead,
+                        active: options.active
                     }
                 }).success(function (data) {
                     data.list = data.list.map(function (act) {

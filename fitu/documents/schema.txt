@@ -59,6 +59,7 @@ vendor
 activity
 {
 '_id':,
+'statusId':,
 'siteId':,
 'vendorId':,
 'name':,

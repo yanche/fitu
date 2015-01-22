@@ -202,7 +202,7 @@
                 }]
             },{
                 name: 'activities',
-                url: '/activities?tag&siteId&vendorId',
+                url: '/activities?tag&siteId&vendorId&&all',
                 templateUrl: '/app/html/activities/activities.html',
                 controller: 'activities'
             },{

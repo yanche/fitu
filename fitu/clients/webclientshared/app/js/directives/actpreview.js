@@ -6,7 +6,9 @@
             templateUrl: '/app/html/directives/actpreview.html',
             replace: true,
             scope: {
-                act: '='
+                act: '=',
+                const: '=',
+                lang: '='
             },
             link: function (scope, element, attrs) {
             }
