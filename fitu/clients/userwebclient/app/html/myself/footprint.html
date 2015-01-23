@@ -1,7 +1,7 @@
 ﻿<div class="col-xs-12">
     <h4 class="col-xs-12 paddingLR0px fontbold" ng-bind="lang.FOOTPRINT_HEADER"></h4>
-    <div class="col-xs-12 paddingLR0px paddingTB10px splitter" ng-repeat="fp in visibles" ng-click="goActLead(act.id)">
-        <div class="col-xs-3 paddingLR0px">
+    <div class="col-xs-12 paddingLR0px paddingTB10px splitter" ng-repeat="fp in visibles">
+        <div class="col-xs-3 paddingLR0px" ng-click="link.goActDetail(fp.activity.id)">
             <img ng-src="{{fp.activity.picUrl}}" style="width:100%;" />
         </div>
         <div class="col-xs-9 paddingLR0px small textoverflowhidden" style="padding-left: 10px;">

@@ -5,9 +5,11 @@
         <span ng-bind="activity.startsOn | date"></span>
         <i class="fa fa-edit clickable" ng-click="editAct()"></i>
     </h4>
-    <div class="paddingLR0px col-xs-12" ng-click="goSendNote()" ng-show="getPageNavs().total > 0">
-        <i class="fa fa-envelope-o"></i>
-        <span ng-bind="lang.SENDNOTE_LABEL_SENDNOTEALL"></span>
+    <div class="paddingLR0px col-xs-12" ng-show="getPageNavs().total > 0">
+        <span ng-click="goSendNote()">
+            <i class="fa fa-envelope-o"></i>
+            <span ng-bind="lang.SENDNOTE_LABEL_SENDNOTEALL"></span>
+        </span>
     </div>
     <div class="paddingLR0px paddingTB5px col-xs-12 splitter" ng-repeat="mem in visibles">
         <div class="col-xs-3 paddingLR0px" ng-click="goUserPreview(mem.user)">

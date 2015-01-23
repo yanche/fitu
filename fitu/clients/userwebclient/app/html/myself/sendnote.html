@@ -11,8 +11,8 @@
         </div>
         <div class="empty-xs"></div>
         <span class="col-xs-12 paddingLR0px fontbold" ng-bind="lang.SENDNOTE_LABEL_CONTENT"></span>
-        <div class="col-xs-12 paddingLR0px" ng-class="{'has-error': !sendNoteModel.contentProp.validate(true)}">
-            <textarea type="text" class="form-control" style="min-height: 150px; max-width: 100%;" ng-model="sendNoteModel.contentProp.val" />
+        <div class="col-xs-12 paddingLR0px" ng-class="{'has-error': !sendNoteModel.bodyProp.validate(true)}">
+            <textarea type="text" class="form-control" style="min-height: 150px; max-width: 100%;" ng-model="sendNoteModel.bodyProp.val" />
         </div>
         <div class="empty-xs"></div>
         <div class="col-xs-12 paddingLR0px text-right">

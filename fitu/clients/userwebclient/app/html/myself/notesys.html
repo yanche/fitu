@@ -1,6 +1,15 @@
 ﻿<div class="col-xs-12">
     <h4 class="col-xs-12 paddingLR0px fontbold" ng-bind="lang.NOTESYSBOX_HEADER"></h4>
-    <sysnote note="note" class="paddingLR0px paddingTB5px col-xs-12 splitter" ng-repeat="note in visibles"></sysnote>
+    <div class="paddingLR0px paddingTB5px col-xs-12 splitter" ng-repeat="note in visibles">
+        <div ng-click="expand = !expand">
+            <div class="note-syntax" note-syntax target="note.subject"></div>
+            <div>
+                <i class="fa fa-exclamation red" ng-show="note.emphasis"></i>
+                <span class="small" ng-bind="note.createdOn | sensitiveDatetime"></span>
+            </div>
+        </div>
+        <pre ng-show="expand" class="note-syntax" note-syntax target="note.body"></pre>
+    </div>
     <div class="col-xs-12 text-right paddingLR0px" ng-show="getPageNavs().max > 0">
         <ul class="pagination">
             <li ng-class="{disabled: currentPage == 0}" ng-click="currentPage <= 0 || switchPage(0)"><span class="fa fa-angle-double-left"></span></li>

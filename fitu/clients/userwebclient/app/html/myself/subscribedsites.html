@@ -2,7 +2,7 @@
     <h4 class="col-xs-12 paddingLR0px fontbold" ng-bind="lang.SUBCRIBESITES_HEADER"></h4>
     <div class="col-xs-12 paddingLR0px" ng-bind="lang.SUBCRIBESITES_LABEL_NOSITES" ng-show="getPageNavs().total == 0"></div>
     <div class="col-xs-12 paddingLR0px small" ng-bind="lang.SUBCRIBESITES_MSG_WHYFAN" ng-show="getPageNavs().total == 0"></div>
-    <div class="paddingLR0px paddingTB5px col-xs-12 splitter" ng-repeat="site in visibles" ng-click="goSiteDetail(site)">
+    <div class="paddingLR0px paddingTB5px col-xs-12 splitter" ng-repeat="site in visibles" ng-click="link.goSiteDetail(site.id)">
         <div class="col-xs-12 paddingLR0px fontbold fontbig text-center textoverflowhidden" ng-bind="site.name"></div>
         <div class="col-xs-3 paddingLR0px">
             <img ng-src="{{site.picUrl}}" style="width:100%;" />

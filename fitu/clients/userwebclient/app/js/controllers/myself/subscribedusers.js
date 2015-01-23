@@ -28,14 +28,5 @@
         $scope.getPageNavs = function () {
             return pageStore.getPageNavs(pageSize, 3, $scope.currentPage);
         };
-        
-        $scope.goUserPreview = function (user) {
-            $state.gox(ucconst.states.userpreview, { userId: user.id });
-        };
-        
-        $scope.goSendNote = function (user, evt) {
-            $state.gox(ucconst.states.sendnote, { recipientId: user.id });
-            evt.stopPropagation();
-        };
     }]);
 })();

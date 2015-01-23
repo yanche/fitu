@@ -3,6 +3,12 @@ feature:
 --exp. level up, credits
 --want to, been to
 mem status: confirmed, pending
+wechat, share
+wechat, upload image(user profile)
+--pay
+ui, deep link, click on limited text, not whole row
+vendor page
+site status
 
 
 optimization:

@@ -169,15 +169,15 @@
             DataModel.call(me);
             
             me.subjectProp = new ModelProp(validate.valuedString);
-            me.contentProp = new ModelProp(validate.valuedString);
+            me.bodyProp = new ModelProp(validate.valuedString);
             me.emphasisProp = new ModelProp(validate.alwaysTrue);
-            me.addProp(me.subjectProp).addProp(me.contentProp).addProp(me.emphasisProp);
+            me.addProp(me.subjectProp).addProp(me.bodyProp).addProp(me.emphasisProp);
         };
         SendNoteModel.prototype = Object.create(DataModel.prototype);
         SendNoteModel.prototype.toPOJO = function () {
             return {
                 subject: this.subjectProp.val,
-                content: this.contentProp.val,
+                body: this.bodyProp.val,
                 emphasis: Boolean(this.emphasisProp.val)
             };
         };
@@ -186,7 +186,7 @@
                 DataModel.prototype.init.call();
             else {
                 this.subjectProp.init(data.subject);
-                this.contentProp.init(data.content);
+                this.bodyProp.init(data.body);
                 this.emphasisProp.init(data.emphasis);
             }
             return this;

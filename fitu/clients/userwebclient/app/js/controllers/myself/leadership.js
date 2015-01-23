@@ -28,9 +28,5 @@
         $scope.getPageNavs = function () {
             return pageStore.getPageNavs(pageSize, 3, $scope.currentPage);
         };
-
-        $scope.goActLead = function (actId) {
-            $state.gox(ucconst.states.actlead, { actId: actId });
-        };
     }]);
 })();

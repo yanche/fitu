@@ -28,10 +28,5 @@
         $scope.getPageNavs = function () {
             return pageStore.getPageNavs(pageSize, 3, $scope.currentPage);
         };
-
-        $scope.replyNote = function (nt, evt) {
-            $state.gox(ucconst.states.sendnote, { recipientId: nt.author.id, re: 'RE:' + nt.subject });
-            evt.stopPropagation();
-        };
     }]);
 })();
