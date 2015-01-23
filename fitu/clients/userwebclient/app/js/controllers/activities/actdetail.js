@@ -21,18 +21,6 @@
         .catch(function (err) {
         });
         
-        $scope.goLocation = function () {
-            $state.gox(ucconst.states.actlocation, { actId: ctx.actId });
-        };
-        
-        $scope.goSignup = function () {
-            $state.gox(ucconst.states.signup, { actId: ctx.actId });
-        };
-        
-        $scope.goUserPreview = function (user) {
-            $state.gox(ucconst.states.userpreview, { userId: user.id });
-        };
-        
         /*
         $scope.gettingUserPos = true;
         geo.getLocation()

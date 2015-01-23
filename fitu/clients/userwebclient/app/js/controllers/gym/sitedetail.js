@@ -12,18 +12,6 @@
             $scope.loading = false;
         });
         
-        $scope.goLocation = function () {
-            $state.gox(ucconst.states.sitelocation, { siteId: $scope.site.id });
-        };
-        
-        $scope.goVendorDetail = function (vd) {
-            $state.gox(ucconst.states.vendordetail, { vendorId: vd.id });
-        };
-        
-        $scope.goMatrix = function (st) {
-            $state.gox(ucconst.states.matrix, { siteId: st.id });
-        };
-        
         if ($rootScope.user) {
             var loadFanRel = function () {
                 $scope.loadingFanRel = true;

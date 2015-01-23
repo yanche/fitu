@@ -15,12 +15,12 @@
         $scope.switchPage = function (page) {
             $scope.loading = true;
             pageStore.navigate(page, pageSize)
-            .then(function (list) {
+        .then(function (list) {
                 $scope.loading = false;
                 $scope.visibles = list;
                 $scope.currentPage = page;
             })
-            .catch(function (err) {
+        .catch(function (err) {
                 $scope.loading = false;
                 console.log(err);
             });
@@ -29,10 +29,6 @@
             
         $scope.getPageNavs = function () {
             return pageStore.getPageNavs(pageSize, 3, $scope.currentPage);
-        };
-            
-        $scope.goDetail = function (actId) {
-            $state.gox(ucconst.states.actdetail, { actId: actId });
         };
             
         $scope.tags = Array.prototype.concat([], constants.tags);

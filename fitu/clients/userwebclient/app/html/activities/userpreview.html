@@ -18,7 +18,7 @@
                 <span ng-bind="userpublic.fansCount"></span>
             </div>
             <div class="col-xs-12 paddingLR0px">
-                <i class="fa fa-envelope-o" ng-click="goSendNote(userpublic)"></i>
+                <i class="fa fa-envelope-o" ng-click="link.goSendNote({recipientId: userpublic.id})"></i>
             </div>
         </div>
     </div>

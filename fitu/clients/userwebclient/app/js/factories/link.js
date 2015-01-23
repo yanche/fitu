@@ -10,9 +10,30 @@
                 if (actId)
                     $state.gox(ucconst.states.actlead, { actId: actId });
             },
+            goSignUp: function (actId) {
+                if (actId)
+                    $state.gox(ucconst.states.signup, { actId: actId });
+            },
+            goActLocation: function (actId) {
+                if (actId)
+                    $state.gox(ucconst.states.actlocation, { actId: actId });
+            },
             goSiteDetail: function (siteId) {
                 if (siteId)
                     $state.gox(ucconst.states.sitedetail, { siteId: siteId });
+            },
+            goSiteLocation: function (siteId) {
+                if (siteId)
+                    $state.gox(ucconst.states.sitelocation, { siteId: siteId });
+            },
+            goVendorDetail: function (vendorId) {
+                if (vendorId)
+                    $state.gox(ucconst.states.vendordetail, { vendorId: vendorId });
+            },
+            goMatrix: function (options) {
+                options = options || {};
+                if (options.siteId || options.actId)
+                    $state.gox(ucconst.states.matrix, { siteId: options.siteId, actId: options.actId });
             },
             goUserPreview: function (userId) {
                 if (userId)

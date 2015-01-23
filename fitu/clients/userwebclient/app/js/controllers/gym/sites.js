@@ -30,10 +30,6 @@
         $scope.getPageNavs = function () {
             return pageStore.getPageNavs(pageSize, 5, $scope.currentPage);
         };
-        
-        $scope.goSiteDetail = function (st) {
-            $state.gox(ucconst.states.sitedetail, { siteId: st.id });
-        };
          
         $scope.tags = Array.prototype.concat([], constants.tags);
         var defaultTag = { value: '所有类型' };
