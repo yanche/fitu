@@ -172,7 +172,8 @@ var vendor1 = {
     intro: 'intro for vendor 1',
     logoUrl: config.defaultVendorLogoUrl,
     createdOn: new Date(),
-    statusId: constants.status.vendorStatus.active
+    statusId: constants.status.vendorStatus.active,
+    contact: '15201928369'
 };
 var vendor2 = {
     name: 'vendor 2',
@@ -187,7 +188,8 @@ var vendor2 = {
     intro: 'intro for vendor 2',
     logoUrl: config.defaultVendorLogoUrl,
     createdOn: new Date(),
-    statusId: constants.status.vendorStatus.active
+    statusId: constants.status.vendorStatus.active,
+    contact: '15201928369'
 };
 
 var site1 = {

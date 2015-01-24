@@ -17,6 +17,7 @@
     "PROFILE_LABEL_ADDRESS": "地址*",
     "PROFILE_LABEL_GEO": "地理位置*",
     "PROFILE_LABEL_LOGO": "LOGO*",
+    "PROFILE_LABEL_CONTACT": "联系方式*",
     "PROFILE_BTN_UPDATE": "更新信息",
     "PROFILE_BTN_UPDATING": "正在更新...",
     "PROFILE_LOADING": "正在加载...",

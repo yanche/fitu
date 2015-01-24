@@ -20,6 +20,12 @@
             </div>
         </div>
         <div class="form-group">
+            <label for="profile_contact" ng-bind="lang.PROFILE_LABEL_CONTACT"></label>
+            <div ng-class="{'has-error': !vendorModel.contactProp.validate()}">
+                <input type="text" class="form-control" id="profile_contact" ng-model="vendorModel.contactProp.val">
+            </div>
+        </div>
+        <div class="form-group">
             <label for="profile_addr" ng-bind="lang.PROFILE_LABEL_ADDRESS"></label>
             <div ng-class="{'has-error': !vendorModel.addrProp.validate()}">
                 <input type="text" class="form-control" id="profile_addr" ng-model="vendorModel.addrProp.val">

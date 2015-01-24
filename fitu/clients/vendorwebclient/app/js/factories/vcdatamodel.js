@@ -14,7 +14,8 @@
                 return validate.picBase64(input, optional) || validate.url(input, optional);
             });
             this.tagProp = new ModelProp(validate.alwaysTrue);
-            this.addProp(this.nameProp).addProp(this.introProp).addProp(this.addrProp).addProp(this.geoProp).addProp(this.logoProp).addProp(this.tagProp);
+            this.contactProp = new ModelProp(validate.valuedString);
+            this.addProp(this.nameProp).addProp(this.introProp).addProp(this.addrProp).addProp(this.geoProp).addProp(this.logoProp).addProp(this.tagProp).addProp(this.contactProp);
         };
         VendorModel.prototype = Object.create(DataModel.prototype);
         VendorModel.prototype.toPOJO = function () {
@@ -26,7 +27,8 @@
                     geo: this.geoProp.val
                 },
                 logoUrl: this.logoProp.val,
-                tags: [this.tagProp.val] //TODO
+                tags: [this.tagProp.val], //TODO
+                contact: this.contactProp.val
             };
         };
         VendorModel.prototype.init = function (data) {
@@ -39,6 +41,7 @@
                 this.geoProp.init(data.location.geo);
                 this.logoProp.init(data.logoUrl);
                 this.tagProp.init(data.tags[0]);
+                this.contactProp.init(data.contact);
             }
             return this;
         };
