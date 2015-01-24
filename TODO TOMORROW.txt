@@ -7,7 +7,7 @@ wechat, share
 wechat, upload image(user profile)
 --pay
 ##ui, deep link, click on limited text, not whole row
-vendor page
+##vendor page
 ##site vendor status
 
 

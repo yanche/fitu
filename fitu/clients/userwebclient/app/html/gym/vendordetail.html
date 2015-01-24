@@ -1,9 +1,29 @@
-﻿<div class="col-xs-12">
+﻿<loading class="col-xs-12" show="loading" word="lang.GLOBAL_MSG_LOADING"></loading>
+<div class="col-xs-12" show="!loading">
     <div class="empty-xs"></div>
-    <preview class="col-xs-12 paddingLR0px" title="vendor.name" content="vendor.location.address" imgsrc="vendor.logoUrl"></preview>
+    <div class="col-xs-12 paddingLR0px text-center fontbold fontbigger" ng-bind="vendor.name"></div>
     <div class="empty-xs"></div>
-    <map class="col-xs-12 paddingLR0px" style="height:300px;" lat="vendor.location.geo.lat" lng="vendor.location.geo.lng"></map>
-    <div class="empty-xs"></div>
-    <div class="col-xs-6 paddingLR0px text-center" ui-sref="fitu.activities({vendorId: vendor.id})">查看活动</div>
+    <div class="col-xs-12 paddingLR0px fontbold" ng-bind="lang.VENDORDETAIL_LABEL_INTRO"></div>
+    <div class="col-xs-12 paddingLR0px">
+        <i class="fa fa-info"></i>
+        <span ng-bind="vendor.intro"></span>
+    </div>
+    <div class="col-xs-12 paddingLR0px fontbold" ng-bind="lang.VENDORDETAIL_LABEL_CONTACT"></div>
+    <div class="col-xs-12 paddingLR0px">
+        <i class="fa fa-phone"></i>
+        <span ng-bind="vendor.contact"></span>
+    </div>
+    <div class="col-xs-12 paddingLR0px fontbold" ng-bind="lang.VENDORDETAIL_LABEL_ADDR"></div>
+    <div class="col-xs-12 paddingLR0px">
+        <i class="fa fa-map-marker blue"></i>
+        <span ng-bind="vendor.location.address"></span>
+        <i class="fa" ng-class="{'fa-plus': !expandMap, 'fa-minus': expandMap}" ng-click="expandMap = !expandMap"></i>
+    </div>
+    <map class="col-xs-12 paddingLR0px" style="height:300px;" lat="vendor.location.geo.lat" lng="vendor.location.geo.lng" ng-show="expandMap"></map>
+    <div class="col-xs-12 paddingLR0px fontbold" ng-bind="lang.VENDORDETAIL_LABEL_TAG"></div>
+    <div class="col-xs-12 paddingLR0px">
+        <i class="fa fa-home"></i>
+        <span ng-bind="vendor.tags[0] | tag"></span>
+    </div>
     <div class="empty-xs"></div>
 </div>

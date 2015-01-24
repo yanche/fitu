@@ -184,5 +184,10 @@
     "MATRIX_BTN_ADD": "提交",
     "MATRIX_BTN_UPDATING": "正在修改...",
     "MATRIX_BTN_UPDATE": "修改",
-    "MATRIX_BTN_RESET": "重置"
+    "MATRIX_BTN_RESET": "重置",
+
+    "VENDORDETAIL_LABEL_INTRO": "介绍",
+    "VENDORDETAIL_LABEL_CONTACT": "联系方式",
+    "VENDORDETAIL_LABEL_ADDR": "地址",
+    "VENDORDETAIL_LABEL_TAG": "类型"
 }
