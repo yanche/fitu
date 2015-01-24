@@ -109,7 +109,7 @@ var actOrganizer2 = {
         contact: 'organizer2@fitu.com',
         gender: ''
     },
-    email: 'organizer12@fitu.com',
+    email: 'organizer2@fitu.com',
     hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
     headUrl: config.defaultHeadUrl,
     special: 0,
@@ -408,19 +408,19 @@ var start = function () {
             userId: user2._id,
             actId: acts[1]._id,
             createdOn: new Date(),
-            statusId: constants.status.memberStatus.active
+            statusId: constants.status.memberStatus.pending
         };
         var mem3 = {
             userId: user2._id,
             actId: acts[2]._id,
             createdOn: new Date(),
-            statusId: constants.status.memberStatus.active
+            statusId: constants.status.memberStatus.pending
         };
         var mem4 = {
             userId: user3._id,
             actId: acts[3]._id,
             createdOn: new Date(),
-            statusId: constants.status.memberStatus.active
+            statusId: constants.status.memberStatus.confirmed
         };
         return bluebird.all([
             db.member.insertOneMember(mem1),

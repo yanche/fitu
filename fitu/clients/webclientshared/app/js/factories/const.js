@@ -41,7 +41,7 @@
             minutesQuarter: [0,15,30,45],
             noteContentTypes: { plain: 'plain', html: 'html', markdown: 'markdown' },
             actStatus: {active: 100, cancel: 101},
-            memberStatus: { active: 200, quit: 201 },
+            memberStatus: { pending: 200, quit: 201, confirmed: 202},
             siteStatus: { active: 300, inactive: 301 },
             vendorStatus: { active: 400, inactive: 401 }
         };

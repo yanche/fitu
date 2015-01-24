@@ -6,8 +6,8 @@
     <div class="col-xs-9 paddingLR0px small textoverflowhidden" style="padding-left: 10px;">
         <div class="col-xs-12 paddingLR0px">
             <i class="fa fa-clock-o"></i>
-            <span ng-bind="act.startsOn | activityDatetime : act.endsOn" ng-show="act.statusId == const.actStatus.active"></span>
-            <span ng-bind="lang.ACTDETAIL_LABEL_CANCEL" ng-show="act.statusId == const.actStatus.cancel"></span>
+            <span ng-bind="act.startsOn | activityDatetime : act.endsOn" ng-show="!util.actCancel(act)"></span>
+            <span ng-bind="lang.ACTDETAIL_LABEL_CANCEL" ng-show="util.actCancel(act)"></span>
         </div>
         <div class="col-xs-12 paddingLR0px">
             <i class="fa fa-map-marker"></i>

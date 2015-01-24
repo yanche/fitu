@@ -1,6 +1,6 @@
 ﻿(function () {
     angular.module('fitu', ['ui.router', 'ui.router.stateHelper', 'ngRoute', 'fitulib', 'fituhtml'])
-    .run(['$rootScope', 'user', 'ucconst', 'lang', '$state', '$timeout', '$location', 'crypto', 'wxb', 'link', function ($rootScope, user, ucconst, lang, $state, $timeout, $location, crypto, wxb, link) {
+    .run(['$rootScope', 'user', 'ucconst', 'lang', '$state', '$timeout', '$location', 'crypto', 'wxb', 'link', 'util', function ($rootScope, user, ucconst, lang, $state, $timeout, $location, crypto, wxb, link, util) {
         var loadUser = function (obj, state, params) {
             //TODO, state transfer need optimization
             $rootScope.loadingUser = true;
@@ -72,6 +72,7 @@
         });
         $rootScope.lang = lang;
         $rootScope.link = link;
+        $rootScope.util = util;
         $rootScope.currentState = function () {
             return $state.current.name;
         };

@@ -57,6 +57,21 @@
                 });
                 return defer.promise;
             },
+            updateStatus: function (memberId, statusId) {
+                var defer = new $q.defer();
+                $http({
+                    method: 'PUT',
+                    url: url.generate('members'),
+                    params: { id: memberId },
+                    data: { statusId: statusId }
+                }).success(function (data) {
+                    defer.resolve(data);
+                }).error(function (data, status, headers, config) {
+                    console.log(arguments);
+                    defer.reject('failed to update member: ' + status);
+                });
+                return defer.promise;
+            },
             quit: function (memId) {
                 var defer = new $q.defer();
                 $http({

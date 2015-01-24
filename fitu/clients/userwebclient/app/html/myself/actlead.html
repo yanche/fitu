@@ -1,17 +1,22 @@
 ﻿<div class="col-xs-12">
-    <h4 class="col-xs-12 paddingLR0px fontbold">
+    <loading class="col-xs-12 paddingLR0px" show="loadingAct" word="lang.ACTLEAD_MSG_LOADINGACT"></loading>
+    <h4 class="col-xs-12 paddingLR0px fontbold" ng-show="!loadingAct && activity">
         <span ng-bind="activity.name"></span>
         <span>, </span>
         <span ng-bind="activity.startsOn | date"></span>
-        <i class="fa fa-edit clickable" ng-click="link.goMatrix({actId: activity.id})"></i>
+        <i ng-show="!util.actCancel(activity)" class="fa fa-edit clickable" ng-click="link.goMatrix({actId: activity.id})"></i>
+        <span ng-bind="lang.ACTLEAD_LABEL_ACTCANCEL" ng-show="util.actCancel(activity)"></span>
+        <span ng-bind="lang.ACTLEAD_LABEL_ACTENDS" ng-show="!util.actCancel(activity) && util.actEnds(activity)"></span>
+        <span ng-bind="lang.ACTLEAD_LABEL_ACTSTARTS" ng-show="!util.actCancel(activity) && util.actStarts(activity)"></span>
     </h4>
-    <div class="paddingLR0px col-xs-12" ng-show="getPageNavs().total > 0">
+    <div class="paddingLR0px col-xs-12" ng-show="activity && getPageNavs().total > 0">
         <span ng-click="link.goSendNote({actId: activity.id})">
             <i class="fa fa-envelope-o"></i>
             <span ng-bind="lang.SENDNOTE_LABEL_SENDNOTEALL"></span>
         </span>
     </div>
-    <div class="paddingLR0px paddingTB5px col-xs-12 splitter" ng-repeat="mem in visibles">
+    <loading class="col-xs-12 paddingLR0px" show="loadingMem" word="lang.ACTLEAD_MSG_LOADINGMEM"></loading>
+    <div class="paddingLR0px paddingTB5px col-xs-12 splitter" ng-repeat="mem in visibles" ng-show="!loadingMem">
         <div class="col-xs-3 paddingLR0px" ng-click="link.goUserPreview(mem.user.id)">
             <img style="width:100%;" ng-src="{{mem.user.headUrl}}" />
         </div>
@@ -24,6 +29,16 @@
             </div>
             <div class="col-xs-12 paddingLR0px" ng-bind="mem.user.personal.contact"></div>
             <div class="col-xs-12 paddingLR0px" ng-bind="mem.user.personal.phone"></div>
+            <div class="col-xs-12 paddingLR0px" ng-show="!util.actActive(activity)">
+                <span ng-bind="lang.ACTLEAD_LABEL_QUIT" ng-show="mem.statusId == const.memberStatus.quit"></span>
+                <span ng-bind="lang.ACTLEAD_LABEL_NOTCONFIRM" ng-show="mem.statusId == const.memberStatus.pending"></span>
+                <span ng-bind="lang.ACTLEAD_LABEL_CONFIRMED" ng-show="mem.statusId == const.memberStatus.confirmed"></span>
+            </div>
+            <div class="col-xs-12 paddingLR0px" ng-show="util.actActive(activity)">
+                <span ng-bind="lang.ACTLEAD_LABEL_QUIT" ng-show="mem.statusId == const.memberStatus.quit"></span>
+                <span ng-bind="lang.ACTLEAD_LABEL_PENDING" ng-show="mem.statusId == const.memberStatus.pending" style="border-bottom: 1px solid black;" ng-click="doConfirm(mem)"></span>
+                <span ng-bind="lang.ACTLEAD_LABEL_CONFIRMED" ng-show="mem.statusId == const.memberStatus.confirmed" ng-click="doPending(mem)"></span>
+            </div>
             <div class="col-xs-12 paddingLR0px">
                 <i class="fa fa-envelope-o" ng-click="link.goSendNote({recipientId: mem.user.id})"></i>
             </div>

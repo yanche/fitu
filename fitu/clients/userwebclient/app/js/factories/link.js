@@ -41,7 +41,7 @@
             },
             goSendNote: function (options) {
                 options = options || {};
-                if (options.recipientId)
+                if (options.recipientId || options.actId)
                     $state.gox(ucconst.states.sendnote, { recipientId: options.recipientId, actId: options.actId, re: options.re ? 'RE:' + options.re : undefined });
             }
         };

@@ -236,6 +236,7 @@
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\updateemail.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\gym\sites.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\gym\vendordetail.js" />
+    <Compile Include="fitu\clients\userwebclient\app\js\factories\util.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\factories\link.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\factories\ucdatamodel.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\factories\ucconst.js" />

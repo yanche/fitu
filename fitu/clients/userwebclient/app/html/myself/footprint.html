@@ -15,8 +15,15 @@
                 <span ng-bind="fp.activity.tags[0] | tag"></span>
             </div>
             <div class="col-xs-12 paddingLR0px">
+                <span ng-show="fp.activity.statusId == const.actStatus.cancel" ng-bind="lang.FOOTPRINT_LABEL_ACTCANCEL"></span>
+                <span ng-show="fp.activity.statusId == const.actStatus.active && actEnds(fp.activity)" ng-bind="lang.FOOTPRINT_LABEL_ACTENDS"></span>
+                <span ng-show="fp.activity.statusId == const.actStatus.active && actStarts(fp.activity)" ng-bind="lang.FOOTPRINT_LABEL_ACTSTARTS"></span>
+            </div>
+            <div class="col-xs-12 paddingLR0px" ng-show="fp.activity.statusId == const.actStatus.active && actNotStarts(fp.activity)">
+                <span ng-bind="lang.FOOTPRINT_LABEL_PENDING" ng-show="fp.statusId == const.memberStatus.pending"></span>
+                <span ng-bind="lang.FOOTPRINT_LABEL_CONFIRMED" ng-show="fp.statusId == const.memberStatus.confirmed"></span>
                 <span ng-bind="lang.FOOTPRINT_LABEL_QUIT" ng-show="fp.statusId == const.memberStatus.quit"></span>
-                <span ng-bind="lang.FOOTPRINT_LABEL_DOQUIT" ng-show="fp.statusId == const.memberStatus.active" style="border-bottom: 1px solid black;" ng-click="doQuit(fp.id)"></span>
+                <span ng-bind="lang.FOOTPRINT_LABEL_DOQUIT" ng-show="fp.statusId == const.memberStatus.pending || fp.statusId == const.memberStatus.confirmed" style="border-bottom: 1px solid black;" ng-click="doQuit(fp)"></span>
             </div>
         </div>
     </div>

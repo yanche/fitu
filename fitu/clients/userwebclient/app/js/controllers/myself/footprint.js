@@ -1,10 +1,10 @@
 ﻿(function () {
     angular.module('fitu')
-    .controller('footprint', ['$scope', 'footprint', 'pagination', 'member', function ($scope, footprint, pagination, member) {
+    .controller('footprint', ['$scope', 'footprint', 'pagination', 'member', 'const', function ($scope, footprint, pagination, member, constants) {
         var pageStore = new pagination.PageStore(function (page, pageSize) {
             return footprint.getMyself({ page: page, pageSize: pageSize });
         });
-            
+        
         var pageSize = 5;
         $scope.visibles = [];
         $scope.loading = false;
@@ -24,18 +24,31 @@
             });
         };
         $scope.switchPage(0);
-            
+        
         $scope.getPageNavs = function () {
             return pageStore.getPageNavs(pageSize, 3, $scope.currentPage);
         };
-            
-        $scope.doQuit = function (memId) {
-            member.quit(memId)
+        
+        $scope.doQuit = function (fp) {
+            member.quit(fp.id)
             .then(function () {
-                pageStore.refresh();
-                $scope.switchPage(0); //first page
+                    fp.statusId = constants.memberStatus.quit;
             })
             .catch(function (err) { });
+        };
+        
+        $scope.actEnds = function (act) {
+            return moment(act.endsOn) <= moment();
+        };
+        
+        $scope.actStarts = function (act) {
+            var now = moment();
+            return moment(act.startsOn) <= now && moment(act.endsOn) > now;
+        };
+        
+        $scope.actNotStarts = function (act) {
+            var now = moment();
+            return moment(act.startsOn) > now;
         };
     }]);
 })();

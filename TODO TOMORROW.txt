@@ -2,14 +2,25 @@ feature:
 ##subscribed notes
 --exp. level up, credits
 --want to, been to
-mem status: confirmed, pending
-wechat, share
-wechat, upload image(user profile)
+##mem status: confirmed, pending
+--wechat, share
+--wechat, upload image(user profile)
 --pay
 ##ui, deep link, click on limited text, not whole row
 ##vendor page
 ##site vendor status
 page ajax message
+activity sort
+act delete
+site delete
+admin portal
+404 page
+no PC tablet access
+more page hint
+page init status, loading
+subscribed notes, no send if triggered by himself
+act edit, time picker, current date bug
+act lead, statistics
 
 
 optimization:
