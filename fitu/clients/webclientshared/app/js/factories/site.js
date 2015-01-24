@@ -8,13 +8,14 @@
                 var defer = new $q.defer();
                 $http({
                     method: 'GET',
-                    url: url.generate(options.preview ? 'sitepreview' : 'sites'),
+                    url: url.generate('sites'),
                     params: {
                         subscribedSitesOf: options.subscribedSitesOf,
                         vendorId: options.vendorId,
                         page: options.page,
                         pageSize: options.pageSize,
-                        tag: options.tag
+                        tag: options.tag,
+                        active: 1
                     }
                 }).success(function (data) {
                     data.list = data.list.map(function (st) {
@@ -35,7 +36,7 @@
                 if (options.id) {
                     $http({
                         method: 'GET',
-                        url: url.generate(options.preview ? 'sitepreview' : 'sites'),
+                        url: url.generate('sites'),
                         params: { id: options.id }
                     }).success(function (data) {
                         data.picUrl = utility.getStaticUrl(data.picUrl);

@@ -11,7 +11,8 @@
                     params: {
                         managable: 1,
                         page: options.page,
-                        pageSize: options.pageSize
+                        pageSize: options.pageSize,
+                        active: 1
                     }
                 }).success(function (data) {
                     data.list = data.list.map(function (vd) { vd.logoUrl = utility.getStaticUrl(vd.logoUrl); return vd; });
@@ -30,7 +31,8 @@
                     url: url.generate(options.preview ? 'vendorpreview' : 'vendors'),
                     params: {
                         page: options.page,
-                        pageSize: options.pageSize
+                        pageSize: options.pageSize,
+                        active: 1
                     }
                 }).success(function (data) {
                     data.list = data.list.map(function (vd) { vd.logoUrl = utility.getStaticUrl(vd.logoUrl); return vd; });

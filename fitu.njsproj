@@ -116,7 +116,6 @@
     <Content Include="fitu\clients\adminwebclient\app.jade" />
     <Content Include="fitu\clients\vendorwebclient\app.jade" />
     <Content Include="fitu\clients\vendorwebclient\app\html\main.html" />
-    <Content Include="fitu\open issues.txt" />
     <Content Include="package.json" />
     <Content Include="README.md" />
   </ItemGroup>
@@ -153,7 +152,6 @@
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\userfans\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\wx\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\notes\" />
-    <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\sitepreview\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\vendorpreview\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\usercontacts\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\siteidles\" />
@@ -220,7 +218,6 @@
   <ItemGroup>
     <Compile Include="fitu\clients\adminwebclient\app\js\config.js" />
     <Compile Include="fitu\clients\adminwebclient\app\js\controllers\main.js" />
-    <Compile Include="fitu\clients\adminwebclient\app\js\wtf.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\activities\userpreview.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\gym\sitelocation.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\actlead.js" />
@@ -303,7 +300,6 @@
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\resxutil\note.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\resxutil\site.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\resxutil\siteidle.js" />
-    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\resxutil\sitepreview.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\resxutil\user.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\resxutil\usercontact.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\resxutil\usercredentials.js" />
@@ -312,9 +308,6 @@
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\sessions\index.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\sessions\sessions.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\sessions\singlesession.js" />
-    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\sitepreview\index.js" />
-    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\sitepreview\singlesitepreview.js" />
-    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\sitepreview\sitepreview.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\sites\index.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\sites\singlesite.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\sites\sites.js" />
