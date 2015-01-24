@@ -12,11 +12,14 @@
                 var modelSet = modelGet.assign;
                 
                 var fileinputBtn = element.find('input[type=file]');
-                fileinputBtn.bind('change', function () {
-                    var file = fileinputBtn[0].files[0], fileReader = new FileReader();
+                    fileinputBtn.bind('change', function () {
+                        alert('file change evt');
+                        var file = fileinputBtn[0].files[0], fileReader = new FileReader();
+                        alert('has file: ' + Boolean(file));
                     fileReader.readAsDataURL(file);
                     fileReader.onload = function (e) {
-                        var dataUrl = e.target.result;
+                            var dataUrl = e.target.result;
+                            alert('onload, dataurl: ' + dataUrl.slice(0,10) + ', h: ' + h + ', w: ' + w);
                         if (!isNaN(h) && !isNaN(w)) {
                             var img = document.createElement('img');
                             img.src = dataUrl;
@@ -25,7 +28,8 @@
                             canvas.height = h;
                             var cvs = canvas.getContext('2d');
                             cvs.drawImage(img, 0, 0, w, h);
-                            dataUrl = canvas.toDataURL('image/jpeg');
+                                dataUrl = canvas.toDataURL('image/jpeg');
+                                alert('resized: ' + dataUrl.slice(0, 10));
                         }
                         modelSet(scope, dataUrl);
                         scope.$apply();
