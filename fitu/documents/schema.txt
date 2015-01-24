@@ -36,7 +36,8 @@ site
 'vendorId':,
 'createdBy':
 'createdOn':,
-'fans': []
+'fans': [],
+'statusId':,
 }
 
 vendor
@@ -54,6 +55,7 @@ vendor
 'admins': [],
 'createdOn':,
 'createdBy':,
+'statusId':,
 }
 
 activity

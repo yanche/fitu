@@ -10,34 +10,38 @@ html(lang='zh-CN' token='abc' ng-app='fitu')
         link(rel='shortcut icon' href='#{staticBase}/app/image/webclientshared/icon.jpg' type='image/x-icon')
         link(rel='icon' href='#{staticBase}/app/image/webclientshared/icon.jpg' type='image/ico')
 
-        link(rel='stylesheet' href='http://cdn.bootcss.com/bootstrap/3.3.1/css/bootstrap.min.css')
-        link(rel='stylesheet' href='http://cdn.bootcss.com/font-awesome/4.2.0/css/font-awesome.min.css')
+        script.
+            var siteInfo = {staticBase: '#{staticBase}', apiBase: '#{apiBase}', domain: '#{domain}'};
+
+        //common
         link(rel='stylesheet' href='#{staticBase}/app/css/libs/bootstrap-datetimepicker.min.css')
         link(rel='stylesheet' href='#{staticBase}/app/css/userwebclient/fitu_user.css')
         link(rel='stylesheet' href='#{staticBase}/app/css/webclientshared/fitu_sh.css')
         
-        script.
-            var siteInfo = {staticBase: '#{staticBase}', apiBase: '#{apiBase}', domain: '#{domain}'};
-        script(src='http://cdn.bootcss.com/jquery/2.1.1/jquery.min.js')
-        if (env == 'dev')
-            script(src='http://cdn.bootcss.com/angular.js/1.3.0-beta.13/angular.js')
-        else
-            script(src='http://cdn.bootcss.com/angular.js/1.3.0-beta.13/angular.min.js')
-        script(src='#{staticBase}/app/js/libs/angular-ui-router.min.js')
-        script(src='http://cdn.bootcss.com/angular.js/1.3.0-beta.13/angular-route.js')
-        script(src='http://cdn.bootcss.com/angular-i18n/1.2.15/angular-locale_zh-cn.js')
-        script(src='http://cdn.bootcss.com/bootstrap/3.3.1/js/bootstrap.min.js')
-        script(src='#{staticBase}/app/js/libs/moment.min.js')
-        script(src='#{staticBase}/app/js/libs/zh-cn.js')
-        script(src='#{staticBase}/app/js/libs/bootstrap-datetimepicker.min.js')
-        script(src='#{staticBase}/app/js/libs/jquery.cookie.js')
-        script(src='#{staticBase}/app/js/libs/sha1.js')
-        script(src='#{staticBase}/app/js/libs/statehelper.min.js')
-        script(src='#{staticBase}/app/js/libs/markdown.js')
         script(src='http://api.map.baidu.com/api?v=2.0&ak=NMZtgy57uBz7oPB2dtPRsq6G')
-        script(src='http://res.wx.qq.com/open/js/jweixin-1.0.0.js')
         //app scripts
         if (env == 'dev')
+            link(rel='stylesheet' href='#{staticBase}/app/css/libs/bootstrap/dist/css/bootstrap.css')
+            link(rel='stylesheet' href='#{staticBase}/app/css/libs/bootstrap-datetimepicker.min.css')
+            link(rel='stylesheet' href='#{staticBase}/app/css/libs/font-awesome/css/font-awesome.css')
+
+            link(rel='stylesheet' href='#{staticBase}/app/css/userwebclient/fitu_user.css')
+            link(rel='stylesheet' href='#{staticBase}/app/css/webclientshared/fitu_sh.css')
+            
+            script(src='#{staticBase}/app/js/libs/jquery/dist/jquery.min.js')
+            script(src='#{staticBase}/app/js/libs/angular.js')
+            script(src='#{staticBase}/app/js/libs/angular-route.js')
+            script(src='#{staticBase}/app/js/libs/angular-locale_zh-cn.js')
+            script(src='#{staticBase}/app/css/libs/bootstrap/dist/js/bootstrap.js')
+            script(src='#{staticBase}/app/js/libs/angular-ui-router.js')
+            script(src='#{staticBase}/app/js/libs/moment.min.js')
+            script(src='#{staticBase}/app/js/libs/zh-cn.js')
+            script(src='#{staticBase}/app/js/libs/bootstrap-datetimepicker.min.js')
+            script(src='#{staticBase}/app/js/libs/jquery.cookie.js')
+            script(src='#{staticBase}/app/js/libs/sha1.js')
+            script(src='#{staticBase}/app/js/libs/statehelper.js')
+            script(src='#{staticBase}/app/js/libs/markdown.js')
+
             script(src='#{staticBase}/app/js/userwebclient/config.js')
             script(src='#{staticBase}/app/js/userwebclient/controllers/main.js')
             script(src='#{staticBase}/app/js/userwebclient/controllers/login.js')
@@ -112,6 +116,29 @@ html(lang='zh-CN' token='abc' ng-app='fitu')
             script(src='#{staticBase}/app/js/webclientshared/filters/siteopen.js')
             script(src='#{staticBase}/app/js/webclientshared/filters/activityDatetime.js')
         else
+            link(rel='stylesheet' href='http://cdn.bootcss.com/bootstrap/3.3.1/css/bootstrap.min.css')
+            link(rel='stylesheet' href='#{staticBase}/app/css/libs/bootstrap-datetimepicker.min.css')
+            link(rel='stylesheet' href='http://cdn.bootcss.com/font-awesome/4.2.0/css/font-awesome.min.css')
+            
+            link(rel='stylesheet' href='#{staticBase}/app/css/userwebclient/fitu_user.css')
+            link(rel='stylesheet' href='#{staticBase}/app/css/webclientshared/fitu_sh.css')
+            
+            script(src='http://cdn.bootcss.com/jquery/2.1.1/jquery.min.js')
+            script(src='http://cdn.bootcss.com/angular.js/1.3.0-beta.13/angular.min.js')
+            script(src='http://cdn.bootcss.com/angular.js/1.3.0-beta.13/angular-route.js')
+            script(src='http://cdn.bootcss.com/angular-i18n/1.2.15/angular-locale_zh-cn.js')
+            script(src='http://cdn.bootcss.com/bootstrap/3.3.1/js/bootstrap.min.js')
+            script(src='#{staticBase}/app/js/libs/angular-ui-router.js')
+            script(src='#{staticBase}/app/js/libs/moment.min.js')
+            script(src='#{staticBase}/app/js/libs/zh-cn.js')
+            script(src='#{staticBase}/app/js/libs/bootstrap-datetimepicker.min.js')
+            script(src='#{staticBase}/app/js/libs/jquery.cookie.js')
+            script(src='#{staticBase}/app/js/libs/sha1.js')
+            script(src='#{staticBase}/app/js/libs/statehelper.js')
+            script(src='#{staticBase}/app/js/libs/markdown.js')
+
+            script(src='http://res.wx.qq.com/open/js/jweixin-1.0.0.js')
+
             script(src='#{staticBase}/app/js/userwebclient/built.min.js')
             script(src='#{staticBase}/app/js/webclientshared/built.min.js')
     body

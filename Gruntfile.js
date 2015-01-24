@@ -92,16 +92,21 @@
             },
             libsjs: {
                 files: [
+                    { expand: true, cwd: 'bower_components/angular', src: ['angular.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
+                    { expand: true, cwd: 'bower_components/angular-i18n', src: ['angular-locale_zh-cn.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
+                    { expand: true, cwd: 'bower_components/angular-route', src: ['angular-route.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
+                    { expand: true, cwd: 'bower_components/angular-ui-router/release', src: ['angular-ui-router.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
+                    { expand: true, cwd: 'bower_components/angular-ui-router.stateHelper', src: ['statehelper.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
+                    { expand: true, cwd: 'bower_components', src: ['bootstrap/**'], dest: 'statics/app/css/libs' },
+                    { expand: true, cwd: 'bower_components/crypto.js/components', src: ['sha1.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
+                    { expand: true, cwd: 'bower_components/eonasdan-bootstrap-datetimepicker/build/js', src: ['bootstrap-datetimepicker.min.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
+                    { expand: true, cwd: 'bower_components/eonasdan-bootstrap-datetimepicker/build/css', src: ['bootstrap-datetimepicker.min.css'], dest: 'statics/app/css/libs', filter: 'isFile' },
+                    { expand: true, cwd: 'bower_components', src: ['font-awesome/**'], dest: 'statics/app/css/libs' },
+                    { expand: true, cwd: 'bower_components', src: ['jquery/**'], dest: 'statics/app/js/libs' },
+                    { expand: true, cwd: 'bower_components/jquery-cookie', src: ['jquery.cookie.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
                     { expand: true, cwd: 'bower_components/markdown/lib', src: ['markdown.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
                     { expand: true, cwd: 'bower_components/moment/min', src: ['moment.min.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
                     { expand: true, cwd: 'bower_components/moment/locale', src: ['zh-cn.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
-                    { expand: true, cwd: 'bower_components/jquery-cookie', src: ['jquery.cookie.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
-                    //{ expand: true, cwd: 'bower_components/jquery-md5', src: ['jquery.md5.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
-                    { expand: true, cwd: 'bower_components/eonasdan-bootstrap-datetimepicker/build/js', src: ['bootstrap-datetimepicker.min.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
-                    { expand: true, cwd: 'bower_components/eonasdan-bootstrap-datetimepicker/build/css', src: ['bootstrap-datetimepicker.min.css'], dest: 'statics/app/css/libs', filter: 'isFile' },
-                    { expand: true, cwd: 'bower_components/angular-ui-router.stateHelper', src: ['statehelper.min.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
-                    { expand: true, cwd: 'bower_components/angular-ui-router/release', src: ['angular-ui-router.min.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
-                    { expand: true, cwd: 'bower_components/crypto.js/components', src: ['sha1.js'], dest: 'statics/app/js/libs', filter: 'isFile' }
                 ]
             },
             sharedjson: {
@@ -260,7 +265,7 @@
     grunt.loadNpmTasks('grunt-html2js');
     grunt.registerTask('default', ['clean', 'sass', 'copy:libsjs', 'copy:sharedimg', 'html2js', 'concat', 'uglify', 'clean:html2js', 'copy:sharedjson']);
     grunt.registerTask('prod', ['default']);
-    grunt.registerTask('dev', ['clean', 'sass', 'copy', 'html2js', 'copy:sharedjson']);
+    grunt.registerTask('dev', ['clean', 'sass', 'copy', 'html2js']);
     grunt.registerTask('watchuser', ['concurrent:watchuser']);
     grunt.registerTask('watchvendor', ['concurrent:watchvendor']);
     grunt.registerTask('watchadmin', ['concurrent:watchadmin']);

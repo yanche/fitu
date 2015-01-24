@@ -171,7 +171,8 @@ var vendor1 = {
     },
     intro: 'intro for vendor 1',
     logoUrl: config.defaultVendorLogoUrl,
-    createdOn: new Date()
+    createdOn: new Date(),
+    statusId: constants.status.vendorStatus.active
 };
 var vendor2 = {
     name: 'vendor 2',
@@ -185,7 +186,8 @@ var vendor2 = {
     },
     intro: 'intro for vendor 2',
     logoUrl: config.defaultVendorLogoUrl,
-    createdOn: new Date()
+    createdOn: new Date(),
+    statusId: constants.status.vendorStatus.active
 };
 
 var site1 = {
@@ -204,7 +206,8 @@ var site1 = {
     intro: 'intro for site 1',
     picUrl: config.defaultSitePicUrl,
     createdOn: new Date(),
-    fans: []
+    fans: [],
+    statusId: constants.status.siteStatus.active
 };
 var site2 = {
     name: '某健身场地',
@@ -222,7 +225,8 @@ var site2 = {
     intro: 'intro for site 2',
     picUrl: config.defaultSitePicUrl,
     createdOn: new Date(),
-    fans: []
+    fans: [],
+    statusId: constants.status.siteStatus.active
 };
 var site3 = {
     name: '某游泳场地',
@@ -240,7 +244,8 @@ var site3 = {
     contact: '15201928369',
     picUrl: config.defaultSitePicUrl,
     createdOn: new Date(),
-    fans: []
+    fans: [],
+    statusId: constants.status.siteStatus.active
 };
 var site4 = {
     name: '某攀岩场地',
@@ -258,7 +263,8 @@ var site4 = {
     intro: 'intro for site 4',
     picUrl: config.defaultSitePicUrl,
     createdOn: new Date(),
-    fans: []
+    fans: [],
+    statusId: constants.status.siteStatus.inactive
 };
 
 var act1 = {

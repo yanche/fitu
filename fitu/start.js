@@ -76,7 +76,7 @@ http.createServer(function (req, res) {
         return fservice.handle(webreq);
     })
     .then(function (webres) {
-        //webres.setHeader('Access-Control-Allow-Origin', webreq.headers.origin);
+        webres.setHeader('Access-Control-Allow-Origin', '*'); //for font files
         webres.response(res);
     });
 })
