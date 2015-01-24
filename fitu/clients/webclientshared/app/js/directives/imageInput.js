@@ -10,29 +10,31 @@
                 var h = Number(attrs.imageHeight), w = Number(attrs.imageWidth);
                 var modelGet = $parse(attrs.imageBind);
                 var modelSet = modelGet.assign;
-                
+                    
                 var fileinputBtn = element.find('input[type=file]');
-                    fileinputBtn.bind('change', function () {
-                        alert('file change evt');
-                        var file = fileinputBtn[0].files[0], fileReader = new FileReader();
-                        alert('has file: ' + Boolean(file));
+                fileinputBtn.bind('change', function () {
+                    var file = fileinputBtn[0].files[0], fileReader = new FileReader();
                     fileReader.readAsDataURL(file);
                     fileReader.onload = function (e) {
-                            var dataUrl = e.target.result;
-                            alert('onload, dataurl: ' + dataUrl.slice(0,10) + ', h: ' + h + ', w: ' + w);
                         if (!isNaN(h) && !isNaN(w)) {
-                            var img = document.createElement('img');
-                            img.src = dataUrl;
-                            var canvas = document.createElement('canvas');
-                            canvas.width = w;
-                            canvas.height = h;
-                            var cvs = canvas.getContext('2d');
-                            cvs.drawImage(img, 0, 0, w, h);
-                                dataUrl = canvas.toDataURL('image/jpeg');
-                                alert('resized: ' + dataUrl.slice(0, 10));
+                            var img = new Image();
+                            img.src = e.target.result;
+                            img.onload = function () {
+                                var canvas = document.createElement('canvas');
+                                canvas.width = w;
+                                canvas.height = h;
+                                var ctx = canvas.getContext("2d");
+                                ctx.drawImage(this, 0, 0, w, h);
+                                var dataURL = canvas.toDataURL("image/jpeg");
+                                //alert('resized, dataurl: ' + dataURL.slice(0, 20) + ', length: ' + dataURL.length + ', w,h:' + w + ' ' + h);
+                                modelSet(scope, dataURL);
+                                scope.$apply();
+                            };
                         }
-                        modelSet(scope, dataUrl);
-                        scope.$apply();
+                        else {
+                            modelSet(scope, e.target.result);
+                            scope.$apply();
+                        }
                     };
                 });
             }
