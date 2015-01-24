@@ -5,6 +5,7 @@
         <span>, </span>
         <span ng-bind="activity.startsOn | date"></span>
         <i ng-show="!util.actCancel(activity)" class="fa fa-edit clickable" ng-click="link.goMatrix({actId: activity.id})"></i>
+        <i ng-show="util.actActive(activity)" class="fa fa-times clickable remove" ng-click="cancelAct(activity)"></i>
         <span ng-bind="lang.ACTLEAD_LABEL_ACTCANCEL" ng-show="util.actCancel(activity)"></span>
         <span ng-bind="lang.ACTLEAD_LABEL_ACTENDS" ng-show="!util.actCancel(activity) && util.actEnds(activity)"></span>
         <span ng-bind="lang.ACTLEAD_LABEL_ACTSTARTS" ng-show="!util.actCancel(activity) && util.actStarts(activity)"></span>

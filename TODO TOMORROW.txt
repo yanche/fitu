@@ -11,7 +11,7 @@ feature:
 ##site vendor status
 page ajax message
 activity sort
-act delete
+##act delete
 site delete
 admin portal
 404 page
@@ -21,6 +21,7 @@ page init status, loading
 subscribed notes, no send if triggered by himself
 act edit, time picker, current date bug
 act lead, statistics
+organizer signup
 
 
 optimization:

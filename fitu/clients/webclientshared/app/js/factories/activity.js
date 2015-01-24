@@ -85,6 +85,20 @@
                 });
                 return defer.promise;
             },
+            delete: function (id) {
+                var defer = new $q.defer();
+                $http({
+                    method: 'DELETE',
+                    url: url.generate('activities'),
+                    params: { id: id }
+                }).success(function (data, status, headers, config) {
+                    defer.resolve({ id: data ? data.id : null });
+                }).error(function (data, status, headers, config) {
+                    console.log(arguments);
+                    defer.reject('failed to delete act: ' + status);
+                });
+                return defer.promise;
+            },
             createMessage: function (options) {
                 options = options || {};
                 var defer = new $q.defer();

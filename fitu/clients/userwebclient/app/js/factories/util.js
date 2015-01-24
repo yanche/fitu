@@ -14,7 +14,7 @@
             actStarts: function (act) {
                 var now = moment();
                 return act && moment(act.startsOn) <= now && moment(act.endsOn) > now;
-            },
+            }
         };
     }]);
 })();

@@ -48,11 +48,19 @@
                 })
                 .catch(function (err) { });
             };
-                
+            
             $scope.doPending = function (mem) {
                 member.updateStatus(mem.id, constants.memberStatus.pending)
                 .then(function () {
                     mem.statusId = constants.memberStatus.pending;
+                })
+                .catch(function (err) { });
+            };
+
+            $scope.cancelAct = function (act) {
+                activity.delete(act.id)
+                .then(function () {
+                    act.statusId = constants.actStatus.cancel;
                 })
                 .catch(function (err) { });
             };
