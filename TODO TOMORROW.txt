@@ -9,6 +9,7 @@ wechat, upload image(user profile)
 ##ui, deep link, click on limited text, not whole row
 ##vendor page
 ##site vendor status
+page ajax message
 
 
 optimization:
