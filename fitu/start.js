@@ -11,6 +11,7 @@ var FileUploader = require('fileuploader');
 var FileService = require('fileservice');
 var WebPageService = require('webpageservice');
 var moment = require('moment');
+var validate = require('validate');
 
 //init mongodb connection
 mongodb.MongoClient.connect(config.dbConnStr, function (err, db) {
@@ -22,6 +23,7 @@ mongodb.MongoClient.connect(config.dbConnStr, function (err, db) {
 
 //page & data server
 var userClientService = new WebPageService({ wdir: path.join(__dirname, 'clients', 'userwebclient') });
+var userClientPCService = new WebPageService({ wdir: path.join(__dirname, 'clients', 'userwebclient_pc') });
 var vendorClientService = new WebPageService({ wdir: path.join(__dirname, 'clients', 'vendorwebclient') });
 var adminClientService = new WebPageService({ wdir: path.join(__dirname, 'clients', 'adminwebclient') });
 var httpEntry = function (req, res) {
@@ -33,7 +35,10 @@ var httpEntry = function (req, res) {
             case 'api':
                 return api.handle(webreq);
             case 'www':
-                return userClientService.handle(webreq);
+                if(validate.userAgentMobile(webreq._raw.headers['user-agent']))
+                    return userClientService.handle(webreq);
+                else
+                    return userClientPCService.handle(webreq);
             case 'vendor':
                 return vendorClientService.handle(webreq);
             case 'admin':

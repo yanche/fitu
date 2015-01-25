@@ -55,6 +55,7 @@
     <Content Include="fitu\clients\userwebclient\app\html\myself\updatepwd.html" />
     <Content Include="fitu\clients\userwebclient\app\html\gym\sites.html" />
     <Content Include="fitu\clients\userwebclient\app\html\gym\vendordetail.html" />
+    <Content Include="fitu\clients\userwebclient_pc\app.jade" />
     <Content Include="fitu\clients\vendorwebclient\app\css\basic.scss" />
     <Content Include="fitu\clients\vendorwebclient\app\css\nav.scss" />
     <Content Include="fitu\clients\vendorwebclient\app\html\admins\admins.html" />
@@ -122,6 +123,7 @@
   <ItemGroup>
     <Folder Include="fitu\" />
     <Folder Include="fitu\clients\adminwebclient\app\js\controllers\" />
+    <Folder Include="fitu\clients\userwebclient_pc\" />
     <Folder Include="fitu\clients\userwebclient\app\html\gym\" />
     <Folder Include="fitu\clients\userwebclient\app\js\controllers\myself\" />
     <Folder Include="fitu\clients\userwebclient\app\js\controllers\activities\" />

@@ -266,7 +266,7 @@
     grunt.registerTask('default', ['clean', 'sass', 'copy:libsjs', 'copy:sharedimg', 'html2js', 'concat', 'uglify', 'clean:html2js', 'copy:sharedjson']);
     grunt.registerTask('prod', ['default']);
     grunt.registerTask('dev', ['clean', 'sass', 'copy', 'html2js']);
-    grunt.registerTask('watchuser', ['concurrent:watchuser']);
-    grunt.registerTask('watchvendor', ['concurrent:watchvendor']);
-    grunt.registerTask('watchadmin', ['concurrent:watchadmin']);
+    grunt.registerTask('watchuser', ['dev', 'concurrent:watchuser']);
+    grunt.registerTask('watchvendor', ['dev', 'concurrent:watchvendor']);
+    grunt.registerTask('watchadmin', ['dev', 'concurrent:watchadmin']);
 };

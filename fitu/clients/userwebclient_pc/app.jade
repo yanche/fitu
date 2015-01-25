@@ -1,0 +1,24 @@
+﻿doctype html
+html(lang='zh-CN' token='abc' ng-app='fitu')
+    head
+        meta(name='keywords' content='fitu,fit you')
+        meta(charset='utf-8')
+        meta(http-equiv='charset' content='utf-8')
+        meta(name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
+        title FITU
+        link(rel='shortcut icon' href='#{staticBase}/app/image/webclientshared/icon.jpg' type='image/x-icon')
+        link(rel='icon' href='#{staticBase}/app/image/webclientshared/icon.jpg' type='image/ico')
+
+        //app scripts
+        if (env == 'dev')
+            link(rel='stylesheet' href='#{staticBase}/app/css/libs/bootstrap/dist/css/bootstrap.css')
+            link(rel='stylesheet' href='#{staticBase}/app/css/libs/font-awesome/css/font-awesome.css')
+        else
+            link(rel='stylesheet' href='http://cdn.bootcss.com/bootstrap/3.3.1/css/bootstrap.min.css')
+            link(rel='stylesheet' href='http://cdn.bootcss.com/font-awesome/4.2.0/css/font-awesome.min.css')
+    body
+        div
+            span 抱歉，暂时不支持PC，平板客户端哟 TAT
+            span.fa-stack.fa-lg
+                i.fa.fa-desktop.fa-stack-1x
+                i.fa.fa-ban.fa-stack-2x.text-danger
