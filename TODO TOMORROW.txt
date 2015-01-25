@@ -19,7 +19,7 @@ admin portal
 ##no PC tablet access
 more page hint
 page init status, loading
-subscribed notes, no send if triggered by himself
+##subscribed notes, no send if triggered by himself
 ##act edit, time picker, current date bug
 ##act lead, statistics
 ##organizer signup
