@@ -92,6 +92,7 @@
     "SIGNUP_LABEL_INTRO": "介绍",
     "SIGNUP_MSG_ACTNOTACTIVE": "抱歉，此活动已经过期，不能再报名啦 TAT...",
     "SIGNUP_MSG_NOTFOUND": "抱歉，没有找到你想报名的活动，是不是弄错啦 TAT...",
+    "SIGNUP_MSG_NOORGANIZER": "你是这个活动的组织者丫，不需要报名吧。。。",
 
     "LEADERSHIP_HEADER": "我带的活动",
 
@@ -113,6 +114,7 @@
     "ACTDETAIL_LABEL_PRICE": "价格（每人）",
     "ACTDETAIL_LABEL_CAPACITY": "人数",
     "ACTDETAIL_LABEL_CREATOR": "带头大哥",
+    "ACTDETAIL_LABEL_YOURSELF": "（你）",
     "ACTDETAIL_BTN_GOSIGNUP": "前去报名",
     "ACTDETAIL_LABEL_MEMBER_1": "已报名（",
     "ACTDETAIL_LABEL_MEMBER_2": "）人",
