@@ -49,6 +49,20 @@
                 });
                 return defer.promise;
             },
+            getCensus: function (actId) {
+                var defer = new $q.defer();
+                $http({
+                    method: 'GET',
+                    url: url.generate('actcensus'),
+                    params: { id: actId }
+                }).success(function (data) {
+                    defer.resolve(data);
+                }).error(function (data, status, headers, config) {
+                    console.log(arguments);
+                    defer.reject('failed to retrieve act census: ' + status);
+                });
+                return defer.promise;
+            },
             create: function (options) {
                 options = options || {};
                 if (options.data && options.data.picUrl)

@@ -6,6 +6,7 @@ feature:
 --wechat, share
 --wechat, upload image(user profile)
 --pay
+--server cache
 ##ui, deep link, click on limited text, not whole row
 ##vendor page
 ##site vendor status

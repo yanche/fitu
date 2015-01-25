@@ -11,10 +11,57 @@
         <span ng-bind="lang.ACTLEAD_LABEL_ACTSTARTS" ng-show="!util.actCancel(activity) && util.actStarts(activity)"></span>
     </h4>
     <div class="paddingLR0px col-xs-12" ng-show="activity && getPageNavs().total > 0">
-        <span ng-click="link.goSendNote({actId: activity.id})">
+        <span style="float:left;" ng-click="link.goSendNote({actId: activity.id})">
             <i class="fa fa-envelope-o"></i>
             <span ng-bind="lang.SENDNOTE_LABEL_SENDNOTEALL"></span>
         </span>
+        <span style="float:right;" class="fa" ng-class="{'fa-angle-down': !expandCensus, 'fa-angle-up': expandCensus}" ng-click="expandCensus = !expandCensus"></span>
+    </div>
+    <div class="paddingLR0px col-xs-12" ng-show="expandCensus">
+        <loading class="col-xs-12 paddingLR0px" show="loadingCensus" word="lang.ACTLEAD_MSG_LOADINGCENSUS"></loading>
+        <table class="table" ng-show="census && !loadingCensus">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>
+                        <span ng-bind="lang.ACTLEAD_LABEL_CENSUS_MALE"></span>
+                        <i class="fa fa-male"></i>
+                    </th>
+                    <th>
+                        <span ng-bind="lang.ACTLEAD_LABEL_CENSUS_FEMALE"></span>
+                        <i class="fa fa-female"></i>
+                    </th>
+                    <th>
+                        <span ng-bind="lang.ACTLEAD_LABEL_CENSUS_UNKNOWN"></span>
+                        <i class="fa fa-question"></i>
+                    </th>
+                    <th ng-bind="lang.ACTLEAD_LABEL_CENSUS_TOTAL"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="success">
+                    <td ng-bind="lang.ACTLEAD_LABEL_CENSUS_CONFIRMED"></td>
+                    <td ng-bind="census.confirmed.male"></td>
+                    <td ng-bind="census.confirmed.female"></td>
+                    <td ng-bind="census.confirmed.unknown"></td>
+                    <td ng-bind="census.confirmed.male + census.confirmed.female + census.confirmed.unknown"></td>
+                </tr>
+                <tr class="warning">
+                    <td ng-bind="lang.ACTLEAD_LABEL_CENSUS_PENDING"></td>
+                    <td ng-bind="census.pending.male"></td>
+                    <td ng-bind="census.pending.female"></td>
+                    <td ng-bind="census.pending.unknown"></td>
+                    <td ng-bind="census.pending.male + census.pending.female + census.pending.unknown"></td>
+                </tr>
+                <tr class="danger">
+                    <td ng-bind="lang.ACTLEAD_LABEL_CENSUS_QUIT"></td>
+                    <td ng-bind="census.quit.male"></td>
+                    <td ng-bind="census.quit.female"></td>
+                    <td ng-bind="census.quit.unknown"></td>
+                    <td ng-bind="census.quit.male + census.quit.female + census.quit.unknown"></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
     <loading class="col-xs-12 paddingLR0px" show="loadingMem" word="lang.ACTLEAD_MSG_LOADINGMEM"></loading>
     <div class="paddingLR0px paddingTB5px col-xs-12 splitter" ng-repeat="mem in visibles" ng-show="!loadingMem">
@@ -24,9 +71,10 @@
         <div class="col-xs-9" style="padding:0px 0px 0px 10px">
             <div class="col-xs-12 paddingLR0px">
                 <span class="fontbold" ng-bind="mem.user.personal.nickName"></span>
-                <i class="fa fa-male" ng-show="mem.user.personal.gender == '男'"></i>
-                <i class="fa fa-female" ng-show="mem.user.personal.gender == '女'"></i>
-                <i class="fa fa-question" ng-show="mem.user.personal.gender != '男' && mem.user.personal.gender != '女'"></i>
+                <i class="fa fa-male" ng-show="mem.user.personal.gender == const.gender.male"></i>
+                <i class="fa fa-female" ng-show="mem.user.personal.gender == const.gender.female"></i>
+                <i class="fa fa-question" ng-show="mem.user.personal.gender != const.gender.male && mem.user.personal.gender != const.gender.female"></i>
+                <i class="fa fa-envelope-o" ng-click="link.goSendNote({recipientId: mem.user.id})"></i>
             </div>
             <div class="col-xs-12 paddingLR0px" ng-bind="mem.user.personal.contact"></div>
             <div class="col-xs-12 paddingLR0px" ng-bind="mem.user.personal.phone"></div>
@@ -39,9 +87,6 @@
                 <span ng-bind="lang.ACTLEAD_LABEL_QUIT" ng-show="mem.statusId == const.memberStatus.quit"></span>
                 <span ng-bind="lang.ACTLEAD_LABEL_PENDING" ng-show="mem.statusId == const.memberStatus.pending" style="border-bottom: 1px solid black;" ng-click="doConfirm(mem)"></span>
                 <span ng-bind="lang.ACTLEAD_LABEL_CONFIRMED" ng-show="mem.statusId == const.memberStatus.confirmed" ng-click="doPending(mem)"></span>
-            </div>
-            <div class="col-xs-12 paddingLR0px">
-                <i class="fa fa-envelope-o" ng-click="link.goSendNote({recipientId: mem.user.id})"></i>
             </div>
         </div>
     </div>

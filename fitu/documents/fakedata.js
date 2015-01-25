@@ -9,7 +9,7 @@ var god = {
         nickName: 'godNick',
         phone: '15201928369',
         contact: 'god@fitu.com',
-        gender: '男'
+        gender: constants.common.gender.male
     },
     email: 'god@fitu.com',
     hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
@@ -23,7 +23,7 @@ var ob = {
         nickName: 'obNick',
         phone: '15201928369',
         contact: 'ob@fitu.com',
-        gender: '女'
+        gender: constants.common.gender.female
     },
     email: 'ob@fitu.com',
     hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
@@ -37,7 +37,7 @@ var vdOwner1 = {
         nickName: 'vendor 1',
         phone: '15201928369',
         contact: 'vd1@fitu.com',
-        gender: '男'
+        gender: constants.common.gender.male
     },
     email: 'vd1@fitu.com',
     hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
@@ -51,7 +51,7 @@ var vdOwner2 = {
         nickName: 'vendor 2',
         phone: '15201928369',
         contact: 'vd2@fitu.com',
-        gender: '男'
+        gender: constants.common.gender.male
     },
     email: 'vd2@fitu.com',
     hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
@@ -65,7 +65,7 @@ var vdAdmin1 = {
         nickName: 'admin 1',
         phone: '15201928369',
         contact: 'admin1@fitu.com',
-        gender: '男'
+        gender: constants.common.gender.male
     },
     email: 'admin1@fitu.com',
     hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
@@ -79,7 +79,7 @@ var vdAdmin2 = {
         nickName: 'admin 2',
         phone: '15201928369',
         contact: 'admin2@fitu.com',
-        gender: '女'
+        gender: constants.common.gender.female
     },
     email: 'admin2@fitu.com',
     hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
@@ -93,7 +93,7 @@ var actOrganizer1 = {
         nickName: 'organizer 1',
         phone: '15201928369',
         contact: 'organizer1@fitu.com',
-        gender: '男'
+        gender: constants.common.gender.male
     },
     email: 'organizer1@fitu.com',
     hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
@@ -121,7 +121,7 @@ var user1 = {
         nickName: 'user 1',
         phone: '15201928369',
         contact: 'user1@fitu.com',
-        gender: '男'
+        gender: constants.common.gender.male
     },
     email: 'user1@fitu.com',
     hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
@@ -135,7 +135,7 @@ var user2 = {
         nickName: 'user 2',
         phone: '15201928369',
         contact: 'user2@fitu.com',
-        gender: '女'
+        gender: constants.common.gender.female
     },
     email: 'user2@fitu.com',
     hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',

@@ -8,10 +8,26 @@
             .then(function (data) {
                 $scope.activity = data;
                 $scope.loadingAct = false;
-            }, function (err) {
+            })
+            .catch(function (err) {
                 console.log(err);
                 $scope.loadingAct = false;
             });
+                
+            var loadCensus = function () {
+                $scope.loadingCensus = true;
+                activity.getCensus(ctx.actId)
+                .then(function (data) {
+                    $scope.census = data;
+                    $scope.loadingCensus = false;
+                })
+                .catch(function (err) {
+                    console.log(err);
+                    $scope.loadingCensus = false;
+                });
+            };
+                
+            loadCensus();
             
             var pageStore = new pagination.PageStore(function (page, pageSize) {
                 return member.getList({ actId: ctx.actId, page: page, pageSize: pageSize });
@@ -45,6 +61,7 @@
                 member.updateStatus(mem.id, constants.memberStatus.confirmed)
                 .then(function () {
                     mem.statusId = constants.memberStatus.confirmed;
+                    loadCensus();
                 })
                 .catch(function (err) { });
             };
@@ -53,6 +70,7 @@
                 member.updateStatus(mem.id, constants.memberStatus.pending)
                 .then(function () {
                     mem.statusId = constants.memberStatus.pending;
+                    loadCensus();
                 })
                 .catch(function (err) { });
             };

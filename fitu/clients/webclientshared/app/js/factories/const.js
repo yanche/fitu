@@ -37,13 +37,14 @@
                 { value: '月', key: 'M' },
                 { value: '年', key: 'y' }
             ],
-            hour24: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23],
-            minutesQuarter: [0,15,30,45],
+            hour24: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            minutesQuarter: [0, 15, 30, 45],
             noteContentTypes: { plain: 'plain', html: 'html', markdown: 'markdown' },
-            actStatus: {active: 100, cancel: 101},
-            memberStatus: { pending: 200, quit: 201, confirmed: 202},
+            actStatus: { active: 100, cancel: 101 },
+            memberStatus: { pending: 200, quit: 201, confirmed: 202 },
             siteStatus: { active: 300, inactive: 301 },
-            vendorStatus: { active: 400, inactive: 401 }
+            vendorStatus: { active: 400, inactive: 401 },
+            gender: { male: '男', female: '女' }
         };
     }]);
 })();
