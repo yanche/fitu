@@ -1,5 +1,5 @@
 ﻿(function () {
-    angular.module('fitu', ['ui.router', 'ui.router.stateHelper', 'ngRoute', 'fitulib', 'fituhtml'])
+    angular.module('fitu', ['ui.router', 'ui.router.stateHelper', 'fitulib', 'fituhtml'])
     .run(['$rootScope', 'user', 'ucconst', 'lang', '$state', '$timeout', '$location', 'crypto', 'wxb', 'link', 'util', function ($rootScope, user, ucconst, lang, $state, $timeout, $location, crypto, wxb, link, util) {
         var loadUser = function (obj, state, params) {
             //TODO, state transfer need optimization
@@ -37,10 +37,12 @@
         $rootScope.$on(ucconst.events.logout, function () { $rootScope.user = null; });
         
         $rootScope.lastPageSwitchTS = new Date().getTime();
-        
+            
+        //angular-ui-router v0.3.0 ?
         $rootScope.$on('$stateNotFound', function (evt, unfoundState, fromState, fromParams) {
             console.log('state not found');
             console.log(arguments);
+            $state.gox(ucconst.states.notfound);
         });
         $rootScope.$on('$stateChangeError', function (evt, toState, toParams, fromState, fromParams, error) {
             console.log('state change with error');
@@ -107,6 +109,7 @@
                 case ucconst.states.sitelocation:
                 case ucconst.states.vendordetail:
                     return 'gym';
+                case ucconst.states.notfound:
                 default:
                     return '';
             }
@@ -126,6 +129,10 @@
                 url: '/login',
                 templateUrl: '/app/html/login/login.html',
                 controller: 'login'
+            }, {
+                name: 'notfound',
+                url: '/notfound',
+                templateUrl: '/app/html/notfound/notfound.html',
             },{
                 name: 'myself',
                 url: '/myself',
@@ -255,6 +262,6 @@
                 }]
             }]
         });
-        $urlRouterProvider.when('/', '/activities');
+        $urlRouterProvider.when('/', '/activities').otherwise('/notfound');
     }]);
 })();

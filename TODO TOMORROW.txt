@@ -15,7 +15,8 @@ activity sort
 ##act delete
 site delete
 admin portal
-404 page
+##404 page
+##page entity 404
 ##no PC tablet access
 more page hint
 ##page init status, loading

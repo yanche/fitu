@@ -30,7 +30,8 @@
                 sites: 'fitu.gym.sites',
                 sitedetail: 'fitu.gym.sitedetail',
                 sitelocation: 'fitu.gym.sitelocation',
-                vendordetail: 'fitu.gym.vendordetail'
+                vendordetail: 'fitu.gym.vendordetail',
+                notfound: 'fitu.notfound'
             }
         };
     }]);
