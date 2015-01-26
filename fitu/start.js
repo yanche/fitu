@@ -31,8 +31,8 @@ var httpEntry = function (req, res) {
     webreq.init()
     .then(function () {
         var host = webreq._raw.headers.host;
-        if (validate.valuedString(host)) {
-            console.log('invalid host');
+        if (!validate.valuedString(host)) {
+            console.log('invalid host: ' + host);
             return extension.http.webres404();
         }
         var type = host.split('.')[0];
@@ -53,8 +53,8 @@ var httpEntry = function (req, res) {
         }
     })
     .then(function (webres) {
-        //setTimeout(function () { webres.response(res) }, 500);
-        webres.response(res);
+        setTimeout(function () { webres.response(res) }, 500);
+        //webres.response(res);
     });
 };
 http.createServer(httpEntry)

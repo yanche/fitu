@@ -1,5 +1,7 @@
 ﻿<div class="col-xs-12">
     <h4 class="col-xs-12 paddingLR0px fontbold" ng-bind="lang.FOOTPRINT_HEADER"></h4>
+    <loading class="col-xs-12 paddingLR0px" show="loading" word="lang.GLOBAL_MSG_LOADING"></loading>
+    <div class="col-xs-12 paddingLR0px fontbold" ng-show="!loading && getPageNavs().total == 0" ng-bind="lang.FOOTPRINT_LABEL_NORECORDS"></div>
     <div class="col-xs-12 paddingLR0px paddingTB10px splitter" ng-repeat="fp in visibles">
         <div class="col-xs-3 paddingLR0px" ng-click="link.goActDetail(fp.activity.id)">
             <img ng-src="{{fp.activity.picUrl}}" style="width:100%;" />
@@ -14,12 +16,8 @@
                 <i class="fa fa-home"></i>
                 <span ng-bind="fp.activity.tags[0] | tag"></span>
             </div>
-            <div class="col-xs-12 paddingLR0px">
-                <span ng-show="fp.activity.statusId == const.actStatus.cancel" ng-bind="lang.FOOTPRINT_LABEL_ACTCANCEL"></span>
-                <span ng-show="fp.activity.statusId == const.actStatus.active && actEnds(fp.activity)" ng-bind="lang.FOOTPRINT_LABEL_ACTENDS"></span>
-                <span ng-show="fp.activity.statusId == const.actStatus.active && actStarts(fp.activity)" ng-bind="lang.FOOTPRINT_LABEL_ACTSTARTS"></span>
-            </div>
-            <div class="col-xs-12 paddingLR0px" ng-show="fp.activity.statusId == const.actStatus.active && actNotStarts(fp.activity)">
+            <div class="col-xs-12 paddingLR0px" ng-show="!util.actActive(fp.activity)" ng-bind="lang.FOOTPRINT_LABEL_ACT + util.actNonActiveStatus(fp.activity)"></div>
+            <div class="col-xs-12 paddingLR0px" ng-show="util.actActive(fp.activity)">
                 <span ng-bind="lang.FOOTPRINT_LABEL_PENDING" ng-show="fp.statusId == const.memberStatus.pending"></span>
                 <span ng-bind="lang.FOOTPRINT_LABEL_CONFIRMED" ng-show="fp.statusId == const.memberStatus.confirmed"></span>
                 <span ng-bind="lang.FOOTPRINT_LABEL_QUIT" ng-show="fp.statusId == const.memberStatus.quit"></span>

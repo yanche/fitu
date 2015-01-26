@@ -4,6 +4,7 @@
         <dropdown items="statusFilters" label-name="'present'" selected-item="currentStatusFilter" change="switchStatus()" style="width:100px;display:inline-block;margin-left:10px;"></dropdown>
     </div>
     <loading class="col-xs-12 paddingLR0px" show="loading" word="lang.GLOBAL_MSG_LOADING"></loading>
+    <div class="col-xs-12 fontbold paddingLR0px" ng-bind="lang.ACTIVITIES_MSG_NOACT" ng-show="!loading && getPageNavs().total == 0"></div>
     <actpreview ng-repeat="act in visibles" act="act" ng-click="link.goActDetail(act.id)"></actpreview>
     <div class="col-xs-12 text-right paddingLR0px" ng-show="getPageNavs().max > 0">
         <ul class="pagination">

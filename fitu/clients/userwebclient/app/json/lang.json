@@ -8,6 +8,7 @@
     "MYSELF_LABEL_FOOTPRINT": "参加过",
     "MYSELF_LABEL_LEADERSHIP": "组织过",
     "MYSELF_LABEL_FANS": "粉丝",
+    "MYSELF_LABEL_ANONY": "匿名",
     "MYSELF_TITLE_SUBSCRIBE": "关注",
     "MYSELF_LABEL_SUBSCRIBEUSERS": "关注用户",
     "MYSELF_LABEL_SUBSCRIBESITES": "关注场馆",
@@ -77,9 +78,8 @@
     "FOOTPRINT_LABEL_PENDING": "待确认",
     "FOOTPRINT_LABEL_CONFIRMED": "已确认",
     "FOOTPRINT_LABEL_DOQUIT": "我想退出",
-    "FOOTPRINT_LABEL_ACTCANCEL": "活动已取消",
-    "FOOTPRINT_LABEL_ACTENDS": "活动已结束",
-    "FOOTPRINT_LABEL_ACTSTARTS": "活动已开始",
+    "FOOTPRINT_LABEL_ACT": "活动",
+    "FOOTPRINT_LABEL_NORECORDS": "你还没有参加过活动哦。择个良辰吉日和我们一起动起来吧！",
 
     "SIGNUP_BTN_SIGNUP": "马上报名！",
     "SIGNUP_BTN_SIGNUPING": "正在报名...",
@@ -95,18 +95,30 @@
     "SIGNUP_MSG_NOORGANIZER": "你是这个活动的组织者丫，不需要报名吧。。。",
 
     "LEADERSHIP_HEADER": "我带的活动",
+    "LEADERSHIP_LABEL_NOACT": "你还没有组织过活动哦。择个良辰吉日带小伙伴们一起HI起来吧！",
 
     "SENDNOTE_HEADER": "发私信",
     "SENDNOTE_LABEL_SUBJECT": "主题",
     "SENDNOTE_LABEL_CONTENT": "内容",
     "SENDNOTE_LABEL_SENDNOTEALL": "全体",
+    "SENDNOTE_LABEL_RECV": "收信人",
+    "SENDNOTE_LABEL_ACTRECV": "收信人（未退出的成员）",
     "SENDNOTE_BTN_SEND": "发送",
     "SENDNOTE_BTN_SENDING": "发送中...",
     "SENDNOTE_BTN_RESET": "清空",
+    "SENDNOTE_MSG_LOADING": "正在加载收信人...",
+    "SENDNOTE_MSG_NORECV": "没有指定收信人？？？",
+    "SENDNOTE_MSG_NOAUTH": "抱歉，你不是这个活动的组织者，不能向它的报名人员发送信息",
+    "SENDNOTE_MSG_404": "抱歉，收信人不存在 TAT",
 
     "NOTEOUTBOX_HEADER": "发件箱",
+    "NOTEOUTBOX_MSG_EMPTY": "空的哟",
+
     "NOTEINBOX_HEADER": "收件箱",
+    "NOTEINBOX_MSG_EMPTY": "空的哟",
+
     "NOTESYSBOX_HEADER": "系统消息",
+    "NOTESYSBOX_MSG_EMPTY": "空的哟",
 
     "ACTDETAIL_LABEL_TIME": "活动时间：",
     "ACTDETAIL_LABEL_ADDR": "地址",
@@ -214,5 +226,7 @@
     "ACTLEAD_LABEL_CENSUS_TOTAL": "总计",
     "ACTLEAD_MSG_LOADINGACT":  "正在加载活动信息...",
     "ACTLEAD_MSG_LOADINGMEM":  "正在加载队员信息...",
-    "ACTLEAD_MSG_LOADINGCENSUS":  "正在加载统计信息..."
+    "ACTLEAD_MSG_LOADINGCENSUS": "正在加载统计信息...",
+
+    "ACTIVITIES_MSG_NOACT": "抱歉，目前没有可以报名的（这种）活动喔。"
 }

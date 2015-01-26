@@ -1,6 +1,6 @@
 ﻿(function () {
     angular.module('fitu')
-    .controller('sitedetail', ['$scope', '$state', 'site', '$location', 'ucconst', 'pagination', 'validate', '$rootScope', 'message', 'sitefan', function ($scope, $state, site, $location, ucconst, pagination, validate, $rootScope, message, sitefan) {
+    .controller('sitedetail', ['$scope', '$state', 'site', '$location', 'ucconst', 'pagination', 'validate', '$rootScope', 'message', 'sitefan', 'ucdatamodel', function ($scope, $state, site, $location, ucconst, pagination, validate, $rootScope, message, sitefan, ucdatamodel) {
         var ctx = $location.search();
         $scope.loading = true;
         site.getOne({ id: ctx.siteId })
@@ -13,57 +13,59 @@
         });
         
         if ($rootScope.user) {
-            var loadFanRel = function () {
-                $scope.loadingFanRel = true;
-                sitefan.relationship({ siteId: ctx.siteId })
-                .then(function (data) {
-                    $scope.fanRelationship = data;
-                    $scope.loadingFanRel = false;
-                })
-                .catch(function (err) {
-                    $scope.loadingFanRel = false;
-                });
-            };
-            loadFanRel();
+            $scope.loadingFanRel = true;
+            sitefan.relationship({ siteId: ctx.siteId })
+            .then(function (data) {
+                $scope.fanRelationship = data;
+                $scope.loadingFanRel = false;
+            })
+            .catch(function (err) {
+                $scope.loadingFanRel = false;
+            });
             
+            $scope.fanning = false;
             $scope.fan = function () {
-                $scope.fanning = true;
-                sitefan.fan({ siteId: ctx.siteId })
-                .then(function () {
-                    $scope.fanning = false;
-                    $scope.site.fansCount++;
-                    $rootScope.user.subscribe.sitesCount++;
-                    loadFanRel();
-                })
-                .catch(function (err) {
-                    $scope.fanning = false;
-                });
+                if (!$scope.fanning) {
+                    $scope.fanning = true;
+                    sitefan.fan({ siteId: ctx.siteId })
+                    .then(function () {
+                        $scope.fanning = false;
+                        $scope.site.fansCount++;
+                        $rootScope.user.subscribe.sitesCount++;
+                        $scope.fanRelationship = { subscribe: true };
+                    })
+                    .catch(function (err) {
+                        $scope.fanning = false;
+                    });
+                }
             };
-            
+
+            $scope.nofanning = false;
             $scope.noFan = function () {
-                $scope.nofanning = true;
-                sitefan.noFan({ siteId: ctx.siteId })
-                .then(function () {
-                    $scope.nofanning = false;
-                    $scope.site.fansCount--;
-                    $rootScope.user.subscribe.sitesCount--;
-                    loadFanRel();
-                })
-                .catch(function (err) {
-                    $scope.nofanning = false;
-                });
-            };
+                if (!$scope.nofanning) {
+                    $scope.nofanning = true;
+                    sitefan.noFan({ siteId: ctx.siteId })
+                    .then(function () {
+                        $scope.nofanning = false;
+                        $scope.site.fansCount--;
+                        $rootScope.user.subscribe.sitesCount--;
+                        $scope.fanRelationship = { subscribe: false };
+                    })
+                    .catch(function (err) {
+                        $scope.nofanning = false;
+                    });
+                };
+            }
         }
         
-        $scope.newMessage = '';
         $scope.sendNewSiteMessage = function () {
-            if (validate.valuedString($scope.newMessage) && $rootScope.user) {
+            if ($scope.msgModel.validate() && $rootScope.user) {
                 $scope.sendingMsg = true;
-                site.createMessage({ id: ctx.siteId, message: $scope.newMessage, replyToId: $scope.replyToMsg ? $scope.replyToMsg.id : null })
+                site.createMessage({ id: ctx.siteId, message: $scope.msgModel.toPOJO().msg, replyToId: $scope.replyToMsg ? $scope.replyToMsg.id : null })
                 .then(function () {
                     pageStore.refresh();
                     $scope.switchMsgPage(0); //first page
-                    $scope.newMessage = '';
+                    $scope.resetMsgModel();
                     $scope.sendingMsg = false;
                 })
                 .catch(function (err) {
@@ -71,12 +73,21 @@
                 });
             }
         };
+        $scope.resetMsgModel = function () {
+            $scope.msgModel.init({ msg: '' });
+        };
+        $scope.msgModel = new ucdatamodel.MsgModel();
+        $scope.resetMsgModel();
         
+        $scope.liking = false;
         $scope.likeMessage = function (msg) {
-            if ($rootScope.user) {
-                message.likeMessage({ id: msg.id, like: !Boolean(msg.like.me) })
+            if ($rootScope.user && !$scope.liking) {
+                $scope.liking = true;
+                var like = !Boolean(msg.like.me);
+                message.likeMessage({ id: msg.id, like: like })
                 .then(function () {
-                    if (msg.like.me) {
+                    $scope.liking = false;
+                    if (!like) {
                         msg.like.me = false;
                         msg.like.count--;
                     }
@@ -86,6 +97,7 @@
                     }
                 })
                 .catch(function (err) {
+                    $scope.liking = false;
                 });
             }
         };
@@ -105,7 +117,7 @@
         //caution!! multi-request
         $scope.switchMsgPage = function (page) {
             $scope.loadingMsg = true;
-            pageStore.navigate(page, messagePageSize)
+            return pageStore.navigate(page, messagePageSize)
             .then(function (list) {
                 $scope.loadingMsg = false;
                 $scope.msgVisibles = list;
@@ -117,6 +129,19 @@
             });
         };
         $scope.switchMsgPage(0);
+            
+        $scope.refreshingMsgs = false;
+        $scope.refreshMsgs = function () {
+            $scope.refreshingMsgs = true;
+            pageStore.refresh();
+            $scope.switchMsgPage(0)
+            .then(function () {
+                $scope.refreshingMsgs = false;
+            })
+            .catch(function (err) {
+                $scope.refreshingMsgs = false;
+            });
+        };
         
         $scope.getMsgPageNavs = function () {
             return pageStore.getPageNavs(messagePageSize, 3, $scope.currentMsgPage);

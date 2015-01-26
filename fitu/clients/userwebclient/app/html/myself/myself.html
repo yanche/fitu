@@ -1,4 +1,4 @@
-﻿<div class="col-xs-12" ng-show="currentState() == 'fitu.myself'">
+﻿<div class="col-xs-12" ng-show="currentState() == 'fitu.myself' && user">
     <div class="empty-xs"></div>
     <div class="col-xs-12 nopadding fontbold" ng-bind="lang.MYSELF_TITLE_ME "></div>
     <div class="col-xs-12 nopadding borderbottom-bold paddingTB10px" style="background-color:white;">
@@ -6,7 +6,7 @@
             <img ng-src="{{user.headUrl}}" style="width: 100%;" />
         </div>
         <div class="col-xs-8">
-            <div ng-bind="user.personal.nickName" class="fontbig fontbold"></div>
+            <div ng-bind="user.personal.nickName || lang.MYSELF_LABEL_ANONY" class="fontbig fontbold"></div>
             <div>
                 <gender-hint gender="user.personal.gender"></gender-hint>
             </div>

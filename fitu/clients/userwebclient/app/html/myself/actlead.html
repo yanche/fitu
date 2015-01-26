@@ -10,7 +10,7 @@
         <span ng-bind="lang.ACTLEAD_LABEL_ACTENDS" ng-show="!util.actCancel(activity) && util.actEnds(activity)"></span>
         <span ng-bind="lang.ACTLEAD_LABEL_ACTSTARTS" ng-show="!util.actCancel(activity) && util.actStarts(activity)"></span>
     </h4>
-    <div class="paddingLR0px col-xs-12" ng-show="activity && getPageNavs().total > 0">
+    <div class="paddingLR0px col-xs-12" ng-show="activity && activity.memberCount > 0">
         <span style="float:left;" ng-click="link.goSendNote({actId: activity.id})">
             <i class="fa fa-envelope-o"></i>
             <span ng-bind="lang.SENDNOTE_LABEL_SENDNOTEALL"></span>

@@ -1,6 +1,6 @@
 ﻿(function () {
     angular.module('fitu')
-    .controller('actdetail', ['$scope', '$location', '$state', 'activity', 'member', 'ucconst', 'geo', 'pagination', 'message', 'validate', '$rootScope', 'const', function ($scope, $location, $state, activity, member, ucconst, geo, pagination, message, validate, $rootScope, constants) {
+    .controller('actdetail', ['$scope', '$location', '$state', 'activity', 'member', 'ucconst', 'geo', 'pagination', 'message', 'validate', '$rootScope', 'const', 'ucdatamodel', function ($scope, $location, $state, activity, member, ucconst, geo, pagination, message, validate, $rootScope, constants, ucdatamodel) {
         var ctx = $location.search();
         $scope.loading = true;
         activity.getOne(ctx.actId)
@@ -32,15 +32,14 @@
             $scope.userPos = null;
             $scope.gettingUserPos = false;
         });*/
-        $scope.newMessage = '';
         $scope.sendNewActMessage = function () {
-            if (validate.valuedString($scope.newMessage) && $rootScope.user) {
+            if ($scope.msgModel.validate() && $rootScope.user) {
                 $scope.sendingMsg = true;
-                activity.createMessage({ id: ctx.actId, message: $scope.newMessage, replyToId: $scope.replyToMsg ? $scope.replyToMsg.id : null })
+                activity.createMessage({ id: ctx.actId, message: $scope.msgModel.toPOJO().msg, replyToId: $scope.replyToMsg ? $scope.replyToMsg.id : null })
                 .then(function () {
                     pageStore.refresh();
                     $scope.switchMsgPage(0); //first page
-                    $scope.newMessage = '';
+                    $scope.resetMsgModel();
                     $scope.sendingMsg = false;
                 })
                 .catch(function (err) {
@@ -48,12 +47,21 @@
                 });
             }
         };
-        
+        $scope.resetMsgModel = function () {
+            $scope.msgModel.init({ msg: '' });
+        };
+        $scope.msgModel = new ucdatamodel.MsgModel();
+        $scope.resetMsgModel();
+
+        $scope.liking = false;
         $scope.likeMessage = function (msg) {
-            if ($rootScope.user) {
-                message.likeMessage({ id: msg.id, like: !Boolean(msg.like.me) })
+            if ($rootScope.user && !$scope.liking) {
+                $scope.liking = true;
+                var like = !Boolean(msg.like.me);
+                message.likeMessage({ id: msg.id, like: like })
                 .then(function () {
-                    if (msg.like.me) {
+                    $scope.liking = false;
+                    if (!like) {
                         msg.like.me = false;
                         msg.like.count--;
                     }
@@ -63,6 +71,7 @@
                     }
                 })
                 .catch(function (err) {
+                    $scope.liking = false;
                 });
             }
         };
@@ -82,7 +91,7 @@
         //caution!! multi-request
         $scope.switchMsgPage = function (page) {
             $scope.loadingMsg = true;
-            pageStore.navigate(page, messagePageSize)
+            return pageStore.navigate(page, messagePageSize)
             .then(function (list) {
                 $scope.loadingMsg = false;
                 $scope.msgVisibles = list;
@@ -94,13 +103,22 @@
             });
         };
         $scope.switchMsgPage(0);
+            
+        $scope.refreshingMsgs = false;
+        $scope.refreshMsgs = function () {
+            $scope.refreshingMsgs = true;
+            pageStore.refresh();
+            $scope.switchMsgPage(0)
+            .then(function () {
+                $scope.refreshingMsgs = false;
+            })
+            .catch(function (err) {
+                $scope.refreshingMsgs = false;
+            });
+        };
         
         $scope.getMsgPageNavs = function () {
             return pageStore.getPageNavs(messagePageSize, 3, $scope.currentMsgPage);
-        };
-
-        $scope.actStatus = function () {
-            return activity.actStatus($scope.activity);
         };
     }]);
 })();

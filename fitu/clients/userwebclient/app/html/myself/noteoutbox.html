@@ -1,5 +1,7 @@
 ﻿<div class="col-xs-12">
     <h4 class="col-xs-12 paddingLR0px fontbold" ng-bind="lang.NOTEOUTBOX_HEADER"></h4>
+    <loading class="col-xs-12 paddingLR0px" show="loading" word="lang.GLOBAL_MSG_LOADING"></loading>
+    <div class="col-xs-12 paddingLR0px" ng-bind="lang.NOTEOUTBOX_MSG_EMPTY" ng-show="!loading && getPageNavs().total == 0"></div>
     <div class="paddingLR0px paddingTB5px col-xs-12 splitter" ng-repeat="note in visibles">
         <div class="col-xs-12 paddingLR0px fontbold" note-syntax target="note.subject"></div>
         <div class="col-xs-12 paddingLR0px small">

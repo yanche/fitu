@@ -239,6 +239,26 @@
             }
             return this;
         };
+            
+        var MsgModel = function () {
+            DataModel.call(this);
+            
+            this.msgProp = new ModelProp(validate.valuedString);
+            this.addProp(this.msgProp);
+        };
+        MsgModel.prototype = Object.create(DataModel.prototype);
+        MsgModel.prototype.toPOJO = function () {
+            return {
+                msg: this.msgProp.val
+            };
+        };
+        MsgModel.prototype.init = function (data) {
+            if (!data)
+                DataModel.prototype.init.call();
+            else
+                this.msgProp.init(data.msg);
+            return this;
+        };
         
         return {
             LoginModel: LoginModel,
@@ -247,7 +267,8 @@
             UpdateLoginEmailModel: UpdateLoginEmailModel,
             UpdateLoginPWDModel: UpdateLoginPWDModel,
             SendNoteModel: SendNoteModel,
-            MatrixModel: MatrixModel
+            MatrixModel: MatrixModel,
+            MsgModel: MsgModel
         };
     }]);
 })();

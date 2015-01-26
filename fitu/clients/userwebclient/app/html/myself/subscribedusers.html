@@ -1,7 +1,8 @@
 ﻿<div class="col-xs-12">
     <h4 class="col-xs-12 paddingLR0px fontbold" ng-bind="lang.SUBCRIBEUSERS_HEADER"></h4>
-    <div class="col-xs-12 paddingLR0px" ng-bind="lang.SUBCRIBEUSERS_LABEL_NOUSERS" ng-show="getPageNavs().total == 0"></div>
-    <div class="col-xs-12 paddingLR0px small" ng-bind="lang.SUBCRIBEUSERS_MSG_WHYFAN" ng-show="getPageNavs().total == 0"></div>
+    <loading class="col-xs-12 paddingLR0px" show="loading" word="lang.GLOBAL_MSG_LOADING"></loading>
+    <div class="col-xs-12 paddingLR0px" ng-bind="lang.SUBCRIBEUSERS_LABEL_NOUSERS" ng-show="!loading && getPageNavs().total == 0"></div>
+    <div class="col-xs-12 paddingLR0px small" ng-bind="lang.SUBCRIBEUSERS_MSG_WHYFAN" ng-show="!loading && getPageNavs().total == 0"></div>
     <div class="paddingLR0px paddingTB5px col-xs-12 splitter" ng-repeat="sub in visibles">
         <div class="col-xs-3 paddingLR0px" ng-click="link.goUserPreview(sub.id)">
             <img style="width:100%;" ng-src="{{sub.headUrl}}" />

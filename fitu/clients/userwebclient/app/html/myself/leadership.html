@@ -1,5 +1,7 @@
 ﻿<div class="col-xs-12">
     <h4 class="col-xs-12 paddingLR0px fontbold" ng-bind="lang.LEADERSHIP_HEADER"></h4>
+    <loading class="col-xs-12 paddingLR0px" show="loading" word="lang.GLOBAL_MSG_LOADING"></loading>
+    <div class="col-xs-12 paddingLR0px fontbold" ng-show="!loading && getPageNavs().total == 0" ng-bind="lang.LEADERSHIP_LABEL_NOACT"></div>
     <actpreview ng-repeat="act in visibles" act="act" ng-click="link.goActLead(act.id)"></actpreview>
     <div class="col-xs-12 text-right paddingLR0px" ng-show="getPageNavs().max > 0">
         <ul class="pagination">

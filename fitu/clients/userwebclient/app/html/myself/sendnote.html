@@ -1,7 +1,45 @@
 ﻿<div class="col-xs-12">
     <h4 class="col-xs-12 paddingLR0px fontbold" ng-bind="lang.SENDNOTE_HEADER"></h4>
-    <div class="col-xs-12 paddingLR0px" ng-show="!badState">
-        <div class="empty-xs"></div>
+    <div class="empty-xxs"></div>
+    <div class="col-xs-12 paddingLR0px fontbold" ng-bind="lang.SENDNOTE_MSG_NORECV" ng-show="noReceiver"></div>
+    <loading class="col-xs-12 paddingLR0px" show="loading" word="lang.SENDNOTE_MSG_LOADING"></loading>
+    <div class="col-xs-12 paddingLR0px fontbold" ng-bind="lang.SENDNOTE_LABEL_RECV" ng-show="!loading && recipient"></div>
+    <div class="col-xs-12 paddingLR0px fontbold" ng-bind="lang.SENDNOTE_LABEL_ACTRECV" ng-show="!loading && !recipient && activity && activity.createdBy == user.id"></div>
+    <div class="col-xs-12 paddingLR0px fontbold" ng-bind="lang.SENDNOTE_MSG_NOAUTH" ng-show="!loading && !recipient && activity && activity.createdBy != user.id"></div>
+    <div class="col-xs-12 paddingLR0px fontbold" ng-bind="lang.SENDNOTE_MSG_404" ng-show="!loading && !recipient && !activity && !noReceiver"></div>
+    <div class="col-xs-12 paddingLR0px" ng-show="!loading && recipient">
+        <div class="col-xs-2 paddingLR0px">
+            <img style="width:100%;" ng-src="{{recipient.headUrl}}" />
+        </div>
+        <div class="col-xs-10" style="padding:0px 0px 0px 10px">
+            <div class="col-xs-12 paddingLR0px">
+                <span class="fontbold" ng-bind="recipient.personal.nickName"></span>
+                <gender-hint gender="recipient.personal.gender"></gender-hint>
+            </div>
+            <div class="col-xs-12 paddingLR0px" ng-bind="recipient.personal.contact"></div>
+            <div class="col-xs-12 paddingLR0px">
+                <i class="fa fa-heart" ng-class="{red: recipient.fansCount > 0}"></i>
+                <span ng-bind="recipient.fansCount"></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 paddingLR0px" ng-show="!loading && !recipient && activity && activity.createdBy == user.id">
+        <div class="col-xs-2 paddingLR0px">
+            <img style="width:100%;" ng-src="{{activity.picUrl}}" />
+        </div>
+        <div class="col-xs-10" style="padding:0px 0px 0px 10px">
+            <div class="col-xs-12 paddingLR0px" ng-bind="activity.name"></div>
+            <div class="col-xs-12 paddingLR0px">
+                <i class="fa fa-user blue" ng-show="activity.memberCount <= activity.capacity * 0.8"></i>
+                <i class="fa fa-users red" ng-show="activity.memberCount > activity.capacity * 0.8"></i>
+                <span ng-bind="activity.memberCount"></span>
+                <span> / </span>
+                <span ng-bind="activity.capacity"></span>
+            </div>
+        </div>
+    </div>
+    <div class="empty-xs"></div>
+    <div class="col-xs-12 paddingLR0px" ng-show="!noReceiver && !loading && (recipient || (activity && activity.createdBy == user.id))">
         <div class="col-xs-12 paddingLR0px fontbold">
             <span ng-bind="lang.SENDNOTE_LABEL_SUBJECT"></span>
             <i class="fa fa-exclamation" ng-class="{red: sendNoteModel.emphasisProp.val}" ng-click="sendNoteModel.emphasisProp.val = !sendNoteModel.emphasisProp.val"></i>

@@ -9,7 +9,6 @@
                 $scope.updating = true;
                 user.changePassword(data.hash_pwd, data.confirm_hash_pwd)
                 .then(function () {
-                    console.log('密码修改成功');
                     //$scope.updatePWDModel.init();
                     $state.gox(ucconst.states.myself);
                     $scope.updating = false;

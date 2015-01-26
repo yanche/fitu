@@ -14,6 +14,21 @@
             actStarts: function (act) {
                 var now = moment();
                 return act && moment(act.startsOn) <= now && moment(act.endsOn) > now;
+            },
+            actNonActiveStatus: function (act) {
+                if (!act)
+                    return '';
+                if (act.statusId == constants.actStatus.cancel)
+                    return '已取消';
+                var s = moment(act.startsOn), e = moment(act.endsOn), now = moment();
+                if (!s.isValid() || !e.isValid())
+                    return '';
+                else if (s > now)
+                    return '';
+                else if (e > now)
+                    return '已开始';
+                else
+                    return '已结束';
             }
         };
     }]);

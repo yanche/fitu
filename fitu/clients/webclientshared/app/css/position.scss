@@ -25,6 +25,11 @@
     @extend .empty-base;
 }
 
+.empty-xxs {
+    height: 12px;
+    @extend .empty-base;
+}
+
 .nopadding {
     padding-left: 0px;
     padding-right: 0px;

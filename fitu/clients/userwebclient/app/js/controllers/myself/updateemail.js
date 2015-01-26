@@ -9,7 +9,6 @@
                 $scope.updating = true;
                 user.changeEmail(data.email, data.confirm_hash_pwd)
                 .then(function () {
-                    console.log('邮箱修改成功');
                     angular.extend($rootScope.user, { email: data.email });
                     //$scope.updateEmailModel.init();
                     $state.gox(ucconst.states.myself);

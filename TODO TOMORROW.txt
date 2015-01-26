@@ -23,6 +23,8 @@ more page hint
 ##act edit, time picker, current date bug
 ##act lead, statistics
 ##organizer signup
+pagination
+merge msg board
 
 
 optimization:

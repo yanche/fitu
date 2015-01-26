@@ -76,20 +76,26 @@
         <div class="col-xs-12 paddingLR0px" ng-show="members.length > 0 && util.actActive(activity)" style="background-color: white;">
             <img ng-repeat="m in members" ng-src="{{m.user.headUrl}}" class="col-xs-2 padding5px" ng-click="link.goUserPreview(m.user.id)" />
         </div>
-        <div class="col-xs-12 paddingLR0px fontbold" ng-show="!util.actActive(activity)" ng-bind="actStatus()"></div>
+        <div class="col-xs-12 paddingLR0px fontbold" ng-show="!util.actActive(activity)" ng-bind="util.actNonActiveStatus(activity)"></div>
         <div class="empty-xs"></div>
-        <div class="col-xs-12 padding10px" style="border-radius:5px;background-color:white;" ng-show="getMsgPageNavs().total > 0">
-            <div class="col-xs-12 paddingLR0px fontbold">
-                <span ng-bind="lang.ACTDETAIL_LABEL_MSGBOARD"></span>
-                <i class="fa fa-edit"></i>
+        <div class="col-xs-12 padding10px" style="border-radius:5px;background-color:white;" ng-show="loadingMsg || getMsgPageNavs().total > 0">
+            <div class="col-xs-12 paddingLR0px fontbold" style="margin-bottom: 5px;">
+                <div style="float:left">
+                    <i class="fa fa-edit"></i>
+                    <span ng-bind="lang.ACTDETAIL_LABEL_MSGBOARD"></span>
+                </div>
+                <div style="float:right">
+                    <i class="fa fa-refresh clickable" ng-click="refreshMsgs()" ng-class="{'fa-spin': refreshingMsgs}"></i>
+                </div>
             </div>
-            <div class="col-xs-12 paddingLR0px" ng-repeat="msg in msgVisibles">
+            <loading class="col-xs-12 paddingLR0px" show="loadingMsg" word="lang.GLOBAL_MSG_LOADING"></loading>
+            <div class="col-xs-12 paddingLR0px" ng-repeat="msg in msgVisibles" ng-show="!loadingMsg">
                 <pre ng-bind="msg.words" style="margin-bottom: 0px;"></pre>
                 <div class="text-right small" style="margin-bottom: 10px;">
                     <span ng-show="msg.replyToUser" ng-bind="lang.ACTDETAIL_LABEL_REPLYTO"></span>
                     <span ng-show="msg.replyToUser" ng-bind="msg.replyToUser.personal.nickName"></span>
                     <span>by </span>
-                    <span ng-bind="msg.author.personal.nickName"></span>
+                    <span ng-bind="msg.author.personal.nickName" ng-click="link.goUserPreview(msg.author.id)"></span>
                     <span>@</span>
                     <span ng-bind="msg.createdOn | sensitiveDatetime"></span>
                     <i class="fa fa-reply" ng-click="replyToClick(msg)"></i>
@@ -97,7 +103,7 @@
                     <span class="small" style="margin-left: -3px;" ng-bind="msg.like.count"></span>
                 </div>
             </div>
-            <div class="col-xs-12 text-right paddingLR0px" ng-show="getMsgPageNavs().max > 0">
+            <div class="col-xs-12 text-right paddingLR0px" ng-show="!loadingMsg && getMsgPageNavs().max > 0">
                 <ul class="pagination">
                     <li ng-class="{disabled: currentMsgPage == 0}" ng-click="currentMsgPage <= 0 || switchMsgPage(0)"><span class="fa fa-angle-double-left"></span></li>
                     <li ng-class="{disabled: currentMsgPage == 0}" ng-click="currentMsgPage <= 0 || switchMsgPage(currentMsgPage - 1)"><span class="fa fa-angle-left"></span></li>
@@ -107,7 +113,7 @@
                 </ul>
             </div>
         </div>
-        <div class="col-xs-12 paddingLR0px" ng-show="getMsgPageNavs().total == 0" ng-bind="lang.ACTDETAIL_MSG_NOMSG"></div>
+        <div class="col-xs-12 paddingLR0px" ng-show="!loadingMsg && getMsgPageNavs().total == 0" ng-bind="lang.ACTDETAIL_MSG_NOMSG"></div>
         <div class="empty-xs"></div>
         <div class="col-xs-12 paddingLR0px">
             <div class="col-xs-12 paddingLR0px fontbold">
@@ -120,16 +126,16 @@
                 <span ng-bind="replyToMsg.author.personal.nickName"></span>
             </div>
             <div class="col-xs-12 paddingLR0px">
-                <textarea class="form-control" ng-model="newMessage" style="max-width:100%;"></textarea>
+                <textarea class="form-control" ng-model="msgModel.msgProp.val" style="max-width:100%;" ng-disabled="sendingMsg"></textarea>
             </div>
             <div class="col-xs-12 paddingLR0px marginT5px text-right">
                 <span ng-show="!user" ng-bind="lang.ACTDETAIL_MSG_SENDMSGAFTERLOGIN"></span>
-                <button class="btn btn-warning btn-xs" ng-show="user" ng-click="sendNewActMessage()" ng-disabled="sendingMsg">
+                <button class="btn btn-warning btn-xs" ng-show="user" ng-click="sendNewActMessage()" ng-disabled="sendingMsg || !msgModel.validate()">
                     <i class="fa fa-spinner fa-spin" ng-show="sendingMsg"></i>
                     <span ng-bind="lang.ACTDETAIL_BTN_SENDINGMSG" ng-show="sendingMsg"></span>
                     <span ng-bind="lang.ACTDETAIL_BTN_SENDMSG" ng-show="!sendingMsg"></span>
                 </button>
-                <button class="btn btn-danger btn-xs" ng-show="user" ng-click="newMessage = ''" ng-bind="lang.ACTDETAIL_BTN_RESETMSG" ng-disabled="sendingMsg"></button>
+                <button class="btn btn-danger btn-xs" ng-show="user" ng-click="resetMsgModel()" ng-bind="lang.ACTDETAIL_BTN_RESETMSG" ng-disabled="sendingMsg"></button>
             </div>
         </div>
     </div>

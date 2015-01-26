@@ -8,7 +8,7 @@
                 $http({
                     method: 'POST',
                     url: url.generate('notes'),
-                    params: { actId: options.actId, recipientId: options.recipientId },
+                    params: { actId: options.actId, recipientId: options.recipientId }, //backend: recipientId has higher priority
                     data: options.data
                 }).success(function (data) {
                     defer.resolve(data);
