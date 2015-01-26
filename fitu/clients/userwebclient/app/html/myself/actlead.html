@@ -71,9 +71,7 @@
         <div class="col-xs-9" style="padding:0px 0px 0px 10px">
             <div class="col-xs-12 paddingLR0px">
                 <span class="fontbold" ng-bind="mem.user.personal.nickName"></span>
-                <i class="fa fa-male" ng-show="mem.user.personal.gender == const.gender.male"></i>
-                <i class="fa fa-female" ng-show="mem.user.personal.gender == const.gender.female"></i>
-                <i class="fa fa-question" ng-show="mem.user.personal.gender != const.gender.male && mem.user.personal.gender != const.gender.female"></i>
+                <gender-hint gender="mem.user.personal.gender"></gender-hint>
                 <i class="fa fa-envelope-o" ng-click="link.goSendNote({recipientId: mem.user.id})"></i>
             </div>
             <div class="col-xs-12 paddingLR0px" ng-bind="mem.user.personal.contact"></div>

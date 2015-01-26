@@ -25,13 +25,13 @@
         <div class="col-xs-12 paddingLR0px fontbold" ng-bind="lang.SIGNUP_LABEL_INTRO"></div>
         <div class="col-xs-12 paddingLR0px" ng-bind="activity.intro"></div>
         <div class="empty-sm"></div>
-        <button ng-click="signup()" class="btn btn-success col-xs-offset-2 col-xs-8" ng-class="{'disabled': processing}" ng-show="!actNotActive() && activity.createdBy != user.id">
+        <button ng-click="signup()" class="btn btn-success col-xs-offset-2 col-xs-8" ng-class="{'disabled': processing}" ng-show="util.actActive(activity) && activity.createdBy != user.id">
             <i class="fa fa-spinner fa-spin" ng-show="processing"></i>
             <span ng-bind="lang.SIGNUP_BTN_SIGNUP" ng-show="!processing"></span>
             <span ng-bind="lang.SIGNUP_BTN_SIGNUPING" ng-show="processing"></span>
         </button>
         <div class="col-xs-12 paddingLR0px fontbold" ng-show="activity.createdBy == user.id" ng-bind="lang.SIGNUP_MSG_NOORGANIZER"></div>
-        <div class="col-xs-12 paddingLR0px fontbold" ng-bind="lang.SIGNUP_MSG_ACTNOTACTIVE" ng-show="actNotActive()"></div>
+        <div class="col-xs-12 paddingLR0px fontbold" ng-bind="lang.SIGNUP_MSG_ACTNOTACTIVE" ng-show="!util.actActive(activity)"></div>
     </div>
     <div class="col-xs-12 paddingLR0px fontbold" ng-bind="lang.SIGNUP_MSG_NOTFOUND" ng-show="!loading && !activity && user"></div>
     <div class="empty-sm"></div>

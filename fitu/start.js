@@ -30,12 +30,17 @@ var httpEntry = function (req, res) {
     var webreq = new infra.Webreq(req);
     webreq.init()
     .then(function () {
-        var type = webreq._raw.headers.host.split('.')[0];
+        var host = webreq._raw.headers.host;
+        if (validate.valuedString(host)) {
+            console.log('invalid host');
+            return extension.http.webres404();
+        }
+        var type = host.split('.')[0];
         switch (type) {
             case 'api':
                 return api.handle(webreq);
             case 'www':
-                if(validate.userAgentMobile(webreq._raw.headers['user-agent']))
+                if (validate.userAgentMobile(webreq._raw.headers['user-agent']))
                     return userClientService.handle(webreq);
                 else
                     return userClientPCService.handle(webreq);
@@ -48,6 +53,7 @@ var httpEntry = function (req, res) {
         }
     })
     .then(function (webres) {
+        //setTimeout(function () { webres.response(res) }, 500);
         webres.response(res);
     });
 };

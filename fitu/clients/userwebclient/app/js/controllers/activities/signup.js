@@ -48,10 +48,6 @@
                     $scope.processing = false;
                 });
             };
-
-            $scope.actNotActive = function () {
-                return activity.actNotActive($scope.activity);
-            };
         }
     }]);
 })();

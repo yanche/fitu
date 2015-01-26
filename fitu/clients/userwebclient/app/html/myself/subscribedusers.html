@@ -9,9 +9,7 @@
         <div class="col-xs-9" style="padding:0px 0px 0px 10px">
             <div class="col-xs-12 paddingLR0px">
                 <span class="fontbold" ng-bind="sub.personal.nickName"></span>
-                <i class="fa fa-male blue" ng-show="sub.personal.gender == '男'"></i>
-                <i class="fa fa-female red" ng-show="sub.personal.gender == '女'"></i>
-                <i class="fa fa-question" ng-show="sub.personal.gender != '男' && sub.personal.gender != '女'"></i>
+                <gender-hint gender="sub.personal.gender"></gender-hint>
             </div>
             <div class="col-xs-12 paddingLR0px" ng-bind="sub.personal.contact"></div>
             <div class="col-xs-12 paddingLR0px">

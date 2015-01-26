@@ -99,10 +99,6 @@
             return pageStore.getPageNavs(messagePageSize, 3, $scope.currentMsgPage);
         };
 
-        $scope.actNotActive = function () {
-            return activity.actNotActive($scope.activity);
-        };
-
         $scope.actStatus = function () {
             return activity.actStatus($scope.activity);
         };
