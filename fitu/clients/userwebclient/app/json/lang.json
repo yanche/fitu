@@ -139,6 +139,7 @@
     "ACTDETAIL_MSG_SENDMSGAFTERLOGIN": "请登录后留言喔！",
     "ACTDETAIL_MSG_NOMSG": "暂无评论，快来吐槽！",
     "ACTDETAIL_LABEL_CANCEL": "已取消",
+    "ACTDETAIL_MSG_404": "喔！不知为何没有找到该活动。。。",
 
     "USERPREVIEW_LABEL_FAN": "已关注",
     "USERPREVIEW_LABEL_NOFAN": "未关注",
@@ -149,6 +150,7 @@
     "USERPREVIEW_MSG_SUBSCRIBED": "PS：TA关注了你哟~~",
     "USERPREVIEW_MSG_WHYFAN_LOGIN": "注：关注了TA之后，一旦TA召集活动，会立即通知到你喔！",
     "USERPREVIEW_MSG_WHYFAN_NOLOGIN": "注：登录之后可以关注TA，关注之后，一旦TA召集活动，会立即通知到你喔！",
+    "USERPREVIEW_MSG_404": "喔！不知为何没有找到这个人。。。",
 
     "FANS_HEADER": "我的粉丝",
     "FANS_LABEL_NOFANS": "OH！你还没有粉丝呢 \\(╯-╰)/",
@@ -181,6 +183,7 @@
     "SITEDETAIL_MSG_WHYFAN_LOGIN": "注：关注场馆之后，一旦有人在这儿召集活动，会立即通知到你喔！",
     "SITEDETAIL_MSG_WHYFAN_NOLOGIN": "注：登录之后可以关注场馆，关注之后，一旦有人在这儿召集活动，会立即通知到你喔！",
     "SITEDETAIL_LABEL_MATRIX": "在此召集活动！",
+    "SITEDETAIL_MSG_404": "喔！不知为何没有找到该场馆。。。",
 
     "SUBCRIBESITES_HEADER": "我关注的场馆",
     "SUBCRIBESITES_LABEL_NOSITES": "你还没有关注任何场馆呢~~",
@@ -204,11 +207,16 @@
     "MATRIX_BTN_UPDATING": "正在修改...",
     "MATRIX_BTN_UPDATE": "修改",
     "MATRIX_BTN_RESET": "重置",
+    "MATRIX_MSG_BADMODE": "唔。好像出错了呢。。。",
+    "MATRIX_MSG_SITE404": "喔！不知为何没有找到该场馆。。。",
+    "MATRIX_MSG_ACT404": "喔！不知为何没有找到该活动。。。",
+    "MATRIX_MSG_ACT401": "你不是该活动的组织者，不能修改活动信息呢。。。",
 
     "VENDORDETAIL_LABEL_INTRO": "介绍",
     "VENDORDETAIL_LABEL_CONTACT": "联系方式",
     "VENDORDETAIL_LABEL_ADDR": "地址",
     "VENDORDETAIL_LABEL_TAG": "类型",
+    "VENDORDETAIL_MSG_404": "喔！不知为何没有找到该商户。。。",
     
     "ACTLEAD_LABEL_PENDING": "待确认",
     "ACTLEAD_LABEL_CONFIRMED": "已确认",
@@ -227,6 +235,11 @@
     "ACTLEAD_MSG_LOADINGACT":  "正在加载活动信息...",
     "ACTLEAD_MSG_LOADINGMEM":  "正在加载队员信息...",
     "ACTLEAD_MSG_LOADINGCENSUS": "正在加载统计信息...",
+    "ACTLEAD_MSG_NOAUTH": "你不是该活动的组织者，不能查看报名活动的队员信息。。。",
 
-    "ACTIVITIES_MSG_NOACT": "抱歉，目前没有可以报名的（这种）活动喔。"
+    "ACTIVITIES_MSG_NOACT": "抱歉，目前没有可以报名的（这种）活动喔。",
+
+    "SITELOC_MSG_404": "喔！不知为何没有找到该场馆。。。",
+
+    "ACTLOC_MSG_404": "喔！不知为何没有找到该活动。。。"
 }

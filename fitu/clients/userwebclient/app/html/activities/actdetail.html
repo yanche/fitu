@@ -1,5 +1,6 @@
 ﻿<loading class="col-xs-12" show="loading" word="lang.GLOBAL_MSG_LOADING"></loading>
-<div class="col-xs-12 paddingLR0px" ng-show="!loading">
+<div class="col-xs-12 fontbold" ng-show="!loading && !activity" ng-bind="lang.ACTDETAIL_MSG_404"></div>
+<div class="col-xs-12 paddingLR0px" ng-show="!loading && activity">
     <div class="col-xs-12 paddingLR0px" style="position:relative;">
         <img style="width:100%;" ng-src="{{activity.picUrl}}" />
         <div style="position:absolute;bottom:0px;right:0px;left:0px;background-color:black;color:white;opacity:0.6;min-height:25%;">

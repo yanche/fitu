@@ -1,7 +1,8 @@
 ﻿<div class="col-xs-12">
+    <loading class="col-xs-12 paddingLR0px" show="loading" word="lang.GLOBAL_MSG_LOADING"></loading>
+    <div class="col-xs-12 fontbold paddingLR0px" ng-show="!loading && !site" ng-bind="lang.SITELOC_MSG_404"></div>
     <div class="empty-xs"></div>
-    <loading show="loading" word="lang.GLOBAL_MSG_LOADING"></loading>
-    <div class="col-xs-12 paddingLR0px" ng-show="!loading">
+    <div class="col-xs-12 paddingLR0px" ng-show="!loading && site">
         <div class="text-center col-xs-12 fontbold fontbig" ng-bind="site.name"></div>
         <div class="empty-xs"></div>
         <map class="col-xs-12 paddingLR0px" style="height:300px;" lat="site.location.geo.lat" lng="site.location.geo.lng"></map>

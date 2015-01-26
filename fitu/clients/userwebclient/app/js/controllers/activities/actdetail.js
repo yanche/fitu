@@ -2,6 +2,9 @@
     angular.module('fitu')
     .controller('actdetail', ['$scope', '$location', '$state', 'activity', 'member', 'ucconst', 'geo', 'pagination', 'message', 'validate', '$rootScope', 'const', 'ucdatamodel', function ($scope, $location, $state, activity, member, ucconst, geo, pagination, message, validate, $rootScope, constants, ucdatamodel) {
         var ctx = $location.search();
+        if (!ctx.actId)
+            return;
+
         $scope.loading = true;
         activity.getOne(ctx.actId)
         .then(function (data) {
@@ -9,7 +12,6 @@
             $scope.loading = false;
         })
         .catch(function (err) {
-            console.log(err);
             $scope.loading = false;
         });
         

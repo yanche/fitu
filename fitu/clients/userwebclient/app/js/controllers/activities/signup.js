@@ -24,6 +24,9 @@
             };
         }
         else {
+            if (!ctx.actId)
+                return;
+
             $scope.loading = true;
             activity.getOne(ctx.actId)
             .then(function (data) {

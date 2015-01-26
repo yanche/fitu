@@ -1,6 +1,7 @@
 ﻿<div class="col-xs-12">
     <loading class="col-xs-12 paddingLR0px" show="loadingAct" word="lang.ACTLEAD_MSG_LOADINGACT"></loading>
-    <h4 class="col-xs-12 paddingLR0px fontbold" ng-show="!loadingAct && activity">
+    <div class="col-xs-12 paddingLR0px fontbold" ng-show="!loadingAct && activity.createdBy != user.id" ng-bind="lang.ACTLEAD_MSG_NOAUTH"></div>
+    <h4 class="col-xs-12 paddingLR0px fontbold" ng-show="!loadingAct && activity && activity.createdBy == user.id">
         <span ng-bind="activity.name"></span>
         <span>, </span>
         <span ng-bind="activity.startsOn | date"></span>

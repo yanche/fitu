@@ -1,5 +1,6 @@
 ﻿<loading class="col-xs-12" show="loading" word="lang.GLOBAL_MSG_LOADING"></loading>
-<div class="col-xs-12" ng-show="!loading">
+<div class="col-xs-12 fontbold" ng-show="!loading && !vendor" ng-bind="lang.VENDORDETAIL_MSG_404"></div>
+<div class="col-xs-12" ng-show="!loading && vendor">
     <div class="empty-xs"></div>
     <div class="col-xs-12 paddingLR0px text-center fontbold fontbigger" ng-bind="vendor.name"></div>
     <div class="empty-xs"></div>

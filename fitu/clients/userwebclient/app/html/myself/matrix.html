@@ -1,8 +1,12 @@
 ﻿<div class="col-xs-12">
-    <h4 class="col-xs-12 paddingLR0px fontbold" ng-show="!loading && !activity" ng-bind="lang.MATRIX_HEADER"></h4>
-    <h4 class="col-xs-12 paddingLR0px fontbold" ng-show="!loading && activity" ng-bind="lang.MATRIX_HEADER_UPDATE"></h4>
+    <h4 class="col-xs-12 paddingLR0px fontbold" ng-show="mode == 2" ng-bind="lang.MATRIX_HEADER"></h4>
+    <h4 class="col-xs-12 paddingLR0px fontbold" ng-show="mode == 1" ng-bind="lang.MATRIX_HEADER_UPDATE"></h4>
     <loading class="col-xs-12 paddingLR0px" show="loading" word="lang.GLOBAL_MSG_LOADING"></loading>
-    <div class="col-xs-12 paddingLR0px" ng-show="!loading && site">
+    <div class="col-xs-12 paddingLR0px fontbold" ng-show="mode == 0" ng-bind="lang.MATRIX_MSG_BADMODE"></div>
+    <div class="col-xs-12 paddingLR0px fontbold" ng-show="mode != 0 && !loading && !site && (mode != 1 || activity)" ng-bind="lang.MATRIX_MSG_SITE404"></div>
+    <div class="col-xs-12 paddingLR0px fontbold" ng-show="mode != 0 && !loading && mode == 1 && !activity" ng-bind="lang.MATRIX_MSG_ACT404"></div>
+    <div class="col-xs-12 paddingLR0px fontbold" ng-show="mode == 1 && !loading && activity.createdBy != user.id" ng-bind="lang.MATRIX_MSG_ACT401"></div>
+    <div class="col-xs-12 paddingLR0px" ng-show="mode != 0 && !loading && site && (mode == 2 || (activity && activity.createdBy == user.id))">
         <div class="form-group">
             <label class="control-label" ng-bind="lang.MATRIX_LABEL_SITE"></label>
             <div class="fontbold" ng-bind="site.name"></div>

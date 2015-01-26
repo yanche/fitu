@@ -4,14 +4,11 @@
         var ctx = $location.search();
         if (ctx.actId) {
             $scope.loading = true;
+            $scope.mode = 1; //update mode
             activity.getOne(ctx.actId)
             .then(function (data) {
-                if (data.creator.id == $rootScope.user.id) {
-                    $scope.activity = data;
-                    return site.getOne({ id: $scope.activity.site.id });
-                }
-                else
-                    throw new Error('editor not the creator of activity: ' + ctx.actId);
+                $scope.activity = data;
+                return site.getOne({ id: $scope.activity.site.id });
             })
             .then(function (data) {
                 $scope.site = data;
@@ -25,6 +22,7 @@
         }
         else if (ctx.siteId) {
             $scope.loading = true;
+            $scope.mode = 2; //creation mode
             site.getOne({ id: ctx.siteId })
             .then(function (data) {
                 $scope.site = data;
@@ -36,8 +34,10 @@
                 $scope.loading = false;
             });
         }
-        else
+        else {
+            $scope.mode = 0; //bad mode
             return;
+        }
         
         $scope.matrixModel = new ucdatamodel.MatrixModel();
         var initModel = function () {

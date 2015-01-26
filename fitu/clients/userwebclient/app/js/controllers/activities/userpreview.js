@@ -15,27 +15,24 @@
             
             if ($rootScope.user) {
                 if ($rootScope.user.id != ctx.userId) {
-                    var loadFanRel = function () {
-                        $scope.loadingFanRel = true;
-                        userfan.relationship({ userId: ctx.userId })
-                        .then(function (data) {
-                            $scope.fanRelationship = data;
-                            $scope.loadingFanRel = false;
-                        })
-                        .catch(function (err) {
-                            $scope.loadingFanRel = false;
-                        });
-                    };
-                    loadFanRel();
+                    $scope.loadingFanRel = true;
+                    userfan.relationship({ userId: ctx.userId })
+                    .then(function (data) {
+                        $scope.fanRelationship = data;
+                        $scope.loadingFanRel = false;
+                    })
+                    .catch(function (err) {
+                        $scope.loadingFanRel = false;
+                    });
 
                     $scope.fan = function () {
                         $scope.fanning = true;
                         userfan.fan({ userId: ctx.userId })
                         .then(function () {
-                            $scope.fanning = false;
                             $scope.userpublic.fansCount++;
                             $rootScope.user.subscribe.usersCount++;
-                            loadFanRel();
+                            $scope.fanRelationship.subscribe = true;
+                            $scope.fanning = false;
                         })
                         .catch(function (err) {
                             $scope.fanning = false;
@@ -46,10 +43,10 @@
                         $scope.nofanning = true;
                         userfan.noFan({ userId: ctx.userId })
                         .then(function () {
-                            $scope.nofanning = false;
                             $scope.userpublic.fansCount--;
                             $rootScope.user.subscribe.usersCount--;
-                            loadFanRel();
+                            $scope.fanRelationship.subscribe = false;
+                            $scope.nofanning = false;
                         })
                         .catch(function (err) {
                             $scope.nofanning = false;

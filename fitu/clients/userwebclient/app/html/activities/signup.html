@@ -1,5 +1,6 @@
 ﻿<div class="col-xs-12">
-    <loading class="col-xs-12" show="loading" word="lang.GLOBAL_MSG_LOADING"></loading>
+    <loading class="col-xs-12 paddingLR0px" show="loading" word="lang.GLOBAL_MSG_LOADING"></loading>
+    <div class="col-xs-12 paddingLR0px fontbold" ng-bind="lang.SIGNUP_MSG_NOTFOUND" ng-show="!loading && !activity && user"></div>
     <div class="empty-sm"></div>
     <div ng-show="!user">
         <div class="fontbold" ng-bind="lang.SIGNUP_TEXT_NEEDLOGIN"></div>
@@ -33,6 +34,5 @@
         <div class="col-xs-12 paddingLR0px fontbold" ng-show="activity.createdBy == user.id" ng-bind="lang.SIGNUP_MSG_NOORGANIZER"></div>
         <div class="col-xs-12 paddingLR0px fontbold" ng-bind="lang.SIGNUP_MSG_ACTNOTACTIVE" ng-show="!util.actActive(activity)"></div>
     </div>
-    <div class="col-xs-12 paddingLR0px fontbold" ng-bind="lang.SIGNUP_MSG_NOTFOUND" ng-show="!loading && !activity && user"></div>
     <div class="empty-sm"></div>
 </div>

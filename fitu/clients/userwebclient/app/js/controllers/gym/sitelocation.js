@@ -2,6 +2,9 @@
     angular.module('fitu')
     .controller('sitelocation', ['$scope', '$location', 'site', function ($scope, $location, site) {
         var ctx = $location.search();
+        if (!ctx.siteId)
+            return;
+
         $scope.loading = true;
         site.getOne({ id: ctx.siteId })
         .then(function (data) {
