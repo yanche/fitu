@@ -28,6 +28,7 @@
     "LOGIN_BTN_LOGINING": "正在登录...",
     "LOGIN_BTN_LOADING": "正在加载...",
     "LOGIN_BTN_REGISTERING": "正在注册...",
+    "LOGIN_MSG_FAILED": "登录失败",
 
     "REGISTER_LABEL_LOGIN": "登录",
     "REGISTER_LABEL_EMAIL": "登录邮箱*",
@@ -38,6 +39,10 @@
     "REGISTER_LABEL_CONTACT": "联系邮箱",
     "REGISTER_LABEL_GENDER": "性别",
     "REGISTER_BTN_REGISTER": "注册！",
+    "REGISTER_MSG_ERR_CONFLICT": "注册失败：邮箱或昵称有冲突。。。",
+    "REGISTER_MSG_ERR_UNKNOWN": "注册失败：未知错误",
+    "REGISTER_MSG_ERR_LOGINFAIL": "登陆失败：注册成功，但登陆失败了，请尝试登陆。。。",
+    "REGISTER_MSG_SUCCESS": "注册成功！",
 
     "UPDATEPWD_LABEL_OLDPWD": "旧密码",
     "UPDATEPWD_LABEL_NEWPWD": "新密码",

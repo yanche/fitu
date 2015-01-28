@@ -1,4 +1,16 @@
 ﻿<div class="col-xs-12" style="height:28px;"></div>
+<div class="col-xs-12" id="msg-container">
+    <div id="msg-content">
+        <span id="status-hint" ng-class="{'msg-success': msgType == 1, 'msg-info': msgType == 2, 'msg-warn': msgType == 3, 'msg-error': msgType == 4}">
+            <i class="fa" ng-class="{'fa-check-circle': msgType == 1, 'fa-info-circle': msgType == 2, 'fa-warning': msgType == 3, 'fa-times-circle': msgType == 4}"></i>
+        </span>
+        <div id="msg" ng-bind="msg"></div>
+        <span id="msg-clear">
+            <i class="fa fa-times clickable remove" ng-click="cancelMsg()"></i>
+        </span>
+    </div>
+    <div id="msg-cover" ng-class="{'msg-show': showMsg}"></div>
+</div>
 <div id="mainview" class="col-xs-12 nopadding" ui-view></div>
 <div class="col-xs-12" style="height:54px;"></div>
 <div id="navtop" style="z-index:200;">

@@ -5,7 +5,7 @@
             getLoginUser: function (refresh) {
                 var defer = new $q.defer();
                 if (!$.cookie('userId')) {
-                    defer.reject('no user id in cookie, need login');
+                    defer.reject({ data: null, status: 0, headers: null });
                 }
                 else {
                     console.log('trying get login user from server');
@@ -19,7 +19,7 @@
                     }).error(function (data, status, headers, config) {
                         $.cookie('sessionId', '', { domain: constants.siteInfo.domain, path: '/', expires: 365 * 10 })
                         $.cookie('userId', '', { domain: constants.siteInfo.domain, path: '/', expires: 365 * 10 })
-                        defer.reject(status);
+                        defer.reject({ data: data, status: status, headers: headers });
                     });
                 }
                 return defer.promise;
@@ -35,7 +35,7 @@
                     defer.resolve(data);
                 }).error(function (data, status, headers, config) {
                     console.log('failed to retrieve user preview: ' + status);
-                    defer.reject(status);
+                    defer.reject({ data: data, status: status, headers: headers });
                 });
                 return defer.promise;
             },
@@ -55,7 +55,7 @@
                     defer.resolve(data);
                 }).error(function (data, status, headers, config) {
                     console.log('failed to retrieve user preview: ' + status);
-                    defer.reject(status);
+                    defer.reject({ data: data, status: status, headers: headers });
                 });
                 return defer.promise;
             },
@@ -71,7 +71,7 @@
                     defer.resolve();
                 }).error(function (data, status, headers, config) {
                     console.log(arguments);
-                    defer.reject('failed to create new session: ' + status);
+                        defer.reject({ data: data, status: status, headers: headers });
                 });
                 return defer.promise;
             },
@@ -88,7 +88,7 @@
                         $.cookie('userId', '', { domain: constants.siteInfo.domain, path: '/' });
                     }).error(function (data, status, headers, config) {
                         console.log(arguments);
-                        defer.reject('failed to remove session: ' + status);
+                        defer.reject({ data: data, status: status, headers: headers });
                     });
                 }
                 return defer.promise;
@@ -105,7 +105,7 @@
                     defer.resolve(data);
                 }).error(function (data, status, headers, config) {
                     console.log(arguments);
-                    defer.reject('failed to create new user: ' + status);
+                    defer.reject({data: data, status: status, headers: headers});
                 });
                 return defer.promise;
             },
@@ -114,9 +114,7 @@
                     update.headUrl = utility.getRelativeUrl(update.headUrl);
                 var defer = new $q.defer();
                 if (!$.cookie('userId'))
-                    defer.reject('no user id in cookie, need login');
-                else if (!update)
-                    defer.reject('bad input');
+                    defer.reject({ data: null, status: 0, headers: null });
                 else {
                     $http({
                         method: 'PUT',
@@ -127,7 +125,7 @@
                         defer.resolve(data);
                     }).error(function (data, status, headers, config) {
                         console.log(arguments);
-                        defer.reject('failed to update user: ' + status);
+                        defer.reject({ data: data, status: status, headers: headers });
                     });
                 }
                 return defer.promise;
@@ -135,7 +133,7 @@
             changeEmail: function (email, confirm_hash_pwd) {
                 var defer = new $q.defer();
                 if (!$.cookie('userId'))
-                    defer.reject('no user id in cookie, need login');
+                    defer.reject({ data: null, status: 0, headers: null });
                 else {
                     $http({
                         method: 'PUT',
@@ -146,7 +144,7 @@
                         defer.resolve(data);
                     }).error(function (data, status, headers, config) {
                         console.log(arguments);
-                        defer.reject('failed to update user email: ' + status);
+                        defer.reject({ data: data, status: status, headers: headers });
                     });
                 }
                 return defer.promise;
@@ -154,7 +152,7 @@
             changePassword: function (hash_pwd, confirm_hash_pwd) {
                 var defer = new $q.defer();
                 if (!$.cookie('userId'))
-                    defer.reject('no user id in cookie, need login');
+                    defer.reject({ data: null, status: 0, headers: null });
                 else {
                     $http({
                         method: 'PUT',
@@ -165,7 +163,7 @@
                         defer.resolve(data);
                     }).error(function (data, status, headers, config) {
                         console.log(arguments);
-                        defer.reject('failed to update user email: ' + status);
+                        defer.reject({ data: data, status: status, headers: headers });
                     });
                 }
                 return defer.promise;
@@ -180,7 +178,7 @@
                     defer.resolve(data);
                 }).error(function (data, status, headers, config) {
                     console.log(arguments);
-                    defer.reject('failed to update user email: ' + status);
+                    defer.reject({ data: data, status: status, headers: headers });
                 });
                 return defer.promise;
             },
@@ -194,7 +192,7 @@
                     defer.resolve(data.available);
                 }).error(function (data, status, headers, config) {
                     console.log(arguments);
-                    defer.reject('failed to get email availability: ' + status);
+                    defer.reject({ data: data, status: status, headers: headers });
                 });
                 return defer.promise;
             },
@@ -208,7 +206,7 @@
                     defer.resolve(data.available);
                 }).error(function (data, status, headers, config) {
                     console.log(arguments);
-                    defer.reject('failed to get nick name availability: ' + status);
+                    defer.reject({ data: data, status: status, headers: headers });
                 });
                 return defer.promise;
             }

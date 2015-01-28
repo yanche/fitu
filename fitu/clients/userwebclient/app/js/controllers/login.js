@@ -1,6 +1,6 @@
 ﻿(function () {
     angular.module('fitu')
-    .controller('login', ['$rootScope', '$scope', '$location', '$state', 'validate', 'user', '$state', 'ucconst', 'ucdatamodel', function ($rootScope, $scope, $location, $state, validate, user, $state, ucconst, ucdatamodel) {
+    .controller('login', ['$rootScope', '$scope', '$location', '$state', 'validate', 'user', '$state', 'ucconst', 'ucdatamodel' ,'lang', function ($rootScope, $scope, $location, $state, validate, user, $state, ucconst, ucdatamodel, lang) {
         var ctx = $location.search();
         $scope.logining = false;
         $scope.registering = false;
@@ -17,6 +17,7 @@
                     $scope.logining = false;
                 })
                 .catch(function (err) {
+                    $scope.$emit(ucconst.events.showMsg, {msgType: ucconst.msgType.error, msg: lang.LOGIN_MSG_FAILED});
                     console.log(err);
                     console.log('登录失败！');
                     $scope.logining = false;
@@ -30,21 +31,38 @@
                 $scope.registering = true;
                 var pojo = $scope.registerModel.toPOJO();
                 user.create(pojo)
-                .then(function (data) {
+                .catch(function (err) {
+                    if(err.status == 409)
+                        $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.error, msg: lang.REGISTER_MSG_ERR_CONFLICT });
+                    else
+                        $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.error, msg: lang.REGISTER_MSG_ERR_UNKNOWN });
                     $scope.registering = false;
-                    $scope.logining = true;
-                    return user.login(pojo.email, pojo.hash_pwd);
+                    console.log(err);
+                    return false;
                 })
-                .then(function () {
-                    var params = angular.extend({}, ctx);
-                    delete params.state;
-                    $scope.$emit(ucconst.events.login, ctx.state || ucconst.states.myself, params);
-                    $scope.logining = false;
+                .then(function (data) {
+                    if (false !== data) {
+                        $scope.registering = false;
+                        $scope.logining = true;
+                        return user.login(pojo.email, pojo.hash_pwd);
+                    }
+                    else
+                        return false;
                 })
                 .catch(function (err) {
-                    $scope.registering = false;
+                    $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.error, msg: lang.REGISTER_MSG_ERR_LOGINFAIL });
                     $scope.logining = false;
                     console.log(err);
+                    return false;
+                })
+                .then(function (data) {
+                    if (false !== data) {
+                        var params = angular.extend({}, ctx);
+                        delete params.state;
+                        $scope.$emit(ucconst.events.login, ctx.state || ucconst.states.myself, params);
+                        $scope.logining = false;
+                        $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.success, msg: lang.REGISTER_MSG_SUCCESS });
+                    }
                 });
             }
         };

@@ -24,6 +24,8 @@ more page hint
 ##act edit, time picker, current date bug
 ##act lead, statistics
 ##organizer signup
+PWD RESET
+
 pagination
 merge msg board
 

@@ -1,12 +1,32 @@
 ﻿(function () {
     angular.module('fitu')
-    .controller('main', ['$scope', '$window', function ($scope, $window) {
+    .controller('main', ['$scope', '$window', 'ucconst', '$timeout', function ($scope, $window, ucconst, $timeout) {
         $scope.goBack = function () {
             $window.history.back();
         };
             
         $scope.goAhead = function () {
             $window.history.forward();
+        };
+            
+        $scope.msgType = ucconst.msgType.none;
+        $scope.lastMsgTS = null;
+        $scope.$on(ucconst.events.showMsg, function (evt, options) {
+            $scope.msgType = options.msgType;
+            $scope.msg = options.msg;
+            $scope.showMsg = true;
+                
+            var ts = new Date().getTime();
+            $scope.lastMsgTS = ts;
+            $timeout(function () {
+                if (ts == $scope.lastMsgTS)
+                    $scope.showMsg = false;
+            }, 5000);
+        });
+            
+        $scope.cancelMsg = function () {
+            $scope.showMsg = false;
+            $scope.lastMsgTS = null;
         };
             
         $scope.checkSth = function () {/*
@@ -38,9 +58,9 @@
                 alert(JSON.stringify(arguments));
             }
         });*/
-        };
+            };
             
-        $scope.checkSth2 = function () {
+            $scope.checkSth2 = function () {
         /*
         console.log('check sth2');
         wx.startRecord({

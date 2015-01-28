@@ -4,7 +4,15 @@
         return {
             events: {
                 login: 'login',
-                logout: 'logout'
+                logout: 'logout',
+                showMsg:'showMsg'
+            },
+            msgType: {
+                none: 0,
+                success: 1,
+                info: 2,
+                warning: 3,
+                error: 4
             },
             states: {
                 login: 'fitu.login',

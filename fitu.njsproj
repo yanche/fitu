@@ -36,6 +36,7 @@
     <Content Include="client pages spec.docx" />
     <Content Include="fitu\clients\adminwebclient\app\html\main.html" />
     <Content Include="fitu\clients\adminwebclient\app\json\lang.json" />
+    <Content Include="fitu\clients\userwebclient\app\css\msg.scss" />
     <Content Include="fitu\clients\userwebclient\app\html\activities\actlocation.html" />
     <Content Include="fitu\clients\userwebclient\app\html\activities\signup.html" />
     <Content Include="fitu\clients\userwebclient\app\html\activities\userpreview.html" />

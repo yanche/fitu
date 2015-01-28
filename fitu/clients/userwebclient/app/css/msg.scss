@@ -1,0 +1,67 @@
+﻿#msg-container {
+    position: relative;
+    float: left;
+    width: 100%;
+    padding: 0px;
+
+    #msg-content {
+        padding: 5px 15px;
+        background-color: #E9F6FF;
+
+        #status-hint {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            margin-top: -7px;
+            font-size: 14px;
+            line-height: 1;
+
+            &.msg-success {
+                color: #39B54A;
+            }
+
+            &.msg-info {
+                color: #2CA5FF;
+            }
+
+            &.msg-warn {
+                color: #FBB03B;
+            }
+
+            &.msg-error {
+                color: #FF1D25;
+            }
+        }
+
+        #msg-clear {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            margin-top: -7px;
+            font-size: 14px;
+            line-height: 1;
+        }
+
+        #msg {
+            text-overflow: ellipsis;
+            overflow: hidden;
+            display: block;
+            margin: 0px 25px;
+        }
+    }
+
+    #msg-cover {
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        background-color: #F2F2F2;
+        transition-property: top;
+        transition-duration: 0.5s;
+
+        &.msg-show {
+            top: 30px;
+        }
+    }
+}
