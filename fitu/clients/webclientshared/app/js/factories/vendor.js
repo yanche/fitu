@@ -19,7 +19,7 @@
                     defer.resolve(data);
                 }).error(function (data, status, headers, config) {
                     console.log(arguments);
-                    defer.reject('failed to get managable vendors: ' + status);
+                    defer.reject({ data: data, status: status, headers: headers });
                 });
                 return defer.promise;
             },
@@ -39,7 +39,7 @@
                     defer.resolve(data);
                 }).error(function (data, status, headers, config) {
                     console.log(arguments);
-                    defer.reject('failed to get vendors: ' + status);
+                    defer.reject({ data: data, status: status, headers: headers });
                 });
                 return defer.promise;
             },
@@ -56,11 +56,11 @@
                         defer.resolve(data);
                     }).error(function (data, status, headers, config) {
                         console.log(arguments);
-                        defer.reject('failed to get one vendor: ' + status);
+                        defer.reject({ data: data, status: status, headers: headers });
                     });
                 }
                 else
-                    defer.reject('id not supplied');
+                    defer.reject({ data: null, status: 0, headers: null });
                 return defer.promise;
             },
             update: function (options) {
@@ -78,11 +78,11 @@
                         defer.resolve(data);
                     }).error(function (data, status, headers, config) {
                         console.log(arguments);
-                        defer.reject('failed to get vendors: ' + status);
+                        defer.reject({ data: data, status: status, headers: headers });
                     });
                 }
                 else
-                    defer.reject('id or data not supplied');
+                    defer.reject({ data: null, status: 0, headers: null });
                 return defer.promise;
             }
         };

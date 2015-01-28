@@ -4,31 +4,43 @@
         $scope.goBack = function () {
             $window.history.back();
         };
-            
+        
         $scope.goAhead = function () {
             $window.history.forward();
         };
-            
+        
         $scope.msgType = ucconst.msgType.none;
         $scope.lastMsgTS = null;
         $scope.$on(ucconst.events.showMsg, function (evt, options) {
             $scope.msgType = options.msgType;
+            $scope.confirmDialog = Boolean(options.onConfirm);
             $scope.msg = options.msg;
             $scope.showMsg = true;
+            $scope.cancelFn = options.onCancel;
+            $scope.confirmFn = options.onConfirm;
                 
             var ts = new Date().getTime();
             $scope.lastMsgTS = ts;
             $timeout(function () {
                 if (ts == $scope.lastMsgTS)
-                    $scope.showMsg = false;
+                    $scope.cancelMsg();
             }, 5000);
         });
-            
+        
         $scope.cancelMsg = function () {
             $scope.showMsg = false;
             $scope.lastMsgTS = null;
+            if ($scope.cancelFn)
+                $timeout($scope.cancelFn);
         };
-            
+        
+        $scope.confirmMsg = function () {
+            $scope.showMsg = false;
+            $scope.lastMsgTS = null;
+            if ($scope.confirmFn)
+                $timeout($scope.confirmFn);
+        };
+        
         $scope.checkSth = function () {/*
         console.log('check sth');
         wx.checkJsApi({

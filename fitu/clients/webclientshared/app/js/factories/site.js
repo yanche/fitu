@@ -17,7 +17,8 @@
                         tag: options.tag,
                         active: 1
                     }
-                }).success(function (data) {
+                })
+                .success(function (data) {
                     data.list = data.list.map(function (st) {
                         st.picUrl = utility.getStaticUrl(st.picUrl);
                         if (st.vendor && st.vendor.logoUrl)
@@ -25,9 +26,9 @@
                         return st;
                     });
                     defer.resolve(data);
-                }).error(function (data, status, headers, config) {
-                    console.log(arguments);
-                    defer.reject('failed to retrieve site list: ' + status);
+                })
+                .error(function (data, status, headers, config) {
+                    defer.reject({ data: data, status: status, headers: headers });
                 });
                 return defer.promise;
             },
@@ -38,18 +39,19 @@
                         method: 'GET',
                         url: url.generate('sites'),
                         params: { id: options.id }
-                    }).success(function (data) {
+                    })
+                    .success(function (data) {
                         data.picUrl = utility.getStaticUrl(data.picUrl);
                         if (data.vendor && data.vendor.logoUrl)
                             data.vendor.logoUrl = utility.getStaticUrl(data.vendor.logoUrl);
                         defer.resolve(data);
-                    }).error(function (data, status, headers, config) {
-                        console.log(arguments);
-                        defer.reject('failed to retrieve site: ' + status);
+                    })
+                    .error(function (data, status, headers, config) {
+                        defer.reject({ data: data, status: status, headers: headers });
                     });
                 }
                 else
-                    defer.reject('no id supplied');
+                    defer.reject({ data: null, status: 0, headers: null });
                 return defer.promise;
             },
             create: function (vendorId, site) {
@@ -61,11 +63,12 @@
                     url: url.generate('sites'),
                     data: site,
                     params: { vendorId: vendorId }
-                }).success(function (data) {
+                })
+                .success(function (data) {
                     defer.resolve(data);
-                }).error(function (data, status, headers, config) {
-                    console.log(arguments);
-                    defer.reject('failed to create new site: ' + status);
+                })
+                .error(function (data, status, headers, config) {
+                    defer.reject({ data: data, status: status, headers: headers });
                 });
                 return defer.promise;
             },
@@ -78,11 +81,12 @@
                     url: url.generate('sites'),
                     params: { id: id },
                     data: delta
-                }).success(function (data) {
+                })
+                .success(function (data) {
                     defer.resolve(data);
-                }).error(function (data, status, headers, config) {
-                    console.log(arguments);
-                    defer.reject('failed to update sites: ' + status);
+                })
+                .error(function (data, status, headers, config) {
+                    defer.reject({ data: data, status: status, headers: headers });
                 });
                 return defer.promise;
             },
@@ -94,11 +98,12 @@
                     url: url.generate('messages'),
                     data: { words: options.message, replyToId: options.replyToId },
                     params: { targetType: 'site', targetId: options.id }
-                }).success(function (data) {
+                })
+                .success(function (data) {
                     defer.resolve(data);
-                }).error(function (data, status, headers, config) {
-                    console.log(arguments);
-                    defer.reject('failed to create new site message: ' + status);
+                })
+                .error(function (data, status, headers, config) {
+                    defer.reject({ data: data, status: status, headers: headers });
                 });
                 return defer.promise;
             },
@@ -109,11 +114,12 @@
                     method: 'GET',
                     url: url.generate('messages'),
                     params: { targetType: 'site', targetId: options.id, page: options.page, pageSize: options.pageSize }
-                }).success(function (data) {
+                })
+                .success(function (data) {
                     defer.resolve(data);
-                }).error(function (data, status, headers, config) {
-                    console.log(arguments);
-                    defer.reject('failed to get site messages: ' + status);
+                })
+                .error(function (data, status, headers, config) {
+                    defer.reject({ data: data, status: status, headers: headers });
                 });
                 return defer.promise;
             }

@@ -15,9 +15,10 @@
                     delete params.state;
                     $scope.$emit(ucconst.events.login, ctx.state || ucconst.states.myself, params);
                     $scope.logining = false;
+                    $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.success, msg: lang.LOGIN_MSG_SUCCESS });
                 })
                 .catch(function (err) {
-                    $scope.$emit(ucconst.events.showMsg, {msgType: ucconst.msgType.error, msg: lang.LOGIN_MSG_FAILED});
+                    $scope.$emit(ucconst.events.showMsg, {msgType: ucconst.msgType.error, msg: lang.LOGIN_MSG_ERR});
                     console.log(err);
                     console.log('登录失败！');
                     $scope.logining = false;

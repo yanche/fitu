@@ -41,8 +41,7 @@
             <label for="register_email" class="col-xs-4 control-label" ng-bind="lang.REGISTER_LABEL_EMAIL"></label>
             <div class="col-xs-7" ng-class="{'has-error': !registerModel.emailProp.validate(true)}" style="position:relative;">
                 <input type="text" class="form-control" id="register_email" ng-model="registerModel.emailProp.val" focus-out="checkEmailAvailability()" />
-                <i class="fa fa-check" style="position:absolute;right:0px;top:50%;margin-top:-7px;" ng-show="emailAvailable == 0"></i>
-                <i class="fa fa-times" style="position:absolute;right:0px;top:50%;margin-top:-7px;" ng-show="emailAvailable == 1"></i>
+                <i class="fa" ng-class="{'fa-check': emailAvailable == 0, 'fa-times': emailAvailable == 1}" style="position:absolute;right:0px;top:50%;margin-top:-7px;"></i>
             </div>
         </div>
         <div class="form-group">
@@ -61,8 +60,7 @@
             <label for="register_nickname" class="col-xs-4 control-label" ng-bind="lang.REGISTER_LABEL_NICKNAME"></label>
             <div class="col-xs-7" ng-class="{'has-error': !registerModel.nickNameProp.validate(true)}" style="position:relative;">
                 <input type="text" class="form-control" id="register_nickname" ng-model="registerModel.nickNameProp.val" focus-out="checkNickNameAvailability()" />
-                <i class="fa fa-check" style="position:absolute;right:0px;top:50%;margin-top:-7px;" ng-show="nickNameAvailable == 0"></i>
-                <i class="fa fa-times" style="position:absolute;right:0px;top:50%;margin-top:-7px;" ng-show="nickNameAvailable == 1"></i>
+                <i class="fa" ng-class="{'fa-check': nickNameAvailable == 0, 'fa-times': nickNameAvailable == 1}" style="position:absolute;right:0px;top:50%;margin-top:-7px;"></i>
             </div>
         </div>
         <div class="form-group">

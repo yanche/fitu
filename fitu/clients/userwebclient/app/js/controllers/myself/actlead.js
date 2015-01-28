@@ -1,6 +1,6 @@
 ﻿(function () {
     angular.module('fitu')
-    .controller('actlead', ['$scope', '$location', 'member', 'pagination', 'activity', '$state', 'ucconst', 'const', function ($scope, $location, member, pagination, activity, $state, ucconst, constants) {
+    .controller('actlead', ['$scope', '$location', 'member', 'pagination', 'activity', '$state', 'ucconst', 'const', 'lang', function ($scope, $location, member, pagination, activity, $state, ucconst, constants, lang) {
         var ctx = $location.search();
         if (ctx.actId) {
             $scope.loadingAct = true;
@@ -63,7 +63,9 @@
                     mem.statusId = constants.memberStatus.confirmed;
                     loadCensus();
                 })
-                .catch(function (err) { });
+                .catch(function (err) {
+                    $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.error, msg: lang.ACTLEAD_MSG_ERR_MEMBERSTATUS });
+                });
             };
             
             $scope.doPending = function (mem) {
@@ -72,15 +74,26 @@
                     mem.statusId = constants.memberStatus.pending;
                     loadCensus();
                 })
-                .catch(function (err) { });
+                .catch(function (err) {
+                    $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.error, msg: lang.ACTLEAD_MSG_ERR_MEMBERSTATUS });
+                });
             };
 
             $scope.cancelAct = function (act) {
-                activity.delete(act.id)
-                .then(function () {
-                    act.statusId = constants.actStatus.cancel;
-                })
-                .catch(function (err) { });
+                $scope.$emit(ucconst.events.showMsg, {
+                    msgType: ucconst.msgType.warning,
+                    msg: lang.ACTLEAD_MSG_ACTCANCEL_CONFIRM,
+                    onConfirm: function () {
+                        activity.delete(act.id)
+                        .then(function () {
+                            act.statusId = constants.actStatus.cancel;
+                            $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.success, msg: lang.ACTLEAD_MSG_ACTCANCEL_SUCCESS });
+                        })
+                        .catch(function (err) {
+                            $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.error, msg: lang.ACTLEAD_MSG_ACTCANCEL_FAIL });
+                        });
+                    }
+                });
             };
         }
     }]);

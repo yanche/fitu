@@ -9,10 +9,12 @@
                     method: 'GET',
                     url: url.generate('sitefans'),
                     params: { siteId: options.siteId }
-                }).success(function (data) {
+                })
+                .success(function (data) {
                     defer.resolve(data);
-                }).error(function (data, status, headers, config) {
-                    defer.reject(status);
+                })
+                .error(function (data, status, headers, config) {
+                    defer.reject({ data: data, status: status, headers: headers });
                 });
                 return defer.promise;
             },
@@ -23,10 +25,12 @@
                     method: 'POST',
                     url: url.generate('sitefans'),
                     params: { siteId: options.siteId }
-                }).success(function (data) {
+                })
+                .success(function (data) {
                     defer.resolve(data);
-                }).error(function (data, status, headers, config) {
-                    defer.reject(status);
+                })
+                .error(function (data, status, headers, config) {
+                    defer.reject({ data: data, status: status, headers: headers });
                 });
                 return defer.promise;
             },
@@ -37,10 +41,12 @@
                     method: 'DELETE',
                     url: url.generate('sitefans'),
                     params: { siteId: options.siteId }
-                }).success(function (data) {
+                })
+                .success(function (data) {
                     defer.resolve(data);
-                }).error(function (data, status, headers, config) {
-                    defer.reject(status);
+                })
+                .error(function (data, status, headers, config) {
+                    defer.reject({ data: data, status: status, headers: headers });
                 });
                 return defer.promise;
             }

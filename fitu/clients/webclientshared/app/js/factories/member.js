@@ -24,7 +24,7 @@
                     defer.resolve(data);
                 }).error(function (data, status, headers, config) {
                     console.log(arguments);
-                    defer.reject('failed to retrieve member list: ' + status);
+                    defer.reject({ data: data, status: status, headers: headers });
                 });
                 return defer.promise;
             },
@@ -39,7 +39,7 @@
                     defer.resolve(data);
                 }).error(function (data, status, headers, config) {
                     console.log(arguments);
-                    defer.reject('failed to retrieve member: ' + status);
+                    defer.reject({ data: data, status: status, headers: headers });
                 });
                 return defer.promise;
             },
@@ -53,7 +53,7 @@
                     defer.resolve(data);
                 }).error(function (data, status, headers, config) {
                     console.log(arguments);
-                    defer.reject('failed to create new member: ' + status);
+                    defer.reject({ data: data, status: status, headers: headers });
                 });
                 return defer.promise;
             },
@@ -68,7 +68,7 @@
                     defer.resolve(data);
                 }).error(function (data, status, headers, config) {
                     console.log(arguments);
-                    defer.reject('failed to update member: ' + status);
+                    defer.reject({ data: data, status: status, headers: headers });
                 });
                 return defer.promise;
             },
@@ -82,7 +82,7 @@
                     defer.resolve(data);
                 }).error(function (data, status, headers, config) {
                     console.log(arguments);
-                    defer.reject('failed to do member quit: ' + status);
+                    defer.reject({ data: data, status: status, headers: headers });
                 });
                 return defer.promise;
             }

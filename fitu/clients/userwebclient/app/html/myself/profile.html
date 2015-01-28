@@ -15,7 +15,8 @@
         <div class="form-group">
             <label for="profile_nickname" class="col-xs-4 control-label" ng-bind="lang.PROFILE_LABEL_NICKNAME"></label>
             <div class="col-xs-7" ng-class="{'has-error': !profileModel.nickNameProp.validate()}">
-                <input type="text" class="form-control" id="profile_nickname" ng-model="profileModel.nickNameProp.val" />
+                <input type="text" class="form-control" id="profile_nickname" ng-model="profileModel.nickNameProp.val" focus-out="checkNickNameAvailability()" />
+                <i class="fa" ng-class="{'fa-check': nickNameAvailable == 0, 'fa-times': nickNameAvailable == 1}" style="position:absolute;right:0px;top:50%;margin-top:-7px;"></i>
             </div>
         </div>
         <div class="form-group">

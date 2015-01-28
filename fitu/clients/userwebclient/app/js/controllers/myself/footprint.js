@@ -1,6 +1,6 @@
 ﻿(function () {
     angular.module('fitu')
-    .controller('footprint', ['$scope', 'footprint', 'pagination', 'member', 'const', function ($scope, footprint, pagination, member, constants) {
+    .controller('footprint', ['$scope', 'footprint', 'pagination', 'member', 'const', 'lang', 'ucconst', function ($scope, footprint, pagination, member, constants, lang, ucconst) {
         var pageStore = new pagination.PageStore(function (page, pageSize) {
             return footprint.getMyself({ page: page, pageSize: pageSize });
         });
@@ -32,9 +32,12 @@
         $scope.doQuit = function (fp) {
             member.quit(fp.id)
             .then(function () {
-                    fp.statusId = constants.memberStatus.quit;
+                fp.statusId = constants.memberStatus.quit;
+                $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.success, msg: lang.FOOTPRINT_MSG_SUCCESS_QUIT });
             })
-            .catch(function (err) { });
+            .catch(function (err) {
+                $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.error, msg: lang.FOOTPRINT_MSG_ERR_QUIT });
+            });
         };
         
         $scope.actEnds = function (act) {

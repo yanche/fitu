@@ -1,6 +1,6 @@
 ﻿(function () {
     angular.module('fitu')
-    .controller('signup', ['$scope', 'member', '$state', '$location', 'ucconst', '$rootScope', '$timeout', 'activity', function ($scope, member, $state, $location, ucconst, $rootScope, $timeout, activity) {
+    .controller('signup', ['$scope', 'member', '$state', '$location', 'ucconst', '$rootScope', '$timeout', 'activity', 'lang', function ($scope, member, $state, $location, ucconst, $rootScope, $timeout, activity, lang) {
         var ctx = $location.search();
         
         if (!$rootScope.user) {
@@ -46,7 +46,13 @@
                     console.log(data);
                     $state.gox(ucconst.states.footprint);
                     $scope.processing = false;
-                }, function (err) {
+                    $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.success, msg: lang.SIGNUP_MSG_SUCCESS });
+                })
+                .catch(function (err) {
+                    if (err.status == 409)
+                        $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.error, msg: lang.SIGNUP_MSG_ERR_CONFLICT });
+                    else
+                        $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.error, msg: lang.SIGNUP_MSG_ERR_UNKNOWN });
                     console.log(err);
                     $scope.processing = false;
                 });

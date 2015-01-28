@@ -1,6 +1,6 @@
 ﻿(function () {
     angular.module('fitu')
-    .controller('sitedetail', ['$scope', '$state', 'site', '$location', 'ucconst', 'pagination', 'validate', '$rootScope', 'message', 'sitefan', 'ucdatamodel', function ($scope, $state, site, $location, ucconst, pagination, validate, $rootScope, message, sitefan, ucdatamodel) {
+    .controller('sitedetail', ['$scope', '$state', 'site', '$location', 'ucconst', 'pagination', 'validate', '$rootScope', 'message', 'sitefan', 'ucdatamodel', 'lang', function ($scope, $state, site, $location, ucconst, pagination, validate, $rootScope, message, sitefan, ucdatamodel, lang) {
         var ctx = $location.search();
         if (!ctx.siteId)
             return;
@@ -36,9 +36,11 @@
                         $scope.site.fansCount++;
                         $rootScope.user.subscribe.sitesCount++;
                         $scope.fanRelationship = { subscribe: true };
+                        $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.success, msg: lang.SITEDETAIL_MSG_SUCCESS_FAN });
                     })
                     .catch(function (err) {
                         $scope.fanning = false;
+                        $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.error, msg: lang.SITEDETAIL_MSG_ERR_FAN_UNKNOWN });
                     });
                 }
             };
@@ -53,9 +55,11 @@
                         $scope.site.fansCount--;
                         $rootScope.user.subscribe.sitesCount--;
                         $scope.fanRelationship = { subscribe: false };
+                        $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.success, msg: lang.SITEDETAIL_MSG_SUCCESS_NOFAN });
                     })
                     .catch(function (err) {
                         $scope.nofanning = false;
+                        $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.error, msg: lang.SITEDETAIL_MSG_ERR_NOFAN_UNKNOWN });
                     });
                 };
             }
@@ -70,9 +74,11 @@
                     $scope.switchMsgPage(0); //first page
                     $scope.resetMsgModel();
                     $scope.sendingMsg = false;
+                    $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.success, msg: lang.SITEDETAIL_MSG_SUCCESS_NEWMSG });
                 })
                 .catch(function (err) {
                     $scope.sendingMsg = false;
+                    $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.error, msg: lang.SITEDETAIL_MSG_ERR_NEWMSG_UNKNOWN });
                 });
             }
         };

@@ -1,6 +1,6 @@
 ﻿(function () {
     angular.module('fitu')
-    .controller('matrix', ['$scope', '$state', 'site', '$location', 'ucconst', 'validate', '$rootScope', 'ucdatamodel', 'const', 'activity', function ($scope, $state, site, $location, ucconst, validate, $rootScope, ucdatamodel, constants, activity) {
+    .controller('matrix', ['$scope', '$state', 'site', '$location', 'ucconst', 'validate', '$rootScope', 'ucdatamodel', 'const', 'activity', 'lang', function ($scope, $state, site, $location, ucconst, validate, $rootScope, ucdatamodel, constants, activity, lang) {
         var ctx = $location.search();
         if (ctx.actId) {
             $scope.loading = true;
@@ -73,9 +73,11 @@
                     activity.update({ id: $scope.activity.id, data: $scope.matrixModel.toPOJO() })
                     .then(function (data) {
                         $state.gox(ucconst.states.actdetail, { actId: $scope.activity.id });
+                        $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.success, msg: lang.MATRIX_MSG_UPDATED });
                         $scope.updating = false;
                     })
                     .catch(function (err) {
+                        $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.error, msg: lang.MATRIX_MSG_ERR_UPDATE_UNKNOWN });
                         $scope.updating = false;
                     });
                 }
@@ -87,9 +89,11 @@
                             $state.gox(ucconst.states.actdetail, { actId: data.id });
                         else
                             $state.gox(ucconst.states.activities);
+                        $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.success, msg: lang.MATRIX_MSG_CREATED });
                         $scope.adding = false;
                     })
                     .catch(function (err) {
+                        $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.error, msg: lang.MATRIX_MSG_ERR_CREATION_UNKNOWN });
                         $scope.adding = false;
                     });
                 }

@@ -1,6 +1,6 @@
 ﻿(function () {
     angular.module('fitu')
-    .controller('sendnote', ['$scope', '$location', 'member', 'pagination', 'activity', 'ucdatamodel', 'note', 'user', function ($scope, $location, member, pagination, activity, ucdatamodel, note, user) {
+    .controller('sendnote', ['$scope', '$location', 'member', 'pagination', 'activity', 'ucdatamodel', 'note', 'user', 'ucconst', 'lang', function ($scope, $location, member, pagination, activity, ucdatamodel, note, user, ucconst, lang) {
         var ctx = $location.search();
         
         if (ctx.actId || ctx.recipientId) {
@@ -33,10 +33,12 @@
                     $scope.sending = true;
                     note.sendNote({ actId: ctx.actId, recipientId: ctx.recipientId, data: $scope.sendNoteModel.toPOJO() })
                     .then(function () {
+                        $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.success, msg: lang.SENDNOTE_MSG_SUCCESS_SEND });
                         $scope.sending = false;
                         $scope.resetNote();
                     })
                     .catch(function (err) {
+                        $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.error, msg: lang.SENDNOTE_MSG_ERR_SEND });
                         $scope.sending = false;
                     });
                 }

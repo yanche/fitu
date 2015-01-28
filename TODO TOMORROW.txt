@@ -10,7 +10,7 @@ feature:
 ##ui, deep link, click on limited text, not whole row
 ##vendor page
 ##site vendor status
-page ajax message
+##page ajax message
 activity sort
 ##act delete
 site delete
@@ -18,13 +18,15 @@ admin portal
 ##404 page
 ##page entity 404
 ##no PC tablet access
-more page hint
+##more page hint
 ##page init status, loading
 ##subscribed notes, no send if triggered by himself
 ##act edit, time picker, current date bug
 ##act lead, statistics
 ##organizer signup
 PWD RESET
+email regex
+act cancel, sys note
 
 pagination
 merge msg board

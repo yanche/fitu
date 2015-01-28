@@ -14,7 +14,7 @@
                     defer.resolve(data);
                 }).error(function (data, status, headers, config) {
                     console.log(arguments);
-                    defer.reject('failed to send note: ' + status);
+                    defer.reject({ data: data, status: status, headers: headers });
                 });
                 return defer.promise;
             },
@@ -38,7 +38,7 @@
                     defer.resolve(data);
                 }).error(function (data, status, headers, config) {
                     console.log(arguments);
-                    defer.reject('failed to get my in notes: ' + status);
+                    defer.reject({ data: data, status: status, headers: headers });
                 });
                 return defer.promise;
             },
@@ -62,7 +62,7 @@
                     defer.resolve(data);
                 }).error(function (data, status, headers, config) {
                     console.log(arguments);
-                    defer.reject('failed to get my out notes: ' + status);
+                    defer.reject({ data: data, status: status, headers: headers });
                 });
                 return defer.promise;
             },
@@ -85,7 +85,7 @@
                     defer.resolve(data);
                 }).error(function (data, status, headers, config) {
                     console.log(arguments);
-                    defer.reject('failed to get my sys notes: ' + status);
+                    defer.reject({ data: data, status: status, headers: headers });
                 });
                 return defer.promise;
             }

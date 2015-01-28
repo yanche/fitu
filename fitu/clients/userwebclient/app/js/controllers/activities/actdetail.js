@@ -1,6 +1,6 @@
 ﻿(function () {
     angular.module('fitu')
-    .controller('actdetail', ['$scope', '$location', '$state', 'activity', 'member', 'ucconst', 'geo', 'pagination', 'message', 'validate', '$rootScope', 'const', 'ucdatamodel', function ($scope, $location, $state, activity, member, ucconst, geo, pagination, message, validate, $rootScope, constants, ucdatamodel) {
+    .controller('actdetail', ['$scope', '$location', '$state', 'activity', 'member', 'ucconst', 'geo', 'pagination', 'message', 'validate', '$rootScope', 'const', 'ucdatamodel', 'lang', function ($scope, $location, $state, activity, member, ucconst, geo, pagination, message, validate, $rootScope, constants, ucdatamodel, lang) {
         var ctx = $location.search();
         if (!ctx.actId)
             return;
@@ -43,9 +43,11 @@
                     $scope.switchMsgPage(0); //first page
                     $scope.resetMsgModel();
                     $scope.sendingMsg = false;
+                    $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.success, msg: lang.ACTDETAIL_MSG_SUCCESS_NEWMSG });
                 })
                 .catch(function (err) {
                     $scope.sendingMsg = false;
+                    $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.error, msg: lang.ACTDETAIL_MSG_ERR_NEWMSG_UNKNOWN });
                 });
             }
         };

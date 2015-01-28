@@ -14,7 +14,7 @@
                     defer.resolve(data);
                 }).error(function (data, status, headers, config) {
                     console.log(arguments);
-                    defer.reject('failed to like/unlike message: ' + status);
+                    defer.reject({ data: data, status: status, headers: headers });
                 });
                 return defer.promise;
             }

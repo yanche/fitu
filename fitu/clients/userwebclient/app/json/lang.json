@@ -28,7 +28,8 @@
     "LOGIN_BTN_LOGINING": "正在登录...",
     "LOGIN_BTN_LOADING": "正在加载...",
     "LOGIN_BTN_REGISTERING": "正在注册...",
-    "LOGIN_MSG_FAILED": "登录失败",
+    "LOGIN_MSG_SUCCESS": "欢迎回来 ^^",
+    "LOGIN_MSG_ERR": "登录失败",
 
     "REGISTER_LABEL_LOGIN": "登录",
     "REGISTER_LABEL_EMAIL": "登录邮箱*",
@@ -49,6 +50,9 @@
     "UPDATEPWD_LABEL_NEWPWDCONFIRM": "密码确认",
     "UPDATEPWD_BTN_UPDATE": "修改密码",
     "UPDATEPWD_BTN_UPDATING": "正在修改...",
+    "UPDATEPWD_MSG_ERR_PWD": "密码修改失败：密码错误。。。",
+    "UPDATEPWD_MSG_ERR_UNKNOWN": "密码修改失败：未知错误",
+    "UPDATEPWD_MSG_SUCCESS": "密码修改成功！",
 
     "UPDATEEMAIL_LABEL_OLDEMAIL": "当前",
     "UPDATEEMAIL_LABEL_NEWEMAIL": "新邮箱",
@@ -56,6 +60,10 @@
     "UPDATEEMAIL_LABEL_PWD": "密码",
     "UPDATEEMAIL_BTN_UPDATE": "修改登录邮箱",
     "UPDATEEMAIL_BTN_UPDATING": "正在修改...",
+    "UPDATEEMAIL_MSG_ERR_CONFLICT": "登录邮箱修改失败：邮箱有冲突。。。",
+    "UPDATEEMAIL_MSG_ERR_PWD": "登录邮箱修改失败：密码错误。。。",
+    "UPDATEEMAIL_MSG_ERR_UNKNOWN": "登录邮箱修改失败：未知错误",
+    "UPDATEEMAIL_MSG_SUCCESS": "登录邮箱修改成功！",
 
     "PROFILE_LABEL_HEAD": "头像",
     "PROFILE_LABEL_NICKNAME": "大名",
@@ -64,6 +72,9 @@
     "PROFILE_LABEL_GENDER": "性别",
     "PROFILE_BTN_UPDATE": "更新个人信息",
     "PROFILE_BTN_UPDATING": "正在更新...",
+    "PROFILE_MSG_ERR_CONFLICT": "修改信息失败：邮箱或昵称有冲突。。。",
+    "PROFILE_MSG_ERR_UNKNOWN": "修改信息失败：未知错误",
+    "PROFILE_MSG_SUCCESS": "修改个人信息成功！",
 
     "VENDOR_HEADER": "商户",
 
@@ -85,6 +96,8 @@
     "FOOTPRINT_LABEL_DOQUIT": "我想退出",
     "FOOTPRINT_LABEL_ACT": "活动",
     "FOOTPRINT_LABEL_NORECORDS": "你还没有参加过活动哦。择个良辰吉日和我们一起动起来吧！",
+    "FOOTPRINT_MSG_SUCCESS_QUIT": "活动退出成功！",
+    "FOOTPRINT_MSG_ERR_QUIT": "活动退出失败：未知错误。。。",
 
     "SIGNUP_BTN_SIGNUP": "马上报名！",
     "SIGNUP_BTN_SIGNUPING": "正在报名...",
@@ -98,6 +111,9 @@
     "SIGNUP_MSG_ACTNOTACTIVE": "抱歉，此活动已经过期，不能再报名啦 TAT...",
     "SIGNUP_MSG_NOTFOUND": "抱歉，没有找到你想报名的活动，是不是弄错啦 TAT...",
     "SIGNUP_MSG_NOORGANIZER": "你是这个活动的组织者丫，不需要报名吧。。。",
+    "SIGNUP_MSG_ERR_CONFLICT": "报名失败：你已经在这个活动中报过名了哦。。。",
+    "SIGNUP_MSG_ERR_UNKNOWN": "报名失败：未知错误。。。",
+    "SIGNUP_MSG_SUCCESS": "活动报名成功！",
 
     "LEADERSHIP_HEADER": "我带的活动",
     "LEADERSHIP_LABEL_NOACT": "你还没有组织过活动哦。择个良辰吉日带小伙伴们一起HI起来吧！",
@@ -115,6 +131,8 @@
     "SENDNOTE_MSG_NORECV": "没有指定收信人？？？",
     "SENDNOTE_MSG_NOAUTH": "抱歉，你不是这个活动的组织者，不能向它的报名人员发送信息",
     "SENDNOTE_MSG_404": "抱歉，收信人不存在 TAT",
+    "SENDNOTE_MSG_ERR_SEND": "消息发送失败：未知错误。。。",
+    "SENDNOTE_MSG_SUCCESS_SEND": "消息发送成功！",
 
     "NOTEOUTBOX_HEADER": "发件箱",
     "NOTEOUTBOX_MSG_EMPTY": "空的哟",
@@ -145,6 +163,8 @@
     "ACTDETAIL_MSG_NOMSG": "暂无评论，快来吐槽！",
     "ACTDETAIL_LABEL_CANCEL": "已取消",
     "ACTDETAIL_MSG_404": "喔！不知为何没有找到该活动。。。",
+    "ACTDETAIL_MSG_SUCCESS_NEWMSG": "留言成功！",
+    "ACTDETAIL_MSG_ERR_NEWMSG_UNKNOWN": "留言失败：未知错误。。。",
 
     "USERPREVIEW_LABEL_FAN": "已关注",
     "USERPREVIEW_LABEL_NOFAN": "未关注",
@@ -156,6 +176,10 @@
     "USERPREVIEW_MSG_WHYFAN_LOGIN": "注：关注了TA之后，一旦TA召集活动，会立即通知到你喔！",
     "USERPREVIEW_MSG_WHYFAN_NOLOGIN": "注：登录之后可以关注TA，关注之后，一旦TA召集活动，会立即通知到你喔！",
     "USERPREVIEW_MSG_404": "喔！不知为何没有找到这个人。。。",
+    "USERPREVIEW_MSG_SUCCESS_FAN": "关注成功！",
+    "USERPREVIEW_MSG_ERR_FAN_UNKNOWN": "关注失败：未知错误。。。",
+    "USERPREVIEW_MSG_SUCCESS_NOFAN": "取消关注成功！",
+    "USERPREVIEW_MSG_ERR_NOFAN_UNKNOWN": "取消关注失败：未知错误。。。",
 
     "FANS_HEADER": "我的粉丝",
     "FANS_LABEL_NOFANS": "OH！你还没有粉丝呢 \\(╯-╰)/",
@@ -189,6 +213,12 @@
     "SITEDETAIL_MSG_WHYFAN_NOLOGIN": "注：登录之后可以关注场馆，关注之后，一旦有人在这儿召集活动，会立即通知到你喔！",
     "SITEDETAIL_LABEL_MATRIX": "在此召集活动！",
     "SITEDETAIL_MSG_404": "喔！不知为何没有找到该场馆。。。",
+    "SITEDETAIL_MSG_SUCCESS_NEWMSG": "活动留言成功！",
+    "SITEDETAIL_MSG_ERR_NEWMSG_UNKNOWN": "活动留言失败：未知错误。。。",
+    "SITEDETAIL_MSG_SUCCESS_FAN": "关注场馆成功！",
+    "SITEDETAIL_MSG_ERR_FAN_UNKNOWN": "关注场馆失败：未知错误。。。",
+    "SITEDETAIL_MSG_SUCCESS_NOFAN": "取消关注成功！",
+    "SITEDETAIL_MSG_ERR_NOFAN_UNKNOWN": "取消关注失败：未知错误。。。",
 
     "SUBCRIBESITES_HEADER": "我关注的场馆",
     "SUBCRIBESITES_LABEL_NOSITES": "你还没有关注任何场馆呢~~",
@@ -216,6 +246,10 @@
     "MATRIX_MSG_SITE404": "喔！不知为何没有找到该场馆。。。",
     "MATRIX_MSG_ACT404": "喔！不知为何没有找到该活动。。。",
     "MATRIX_MSG_ACT401": "你不是该活动的组织者，不能修改活动信息呢。。。",
+    "MATRIX_MSG_CREATED": "成功发起了一个活动！",
+    "MATRIX_MSG_UPDATED": "活动信息更新成功！",
+    "MATRIX_MSG_ERR_CREATION_UNKNOWN": "活动发起失败：未知错误。。。",
+    "MATRIX_MSG_ERR_UPDATE_UNKNOWN": "活动更新失败：未知错误",
 
     "VENDORDETAIL_LABEL_INTRO": "介绍",
     "VENDORDETAIL_LABEL_CONTACT": "联系方式",
@@ -241,6 +275,10 @@
     "ACTLEAD_MSG_LOADINGMEM":  "正在加载队员信息...",
     "ACTLEAD_MSG_LOADINGCENSUS": "正在加载统计信息...",
     "ACTLEAD_MSG_NOAUTH": "你不是该活动的组织者，不能查看报名活动的队员信息。。。",
+    "ACTLEAD_MSG_ACTCANCEL_CONFIRM": "你确定要取消这次活动嘛？取消之后不可恢复哟。。。",
+    "ACTLEAD_MSG_ACTCANCEL_SUCCESS": "活动取消成功！",
+    "ACTLEAD_MSG_ACTCANCEL_FAIL": "活动取消失败：未知错误。。。",
+    "ACTLEAD_MSG_ERR_MEMBERSTATUS": "状态更新失败：未知错误。。。",
 
     "ACTIVITIES_MSG_NOACT": "抱歉，目前没有可以报名的（这种）活动喔。",
 
@@ -248,5 +286,8 @@
 
     "ACTLOC_MSG_404": "喔！不知为何没有找到该活动。。。",
 
-    "NOTFOUND_MSG": "唔。。。似乎到了个奇怪的地方呢。。。"
+    "NOTFOUND_MSG": "唔。。。似乎到了个奇怪的地方呢。。。",
+
+    "LOGOUT_MSG_SUCCESS": "退出成功！",
+    "LOGOUT_MSG_ERR_UNKNOWN": "退出失败：未知错误。。。"
 }

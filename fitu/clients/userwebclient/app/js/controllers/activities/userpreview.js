@@ -1,6 +1,6 @@
 ﻿(function () {
     angular.module('fitu')
-    .controller('userpreview', ['$scope', 'user', '$location', 'ucconst', '$state', 'userfan', '$rootScope', function ($scope, user, $location, ucconst, $state, userfan, $rootScope) {
+    .controller('userpreview', ['$scope', 'user', '$location', 'ucconst', '$state', 'userfan', '$rootScope', 'lang', function ($scope, user, $location, ucconst, $state, userfan, $rootScope, lang) {
         var ctx = $location.search();
         if (ctx.userId) {
             $scope.loading = true;
@@ -33,9 +33,11 @@
                             $rootScope.user.subscribe.usersCount++;
                             $scope.fanRelationship.subscribe = true;
                             $scope.fanning = false;
+                            $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.success, msg: lang.USERPREVIEW_MSG_SUCCESS_FAN });
                         })
                         .catch(function (err) {
                             $scope.fanning = false;
+                            $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.error, msg: lang.USERPREVIEW_MSG_ERR_FAN_UNKNOWN });
                         });
                     };
                     
@@ -47,9 +49,11 @@
                             $rootScope.user.subscribe.usersCount--;
                             $scope.fanRelationship.subscribe = false;
                             $scope.nofanning = false;
+                            $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.success, msg: lang.USERPREVIEW_MSG_SUCCESS_NOFAN });
                         })
                         .catch(function (err) {
                             $scope.nofanning = false;
+                            $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.error, msg: lang.USERPREVIEW_MSG_ERR_NOFAN_UNKNOWN });
                         });
                     };
                 }

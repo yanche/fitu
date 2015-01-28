@@ -12,7 +12,7 @@
                 }).success(function (data) {
                     defer.resolve(data);
                 }).error(function (data, status, headers, config) {
-                    defer.reject(status);
+                    defer.reject({ data: data, status: status, headers: headers });
                 });
                 return defer.promise;
             },
@@ -26,7 +26,7 @@
                 }).success(function (data) {
                     defer.resolve(data);
                 }).error(function (data, status, headers, config) {
-                    defer.reject(status);
+                    defer.reject({ data: data, status: status, headers: headers });
                 });
                 return defer.promise;
             },
@@ -40,7 +40,7 @@
                 }).success(function (data) {
                     defer.resolve(data);
                 }).error(function (data, status, headers, config) {
-                    defer.reject(status);
+                    defer.reject({ data: data, status: status, headers: headers });
                 });
                 return defer.promise;
             }
