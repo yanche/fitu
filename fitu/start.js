@@ -53,8 +53,8 @@ var httpEntry = function (req, res) {
         }
     })
     .then(function (webres) {
-        setTimeout(function () { webres.response(res) }, 500);
-        //webres.response(res);
+        //setTimeout(function () { webres.response(res) }, 500);
+        webres.response(res);
     });
 };
 http.createServer(httpEntry)
