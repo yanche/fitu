@@ -108,8 +108,10 @@
                         $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.error, msg: lang.LOGIN_MSG_ERR_EMAIL });
                     else if (err.status == 409)
                         $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.error, msg: lang.LOGIN_MSG_ERR_DUP });
+                    else if (err.status == 400)
+                        $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.error, msg: lang.LOGIN_MSG_ERR_NOTFOUND });
                     else
-                        $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.error, msg: lang.LOGIN_MSG_ERR_UNKNOWN });
+                        $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.error, msg: lang.LOGIN_MSG_ERR_UNKNOWN }); 
                 });
             }
         };

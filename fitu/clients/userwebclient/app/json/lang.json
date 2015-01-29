@@ -34,6 +34,7 @@
     "LOGIN_BTN_RESETINGPWD": "正在重置密码...",
     "LOGIN_MSG_ERR_DUP": "密码重置失败：两天内只能重置密码一次哦",
     "LOGIN_MSG_ERR_EMAIL": "密码重置失败：邮件发送失败 TAT",
+    "LOGIN_MSG_ERR_NOTFOUND": "密码重置失败：没有找到这个注册用户喔。。。",
     "LOGIN_MSG_ERR_UNKNOWN": "密码重置失败：未知错误。。。",
     "LOGIN_MSG_SUCCESS_RESETPWD": "密码重置成功！请查收邮箱获取密码。",
 
