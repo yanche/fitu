@@ -30,14 +30,18 @@
         };
         
         $scope.doQuit = function (fp) {
-            member.quit(fp.id)
-            .then(function () {
-                fp.statusId = constants.memberStatus.quit;
-                $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.success, msg: lang.FOOTPRINT_MSG_SUCCESS_QUIT });
+            $scope.$emit(ucconst.events.showMsg, {
+                msgType: ucconst.msgType.warning, msg: lang.FOOTPRINT_MSG_CONFIRM_QUIT, onConfirm: function () {
+                    member.quit(fp.id)
+                    .then(function () {
+                        fp.statusId = constants.memberStatus.quit;;
+                        $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.success, msg: lang.FOOTPRINT_MSG_SUCCESS_QUIT });
+                    })
+                    .catch(function (err) {
+                        $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.error, msg: lang.FOOTPRINT_MSG_ERR_QUIT });
+                    });
+                }
             })
-            .catch(function (err) {
-                $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.error, msg: lang.FOOTPRINT_MSG_ERR_QUIT });
-            });
         };
         
         $scope.actEnds = function (act) {

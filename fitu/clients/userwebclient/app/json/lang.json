@@ -104,6 +104,7 @@
     "FOOTPRINT_LABEL_NORECORDS": "你还没有参加过活动哦。择个良辰吉日和我们一起动起来吧！",
     "FOOTPRINT_MSG_SUCCESS_QUIT": "活动退出成功！",
     "FOOTPRINT_MSG_ERR_QUIT": "活动退出失败：未知错误。。。",
+    "FOOTPRINT_MSG_CONFIRM_QUIT": "你确定要退出这个活动嘛？",
 
     "SIGNUP_BTN_SIGNUP": "马上报名！",
     "SIGNUP_BTN_SIGNUPING": "正在报名...",
