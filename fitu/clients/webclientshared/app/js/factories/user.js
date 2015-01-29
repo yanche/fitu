@@ -209,6 +209,20 @@
                     defer.reject({ data: data, status: status, headers: headers });
                 });
                 return defer.promise;
+            },
+            resetpwd: function (email) {
+                var defer = new $q.defer();
+                $http({
+                    method: 'POST',
+                    url: url.generate('pwdreset'),
+                    data: { email: email }
+                }).success(function () {
+                    defer.resolve();
+                }).error(function (data, status, headers, config) {
+                    console.log(arguments);
+                    defer.reject({ data: data, status: status, headers: headers });
+                });
+                return defer.promise;
             }
         };
     }]);

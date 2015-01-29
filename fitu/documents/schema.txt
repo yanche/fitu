@@ -120,3 +120,19 @@ notes: {
 'body': {content:, type: },
 'emphasis':,
 }
+
+pwdreset: {
+_id:
+userId:
+createdOn:
+}
+
+email: {
+_id:
+subject:
+body:
+to:
+cc:
+bcc:
+createdOn:
+}

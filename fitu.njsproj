@@ -119,6 +119,8 @@
     <Content Include="fitu\clients\adminwebclient\app.jade" />
     <Content Include="fitu\clients\vendorwebclient\app.jade" />
     <Content Include="fitu\clients\vendorwebclient\app\html\main.html" />
+    <Content Include="fitu\node_modules\email\templates\pwdreset.jade" />
+    <Content Include="fitu\node_modules\email\templates\_footer.jade" />
     <Content Include="package.json" />
     <Content Include="README.md" />
   </ItemGroup>
@@ -154,6 +156,7 @@
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\availability\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\footprints\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\actcensus\" />
+    <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\pwdreset\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\sitefans\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\userfans\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\wx\" />
@@ -168,8 +171,10 @@
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\resource\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\usercredentials\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\users\" />
+    <Folder Include="fitu\node_modules\email\templates\" />
     <Folder Include="fitu\node_modules\infra\" />
     <Folder Include="fitu\node_modules\models\" />
+    <Folder Include="fitu\node_modules\email\" />
     <Folder Include="fitu\node_modules\webpageservice\" />
     <Folder Include="fitu\clients\vendorwebclient\app\html\sites\" />
     <Folder Include="fitu\clients\vendorwebclient\app\html\statistics\" />
@@ -301,6 +306,7 @@
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\notes\index.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\notes\notes.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\notes\singlenote.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\pwdreset\index.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\resource\index.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\resxutil\activity.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\resxutil\footprint.js" />
@@ -349,10 +355,12 @@
     <Compile Include="fitu\node_modules\const\site.js" />
     <Compile Include="fitu\node_modules\const\status.js" />
     <Compile Include="fitu\node_modules\const\tags.js" />
+    <Compile Include="fitu\node_modules\dbaccess\email.js" />
     <Compile Include="fitu\node_modules\dbaccess\member.js" />
     <Compile Include="fitu\node_modules\dbaccess\activity.js" />
     <Compile Include="fitu\node_modules\dbaccess\note.js" />
     <Compile Include="fitu\node_modules\dbaccess\message.js" />
+    <Compile Include="fitu\node_modules\dbaccess\pwdreset.js" />
     <Compile Include="fitu\node_modules\dbaccess\session.js" />
     <Compile Include="fitu\node_modules\dbaccess\site.js" />
     <Compile Include="fitu\node_modules\dbaccess\siteidle.js" />
@@ -360,6 +368,7 @@
     <Compile Include="fitu\node_modules\dbaccess\user.js" />
     <Compile Include="fitu\node_modules\dbaccess\index.js" />
     <Compile Include="fitu\node_modules\dbaccess\mongoclient.js" />
+    <Compile Include="fitu\node_modules\email\index.js" />
     <Compile Include="fitu\node_modules\errdef\index.js" />
     <Compile Include="fitu\node_modules\extension\array.js" />
     <Compile Include="fitu\node_modules\extension\crypto.js" />

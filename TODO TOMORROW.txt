@@ -24,7 +24,7 @@ admin portal
 ##act edit, time picker, current date bug
 ##act lead, statistics
 ##organizer signup
-PWD RESET
+##PWD RESET
 email regex
 ##act cancel, sys note
 

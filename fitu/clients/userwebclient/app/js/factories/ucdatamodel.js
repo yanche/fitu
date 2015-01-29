@@ -6,7 +6,7 @@
         var LoginModel = function () {
             DataModel.call(this);
             
-            this.emailProp = new ModelProp(validate.valuedString);
+            this.emailProp = new ModelProp(validate.email);
             this.pwdProp = new ModelProp(validate.valuedString);
             this.addProp(this.emailProp).addProp(this.pwdProp);
         };

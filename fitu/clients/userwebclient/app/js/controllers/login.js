@@ -96,5 +96,22 @@
             else
                 $scope.nickNameAvailable = 2;
         };
+
+        $scope.resetPwd = function () {
+            if ($scope.loginModel.emailProp.validate()) {
+                user.resetpwd($scope.loginModel.emailProp.val)
+                .then(function () {
+                    $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.success, msg: lang.LOGIN_MSG_SUCCESS_RESETPWD });
+                })
+                .catch(function (err) {
+                    if (err.status == 500)
+                        $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.error, msg: lang.LOGIN_MSG_ERR_EMAIL });
+                    else if (err.status == 409)
+                        $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.error, msg: lang.LOGIN_MSG_ERR_DUP });
+                    else
+                        $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.error, msg: lang.LOGIN_MSG_ERR_UNKNOWN });
+                });
+            }
+        };
     }]);
 })();

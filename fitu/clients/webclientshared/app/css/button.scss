@@ -2,3 +2,11 @@
     color: #2CA5FF;
     cursor: pointer;
 }
+
+.resetPwd {
+    text-decoration: underline;
+
+    &.disabled {
+        color: #999999;
+    }
+}
