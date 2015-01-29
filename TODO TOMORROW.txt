@@ -26,7 +26,7 @@ admin portal
 ##organizer signup
 PWD RESET
 email regex
-act cancel, sys note
+##act cancel, sys note
 
 pagination
 merge msg board
