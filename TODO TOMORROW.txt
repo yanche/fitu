@@ -27,6 +27,7 @@ admin portal
 ##PWD RESET
 email regex
 ##act cancel, sys note
+node: global error handling
 
 pagination
 merge msg board
