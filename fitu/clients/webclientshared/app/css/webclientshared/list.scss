@@ -1,0 +1,5 @@
+﻿@import '../config/color';
+
+.splitter + .splitter {
+    border-top: solid 1px $color_border_light;
+}

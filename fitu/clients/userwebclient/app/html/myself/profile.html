@@ -2,37 +2,37 @@
     <div class="empty-xs"></div>
     <div class="form-horizontal col-xs-12 paddingLR0px" role="form">
         <div class="form-group">
-            <label for="profile_head" class="col-xs-4 control-label" ng-bind="lang.PROFILE_LABEL_HEAD"></label>
+            <label for="profile_head" class="col-xs-3 control-label text-right" ng-bind="lang.PROFILE_LABEL_HEAD"></label>
             <div class="col-xs-7">
                 <div class="col-xs-12 paddingLR0px">
                     <image-input image-bind="profileModel.headUrlProp.val" image-height="200" image-width="200" head></image-input>
                 </div>
-                <div class="col-xs-12 paddingLR0px" style="margin-top:5px;">
-                    <img id="profile_head" ng-src="{{profileModel.headUrlProp.val}}" style="width:100px;" />
+                <div class="col-xs-12 paddingLR0px marginT5px">
+                    <img id="profile_head" ng-src="{{profileModel.headUrlProp.val}}" class="full-width" />
                 </div>
             </div>
         </div>
         <div class="form-group">
-            <label for="profile_nickname" class="col-xs-4 control-label" ng-bind="lang.PROFILE_LABEL_NICKNAME"></label>
+            <label for="profile_nickname" class="col-xs-3 control-label text-right" ng-bind="lang.PROFILE_LABEL_NICKNAME"></label>
             <div class="col-xs-7" ng-class="{'has-error': !profileModel.nickNameProp.validate()}">
                 <input type="text" class="form-control" id="profile_nickname" ng-model="profileModel.nickNameProp.val" focus-out="checkNickNameAvailability()" />
-                <i class="fa" ng-class="{'fa-check': nickNameAvailable == 0, 'fa-times': nickNameAvailable == 1}" style="position:absolute;right:0px;top:50%;margin-top:-7px;"></i>
+                <i class="fa" ng-class="{'fa-check text-success': nickNameAvailable == 0, 'fa-times text-error': nickNameAvailable == 1}" style="position:absolute;right:0px;top:50%;margin-top:-7px;"></i>
             </div>
         </div>
         <div class="form-group">
-            <label for="profile_phone" class="col-xs-4 control-label" ng-bind="lang.PROFILE_LABEL_PHONE"></label>
+            <label for="profile_phone" class="col-xs-3 control-label text-right" ng-bind="lang.PROFILE_LABEL_PHONE"></label>
             <div class="col-xs-7" ng-class="{'has-error': !profileModel.phoneProp.validate()}">
                 <input type="text" class="form-control" id="profile_phone" ng-model="profileModel.phoneProp.val" />
             </div>
         </div>
         <div class="form-group">
-            <label for="profile_contact" class="col-xs-4 control-label" ng-bind="lang.PROFILE_LABEL_CONTACT"></label>
+            <label for="profile_contact" class="col-xs-3 control-label text-right" ng-bind="lang.PROFILE_LABEL_CONTACT"></label>
             <div class="col-xs-7" ng-class="{'has-error': !profileModel.contactProp.validate()}">
                 <input type="email" class="form-control" id="profile_contact" ng-model="profileModel.contactProp.val" />
             </div>
         </div>
         <div class="form-group">
-            <label for="profile_gender" class="col-xs-4 control-label" ng-bind="lang.PROFILE_LABEL_GENDER"></label>
+            <label for="profile_gender" class="col-xs-3 control-label text-right" ng-bind="lang.PROFILE_LABEL_GENDER"></label>
             <div class="col-xs-7">
                 <select type="text" class="form-control" id="profile_gender" ng-model="profileModel.genderProp.val">
                     <option value="" ng-bind="lang.GLOBAL_LABEL_SEXNON"></option>

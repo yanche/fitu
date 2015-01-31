@@ -4,32 +4,32 @@
     </div>
     <loading class="col-xs-12 paddingLR0px" show="loading" word="lang.GLOBAL_MSG_LOADING"></loading>
     <div class="col-xs-10 col-xs-offset-1 paddingLR0px paddingTB10px splitter" ng-repeat="site in visibles" ng-click="link.goSiteDetail(site.id)">
-        <div class="col-xs-12 paddingLR0px fontbold fontbig text-center textoverflowhidden" ng-bind="site.name"></div>
+        <div class="col-xs-12 paddingLR0px text-bold text-lg text-center text-overflow-hidden" ng-bind="site.name"></div>
         <div class="col-xs-3 paddingLR0px">
             <img ng-src="{{site.picUrl}}" style="width:100%;" />
         </div>
-        <div class="col-xs-9 paddingLR0px small textoverflowhidden" style="padding-left: 10px;">
+        <div class="col-xs-9 paddingLR0px small text-overflow-hidden" style="padding-left: 10px;">
             <div class="col-xs-12 paddingLR0px">
-                <i class="fa fa-clock-o"></i>
+                <i class="fa fa-clock-o text-highlight"></i>
                 <span ng-bind="site.open.startsOn | siteopen | datetime : const.timeAFormat"></span>
                 <span> ~ </span>
                 <span ng-bind="site.open.endsOn | siteopen | datetime : const.timeAFormat"></span>
             </div>
             <div class="col-xs-12 paddingLR0px">
-                <i class="fa fa-map-marker"></i>
+                <i class="fa fa-map-marker text-highlight"></i>
                 <span ng-bind="site.location.address"></span>
             </div>
             <div class="col-xs-12 paddingLR0px">
-                <i class="fa fa-rmb"></i>
+                <i class="fa fa-rmb text-highlight"></i>
                 <span ng-bind="site.prices[0] | price"></span>
             </div>
             <div class="col-xs-12 paddingLR0px">
                 <div class="col-xs-4 paddingLR0px">
-                    <i class="fa fa-home"></i>
+                    <i class="fa fa-home text-highlight"></i>
                     <span ng-bind="site.tags[0] | tag"></span>
                 </div>
                 <div class="col-xs-4 paddingLR0px">
-                    <i class="fa fa-heart" ng-class="{red: site.fansCount > 0}"></i>
+                    <i class="fa" ng-class="{'text-danger fa-heart': site.fansCount > 0, 'fa-heart-o': site.fansCount == 0}"></i>
                     <span ng-bind="site.fansCount"></span>
                 </div>
             </div>

@@ -2,24 +2,24 @@
     <div class="empty-md"></div>
     <form class="form-horizontal col-xs-12 nopadding" role="form">
         <div class="form-group">
-            <label class="col-xs-3 control-label" ng-bind="lang.UPDATEEMAIL_LABEL_OLDEMAIL"></label>
-            <label style="text-align:left;" class="col-xs-8 control-label" ng-bind="user.email"></label>
+            <label class="col-xs-3 control-label text-right" ng-bind="lang.UPDATEEMAIL_LABEL_OLDEMAIL"></label>
+            <label class="col-xs-8 control-label text-left" ng-bind="user.email"></label>
         </div>
         <div class="form-group">
-            <label for="updateemail_newemail" class="col-xs-3 control-label" ng-bind="lang.UPDATEEMAIL_LABEL_NEWEMAIL"></label>
+            <label for="updateemail_newemail" class="col-xs-3 control-label text-right" ng-bind="lang.UPDATEEMAIL_LABEL_NEWEMAIL"></label>
             <div class="col-xs-8" ng-class="{'has-error': !updateEmailModel.emailProp.validate(true)}">
                 <input type="text" class="form-control" id="updateemail_newemail" ng-model="updateEmailModel.emailProp.val" focus-out="checkEmailAvailability()" />
-                <i class="fa" ng-class="{'fa-check': emailAvailable == 0, 'fa-times': emailAvailable == 1}" style="position:absolute;right:0px;top:50%;margin-top:-7px;"></i>
+                <i class="fa" ng-class="{'fa-check text-success': emailAvailable == 0, 'fa-times text-error': emailAvailable == 1}" style="position:absolute;right:0px;top:50%;margin-top:-7px;"></i>
             </div>
         </div>
         <div class="form-group">
-            <label for="updateemail_newemail2" class="col-xs-3 control-label" ng-bind="lang.UPDATEEMAIL_LABEL_NEWEMAILCONFIRM"></label>
+            <label for="updateemail_newemail2" class="col-xs-3 control-label text-right" ng-bind="lang.UPDATEEMAIL_LABEL_NEWEMAILCONFIRM"></label>
             <div class="col-xs-8" ng-class="{'has-error': !updateEmailModel.emailConfirmProp.validate(true)}">
                 <input type="text" class="form-control" id="updateemail_newemail2" ng-model="updateEmailModel.emailConfirmProp.val" />
             </div>
         </div>
         <div class="form-group">
-            <label for="updateemail_pwd" class="col-xs-3 control-label" ng-bind="lang.UPDATEEMAIL_LABEL_PWD"></label>
+            <label for="updateemail_pwd" class="col-xs-3 control-label text-right" ng-bind="lang.UPDATEEMAIL_LABEL_PWD"></label>
             <div class="col-xs-8">
                 <input type="password" class="form-control" id="updateemail_pwd" ng-model="updateEmailModel.pwdProp.val" />
             </div>

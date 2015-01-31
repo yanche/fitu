@@ -1,24 +1,22 @@
 ﻿<div class="col-xs-12">
     <loading class="col-xs-12 paddingLR0px" show="loadingAct" word="lang.ACTLEAD_MSG_LOADINGACT"></loading>
-    <div class="col-xs-12 paddingLR0px fontbold" ng-show="!loadingAct && activity.createdBy != user.id" ng-bind="lang.ACTLEAD_MSG_NOAUTH"></div>
-    <h4 class="col-xs-12 paddingLR0px fontbold" ng-show="!loadingAct && activity && activity.createdBy == user.id">
+    <div class="col-xs-12 paddingLR0px text-bold" ng-show="!loadingAct && activity.createdBy != user.id" ng-bind="lang.ACTLEAD_MSG_NOAUTH"></div>
+    <h4 class="col-xs-12 paddingLR0px text-bold" ng-show="!loadingAct && activity && activity.createdBy == user.id">
         <span ng-bind="activity.name"></span>
         <span>, </span>
         <span ng-bind="activity.startsOn | date"></span>
-        <i ng-show="!util.actCancel(activity)" class="fa fa-edit clickable" ng-click="link.goMatrix({actId: activity.id})"></i>
-        <i ng-show="util.actActive(activity)" class="fa fa-times clickable remove" ng-click="cancelAct(activity)"></i>
-        <span ng-bind="lang.ACTLEAD_LABEL_ACTCANCEL" ng-show="util.actCancel(activity)"></span>
-        <span ng-bind="lang.ACTLEAD_LABEL_ACTENDS" ng-show="!util.actCancel(activity) && util.actEnds(activity)"></span>
-        <span ng-bind="lang.ACTLEAD_LABEL_ACTSTARTS" ng-show="!util.actCancel(activity) && util.actStarts(activity)"></span>
+        <i ng-show="!util.actCancel(activity)" class="fa fa-edit text-highlight" ng-click="link.goMatrix({actId: activity.id})"></i>
+        <i ng-show="util.actActive(activity)" class="fa fa-times text-danger" ng-click="cancelAct(activity)"></i>
+        <span ng-show="!util.actActive(activity)" ng-bind="util.actNonActiveStatus(activity)" class="text-danger"></span>
     </h4>
     <div class="paddingLR0px col-xs-12" ng-show="activity && activity.memberCount > 0">
-        <span style="float:left;" ng-click="link.goSendNote({actId: activity.id})">
+        <span class="f-left text-highlight" ng-click="link.goSendNote({actId: activity.id})">
             <i class="fa fa-envelope-o"></i>
             <span ng-bind="lang.SENDNOTE_LABEL_SENDNOTEALL"></span>
         </span>
-        <span style="float:right;" class="fa" ng-class="{'fa-angle-down': !expandCensus, 'fa-angle-up': expandCensus}" ng-click="expandCensus = !expandCensus"></span>
+        <span class="fa f-right text-highlight" ng-class="{'fa-angle-down': !expandCensus, 'fa-angle-up': expandCensus}" ng-click="expandCensus = !expandCensus"></span>
     </div>
-    <div class="paddingLR0px col-xs-12" ng-show="expandCensus">
+    <div style="display:none;" class="paddingLR0px col-xs-12" ng-class="{_slide_down: expandCensus}">
         <loading class="col-xs-12 paddingLR0px" show="loadingCensus" word="lang.ACTLEAD_MSG_LOADINGCENSUS"></loading>
         <table class="table" ng-show="census && !loadingCensus">
             <thead>
@@ -26,15 +24,15 @@
                     <th></th>
                     <th>
                         <span ng-bind="lang.ACTLEAD_LABEL_CENSUS_MALE"></span>
-                        <i class="fa fa-male"></i>
+                        <i class="fa fa-male text-highlight"></i>
                     </th>
                     <th>
                         <span ng-bind="lang.ACTLEAD_LABEL_CENSUS_FEMALE"></span>
-                        <i class="fa fa-female"></i>
+                        <i class="fa fa-female text-danger"></i>
                     </th>
                     <th>
                         <span ng-bind="lang.ACTLEAD_LABEL_CENSUS_UNKNOWN"></span>
-                        <i class="fa fa-question"></i>
+                        <i class="fa fa-question text-warn"></i>
                     </th>
                     <th ng-bind="lang.ACTLEAD_LABEL_CENSUS_TOTAL"></th>
                 </tr>
@@ -67,13 +65,13 @@
     <loading class="col-xs-12 paddingLR0px" show="loadingMem" word="lang.ACTLEAD_MSG_LOADINGMEM"></loading>
     <div class="paddingLR0px paddingTB5px col-xs-12 splitter" ng-repeat="mem in visibles" ng-show="!loadingMem">
         <div class="col-xs-3 paddingLR0px" ng-click="link.goUserPreview(mem.user.id)">
-            <img style="width:100%;" ng-src="{{mem.user.headUrl}}" />
+            <img class="full-width" ng-src="{{mem.user.headUrl}}" />
         </div>
-        <div class="col-xs-9" style="padding:0px 0px 0px 10px">
+        <div class="col-xs-9 paddingLR0px paddingL10px">
             <div class="col-xs-12 paddingLR0px">
-                <span class="fontbold" ng-bind="mem.user.personal.nickName"></span>
+                <span class="text-bold" ng-bind="mem.user.personal.nickName"></span>
                 <gender-hint gender="mem.user.personal.gender"></gender-hint>
-                <i class="fa fa-envelope-o" ng-click="link.goSendNote({recipientId: mem.user.id})"></i>
+                <i class="fa fa-envelope-o text-highlight" ng-click="link.goSendNote({recipientId: mem.user.id})"></i>
             </div>
             <div class="col-xs-12 paddingLR0px" ng-bind="mem.user.personal.contact"></div>
             <div class="col-xs-12 paddingLR0px" ng-bind="mem.user.personal.phone"></div>
@@ -84,7 +82,7 @@
             </div>
             <div class="col-xs-12 paddingLR0px" ng-show="util.actActive(activity)">
                 <span ng-bind="lang.ACTLEAD_LABEL_QUIT" ng-show="mem.statusId == const.memberStatus.quit"></span>
-                <span ng-bind="lang.ACTLEAD_LABEL_PENDING" ng-show="mem.statusId == const.memberStatus.pending" style="border-bottom: 1px solid black;" ng-click="doConfirm(mem)"></span>
+                <span class="text-highlight text-underline" ng-bind="lang.ACTLEAD_LABEL_PENDING" ng-show="mem.statusId == const.memberStatus.pending" ng-click="doConfirm(mem)"></span>
                 <span ng-bind="lang.ACTLEAD_LABEL_CONFIRMED" ng-show="mem.statusId == const.memberStatus.confirmed" ng-click="doPending(mem)"></span>
             </div>
         </div>

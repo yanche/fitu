@@ -1,0 +1,51 @@
+﻿@import '../infra/infra';
+@import '../config/font';
+@import '../config/color';
+
+.text-overflow-hidden {
+    @extend %text-overflow-hidden;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.text-sm {
+    font-size: $font_size_sm;
+}
+
+.text-lg {
+    font-size: $font_size_lg;
+}
+
+.text-xl {
+    font-size: $font_size_xl;
+}
+
+.text-danger, .text-error {
+    color: $color_msg_error;
+}
+
+.text-success {
+    color: $color_msg_success;
+}
+
+.text-warn {
+    color: $color_msg_warn;
+}
+
+.text-highlight {
+    color: $color_msg_highlight;
+}
+
+.text-underline {
+    text-decoration: underline;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}

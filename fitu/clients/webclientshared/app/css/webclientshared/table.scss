@@ -1,0 +1,49 @@
+﻿@import '../config/color';
+
+.border-bottom {
+    border-bottom: 1px solid $color_border;
+
+    &.border-bg {
+        border-bottom-color: $color_bg;
+    }
+
+    &.border-bold {
+        border-bottom-width: 2px;
+    }
+}
+
+.border-top {
+    border-top: 1px solid $color_border;
+
+    &.border-bg {
+        border-top-color: $color_bg;
+    }
+
+    &.border-bold {
+        border-top-width: 2px;
+    }
+}
+
+.border-left {
+    border-left: 1px solid $color_border;
+
+    &.border-bg {
+        border-left-color: $color_bg;
+    }
+
+    &.border-bold {
+        border-left-width: 2px;
+    }
+}
+
+.border-right {
+    border-right: 1px solid $color_border;
+
+    &.border-bg {
+        border-right-color: $color_bg;
+    }
+
+    &.border-bold {
+        border-right-width: 2px;
+    }
+}

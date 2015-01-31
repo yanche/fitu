@@ -1,13 +1,13 @@
 ﻿<div class="col-sm-6 col-xs-12" style="margin-bottom: 100px;">
     <h3 ng-bind="lang.SITE_TITLE" class="col-xs-12 nopadding"></h3>
-    <div class="col-xs-12 nopadding fontbold fontbig borderbottom-bold" ng-show="getSiteCount() > 0">
+    <div class="col-xs-12 nopadding text-bold text-lg borderbottom-bold" ng-show="getSiteCount() > 0">
         <div class="col-xs-3 datacell" ng-bind="lang.SITE_LABEL_NAME"></div>
         <div class="col-xs-3 datacell" ng-bind="lang.SITE_LABEL_INTRO"></div>
         <div class="col-xs-3 datacell" ng-bind="lang.SITE_LABEL_ADDRESS"></div>
         <div class="col-xs-3 datacell" ng-bind="lang.SITE_LABEL_TAGS"></div>
     </div>
     <div ng-repeat="site in visibles" class="col-xs-12 nopadding borderbottom">
-        <div class="col-xs-12 nopadding selectable" ng-class="{selected: site.editing}" ng-click="site.editing = !site.editing">
+        <div class="col-xs-12 nopadding" ng-class="{selected: site.editing}" ng-click="site.editing = !site.editing">
             <div class="col-xs-3 datacell" ng-bind="site.name"></div>
             <div class="col-xs-3 datacell" ng-bind="site.intro"></div>
             <div class="col-xs-3 datacell" ng-bind="site.location.address"></div>
@@ -40,22 +40,22 @@
                         <div class="col-xs-4 paddingLR0px">
                             <select class="form-control" ng-options="h for h in const.hour24" ng-model="site.model.openStartHourProp.val"></select>
                         </div>
-                        <div class="col-xs-2 paddingLR0px fontbold text-center" style="margin-top:7px;">时</div>
+                        <div class="col-xs-2 paddingLR0px text-bold text-center" style="margin-top:7px;">时</div>
                         <div class="col-xs-4 paddingLR0px">
                             <select class="form-control" ng-options="m for m in const.minutesQuarter" ng-model="site.model.openStartMinProp.val"></select>
                         </div>
-                        <div class="col-xs-2 paddingLR0px fontbold text-center" style="margin-top:7px;">分</div>
+                        <div class="col-xs-2 paddingLR0px text-bold text-center" style="margin-top:7px;">分</div>
                     </div>
                     <label class="col-xs-12 paddingLR0px" ng-bind="'结束'"></label>
                     <div>
                         <div class="col-xs-4 paddingLR0px">
                             <select class="form-control" ng-options="h for h in const.hour24" ng-model="site.model.openEndHourProp.val"></select>
                         </div>
-                        <div class="col-xs-2 paddingLR0px fontbold text-center" style="margin-top:7px;">时</div>
+                        <div class="col-xs-2 paddingLR0px text-bold text-center" style="margin-top:7px;">时</div>
                         <div class="col-xs-4 paddingLR0px">
                             <select class="form-control" ng-options="m for m in const.minutesQuarter" ng-model="site.model.openEndMinProp.val"></select>
                         </div>
-                        <div class="col-xs-2 paddingLR0px fontbold text-center" style="margin-top:7px;">分</div>
+                        <div class="col-xs-2 paddingLR0px text-bold text-center" style="margin-top:7px;">分</div>
                     </div>
                 </div>
             </div>
@@ -186,22 +186,22 @@
                     <div class="col-xs-4 paddingLR0px">
                         <select class="form-control" ng-options="h for h in const.hour24" ng-model="siteModel.openStartHourProp.val"></select>
                     </div>
-                    <div class="col-xs-2 paddingLR0px fontbold text-center" style="margin-top:7px;">时</div>
+                    <div class="col-xs-2 paddingLR0px text-bold text-center" style="margin-top:7px;">时</div>
                     <div class="col-xs-4 paddingLR0px">
                         <select class="form-control" ng-options="m for m in const.minutesQuarter" ng-model="siteModel.openStartMinProp.val"></select>
                     </div>
-                    <div class="col-xs-2 paddingLR0px fontbold text-center" style="margin-top:7px;">分</div>
+                    <div class="col-xs-2 paddingLR0px text-bold text-center" style="margin-top:7px;">分</div>
                 </div>
                 <label class="col-xs-12 paddingLR0px" ng-bind="'结束'"></label>
                 <div class="col-xs-12 paddingLR0px">
                     <div class="col-xs-4 paddingLR0px">
                         <select class="form-control" ng-options="h for h in const.hour24" ng-model="siteModel.openEndHourProp.val"></select>
                     </div>
-                    <div class="col-xs-2 paddingLR0px fontbold text-center" style="margin-top:7px;">时</div>
+                    <div class="col-xs-2 paddingLR0px text-bold text-center" style="margin-top:7px;">时</div>
                     <div class="col-xs-4 paddingLR0px">
                         <select class="form-control" ng-options="m for m in const.minutesQuarter" ng-model="siteModel.openEndMinProp.val"></select>
                     </div>
-                    <div class="col-xs-2 paddingLR0px fontbold text-center" style="margin-top:7px;">分</div>
+                    <div class="col-xs-2 paddingLR0px text-bold text-center" style="margin-top:7px;">分</div>
                 </div>
             </div>
         </div>

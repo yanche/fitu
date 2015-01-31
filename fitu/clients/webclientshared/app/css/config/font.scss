@@ -1,0 +1,10 @@
+﻿
+$font_size_basic: 14px;
+$font_size_sm: $font_size_basic * 0.85;
+$font_size_lg: $font_size_basic * 1.2;
+$font_size_xl: $font_size_basic * 1.4;
+$size_lineheight: 20px / $font_size_basic;
+$font_height: $font_size_basic * $size_lineheight;
+$font_height_sm: $font_size_sm * $size_lineheight;
+$font_height_lg: $font_size_lg * $size_lineheight;
+$font_height_xl: $font_size_xl * $size_lineheight;

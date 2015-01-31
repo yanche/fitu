@@ -1,19 +1,19 @@
 ﻿<div class="col-xs-12">
-    <h4 class="col-xs-12 paddingLR0px fontbold" ng-bind="lang.FOOTPRINT_HEADER"></h4>
+    <h4 class="col-xs-12 paddingLR0px text-bold" ng-bind="lang.FOOTPRINT_HEADER"></h4>
     <loading class="col-xs-12 paddingLR0px" show="loading" word="lang.GLOBAL_MSG_LOADING"></loading>
-    <div class="col-xs-12 paddingLR0px fontbold" ng-show="!loading && getPageNavs().total == 0" ng-bind="lang.FOOTPRINT_LABEL_NORECORDS"></div>
+    <div class="col-xs-12 paddingLR0px text-bold" ng-show="!loading && getPageNavs().total == 0" ng-bind="lang.FOOTPRINT_LABEL_NORECORDS"></div>
     <div class="col-xs-12 paddingLR0px paddingTB10px splitter" ng-repeat="fp in visibles">
         <div class="col-xs-3 paddingLR0px" ng-click="link.goActDetail(fp.activity.id)">
-            <img ng-src="{{fp.activity.picUrl}}" style="width:100%;" />
+            <img ng-src="{{fp.activity.picUrl}}" class="full-width" />
         </div>
-        <div class="col-xs-9 paddingLR0px small textoverflowhidden" style="padding-left: 10px;">
+        <div class="col-xs-9 paddingLR0px paddingL10px text-sm text-overflow-hidden">
             <div class="col-xs-12 paddingLR0px" ng-bind="fp.activity.name"></div>
             <div class="col-xs-12 paddingLR0px">
-                <i class="fa fa-clock-o"></i>
+                <i class="fa fa-clock-o text-highlight"></i>
                 <span ng-bind="fp.activity.startsOn | activityDatetime : fp.activity.endsOn : true"></span>
             </div>
             <div class="col-xs-12 paddingLR0px">
-                <i class="fa fa-home"></i>
+                <i class="fa fa-home text-highlight"></i>
                 <span ng-bind="fp.activity.tags[0] | tag"></span>
             </div>
             <div class="col-xs-12 paddingLR0px" ng-show="!util.actActive(fp.activity)" ng-bind="lang.FOOTPRINT_LABEL_ACT + util.actNonActiveStatus(fp.activity)"></div>
@@ -21,7 +21,7 @@
                 <span ng-bind="lang.FOOTPRINT_LABEL_PENDING" ng-show="fp.statusId == const.memberStatus.pending"></span>
                 <span ng-bind="lang.FOOTPRINT_LABEL_CONFIRMED" ng-show="fp.statusId == const.memberStatus.confirmed"></span>
                 <span ng-bind="lang.FOOTPRINT_LABEL_QUIT" ng-show="fp.statusId == const.memberStatus.quit"></span>
-                <span ng-bind="lang.FOOTPRINT_LABEL_DOQUIT" ng-show="fp.statusId == const.memberStatus.pending || fp.statusId == const.memberStatus.confirmed" style="border-bottom: 1px solid black;" ng-click="doQuit(fp)"></span>
+                <span ng-bind="lang.FOOTPRINT_LABEL_DOQUIT" ng-show="fp.statusId == const.memberStatus.pending || fp.statusId == const.memberStatus.confirmed" class="text-underline" ng-click="doQuit(fp)"></span>
             </div>
         </div>
     </div>

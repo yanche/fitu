@@ -1,9 +1,9 @@
 ﻿<div class="col-xs-12">
     <loading class="col-xs-12 paddingLR0px" show="loading" word="lang.GLOBAL_MSG_LOADING"></loading>
-    <div class="col-xs-12 fontbold paddingLR0px" ng-show="!loading && !activity" ng-bind="lang.ACTLOC_MSG_404"></div>
+    <div class="col-xs-12 text-bold paddingLR0px" ng-show="!loading && !activity" ng-bind="lang.ACTLOC_MSG_404"></div>
     <div class="empty-xs"></div>
     <div class="col-xs-12 paddingLR0px" ng-show="!loading && activity">
-        <div class="text-center col-xs-12 fontbold fontbig" ng-bind="activity.name"></div>
+        <div class="text-center col-xs-12 text-bold text-lg" ng-bind="activity.name"></div>
         <div class="empty-xs"></div>
         <map class="col-xs-12 paddingLR0px" style="height:300px;" lat="activity.site.location.geo.lat" lng="activity.site.location.geo.lng"></map>
         <div class="empty-xs"></div>

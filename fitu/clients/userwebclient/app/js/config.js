@@ -1,5 +1,5 @@
 ﻿(function () {
-    angular.module('fitu', ['ui.router', 'ui.router.stateHelper', 'fitulib', 'fituhtml'])
+    angular.module('fitu', ['ngAnimate', 'ui.router', 'ui.router.stateHelper', 'fitulib', 'fituhtml'])
     .run(['$rootScope', 'user', 'ucconst', 'lang', '$state', '$timeout', '$location', 'crypto', 'wxb', 'link', 'util', function ($rootScope, user, ucconst, lang, $state, $timeout, $location, crypto, wxb, link, util) {
         var loadUser = function (obj, state, params) {
             //TODO, state transfer need optimization

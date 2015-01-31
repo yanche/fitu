@@ -1,0 +1,27 @@
+﻿@import '../config/color';
+
+.flatbtn {
+    cursor: pointer;
+    color: $color_btn_normal;
+
+    &:hover {
+        color: $color_btn_hover;
+    }
+
+    &:active {
+        color: $color_btn_normal;
+    }
+
+    &.danger {
+        color: $color_input_error;
+
+        &:hover {
+            //TODO darken
+            color: $color_input_error;
+        }
+    }
+
+    &.disabled {
+        color: $color_btn_disabled !important;
+    }
+}

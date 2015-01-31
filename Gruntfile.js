@@ -47,52 +47,53 @@
         copy: {
             userjs: {
                 files: [{
-                    expand: true,
-                    cwd: 'fitu/clients/userwebclient/app/js',
-                    src: ['**'],
-                    dest: 'statics/app/js/userwebclient',
-                    filter: 'isFile'
-                }]
+                        expand: true,
+                        cwd: 'fitu/clients/userwebclient/app/js',
+                        src: ['**'],
+                        dest: 'statics/app/js/userwebclient',
+                        filter: 'isFile'
+                    }]
             },
             vendorjs: {
                 files: [{
-                    expand: true,
-                    cwd: 'fitu/clients/vendorwebclient/app/js',
-                    src: ['**'],
-                    dest: 'statics/app/js/vendorwebclient',
-                    filter: 'isFile'
-                }]
+                        expand: true,
+                        cwd: 'fitu/clients/vendorwebclient/app/js',
+                        src: ['**'],
+                        dest: 'statics/app/js/vendorwebclient',
+                        filter: 'isFile'
+                    }]
             },
             adminjs: {
                 files: [{
-                    expand: true,
-                    cwd: 'fitu/clients/adminwebclient/app/js',
-                    src: ['**'],
-                    dest: 'statics/app/js/adminwebclient',
-                    filter: 'isFile'
-                }]
+                        expand: true,
+                        cwd: 'fitu/clients/adminwebclient/app/js',
+                        src: ['**'],
+                        dest: 'statics/app/js/adminwebclient',
+                        filter: 'isFile'
+                    }]
             },
             sharedjs: {
                 files: [{
-                    expand: true,
-                    cwd: 'fitu/clients/webclientshared/app/js',
-                    src: ['**'],
-                    dest: 'statics/app/js/webclientshared',
-                    filter: 'isFile'
-                }]
+                        expand: true,
+                        cwd: 'fitu/clients/webclientshared/app/js',
+                        src: ['**'],
+                        dest: 'statics/app/js/webclientshared',
+                        filter: 'isFile'
+                    }]
             },
             sharedimg: {
                 files: [{
-                    expand: true,
-                    cwd: 'fitu/clients/webclientshared/app/image',
-                    src: ['**'],
-                    dest: 'statics/app/image/webclientshared',
-                    filter: 'isFile'
-                }]
+                        expand: true,
+                        cwd: 'fitu/clients/webclientshared/app/image',
+                        src: ['**'],
+                        dest: 'statics/app/image/webclientshared',
+                        filter: 'isFile'
+                    }]
             },
             libsjs: {
                 files: [
                     { expand: true, cwd: 'bower_components/angular', src: ['angular.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
+                    { expand: true, cwd: 'bower_components/angular-animate', src: ['angular-animate.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
                     { expand: true, cwd: 'bower_components/angular-i18n', src: ['angular-locale_zh-cn.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
                     { expand: true, cwd: 'bower_components/angular-route', src: ['angular-route.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
                     { expand: true, cwd: 'bower_components/angular-ui-router/release', src: ['angular-ui-router.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
@@ -111,62 +112,62 @@
             },
             sharedjson: {
                 files: [{
-                    expand: true,
-                    cwd: 'fitu/clients/webclientshared/app/json',
-                    src: ['**'],
-                    dest: 'fitu/clients/userwebclient/app/json',
-                    filter: 'isFile'
-                }, {
-                    expand: true,
-                    cwd: 'fitu/clients/webclientshared/app/json',
-                    src: ['**'],
-                    dest: 'fitu/clients/vendorwebclient/app/json',
-                    filter: 'isFile'
-                }, {
-                    expand: true,
-                    cwd: 'fitu/clients/webclientshared/app/json',
-                    src: ['**'],
-                    dest: 'fitu/clients/adminwebclient/app/json',
-                    filter: 'isFile'
-                }]
+                        expand: true,
+                        cwd: 'fitu/clients/webclientshared/app/json',
+                        src: ['**'],
+                        dest: 'fitu/clients/userwebclient/app/json',
+                        filter: 'isFile'
+                    }, {
+                        expand: true,
+                        cwd: 'fitu/clients/webclientshared/app/json',
+                        src: ['**'],
+                        dest: 'fitu/clients/vendorwebclient/app/json',
+                        filter: 'isFile'
+                    }, {
+                        expand: true,
+                        cwd: 'fitu/clients/webclientshared/app/json',
+                        src: ['**'],
+                        dest: 'fitu/clients/adminwebclient/app/json',
+                        filter: 'isFile'
+                    }]
             }
         },
         sass: {
             user: {
                 files: [{
-                    expand: true,
-                    cwd: 'fitu/clients/userwebclient/app/css',
-                    src: ['*.scss'],
-                    dest: 'statics/app/css/userwebclient',
-                    ext: '.css'
-                }]
+                        expand: true,
+                        cwd: 'fitu/clients/webclientshared/app/css/userwebclient',
+                        src: ['*.scss'],
+                        dest: 'statics/app/css/userwebclient',
+                        ext: '.css'
+                    }]
             },
             vendor: {
                 files: [{
-                    expand: true,
-                    cwd: 'fitu/clients/vendorwebclient/app/css',
-                    src: ['*.scss'],
-                    dest: 'statics/app/css/vendorwebclient',
-                    ext: '.css'
-                }]
+                        expand: true,
+                        cwd: 'fitu/clients/webclientshared/app/css/vendorwebclient',
+                        src: ['*.scss'],
+                        dest: 'statics/app/css/vendorwebclient',
+                        ext: '.css'
+                    }]
             },
             admin: {
                 files: [{
-                    expand: true,
-                    cwd: 'fitu/clients/adminwebclient/app/css',
-                    src: ['*.scss'],
-                    dest: 'statics/app/css/adminwebclient',
-                    ext: '.css'
-                }]
+                        expand: true,
+                        cwd: 'fitu/clients/webclientshared/app/css/adminwebclient',
+                        src: ['*.scss'],
+                        dest: 'statics/app/css/adminwebclient',
+                        ext: '.css'
+                    }]
             },
             shared: {
                 files: [{
-                    expand: true,
-                    cwd: 'fitu/clients/webclientshared/app/css',
-                    src: ['*.scss'],
-                    dest: 'statics/app/css/webclientshared',
-                    ext: '.css'
-                }]
+                        expand: true,
+                        cwd: 'fitu/clients/webclientshared/app/css/webclientshared',
+                        src: ['*.scss'],
+                        dest: 'statics/app/css/webclientshared',
+                        ext: '.css'
+                    }]
             }
         },
         clean: {
@@ -199,7 +200,7 @@
         },
         watch: {
             user_css: {
-                files: ['fitu/clients/userwebclient/app/css/*.scss'],
+                files: ['fitu/clients/webclientshared/app/css/config/*.scss', 'fitu/clients/webclientshared/app/css/controls/*.scss', 'fitu/clients/webclientshared/app/css/extension/*.scss', 'fitu/clients/webclientshared/app/css/infra/*.scss', 'fitu/clients/webclientshared/app/css/userwebclient/*.scss'],
                 tasks: ['sass:user']
             },
             user_js: {
@@ -207,7 +208,7 @@
                 tasks: ['copy:userjs']
             },
             admin_css: {
-                files: ['fitu/clients/adminwebclient/app/css/*.scss'],
+                files: ['fitu/clients/webclientshared/app/css/config/*.scss', 'fitu/clients/webclientshared/app/css/controls/*.scss', 'fitu/clients/webclientshared/app/css/extension/*.scss', 'fitu/clients/webclientshared/app/css/infra/*.scss', 'fitu/clients/webclientshared/app/css/adminwebclient/*.scss'],
                 tasks: ['sass:admin']
             },
             admin_js: {
@@ -215,7 +216,7 @@
                 tasks: ['copy:adminjs']
             },
             vendor_css: {
-                files: ['fitu/clients/vendorwebclient/app/css/*.scss'],
+                files: ['fitu/clients/webclientshared/app/css/config/*.scss', 'fitu/clients/webclientshared/app/css/controls/*.scss', 'fitu/clients/webclientshared/app/css/extension/*.scss', 'fitu/clients/webclientshared/app/css/infra/*.scss', 'fitu/clients/webclientshared/app/css/vendorwebclient/*.scss'],
                 tasks: ['sass:vendor']
             },
             vendor_js: {
@@ -223,7 +224,7 @@
                 tasks: ['copy:vendorjs']
             },
             shared_css: {
-                files: ['fitu/clients/webclientshared/app/css/*.scss'],
+                files: ['fitu/clients/webclientshared/app/css/config/*.scss', 'fitu/clients/webclientshared/app/css/controls/*.scss', 'fitu/clients/webclientshared/app/css/extension/*.scss', 'fitu/clients/webclientshared/app/css/infra/*.scss', 'fitu/clients/webclientshared/app/css/webclientshared/*.scss'],
                 tasks: ['sass:shared']
             },
             shared_js: {

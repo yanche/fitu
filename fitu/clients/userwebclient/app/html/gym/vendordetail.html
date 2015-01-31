@@ -1,29 +1,29 @@
 ﻿<loading class="col-xs-12" show="loading" word="lang.GLOBAL_MSG_LOADING"></loading>
-<div class="col-xs-12 fontbold" ng-show="!loading && !vendor" ng-bind="lang.VENDORDETAIL_MSG_404"></div>
+<div class="col-xs-12 text-bold" ng-show="!loading && !vendor" ng-bind="lang.VENDORDETAIL_MSG_404"></div>
 <div class="col-xs-12" ng-show="!loading && vendor">
     <div class="empty-xs"></div>
-    <div class="col-xs-12 paddingLR0px text-center fontbold fontbigger" ng-bind="vendor.name"></div>
+    <div class="col-xs-12 paddingLR0px text-center text-bold text-xl" ng-bind="vendor.name"></div>
     <div class="empty-xs"></div>
-    <div class="col-xs-12 paddingLR0px fontbold" ng-bind="lang.VENDORDETAIL_LABEL_INTRO"></div>
+    <div class="col-xs-12 paddingLR0px text-bold" ng-bind="lang.VENDORDETAIL_LABEL_INTRO"></div>
     <div class="col-xs-12 paddingLR0px">
-        <i class="fa fa-info"></i>
+        <i class="fa fa-info text-highlight"></i>
         <span ng-bind="vendor.intro"></span>
     </div>
-    <div class="col-xs-12 paddingLR0px fontbold" ng-bind="lang.VENDORDETAIL_LABEL_CONTACT"></div>
+    <div class="col-xs-12 paddingLR0px text-bold" ng-bind="lang.VENDORDETAIL_LABEL_CONTACT"></div>
     <div class="col-xs-12 paddingLR0px">
-        <i class="fa fa-phone"></i>
+        <i class="fa fa-phone text-highlight"></i>
         <span ng-bind="vendor.contact"></span>
     </div>
-    <div class="col-xs-12 paddingLR0px fontbold" ng-bind="lang.VENDORDETAIL_LABEL_ADDR"></div>
+    <div class="col-xs-12 paddingLR0px text-bold" ng-bind="lang.VENDORDETAIL_LABEL_ADDR"></div>
     <div class="col-xs-12 paddingLR0px">
-        <i class="fa fa-map-marker blue"></i>
+        <i class="fa fa-map-marker text-highlight"></i>
         <span ng-bind="vendor.location.address"></span>
-        <i class="fa" ng-class="{'fa-plus': !expandMap, 'fa-minus': expandMap}" ng-click="expandMap = !expandMap"></i>
+        <i class="fa text-highlight" ng-class="{'fa-plus': !expandMap, 'fa-minus': expandMap}" ng-click="expandMap = !expandMap"></i>
     </div>
     <map class="col-xs-12 paddingLR0px" style="height:300px;" lat="vendor.location.geo.lat" lng="vendor.location.geo.lng" ng-show="expandMap"></map>
-    <div class="col-xs-12 paddingLR0px fontbold" ng-bind="lang.VENDORDETAIL_LABEL_TAG"></div>
+    <div class="col-xs-12 paddingLR0px text-bold" ng-bind="lang.VENDORDETAIL_LABEL_TAG"></div>
     <div class="col-xs-12 paddingLR0px">
-        <i class="fa fa-home"></i>
+        <i class="fa fa-home text-highlight"></i>
         <span ng-bind="vendor.tags[0] | tag"></span>
     </div>
     <div class="empty-xs"></div>

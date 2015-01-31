@@ -1,0 +1,13 @@
+﻿@import '../config/color';
+
+._gender_hint_male {
+    color: $color_gender_male;
+}
+
+._gender_hint_female {
+    color: $color_gender_female;
+}
+
+._gender_hint_unknown {
+    color: $color_gender_unknown;
+}

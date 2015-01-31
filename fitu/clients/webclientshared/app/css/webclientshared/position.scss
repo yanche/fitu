@@ -1,0 +1,107 @@
+﻿
+%empty-base {
+    float: left;
+    width: 100%;
+    display: block;
+}
+
+.empty-lg {
+    height: 150px;
+    @extend %empty-base;
+}
+
+.empty-md {
+    height: 100px;
+    @extend %empty-base;
+}
+
+.empty-sm {
+    height: 50px;
+    @extend %empty-base;
+}
+
+.empty-xs {
+    height: 25px;
+    @extend %empty-base;
+}
+
+.empty-xxs {
+    height: 12px;
+    @extend %empty-base;
+}
+
+.nopadding {
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.padding10px {
+    padding: 10px;
+}
+
+.paddingLR0px {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.paddingLR10px {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.paddingL10px {
+    padding-left: 10px;
+}
+
+.padding5px {
+    padding: 5px;
+}
+
+.paddingTB10px {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.paddingR5px {
+    padding-right: 5px;
+}
+
+.paddingTB5px {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.marginLR15px {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.marginL5px {
+    margin-left: 5px;
+}
+
+.marginL10px {
+    margin-left: 10px;
+}
+
+.marginL15px {
+    margin-left: 15px;
+}
+
+.marginT5px {
+    margin-top: 5px;
+}
+
+.marginB0px {
+    margin-bottom: 0px;
+}
+
+.marginB5px {
+    margin-bottom: 5px;
+}
+
+.marginB10px {
+    margin-bottom: 10px;
+}

@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,+BAAgC;EAC/B,WAAW,EAAE,GAAG;EAChB,aAAa,EAAE,CAAC;EAChB,UAAU,EAAE,KAAK",
-"sources": ["bs_ext.scss"],
-"names": [],
-"file": "bs_ext.css"
-}

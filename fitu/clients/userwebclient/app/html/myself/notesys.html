@@ -1,13 +1,13 @@
 ﻿<div class="col-xs-12">
-    <h4 class="col-xs-12 paddingLR0px fontbold" ng-bind="lang.NOTESYSBOX_HEADER"></h4>
+    <h4 class="col-xs-12 paddingLR0px text-bold" ng-bind="lang.NOTESYSBOX_HEADER"></h4>
     <loading class="col-xs-12 paddingLR0px" show="loading" word="lang.GLOBAL_MSG_LOADING"></loading>
     <div class="col-xs-12 paddingLR0px" ng-bind="lang.NOTESYSBOX_MSG_EMPTY" ng-show="!loading && getPageNavs().total == 0"></div>
     <div class="paddingLR0px paddingTB5px col-xs-12 splitter" ng-repeat="note in visibles">
         <div ng-click="expand = !expand">
             <div class="note-syntax" note-syntax target="note.subject"></div>
             <div>
-                <i class="fa fa-exclamation red" ng-show="note.emphasis"></i>
-                <span class="small" ng-bind="note.createdOn | sensitiveDatetime"></span>
+                <i class="fa fa-exclamation text-danger" ng-show="note.emphasis"></i>
+                <span class="text-sm" ng-bind="note.createdOn | sensitiveDatetime"></span>
             </div>
         </div>
         <pre ng-show="expand" class="note-syntax" note-syntax target="note.body"></pre>

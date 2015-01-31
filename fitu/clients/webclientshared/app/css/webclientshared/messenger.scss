@@ -1,0 +1,21 @@
+@import '../config/color';
+
+.message {
+	margin: 10px;
+	padding: 10px;
+	border-radius: 6px;
+	
+	&.success {
+		background-color: $color_msg_success;
+	}
+	&.warning {
+		background-color: $color_msg_warn;
+	}
+	&.error {
+		background-color: $color_msg_error;
+	}
+	
+	.fa-times {
+		margin: 0px 5px;
+	}
+}

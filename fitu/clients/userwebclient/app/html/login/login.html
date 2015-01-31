@@ -1,18 +1,18 @@
 ﻿<div style="position:relative;" class="col-xs-12 nopadding" ng-init="loginMode = true" ng-show="loginMode">
-    <span style="position:absolute;top:15px;right:15px;" ng-click="loginMode = false">
-        <i class="fa fa-plus"></i>
+    <span class="flatbtn" style="position:absolute;top:15px;right:15px;" ng-click="loginMode = false">
+        <i class="fa fa-user-plus"></i>
         <span ng-bind="lang.LOGIN_LABEL_REGISTER"></span>
     </span>
     <div class="empty-md"></div>
     <form class="form-horizontal col-xs-12" role="form">
         <div class="form-group">
-            <label for="login_email" class="col-xs-3 control-label" ng-bind="lang.LOGIN_LABEL_EMAIL"></label>
+            <label for="login_email" class="col-xs-3 control-label text-right" ng-bind="lang.LOGIN_LABEL_EMAIL"></label>
             <div class="col-xs-8">
                 <input type="text" class="form-control" id="login_email" ng-model="loginModel.emailProp.val" />
             </div>
         </div>
         <div class="form-group">
-            <label for="login_pwd" class="col-xs-3 control-label" ng-bind="lang.LOGIN_LABEL_PASSWORD"></label>
+            <label for="login_pwd" class="col-xs-3 control-label text-right" ng-bind="lang.LOGIN_LABEL_PASSWORD"></label>
             <div class="col-xs-8">
                 <input type="password" class="form-control" id="login_pwd" ng-model="loginModel.pwdProp.val" />
             </div>
@@ -26,7 +26,7 @@
                     <span ng-bind="lang.LOGIN_BTN_LOADING" ng-show="loadingUser"></span>
                     <span ng-bind="lang.LOGIN_BTN_REGISTERING" ng-show="registering"></span>
                 </button>
-                <span style="margin-left:10px;" class="resetPwd small" ng-class="{disabled: !loginModel.emailProp.validate() || resetingPwd}" ng-click="resetPwd()">
+                <span class="flatbtn text-sm marginL10px text-underline" ng-class="{disabled: !loginModel.emailProp.validate() || resetingPwd}" ng-click="resetPwd()">
                     <span ng-bind="lang.LOGIN_BTN_RESETPWD" ng-show="!resetingPwd"></span>
                     <span ng-bind="lang.LOGIN_BTN_RESETINGPWD" ng-show="resetingPwd"></span>
                 </span>
@@ -35,52 +35,52 @@
     </form>
 </div>
 <div style="position:relative;" class="col-xs-12 nopadding" ng-show="!loginMode">
-    <span style="position:absolute;top:15px;right:15px;" ng-click="loginMode = true">
+    <span class="flatbtn" style="position:absolute;top:15px;right:15px;" ng-click="loginMode = true">
         <i class="fa fa-sign-in"></i>
         <span ng-bind="lang.REGISTER_LABEL_LOGIN"></span>
     </span>
     <div class="empty-sm"></div>
     <form class="form-horizontal col-xs-12" role="form">
         <div class="form-group">
-            <label for="register_email" class="col-xs-4 control-label" ng-bind="lang.REGISTER_LABEL_EMAIL"></label>
+            <label for="register_email" class="col-xs-4 control-label text-right" ng-bind="lang.REGISTER_LABEL_EMAIL"></label>
             <div class="col-xs-7" ng-class="{'has-error': !registerModel.emailProp.validate(true)}" style="position:relative;">
                 <input type="text" class="form-control" id="register_email" ng-model="registerModel.emailProp.val" focus-out="checkEmailAvailability()" />
-                <i class="fa" ng-class="{'fa-check': emailAvailable == 0, 'fa-times': emailAvailable == 1}" style="position:absolute;right:0px;top:50%;margin-top:-7px;"></i>
+                <i class="fa" ng-class="{'fa-check text-success': emailAvailable == 0, 'fa-times text-error': emailAvailable == 1}" style="position:absolute;right:0px;top:50%;margin-top:-7px;"></i>
             </div>
         </div>
         <div class="form-group">
-            <label for="register_password" class="col-xs-4 control-label" ng-bind="lang.REGISTER_LABEL_PASSWORD"></label>
+            <label for="register_password" class="col-xs-4 control-label text-right" ng-bind="lang.REGISTER_LABEL_PASSWORD"></label>
             <div class="col-xs-7" ng-class="{'has-error': !registerModel.pwdProp.validate(true)}">
                 <input type="password" class="form-control" id="register_password" ng-model="registerModel.pwdProp.val" />
             </div>
         </div>
         <div class="form-group">
-            <label for="register_password2" class="col-xs-4 control-label" ng-bind="lang.REGISTER_LABEL_PWDCONFIRM"></label>
+            <label for="register_password2" class="col-xs-4 control-label text-right" ng-bind="lang.REGISTER_LABEL_PWDCONFIRM"></label>
             <div class="col-xs-7" ng-class="{'has-error': !registerModel.pwdConfirmProp.validate(true)}">
                 <input type="password" class="form-control" id="register_password2" ng-model="registerModel.pwdConfirmProp.val" />
             </div>
         </div>
         <div class="form-group">
-            <label for="register_nickname" class="col-xs-4 control-label" ng-bind="lang.REGISTER_LABEL_NICKNAME"></label>
+            <label for="register_nickname" class="col-xs-4 control-label text-right" ng-bind="lang.REGISTER_LABEL_NICKNAME"></label>
             <div class="col-xs-7" ng-class="{'has-error': !registerModel.nickNameProp.validate(true)}" style="position:relative;">
                 <input type="text" class="form-control" id="register_nickname" ng-model="registerModel.nickNameProp.val" focus-out="checkNickNameAvailability()" />
-                <i class="fa" ng-class="{'fa-check': nickNameAvailable == 0, 'fa-times': nickNameAvailable == 1}" style="position:absolute;right:0px;top:50%;margin-top:-7px;"></i>
+                <i class="fa" ng-class="{'fa-check text-success': nickNameAvailable == 0, 'fa-times text-error': nickNameAvailable == 1}" style="position:absolute;right:0px;top:50%;margin-top:-7px;"></i>
             </div>
         </div>
         <div class="form-group">
-            <label for="register_phone" class="col-xs-4 control-label" ng-bind="lang.REGISTER_LABEL_PHONE"></label>
+            <label for="register_phone" class="col-xs-4 control-label text-right" ng-bind="lang.REGISTER_LABEL_PHONE"></label>
             <div class="col-xs-7" ng-class="{'has-error': !registerModel.phoneProp.validate(true)}">
                 <input type="text" class="form-control" id="register_phone" ng-model="registerModel.phoneProp.val" />
             </div>
         </div>
         <div class="form-group">
-            <label for="register_contact" class="col-xs-4 control-label" ng-bind="lang.REGISTER_LABEL_CONTACT"></label>
+            <label for="register_contact" class="col-xs-4 control-label text-right" ng-bind="lang.REGISTER_LABEL_CONTACT"></label>
             <div class="col-xs-7" ng-class="{'has-error': !registerModel.contactProp.validate(true)}">
                 <input type="text" class="form-control" id="register_contact" ng-model="registerModel.contactProp.val" />
             </div>
         </div>
         <div class="form-group">
-            <label for="register_gender" class="col-xs-4 control-label" ng-bind="lang.REGISTER_LABEL_GENDER"></label>
+            <label for="register_gender" class="col-xs-4 control-label text-right" ng-bind="lang.REGISTER_LABEL_GENDER"></label>
             <div class="col-xs-7">
                 <select class="form-control" id="register_gender" ng-model="registerModel.genderProp.val">
                     <option value="" ng-bind="lang.GLOBAL_LABEL_SEXNON"></option>

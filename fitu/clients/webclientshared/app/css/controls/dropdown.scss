@@ -1,0 +1,57 @@
+﻿@import '../config/color';
+@import '../config/font';
+
+$size_padding_LR: 5px;
+$size_padding_TB: 2px;
+$size_border: 1px;
+
+._dropdown_container {
+    position: relative;
+
+    ._dropdown_selector {
+        background-color: $color_bg_veil;
+        position: relative;
+        border: $size_border solid $color_border;
+        padding: $size_padding_TB $size_padding_LR;
+
+        ._dropdown_selected {
+            display: inline-block;
+            max-width: 100%;
+            vertical-align: bottom;
+        }
+
+        ._dropdown_angle {
+            position: absolute;
+            right: $size_padding_LR;
+            top: $size_padding_TB;
+            background-color: $color_bg_veil;
+            display: inline-block;
+            vertical-align: bottom;
+        }
+    }
+
+    ._dropdown_list {
+        position: absolute;
+        z-index: 100;
+        background-color: $color_bg_veil;
+        display: none;
+        width: 100%;
+        padding: $size_padding_TB 0px;
+
+        &._dropdown_expand {
+            display: block;
+        }
+
+        &._dropdown_up {
+            bottom: $font_height + 2 * ($size_border + $size_padding_TB);
+        }
+
+        ._dropdown_item {
+            padding: $size_padding_TB $size_padding_LR;
+
+            &:hover {
+                background-color: $color_selectable_hover;
+            }
+        }
+    }
+}

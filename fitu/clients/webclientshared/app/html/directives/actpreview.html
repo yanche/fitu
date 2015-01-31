@@ -1,37 +1,36 @@
 ﻿<div class="col-xs-12 paddingLR0px paddingTB10px splitter">
-    <div class="col-xs-12 paddingLR0px fontbold fontbig text-center textoverflowhidden" ng-bind="act.name"></div>
+    <div class="col-xs-12 paddingLR0px text-bold text-lg text-center text-overflow-hidden" ng-bind="act.name"></div>
     <div class="col-xs-3 paddingLR0px">
         <img ng-src="{{act.picUrl}}" style="width:100%;" />
     </div>
-    <div class="col-xs-9 paddingLR0px small textoverflowhidden" style="padding-left: 10px;">
+    <div class="col-xs-9 paddingLR0px small text-overflow-hidden" style="padding-left: 10px;">
         <div class="col-xs-12 paddingLR0px">
-            <i class="fa fa-clock-o"></i>
+            <i class="fa fa-clock-o text-highlight"></i>
             <span ng-bind="act.startsOn | activityDatetime : act.endsOn" ng-show="!util.actCancel(act)"></span>
             <span ng-bind="lang.ACTDETAIL_LABEL_CANCEL" ng-show="util.actCancel(act)"></span>
         </div>
         <div class="col-xs-12 paddingLR0px">
-            <i class="fa fa-map-marker"></i>
+            <i class="fa fa-map-marker text-highlight"></i>
             <span ng-bind="act.site.location.address"></span>
         </div>
         <div class="col-xs-12 paddingLR0px">
             <div class="col-xs-4 paddingLR0px">
-                <i class="fa fa-rmb"></i>
+                <i class="fa fa-rmb text-highlight"></i>
                 <span ng-bind="act.price"></span>
             </div>
             <div class="col-xs-4 paddingLR0px">
-                <i class="fa fa-user blue" ng-show="act.memberCount <= act.capacity * 0.8"></i>
-                <i class="fa fa-users red" ng-show="act.memberCount > act.capacity * 0.8"></i>
+                <i class="fa" ng-class="{'fa-user text-highlight': act.memberCount <= act.capacity * 0.8, 'fa-users text-danger': act.memberCount > act.capacity * 0.8}"></i>
                 <span ng-bind="act.memberCount"></span>
                 <span> / </span>
                 <span ng-bind="act.capacity"></span>
             </div>
             <div class="col-xs-4 paddingLR0px">
-                <i class="fa fa-comments-o"></i>
+                <i class="fa fa-comments-o text-highlight"></i>
                 <span ng-bind="act.msgCount"></span>
             </div>
         </div>
         <div class="col-xs-12 paddingLR0px">
-            <i class="fa fa-home"></i>
+            <i class="fa fa-home text-highlight"></i>
             <span ng-bind="act.tags[0] | tag"></span>
         </div>
     </div>

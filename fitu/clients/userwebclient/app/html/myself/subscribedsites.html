@@ -1,35 +1,35 @@
 ﻿<div class="col-xs-12">
-    <h4 class="col-xs-12 paddingLR0px fontbold" ng-bind="lang.SUBCRIBESITES_HEADER"></h4>
+    <h4 class="col-xs-12 paddingLR0px text-bold" ng-bind="lang.SUBCRIBESITES_HEADER"></h4>
     <loading class="col-xs-12 paddingLR0px" show="loading" word="lang.GLOBAL_MSG_LOADING"></loading>
     <div class="col-xs-12 paddingLR0px" ng-bind="lang.SUBCRIBESITES_LABEL_NOSITES" ng-show="!loading && getPageNavs().total == 0"></div>
-    <div class="col-xs-12 paddingLR0px small" ng-bind="lang.SUBCRIBESITES_MSG_WHYFAN" ng-show="!loading && getPageNavs().total == 0"></div>
+    <div class="col-xs-12 paddingLR0px text-sm" ng-bind="lang.SUBCRIBESITES_MSG_WHYFAN" ng-show="!loading && getPageNavs().total == 0"></div>
     <div class="paddingLR0px paddingTB5px col-xs-12 splitter" ng-repeat="site in visibles" ng-click="link.goSiteDetail(site.id)">
-        <div class="col-xs-12 paddingLR0px fontbold fontbig text-center textoverflowhidden" ng-bind="site.name"></div>
+        <div class="col-xs-12 paddingLR0px text-bold text-lg text-center text-overflow-hidden" ng-bind="site.name"></div>
         <div class="col-xs-3 paddingLR0px">
-            <img ng-src="{{site.picUrl}}" style="width:100%;" />
+            <img ng-src="{{site.picUrl}}" class="full-width" />
         </div>
-        <div class="col-xs-9 paddingLR0px small textoverflowhidden" style="padding-left: 10px;">
+        <div class="col-xs-9 paddingLR0px text-sm text-overflow-hidden paddingL10px">
             <div class="col-xs-12 paddingLR0px">
-                <i class="fa fa-clock-o"></i>
+                <i class="fa fa-clock-o text-highlight"></i>
                 <span ng-bind="site.open.startsOn | siteopen | datetime : const.timeAFormat"></span>
                 <span> ~ </span>
                 <span ng-bind="site.open.endsOn | siteopen | datetime : const.timeAFormat"></span>
             </div>
             <div class="col-xs-12 paddingLR0px">
-                <i class="fa fa-map-marker"></i>
+                <i class="fa fa-map-marker text-highlight"></i>
                 <span ng-bind="site.location.address"></span>
             </div>
             <div class="col-xs-12 paddingLR0px">
-                <i class="fa fa-rmb"></i>
+                <i class="fa fa-rmb text-highlight"></i>
                 <span ng-bind="site.prices[0] | price"></span>
             </div>
             <div class="col-xs-12 paddingLR0px">
                 <div class="col-xs-4 paddingLR0px">
-                    <i class="fa fa-home"></i>
+                    <i class="fa fa-home text-highlight"></i>
                     <span ng-bind="site.tags[0] | tag"></span>
                 </div>
                 <div class="col-xs-4 paddingLR0px">
-                    <i class="fa fa-heart" ng-class="{red: site.fansCount > 0}"></i>
+                    <i class="fa" ng-class="{'fa-heart text-danger': site.fansCount > 0, 'fa-heart-o': site.fansCount == 0}"></i>
                     <span ng-bind="site.fansCount"></span>
                 </div>
             </div>

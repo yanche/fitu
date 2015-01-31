@@ -1,9 +1,9 @@
 ﻿<div class="col-xs-12">
     <loading class="col-xs-12 paddingLR0px" show="loading" word="lang.GLOBAL_MSG_LOADING"></loading>
-    <div class="col-xs-12 paddingLR0px fontbold" ng-bind="lang.SIGNUP_MSG_NOTFOUND" ng-show="!loading && !activity && user"></div>
+    <div class="col-xs-12 paddingLR0px text-bold" ng-bind="lang.SIGNUP_MSG_NOTFOUND" ng-show="!loading && !activity && user"></div>
     <div class="empty-sm"></div>
     <div ng-show="!user">
-        <div class="fontbold" ng-bind="lang.SIGNUP_TEXT_NEEDLOGIN"></div>
+        <div class="text-bold" ng-bind="lang.SIGNUP_TEXT_NEEDLOGIN"></div>
         <div class="empty-xs"></div>
         <div class="small">
             <span ng-bind="goLoginTimeout"></span>
@@ -13,17 +13,17 @@
         <button ng-click="goLogin()" class="btn btn-success col-xs-offset-2 col-xs-8" ng-bind="lang.SIGNUP_BTN_GOLOGIN"></button>
     </div>
     <div class="col-xs-12" ng-show="user && activity">
-        <div class="col-xs-12 paddingLR0px fontbold" ng-bind="lang.SIGNUP_LABEL_NAME"></div>
+        <div class="col-xs-12 paddingLR0px text-bold" ng-bind="lang.SIGNUP_LABEL_NAME"></div>
         <div class="col-xs-12 paddingLR0px" ng-bind="activity.name"></div>
-        <div class="col-xs-12 paddingLR0px fontbold" ng-bind="lang.SIGNUP_LABEL_TIME"></div>
+        <div class="col-xs-12 paddingLR0px text-bold" ng-bind="lang.SIGNUP_LABEL_TIME"></div>
         <div class="col-xs-12 paddingLR0px">
             <span ng-bind="activity.startsOn | datetime : const.actTimeFormat2"></span>
             <span> ~ </span>
             <span ng-bind="activity.endsOn | datetime : const.actTimeFormat2"></span>
         </div>
-        <div class="col-xs-12 paddingLR0px fontbold" ng-bind="lang.SIGNUP_LABEL_ADDR"></div>
+        <div class="col-xs-12 paddingLR0px text-bold" ng-bind="lang.SIGNUP_LABEL_ADDR"></div>
         <div class="col-xs-12 paddingLR0px" ng-bind="activity.site.location.address"></div>
-        <div class="col-xs-12 paddingLR0px fontbold" ng-bind="lang.SIGNUP_LABEL_INTRO"></div>
+        <div class="col-xs-12 paddingLR0px text-bold" ng-bind="lang.SIGNUP_LABEL_INTRO"></div>
         <div class="col-xs-12 paddingLR0px" ng-bind="activity.intro"></div>
         <div class="empty-sm"></div>
         <button ng-click="signup()" class="btn btn-success col-xs-offset-2 col-xs-8" ng-class="{'disabled': processing}" ng-show="util.actActive(activity) && activity.createdBy != user.id">
@@ -31,8 +31,8 @@
             <span ng-bind="lang.SIGNUP_BTN_SIGNUP" ng-show="!processing"></span>
             <span ng-bind="lang.SIGNUP_BTN_SIGNUPING" ng-show="processing"></span>
         </button>
-        <div class="col-xs-12 paddingLR0px fontbold" ng-show="activity.createdBy == user.id" ng-bind="lang.SIGNUP_MSG_NOORGANIZER"></div>
-        <div class="col-xs-12 paddingLR0px fontbold" ng-bind="lang.SIGNUP_MSG_ACTNOTACTIVE" ng-show="!util.actActive(activity)"></div>
+        <div class="col-xs-12 paddingLR0px text-bold" ng-show="activity.createdBy == user.id" ng-bind="lang.SIGNUP_MSG_NOORGANIZER"></div>
+        <div class="col-xs-12 paddingLR0px text-bold" ng-bind="lang.SIGNUP_MSG_ACTNOTACTIVE" ng-show="!util.actActive(activity)"></div>
     </div>
     <div class="empty-sm"></div>
 </div>

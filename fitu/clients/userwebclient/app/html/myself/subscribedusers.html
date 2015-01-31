@@ -1,24 +1,24 @@
 ﻿<div class="col-xs-12">
-    <h4 class="col-xs-12 paddingLR0px fontbold" ng-bind="lang.SUBCRIBEUSERS_HEADER"></h4>
+    <h4 class="col-xs-12 paddingLR0px text-bold" ng-bind="lang.SUBCRIBEUSERS_HEADER"></h4>
     <loading class="col-xs-12 paddingLR0px" show="loading" word="lang.GLOBAL_MSG_LOADING"></loading>
     <div class="col-xs-12 paddingLR0px" ng-bind="lang.SUBCRIBEUSERS_LABEL_NOUSERS" ng-show="!loading && getPageNavs().total == 0"></div>
-    <div class="col-xs-12 paddingLR0px small" ng-bind="lang.SUBCRIBEUSERS_MSG_WHYFAN" ng-show="!loading && getPageNavs().total == 0"></div>
+    <div class="col-xs-12 paddingLR0px text-sm" ng-bind="lang.SUBCRIBEUSERS_MSG_WHYFAN" ng-show="!loading && getPageNavs().total == 0"></div>
     <div class="paddingLR0px paddingTB5px col-xs-12 splitter" ng-repeat="sub in visibles">
         <div class="col-xs-3 paddingLR0px" ng-click="link.goUserPreview(sub.id)">
-            <img style="width:100%;" ng-src="{{sub.headUrl}}" />
+            <img class="full-width" ng-src="{{sub.headUrl}}" />
         </div>
-        <div class="col-xs-9" style="padding:0px 0px 0px 10px">
+        <div class="col-xs-9 paddingLR0px paddingL10px">
             <div class="col-xs-12 paddingLR0px">
-                <span class="fontbold" ng-bind="sub.personal.nickName"></span>
+                <span class="text-bold" ng-bind="sub.personal.nickName"></span>
                 <gender-hint gender="sub.personal.gender"></gender-hint>
             </div>
             <div class="col-xs-12 paddingLR0px" ng-bind="sub.personal.contact"></div>
             <div class="col-xs-12 paddingLR0px">
-                <i class="fa fa-heart" ng-class="{red: sub.fansCount > 0}"></i>
+                <i class="fa" ng-class="{'fa-heart text-danger': sub.fansCount > 0, 'fa-heart-o': sub.fansCount == 0}"></i>
                 <span ng-bind="sub.fansCount"></span>
             </div>
             <div class="col-xs-12 paddingLR0px">
-                <i class="fa fa-envelope-o" ng-click="link.goSendNote({recipientId: sub.id})"></i>
+                <i class="fa fa-envelope-o text-highlight" ng-click="link.goSendNote({recipientId: sub.id})"></i>
             </div>
         </div>
     </div>
