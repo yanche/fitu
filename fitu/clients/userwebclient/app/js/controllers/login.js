@@ -99,20 +99,28 @@
 
         $scope.resetPwd = function () {
             if ($scope.loginModel.emailProp.validate()) {
-                user.resetpwd($scope.loginModel.emailProp.val)
-                .then(function () {
-                    $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.success, msg: lang.LOGIN_MSG_SUCCESS_RESETPWD });
-                })
-                .catch(function (err) {
-                    if (err.status == 500)
-                        $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.error, msg: lang.LOGIN_MSG_ERR_EMAIL });
-                    else if (err.status == 409)
-                        $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.error, msg: lang.LOGIN_MSG_ERR_DUP });
-                    else if (err.status == 400)
-                        $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.error, msg: lang.LOGIN_MSG_ERR_NOTFOUND });
-                    else
-                        $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.error, msg: lang.LOGIN_MSG_ERR_UNKNOWN }); 
+                var email = $scope.loginModel.emailProp.val;
+                $scope.$emit(ucconst.events.showMsg, {
+                    msgType: ucconst.msgType.success,
+                    msg: lang.LOGIN_MSG_CONFIRM_RESETPWD + email,
+                    onConfirm: function () {
+                        user.resetpwd(email)
+                        .then(function () {
+                            $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.success, msg: lang.LOGIN_MSG_SUCCESS_RESETPWD });
+                        })
+                        .catch(function (err) {
+                            if (err.status == 500)
+                                $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.error, msg: lang.LOGIN_MSG_ERR_EMAIL });
+                            else if (err.status == 409)
+                                $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.error, msg: lang.LOGIN_MSG_ERR_DUP });
+                            else if (err.status == 400)
+                                $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.error, msg: lang.LOGIN_MSG_ERR_NOTFOUND });
+                            else
+                                $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.error, msg: lang.LOGIN_MSG_ERR_UNKNOWN }); 
+                        });
+                    }
                 });
+
             }
         };
     }]);

@@ -36,6 +36,7 @@
     "LOGIN_MSG_ERR_NOTFOUND": "密码重置失败：没有找到这个注册用户喔。。。",
     "LOGIN_MSG_ERR_UNKNOWN": "密码重置失败：未知错误。。。",
     "LOGIN_MSG_SUCCESS_RESETPWD": "密码重置成功！请查收邮箱获取密码。",
+    "LOGIN_MSG_CONFIRM_RESETPWD": "确定要重置密码吗：",
 
     "REGISTER_LABEL_LOGIN": "登录",
     "REGISTER_LABEL_EMAIL": "登录邮箱*",
