@@ -109,17 +109,68 @@ message:
 'like': [ array of user id]
 }
 
+
 //private
+//1 to 1 note
+//1 to activity member note
 notes: {
 '_id':,
 'type':, //'sys' if sys notes
 'authorId':, // 0 if sys notes
 'createdOn':,
-'recipients': [],
+'recipientId':,
 'subject': {content:, type: },
 'body': {content:, type: },
 'emphasis':,
+'readOn':,
+'removedByAuthorOn':,
+'removedByRecipientOn':,
+'actId':,
+'extended':  true/extended by note send to activity members
 }
+//general 1 to 1 note
+{
+'_id':,
+'type':, //'sys' if sys notes
+'authorId':, // 0 if sys notes
+'createdOn':,
+'subject': {content:, type: },
+'body': {content:, type: },
+'emphasis':,
+'readOn':,
+'removedByAuthorOn':,
+'removedByRecipientOn':,
+'recipientId':,
+}
+//act note, record for author
+{
+'_id':,
+'type':, //'sys' if sys notes
+'authorId':, // 0 if sys notes
+'createdOn':,
+'subject': {content:, type: },
+'body': {content:, type: },
+'emphasis':,
+'removedByAuthorOn':,
+'actId':,
+'recipients': []
+}
+//extended 1 to 1 note, from act note, record for recipient
+{
+'_id':,
+'type':, //'sys' if sys notes
+'authorId':, // 0 if sys notes
+'createdOn':,
+'subject': {content:, type: },
+'body': {content:, type: },
+'emphasis':,
+'readOn':,
+'removedByRecipientOn':,
+'actId':,
+'recipientId':,
+'extended': true,
+}
+
 
 pwdreset: {
 _id:

@@ -329,7 +329,9 @@ var start = function () {
         db.activity.removeActs({}),
         db.member.removeMembers({}),
         db.vendor.removeVendors({}),
-        db.session.removeSessions({})
+        db.session.removeSessions({}),
+        db.message.removeMessages({}),
+        db.note.removeNotes({})
     ])
     .then(function () {
         return bluebird.all([

@@ -3,14 +3,13 @@
     <loading class="col-xs-12 paddingLR0px" show="loading" word="lang.GLOBAL_MSG_LOADING"></loading>
     <div class="col-xs-12 paddingLR0px" ng-bind="lang.NOTESYSBOX_MSG_EMPTY" ng-show="!loading && getPageNavs().total == 0"></div>
     <div class="paddingLR0px paddingTB5px col-xs-12 splitter" ng-repeat="note in visibles">
-        <div ng-click="expand = !expand">
-            <div class="note-syntax" note-syntax target="note.subject"></div>
-            <div>
-                <i class="fa fa-exclamation text-danger" ng-show="note.emphasis"></i>
-                <span class="text-sm" ng-bind="note.createdOn | sensitiveDatetime"></span>
-            </div>
+        <div class="col-xs-12 paddingLR0px note-syntax" note-syntax target="note.subject"></div>
+        <div class="col-xs-12 paddingLR0px text-sm">
+            <i class="fa fa-exclamation text-danger" ng-show="note.emphasis"></i>
+            <span class="text-sm" ng-bind="note.createdOn | sensitiveDatetime"></span>
+            <i class="fa text-highlight" ng-class="{'fa-plus': !note.expanded, 'fa-minus': note.expanded}" ng-click="note.expanded = !note.expanded"></i>
         </div>
-        <pre ng-show="expand" class="note-syntax" note-syntax target="note.body"></pre>
+        <pre ng-show="note.expanded" class="note-syntax col-xs-12" note-syntax target="note.body"></pre>
     </div>
     <div class="col-xs-12 text-right paddingLR0px" ng-show="getPageNavs().max > 0">
         <ul class="pagination">
