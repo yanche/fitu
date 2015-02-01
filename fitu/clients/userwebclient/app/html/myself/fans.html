@@ -8,7 +8,7 @@
         </div>
         <div class="col-xs-9 paddingLR0px paddingL10px">
             <div class="col-xs-12 paddingLR0px">
-                <span class="text-bold" ng-bind="fan.personal.nickName"></span>
+                <span class="text-bold" ng-bind="fan.personal.nickName || lang.GLOBAL_LABEL_ANONY"></span>
                 <gender-hint gender="fan.personal.gender"></gender-hint>
             </div>
             <div class="col-xs-12 paddingLR0px" ng-bind="fan.personal.contact"></div>

@@ -6,7 +6,7 @@
         <div class="col-xs-12 paddingLR0px text-bold" note-syntax target="note.subject"></div>
         <div class="col-xs-12 paddingLR0px text-sm">
             <span ng-bind="lang.NOTEOUTBOX_LABEL_RECIPIENT"></span>
-            <span ng-bind="note.recipient.personal.nickName || lang.NOTEOUTBOX_LABEL_ANONY" ng-show="note.recipient"></span>
+            <span ng-bind="note.recipient.personal.nickName || lang.GLOBAL_LABEL_ANONY" ng-show="note.recipient"></span>
             <span ng-bind="note.activity.name" ng-show="note.activity"></span>
         </div>
         <div class="col-xs-12 paddingLR0px text-sm">

@@ -13,7 +13,7 @@
         </div>
         <div class="col-xs-10 paddingLR0px paddingL10px">
             <div class="col-xs-12 paddingLR0px">
-                <span class="text-bold" ng-bind="recipient.personal.nickName"></span>
+                <span class="text-bold" ng-bind="recipient.personal.nickName || lang.GLOBAL_LABEL_ANONY"></span>
                 <gender-hint gender="recipient.personal.gender"></gender-hint>
             </div>
             <div class="col-xs-12 paddingLR0px" ng-bind="recipient.personal.contact"></div>

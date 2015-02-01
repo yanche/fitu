@@ -11,7 +11,7 @@
         </thead>
         <tbody>
             <tr ng-repeat="admin in visibles">
-                <td ng-bind="admin.personal.nickName"></td>
+                <td ng-bind="admin.personal.nickName || lang.GLOBAL_LABEL_ANONY"></td>
                 <td ng-bind="admin.personal.phone"></td>
                 <td ng-bind="admin.personal.contact"></td>
                 <td>

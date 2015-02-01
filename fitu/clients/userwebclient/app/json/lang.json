@@ -8,7 +8,6 @@
     "MYSELF_LABEL_FOOTPRINT": "参加过",
     "MYSELF_LABEL_LEADERSHIP": "组织过",
     "MYSELF_LABEL_FANS": "粉丝",
-    "MYSELF_LABEL_ANONY": "匿名",
     "MYSELF_TITLE_SUBSCRIBE": "关注",
     "MYSELF_LABEL_SUBSCRIBEUSERS": "关注用户",
     "MYSELF_LABEL_SUBSCRIBESITES": "关注场馆",
@@ -145,12 +144,10 @@
     "NOTEOUTBOX_HEADER": "发件箱",
     "NOTEOUTBOX_MSG_EMPTY": "空的哟",
     "NOTEOUTBOX_LABEL_RECIPIENT": "发送给：",
-    "NOTEOUTBOX_LABEL_ANONY": "匿名",
 
     "NOTEINBOX_HEADER": "收件箱",
     "NOTEINBOX_MSG_EMPTY": "空的哟",
     "NOTEINBOX_LABEL_RECIPIENT": "来自：",
-    "NOTEINBOX_LABEL_ANONY": "匿名",
 
     "NOTESYSBOX_HEADER": "系统消息",
     "NOTESYSBOX_MSG_EMPTY": "空的哟",
@@ -291,7 +288,6 @@
     "ACTLEAD_MSG_ACTCANCEL_SUCCESS": "活动取消成功！",
     "ACTLEAD_MSG_ACTCANCEL_FAIL": "活动取消失败：未知错误。。。",
     "ACTLEAD_MSG_ERR_MEMBERSTATUS": "状态更新失败：未知错误。。。",
-    "ACTLEAD_LABEL_ANONY": "匿名",
 
     "ACTIVITIES_MSG_NOACT": "抱歉，目前没有可以报名的（这种）活动喔。",
 
