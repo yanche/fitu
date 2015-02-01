@@ -110,3 +110,12 @@ var removeSessionsScheduler = function () {
     setTimeout(removeSessionsScheduler, config.sessionClearFrequencyInSec * 1000);
 };
 setTimeout(removeSessionsScheduler, 1000); //wait 10 seconds for mongodb initialization
+
+process.on('exit', function () {
+    console.log('start.js exists');
+});
+
+process.on('uncaughtException', function (err) {
+    console.log('start.js caught exception: ');
+    console.log(err.stack);
+});
