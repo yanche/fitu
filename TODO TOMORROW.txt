@@ -32,7 +32,7 @@ email regex
 ##pwd reset ask
 note unread count
 
-pagination
+##pagination
 merge msg board
 
 
