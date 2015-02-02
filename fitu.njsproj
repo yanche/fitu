@@ -297,6 +297,7 @@
     <Compile Include="fitu\clients\webclientshared\app\js\filters\tag.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\filters\wordbarrier.js" />
     <Compile Include="fitu\documents\fakedata.js" />
+    <Compile Include="fitu\documents\prodinit.js" />
     <Compile Include="fitu\node_modules\api\node_modules\imageUpload\index.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\index.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\actcensus\index.js" />
