@@ -15,6 +15,7 @@
                 defer.resolve(me.result);
             else {
                 me.loaded = false;
+                me.result = null;
                 me.pendingQ.push(defer);
                 if (me.pendingQ.length == 1) {
                     me.fn()
@@ -27,6 +28,11 @@
                 }
             }
             return defer.promise;
+        };
+        
+        CachedLoader.prototype.refresh = function () {
+            this.loaded = false;
+            this.result = null;
         };
         
         return {

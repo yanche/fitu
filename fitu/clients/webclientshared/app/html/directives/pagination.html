@@ -1,0 +1,9 @@
+<div ng-show="pagination && totalPages > 1">
+    <ul class="pagination">
+        <li ng-class="{disabled: currentPage <= 1}" ng-click="switchPage(1)"><span class="fa fa-angle-double-left"></span></li>
+        <li ng-class="{disabled: currentPage <= 1}" ng-click="switchPage(currentPage - 1)"><span class="fa fa-angle-left"></span></li>
+        <li ng-repeat="p in pagination.pages" ng-class="{active: currentPage == p}" ng-click="switchPage(p)"><span ng-bind="p"></span></li>
+        <li ng-class="{disabled: currentPage >= totalPages}" ng-click="switchPage(currentPage + 1)"><span class="fa fa-angle-right"></span></li>
+        <li ng-class="{disabled: currentPage >= totalPages}" ng-click="switchPage(totalPages)"><span class="fa fa-angle-double-right"></span></li>
+    </ul>
+</div>
