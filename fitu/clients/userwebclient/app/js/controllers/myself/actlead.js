@@ -1,6 +1,6 @@
 ﻿(function () {
     angular.module('fitu')
-    .controller('actlead', ['$scope', '$location', 'member', 'pagination', 'activity', '$state', 'ucconst', 'const', 'lang', function ($scope, $location, member, pagination, activity, $state, ucconst, constants, lang) {
+    .controller('actlead', ['$scope', '$location', 'member', 'pagestore', 'activity', '$state', 'ucconst', 'const', 'lang', function ($scope, $location, member, pagestore, activity, $state, ucconst, constants, lang) {
         var ctx = $location.search();
         if (ctx.actId) {
             $scope.loadingAct = true;
@@ -29,33 +29,28 @@
                 
             loadCensus();
             
-            var pageStore = new pagination.PageStore(function (page, pageSize) {
-                return member.getList({ actId: ctx.actId, page: page, pageSize: pageSize });
-            });
-            
             var pageSize = 5;
-            $scope.visibles = [];
-            $scope.loadingMem = false;
-            $scope.currentPage = 0;
-            //caution!! multi-request
-            $scope.switchPage = function (page) {
-                $scope.loadingMem = true;
-                pageStore.navigate(page, pageSize)
-                .then(function (list) {
-                    $scope.loadingMem = false;
-                    $scope.visibles = list;
-                    $scope.currentPage = page;
-                })
-                .catch(function (err) {
-                    $scope.loadingMem = false;
-                    console.log(err);
-                });
+            var membersLoadFn = function (page) {
+                return member.getList({ actId: ctx.actId, page: page, pageSize: pageSize });
             };
-            $scope.switchPage(0);
-            
-            $scope.getPageNavs = function () {
-                return pageStore.getPageNavs(pageSize, 3, $scope.currentPage);
-            };
+            var pageDL = new pagestore.PageDataLoader(membersLoadFn);
+            $scope.$watch('currentPage', function (newVal, oldVal) {
+                if (newVal != null) {
+                    $scope.visibles = null;
+                    $scope.loadingMem = !pageDL.pageLoaded(newVal - 1);
+                    pageDL.loadPage(newVal - 1)
+                    .then(function (data) {
+                        $scope.totalPages = Math.ceil(data.total / pageSize);
+                        if ($scope.currentPage == newVal) {
+                            $scope.visibles = data.list;
+                            $scope.loadingMem = false;
+                        }
+                    });
+                }
+            });
+            $scope.currentPage = 1;
+            $scope.totalPages = 0;
+            $scope.visibleCount = 3;
 
             $scope.doConfirm = function (mem) {
                 member.updateStatus(mem.id, constants.memberStatus.confirmed)

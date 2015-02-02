@@ -1,33 +1,28 @@
 ﻿(function () {
     angular.module('fitu')
-    .controller('footprint', ['$scope', 'footprint', 'pagination', 'member', 'const', 'lang', 'ucconst', function ($scope, footprint, pagination, member, constants, lang, ucconst) {
-        var pageStore = new pagination.PageStore(function (page, pageSize) {
-            return footprint.getMyself({ page: page, pageSize: pageSize });
-        });
-        
+    .controller('footprint', ['$scope', 'footprint', 'pagestore', 'member', 'const', 'lang', 'ucconst', function ($scope, footprint, pagestore, member, constants, lang, ucconst) {
         var pageSize = 5;
-        $scope.visibles = [];
-        $scope.loading = false;
-        $scope.currentPage = 0;
-        //caution!! multi-request
-        $scope.switchPage = function (page) {
-            $scope.loading = true;
-            pageStore.navigate(page, pageSize)
-            .then(function (list) {
-                $scope.loading = false;
-                $scope.visibles = list;
-                $scope.currentPage = page;
-            })
-            .catch(function (err) {
-                $scope.loading = false;
-                console.log(err);
-            });
+        var fpLoadFn = function (page) {
+            return footprint.getMyself({ page: page, pageSize: pageSize });
         };
-        $scope.switchPage(0);
-        
-        $scope.getPageNavs = function () {
-            return pageStore.getPageNavs(pageSize, 3, $scope.currentPage);
-        };
+        var pageDL = new pagestore.PageDataLoader(fpLoadFn);
+        $scope.$watch('currentPage', function (newVal, oldVal) {
+            if (newVal != null) {
+                $scope.visibles = null;
+                $scope.loading = !pageDL.pageLoaded(newVal - 1);
+                pageDL.loadPage(newVal - 1)
+            .then(function (data) {
+                    $scope.totalPages = Math.ceil(data.total / pageSize);
+                    if ($scope.currentPage == newVal) {
+                        $scope.visibles = data.list;
+                        $scope.loading = false;
+                    }
+                });
+            }
+        });
+        $scope.currentPage = 1;
+        $scope.totalPages = 0;
+        $scope.visibleCount = 3;
         
         $scope.doQuit = function (fp) {
             $scope.$emit(ucconst.events.showMsg, {
@@ -42,20 +37,6 @@
                     });
                 }
             })
-        };
-        
-        $scope.actEnds = function (act) {
-            return moment(act.endsOn) <= moment();
-        };
-        
-        $scope.actStarts = function (act) {
-            var now = moment();
-            return moment(act.startsOn) <= now && moment(act.endsOn) > now;
-        };
-        
-        $scope.actNotStarts = function (act) {
-            var now = moment();
-            return moment(act.startsOn) > now;
         };
     }]);
 })();

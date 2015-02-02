@@ -87,13 +87,5 @@
             </div>
         </div>
     </div>
-    <div class="col-xs-12 text-right paddingLR0px" ng-show="getPageNavs().max > 0">
-        <ul class="pagination">
-            <li ng-class="{disabled: currentPage == 0}" ng-click="currentPage <= 0 || switchPage(0)"><span class="fa fa-angle-double-left"></span></li>
-            <li ng-class="{disabled: currentPage == 0}" ng-click="currentPage <= 0 || switchPage(currentPage - 1)"><span class="fa fa-angle-left"></span></li>
-            <li ng-repeat="pg in getPageNavs().nav" ng-class="{active: currentPage == pg}" ng-click="pg == currentPage || switchPage(pg)"><span ng-bind="pg + 1"></span></li>
-            <li ng-class="{disabled: currentPage == getPageNavs().max}" ng-click="currentPage >= getPageNavs().max || switchPage(currentPage + 1)"><span class="fa fa-angle-right"></span></li>
-            <li ng-class="{disabled: currentPage == getPageNavs().max}" ng-click="currentPage >= getPageNavs().max || switchPage(getPageNavs().max)"><span class="fa fa-angle-double-right"></span></li>
-        </ul>
-    </div>
+    <pagination total-pages="totalPages" current-page="currentPage" visible-count="visibleCount" class="col-xs-12 text-right paddingLR0px"></pagination>
 </div>

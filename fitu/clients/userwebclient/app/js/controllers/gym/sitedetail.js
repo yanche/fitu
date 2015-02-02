@@ -1,6 +1,6 @@
 ﻿(function () {
     angular.module('fitu')
-    .controller('sitedetail', ['$scope', '$state', 'site', '$location', 'ucconst', 'pagination', 'validate', '$rootScope', 'message', 'sitefan', 'ucdatamodel', 'lang', function ($scope, $state, site, $location, ucconst, pagination, validate, $rootScope, message, sitefan, ucdatamodel, lang) {
+    .controller('sitedetail', ['$scope', '$state', 'site', '$location', 'ucconst', 'pagestore', 'validate', '$rootScope', 'message', 'sitefan', 'ucdatamodel', 'lang', function ($scope, $state, site, $location, ucconst, pagestore, validate, $rootScope, message, sitefan, ucdatamodel, lang) {
         var ctx = $location.search();
         if (!ctx.siteId)
             return;
@@ -70,8 +70,12 @@
                 $scope.sendingMsg = true;
                 site.createMessage({ id: ctx.siteId, message: $scope.msgModel.toPOJO().msg, replyToId: $scope.replyToMsg ? $scope.replyToMsg.id : null })
                 .then(function () {
-                    pageStore.refresh();
-                    $scope.switchMsgPage(0); //first page
+                    pageDL.refresh();
+                    if ($scope.currentMsgPage == 1)
+                        loadPage(1);
+                    else
+                        $scope.currentMsgPage = 1; //first page
+                    $scope.totalMsgPages = 0;
                     $scope.resetMsgModel();
                     $scope.sendingMsg = false;
                     $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.success, msg: lang.SITEDETAIL_MSG_SUCCESS_NEWMSG });
@@ -115,45 +119,42 @@
             $scope.replyToMsg = msg;
         };
         
-        var messagePageSize = 5;
-        var pageStore = new pagination.PageStore(function (page, pageSize) {
-            return site.getMessages({ page: page, pageSize: pageSize, id: ctx.siteId });
-        });
-        
-        $scope.msgVisibles = [];
-        $scope.loadingMsg = false;
-        $scope.currentMsgPage = 0;
-        //caution!! multi-request
-        $scope.switchMsgPage = function (page) {
-            $scope.loadingMsg = true;
-            return pageStore.navigate(page, messagePageSize)
-            .then(function (list) {
-                $scope.loadingMsg = false;
-                $scope.msgVisibles = list;
-                $scope.currentMsgPage = page;
-            })
-            .catch(function (err) {
-                $scope.loadingMsg = false;
-                console.log(err);
+        var msgPageSize = 5;
+        var msgsLoadFn = function (page) {
+            return site.getMessages({ page: page, pageSize: msgPageSize, id: ctx.siteId });
+        };
+        var pageDL = new pagestore.PageDataLoader(msgsLoadFn);
+        var loadPage = function (pg) {
+            $scope.msgVisibles = null;
+            $scope.loadingMsg = !pageDL.pageLoaded(pg - 1);
+            pageDL.loadPage(pg - 1)
+            .then(function (data) {
+                $scope.totalMsgPages = Math.ceil(data.total / msgPageSize);
+                $scope.refreshingMsgs = false;
+                if ($scope.currentMsgPage == pg) {
+                    $scope.msgVisibles = data.list;
+                    $scope.loadingMsg = false;
+                }
             });
         };
-        $scope.switchMsgPage(0);
+        $scope.$watch('currentMsgPage', function (newVal, oldVal) {
+            if (newVal != null) {
+                loadPage(newVal);
+            }
+        });
+        $scope.currentMsgPage = 1;
+        $scope.totalMsgPages = 0;
+        $scope.visibleMsgCount = 3;
             
         $scope.refreshingMsgs = false;
         $scope.refreshMsgs = function () {
             $scope.refreshingMsgs = true;
-            pageStore.refresh();
-            $scope.switchMsgPage(0)
-            .then(function () {
-                $scope.refreshingMsgs = false;
-            })
-            .catch(function (err) {
-                $scope.refreshingMsgs = false;
-            });
-        };
-        
-        $scope.getMsgPageNavs = function () {
-            return pageStore.getPageNavs(messagePageSize, 3, $scope.currentMsgPage);
+            pageDL.refresh();
+            if ($scope.currentMsgPage == 1)
+                loadPage(1);
+            else
+                $scope.currentMsgPage = 1;
+            $scope.totalMsgPages = 0;
         };
     }]);
 })();

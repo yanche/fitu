@@ -1,32 +1,27 @@
 ﻿(function () {
     angular.module('fitu')
-    .controller('noteoutbox', ['$scope', 'note', 'pagination', function ($scope, note, pagination) {
-        var pageStore = new pagination.PageStore(function (page, pageSize) {
+    .controller('noteoutbox', ['$scope', 'note', 'pagestore', function ($scope, note, pagestore) {
+        var pageSize = 10;
+        var notesLoadFn = function (page) {
             return note.getMyNotes_OUT({ page: page, pageSize: pageSize });
+        };
+        var pageDL = new pagestore.PageDataLoader(notesLoadFn);
+        $scope.$watch('currentPage', function (newVal, oldVal) {
+            if (newVal != null) {
+                $scope.visibles = null;
+                $scope.loading = !pageDL.pageLoaded(newVal - 1);
+                pageDL.loadPage(newVal - 1)
+                .then(function (data) {
+                    $scope.totalPages = Math.ceil(data.total / pageSize);
+                    if ($scope.currentPage == newVal) {
+                        $scope.visibles = data.list;
+                        $scope.loading = false;
+                    }
+                });
+            }
         });
-        
-        var pageSize = 5;
-        $scope.visibles = [];
-        $scope.loading = false;
-        $scope.currentPage = 0;
-        //caution!! multi-request
-        $scope.switchPage = function (page) {
-            $scope.loading = true;
-            pageStore.navigate(page, pageSize)
-            .then(function (list) {
-                $scope.loading = false;
-                $scope.visibles = list;
-                $scope.currentPage = page;
-            })
-            .catch(function (err) {
-                $scope.loading = false;
-                console.log(err);
-            });
-        };
-        $scope.switchPage(0);
-        
-        $scope.getPageNavs = function () {
-            return pageStore.getPageNavs(pageSize, 3, $scope.currentPage);
-        };
+        $scope.currentPage = 1;
+        $scope.totalPages = 0;
+        $scope.visibleCount = 3;
     }]);
 })();

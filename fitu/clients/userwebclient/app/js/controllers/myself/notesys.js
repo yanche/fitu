@@ -1,32 +1,27 @@
 ﻿(function () {
     angular.module('fitu')
-    .controller('notesys', ['$scope', 'note', 'pagination', function ($scope, note, pagination) {
-        var pageStore = new pagination.PageStore(function (page, pageSize) {
-            return note.getMyNotes_SYS({ page: page, pageSize: pageSize });
-        });
-        
+    .controller('notesys', ['$scope', 'note', 'pagestore', function ($scope, note, pagestore) {
         var pageSize = 10;
-        $scope.visibles = [];
-        $scope.loading = false;
-        $scope.currentPage = 0;
-        //caution!! multi-request
-        $scope.switchPage = function (page) {
-            $scope.loading = true;
-            pageStore.navigate(page, pageSize)
-            .then(function (list) {
-                $scope.loading = false;
-                $scope.visibles = list;
-                $scope.currentPage = page;
-            })
-            .catch(function (err) {
-                $scope.loading = false;
-                console.log(err);
-            });
+        var notesLoadFn = function (page) {
+            return note.getMyNotes_SYS({ page: page, pageSize: pageSize });
         };
-        $scope.switchPage(0);
-        
-        $scope.getPageNavs = function () {
-            return pageStore.getPageNavs(pageSize, 3, $scope.currentPage);
-        };
+        var pageDL = new pagestore.PageDataLoader(notesLoadFn);
+        $scope.$watch('currentPage', function (newVal, oldVal) {
+            if (newVal != null) {
+                $scope.visibles = null;
+                $scope.loading = !pageDL.pageLoaded(newVal - 1);
+                pageDL.loadPage(newVal - 1)
+                .then(function (data) {
+                    $scope.totalPages = Math.ceil(data.total / pageSize);
+                    if ($scope.currentPage == newVal) {
+                        $scope.visibles = data.list;
+                        $scope.loading = false;
+                    }
+                });
+            }
+        });
+        $scope.currentPage = 1;
+        $scope.totalPages = 0;
+        $scope.visibleCount = 3;
     }]);
 })();

@@ -82,7 +82,7 @@
             </span>
         </div>
         <div class="empty-xs"></div>
-        <div class="col-xs-12 padding10px" style="border-radius:5px;background-color:white;" ng-show="loadingMsg || getMsgPageNavs().total > 0">
+        <div class="col-xs-12 padding10px" style="border-radius:5px;background-color:white;" ng-show="loadingMsg || totalMsgPages > 0">
             <div class="col-xs-12 paddingLR0px text-bold marginB5px">
                 <div class="f-left">
                     <i class="fa fa-edit"></i>
@@ -107,17 +107,9 @@
                     <span class="text-sm" style="margin-left: -3px;" ng-bind="msg.like.count"></span>
                 </div>
             </div>
-            <div class="col-xs-12 text-right paddingLR0px" ng-show="getMsgPageNavs().max > 0">
-                <ul class="pagination">
-                    <li ng-class="{disabled: currentMsgPage == 0}" ng-click="currentMsgPage <= 0 || switchMsgPage(0)"><span class="fa fa-angle-double-left"></span></li>
-                    <li ng-class="{disabled: currentMsgPage == 0}" ng-click="currentMsgPage <= 0 || switchMsgPage(currentMsgPage - 1)"><span class="fa fa-angle-left"></span></li>
-                    <li ng-repeat="pg in getMsgPageNavs().nav" ng-class="{active: currentMsgPage == pg}" ng-click="pg == currentMsgPage || switchMsgPage(pg)"><span ng-bind="pg + 1"></span></li>
-                    <li ng-class="{disabled: currentMsgPage == getMsgPageNavs().max}" ng-click="currentMsgPage >= getMsgPageNavs().max || switchMsgPage(currentMsgPage + 1)"><span class="fa fa-angle-right"></span></li>
-                    <li ng-class="{disabled: currentMsgPage == getMsgPageNavs().max}" ng-click="currentMsgPage >= getMsgPageNavs().max || switchMsgPage(getMsgPageNavs().max)"><span class="fa fa-angle-double-right"></span></li>
-                </ul>
-            </div>
+            <pagination total-pages="totalMsgPages" current-page="currentMsgPage" visible-count="visibleMsgCount" class="col-xs-12 text-right paddingLR0px"></pagination>
         </div>
-        <div class="col-xs-12 paddingLR0px" ng-show="!loadingMsg && getMsgPageNavs().total == 0" ng-bind="lang.SITEDETAIL_MSG_NOMSG"></div>
+        <div class="col-xs-12 paddingLR0px" ng-show="!loadingMsg && totalMsgPages == 0" ng-bind="lang.SITEDETAIL_MSG_NOMSG"></div>
         <div class="empty-xs"></div>
         <div class="col-xs-12 paddingLR0px">
             <div class="col-xs-12 paddingLR0px text-bold">

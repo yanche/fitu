@@ -1,32 +1,27 @@
 ﻿(function () {
     angular.module('fitu')
-    .controller('subscribedusers', ['$scope', 'user', '$rootScope', 'pagination', '$state', 'ucconst', function ($scope, user, $rootScope, pagination, $state, ucconst) {
-        var pageStore = new pagination.PageStore(function (page, pageSize) {
-            return user.getPreviews({ page: page, pageSize: pageSize, subscribedUsersOf: $rootScope.user.id });
-        });
-        
+    .controller('subscribedusers', ['$scope', 'user', '$rootScope', 'pagestore', '$state', 'ucconst', function ($scope, user, $rootScope, pagestore, $state, ucconst) {
         var pageSize = 10;
-        $scope.visibles = [];
-        $scope.loading = false;
-        $scope.currentPage = 0;
-        //caution!! multi-request
-        $scope.switchPage = function (page) {
-            $scope.loading = true;
-            pageStore.navigate(page, pageSize)
-            .then(function (list) {
-                $scope.loading = false;
-                $scope.visibles = list;
-                $scope.currentPage = page;
-            })
-            .catch(function (err) {
-                $scope.loading = false;
-                console.log(err);
-            });
+        var usersLoadFn = function (page) {
+            return user.getPreviews({ page: page, pageSize: pageSize, subscribedUsersOf: $rootScope.user.id });
         };
-        $scope.switchPage(0);
-        
-        $scope.getPageNavs = function () {
-            return pageStore.getPageNavs(pageSize, 3, $scope.currentPage);
-        };
+        var pageDL = new pagestore.PageDataLoader(usersLoadFn);
+        $scope.$watch('currentPage', function (newVal, oldVal) {
+            if (newVal != null) {
+                $scope.visibles = null;
+                $scope.loading = !pageDL.pageLoaded(newVal - 1);
+                pageDL.loadPage(newVal - 1)
+        .then(function (data) {
+                    $scope.totalPages = Math.ceil(data.total / pageSize);
+                    if ($scope.currentPage == newVal) {
+                        $scope.visibles = data.list;
+                        $scope.loading = false;
+                    }
+                });
+            }
+        });
+        $scope.currentPage = 1;
+        $scope.totalPages = 0;
+        $scope.visibleCount = 3;
     }]);
 })();

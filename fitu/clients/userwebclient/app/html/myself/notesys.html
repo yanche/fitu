@@ -1,7 +1,7 @@
 ﻿<div class="col-xs-12">
     <h4 class="col-xs-12 paddingLR0px text-bold" ng-bind="lang.NOTESYSBOX_HEADER"></h4>
     <loading class="col-xs-12 paddingLR0px" show="loading" word="lang.GLOBAL_MSG_LOADING"></loading>
-    <div class="col-xs-12 paddingLR0px" ng-bind="lang.NOTESYSBOX_MSG_EMPTY" ng-show="!loading && getPageNavs().total == 0"></div>
+    <div class="col-xs-12 paddingLR0px" ng-bind="lang.NOTESYSBOX_MSG_EMPTY" ng-show="!loading && totalPages == 0"></div>
     <div class="paddingLR0px paddingTB5px col-xs-12 splitter" ng-repeat="note in visibles">
         <div class="col-xs-12 paddingLR0px note-syntax" note-syntax target="note.subject"></div>
         <div class="col-xs-12 paddingLR0px text-sm">
@@ -11,14 +11,6 @@
         </div>
         <pre ng-show="note.expanded" class="note-syntax col-xs-12" note-syntax target="note.body"></pre>
     </div>
-    <div class="col-xs-12 text-right paddingLR0px" ng-show="getPageNavs().max > 0">
-        <ul class="pagination">
-            <li ng-class="{disabled: currentPage == 0}" ng-click="currentPage <= 0 || switchPage(0)"><span class="fa fa-angle-double-left"></span></li>
-            <li ng-class="{disabled: currentPage == 0}" ng-click="currentPage <= 0 || switchPage(currentPage - 1)"><span class="fa fa-angle-left"></span></li>
-            <li ng-repeat="pg in getPageNavs().nav" ng-class="{active: currentPage == pg}" ng-click="pg == currentPage || switchPage(pg)"><span ng-bind="pg + 1"></span></li>
-            <li ng-class="{disabled: currentPage == getPageNavs().max}" ng-click="currentPage >= getPageNavs().max || switchPage(currentPage + 1)"><span class="fa fa-angle-right"></span></li>
-            <li ng-class="{disabled: currentPage == getPageNavs().max}" ng-click="currentPage >= getPageNavs().max || switchPage(getPageNavs().max)"><span class="fa fa-angle-double-right"></span></li>
-        </ul>
-    </div>
+    <pagination total-pages="totalPages" current-page="currentPage" visible-count="visibleCount" class="col-xs-12 text-right paddingLR0px"></pagination>
 </div>
 <div ui-view></div>
