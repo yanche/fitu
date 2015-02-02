@@ -115,10 +115,10 @@
             }
         };
     }])
-    .config(['$stateProvider', 'stateHelperProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider',
-        function ($stateProvider, stateHelperProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
+    .config(['$stateProvider', 'stateHelperProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', '$animateProvider', function ($stateProvider, stateHelperProvider, $urlRouterProvider, $locationProvider, $httpProvider, $animateProvider) {
         $httpProvider.defaults.withCredentials = true;
         $locationProvider.html5Mode(true);
+        $animateProvider.classNameFilter(/^((?!(fa-spin)).)*$/);
         stateHelperProvider.setNestedState({
             name: 'fitu',
             abstract: true,

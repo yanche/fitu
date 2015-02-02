@@ -27,8 +27,8 @@ admin portal
 ##PWD RESET
 email regex
 ##act cancel, sys note
-node: global error handling
-ng-hide animate
+##node: global error handling
+##ng-hide animate
 ##pwd reset ask
 note unread count
 

@@ -9,8 +9,8 @@
         <i ng-show="util.actActive(activity)" class="fa fa-times text-danger" ng-click="cancelAct(activity)"></i>
         <span ng-show="!util.actActive(activity)" ng-bind="util.actNonActiveStatus(activity)" class="text-danger"></span>
     </h4>
-    <div class="paddingLR0px col-xs-12" ng-show="activity && activity.memberCount > 0">
-        <span class="f-left text-highlight" ng-click="link.goSendNote({actId: activity.id})">
+    <div class="paddingLR0px col-xs-12" ng-show="activity">
+        <span class="f-left text-highlight" ng-click="link.goSendNote({actId: activity.id})" ng-show="activity.memberCount > 0">
             <i class="fa fa-envelope-o"></i>
             <span ng-bind="lang.SENDNOTE_LABEL_SENDNOTEALL"></span>
         </span>
