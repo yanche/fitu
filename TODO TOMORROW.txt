@@ -1,4 +1,4 @@
-feature:
+﻿feature:
 ##subscribed notes
 --exp. level up, credits
 --want to, been to
@@ -31,6 +31,9 @@ email regex
 ##ng-hide animate
 ##pwd reset ask
 note unread count
+sensitive datetime future issue
+##act creation, start/end datetime, utc issue
+act intro, line break issue
 
 ##pagination
 merge msg board

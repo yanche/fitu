@@ -202,8 +202,7 @@
                 return (optional && validate.nullOrEmpty(input)) || (validate.datetime(input, optional) && (new Date(input).getTime() > new Date().getTime()));
             });
             me.endsOnProp = new ModelProp(function (input, optional) {
-                return (optional && validate.nullOrEmpty(input)) ||
-            (validate.datetime(input, optional) && (new Date(input).getTime() > new Date(me.startsOnProp.val || '').getTime()));
+                return (optional && validate.nullOrEmpty(input)) || (validate.datetime(input, optional) && (new Date(input).getTime() > new Date(me.startsOnProp.val || '').getTime()));
             });
             me.capacityProp = new ModelProp(validate.positiveInteger);
             me.priceProp = new ModelProp(validate.nonNegFloat);
@@ -216,8 +215,8 @@
             return {
                 name: this.nameProp.val,
                 intro: this.introProp.val,
-                startsOn: this.startsOnProp.val,
-                endsOn: this.endsOnProp.val,
+                startsOn: new Date(this.startsOnProp.val).getTime(),
+                endsOn: new Date(this.endsOnProp.val).getTime(),
                 capacity: this.capacityProp.val,
                 price: this.priceProp.val,
                 picUrl: this.picUrlProp.val,
