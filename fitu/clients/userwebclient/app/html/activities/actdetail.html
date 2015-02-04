@@ -97,7 +97,6 @@
                     <span ng-show="msg.replyToUser" ng-bind="msg.replyToUser.personal.nickName || lang.GLOBAL_LABEL_ANONY" ng-click="link.goUserPreview(msg.replyToUser.id)"></span>
                     <span>by </span>
                     <span ng-bind="msg.author.personal.nickName || lang.GLOBAL_LABEL_ANONY" ng-click="link.goUserPreview(msg.author.id)"></span>
-                    <span>@</span>
                     <span ng-bind="msg.createdOn | sensitiveDatetime"></span>
                     <i class="fa fa-reply text-highlight" ng-click="replyToClick(msg)"></i>
                     <i class="fa" ng-class="{'fa-heart text-danger': msg.like.me, 'fa-heart-o': !msg.like.me}" ng-click="likeMessage(msg)"></i>

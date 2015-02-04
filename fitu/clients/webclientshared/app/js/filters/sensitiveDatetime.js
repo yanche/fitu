@@ -11,7 +11,7 @@
                 //in seconds
                 var gap = (now - d) / 1000;
                 if (gap < 0)
-                    return '未来';
+                    return ''; //no string for future
                 else if (gap < 60)
                     return '刚刚';
                 else if (gap < 660)
