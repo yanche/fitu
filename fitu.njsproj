@@ -383,6 +383,7 @@
     <Compile Include="fitu\node_modules\errdef\index.js" />
     <Compile Include="fitu\node_modules\extension\array.js" />
     <Compile Include="fitu\node_modules\extension\crypto.js" />
+    <Compile Include="fitu\node_modules\extension\datetime.js" />
     <Compile Include="fitu\node_modules\extension\file.js" />
     <Compile Include="fitu\node_modules\extension\json.js" />
     <Compile Include="fitu\node_modules\extension\pagination.js" />
