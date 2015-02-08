@@ -92,6 +92,7 @@
     <Content Include="fitu\clients\webclientshared\app\html\directives\pagination.html" />
     <Content Include="fitu\clients\webclientshared\app\image\actpic.jpg" />
     <Content Include="fitu\clients\webclientshared\app\image\head.jpg" />
+    <Content Include="fitu\clients\webclientshared\app\image\icon.png" />
     <Content Include="fitu\clients\webclientshared\app\image\loading.gif" />
     <Content Include="fitu\clients\webclientshared\app\image\sitepic.jpg" />
     <Content Include="fitu\clients\webclientshared\app\image\vendorpic.jpg" />
