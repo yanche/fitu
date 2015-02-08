@@ -34,6 +34,7 @@
                 notesys: 'fitu.myself.notesys',
                 fans: 'fitu.myself.fans',
                 subscribedusers: 'fitu.myself.subscribedusers',
+                subscribedsites: 'fitu.myself.subscribedsites',
                 matrix: 'fitu.myself.matrix',
                 sites: 'fitu.gym.sites',
                 sitedetail: 'fitu.gym.sitedetail',
