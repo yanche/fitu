@@ -17,7 +17,7 @@
                 element.datetimepicker(opt);
                 
                 var dp = element.data('DateTimePicker');
-                element.on('change', function () { scope.dpModel = dp.getDate(); scope.$applyAsync(); });
+                element.on('change', function () { scope.dpModel = dp.getDate().format($rootScope.const.dateTimeFormat); scope.$applyAsync(); });
                 scope.$watch('dpModel', function (newVal, oldVal) {
                     if (newVal && dp.date.format($rootScope.const.dateTimeFormat) != newVal) {
                         //console.log(newVal);
