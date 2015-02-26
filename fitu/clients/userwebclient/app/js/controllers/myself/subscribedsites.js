@@ -11,10 +11,15 @@
                 $scope.visibles = null;
                 $scope.loading = !pageDL.pageLoaded(newVal - 1);
                 pageDL.loadPage(newVal - 1)
-            .then(function (data) {
+                .then(function (data) {
                     $scope.totalPages = Math.ceil(data.total / pageSize);
                     if ($scope.currentPage == newVal) {
                         $scope.visibles = data.list;
+                        $scope.loading = false;
+                    }
+                })
+                .catch(function (err) {
+                    if ($scope.currentPage == newVal) {
                         $scope.loading = false;
                     }
                 });

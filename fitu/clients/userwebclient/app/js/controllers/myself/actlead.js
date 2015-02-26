@@ -45,6 +45,11 @@
                             $scope.visibles = data.list;
                             $scope.loadingMem = false;
                         }
+                    })
+                    .catch(function (err) {
+                        if ($scope.currentPage == newVal) {
+                            $scope.loadingMem = false;
+                        }
                     });
                 }
             });
@@ -71,6 +76,26 @@
                 })
                 .catch(function (err) {
                     $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.error, msg: lang.ACTLEAD_MSG_ERR_MEMBERSTATUS });
+                });
+            };
+            
+            $scope.doPaid = function (mem) {
+                member.updatePayStatus(mem.id, constants.memberPayStatus.paid)
+                .then(function () {
+                    mem.payStatusId = constants.memberPayStatus.paid;
+                })
+                .catch(function (err) {
+                    $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.error, msg: lang.ACTLEAD_MSG_ERR_MEMBERPAYSTATUS });
+                });
+            };
+            
+            $scope.doUnpaid = function (mem) {
+                member.updatePayStatus(mem.id, constants.memberPayStatus.unpaid)
+                .then(function () {
+                    mem.payStatusId = constants.memberPayStatus.unpaid;
+                })
+                .catch(function (err) {
+                    $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.error, msg: lang.ACTLEAD_MSG_ERR_MEMBERPAYSTATUS });
                 });
             };
 

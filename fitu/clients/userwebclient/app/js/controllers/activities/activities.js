@@ -19,6 +19,11 @@
                         $scope.visibles = data.list;
                         $scope.loading = false;
                     }
+                })
+                .catch(function (err) {
+                    if ($scope.currentMsgPage == newVal) {
+                        $scope.loading = false;
+                    }
                 });
             }
         });

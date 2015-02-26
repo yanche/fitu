@@ -24,6 +24,12 @@
                         me.result = data;
                         while (me.pendingQ.length > 0)
                             me.pendingQ.shift().resolve(data);
+                    })
+                    .catch(function (err) {
+                        me.loaded = false;
+                        me.result = null;
+                        while (me.pendingQ.length > 0)
+                            me.pendingQ.shift().reject(err);
                     });
                 }
             }

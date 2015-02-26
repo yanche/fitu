@@ -21,6 +21,8 @@
                 <span ng-bind="lang.FOOTPRINT_LABEL_PENDING" ng-show="fp.statusId == const.memberStatus.pending"></span>
                 <span ng-bind="lang.FOOTPRINT_LABEL_CONFIRMED" ng-show="fp.statusId == const.memberStatus.confirmed"></span>
                 <span ng-bind="lang.FOOTPRINT_LABEL_QUIT" ng-show="fp.statusId == const.memberStatus.quit"></span>
+                <span ng-bind="lang.FOOTPRINT_LABEL_PAID" ng-show="fp.payStatusId == const.memberPayStatus.paid"></span>
+                <span ng-bind="lang.FOOTPRINT_LABEL_UNPAID" ng-show="fp.payStatusId == const.memberPayStatus.unpaid"></span>
                 <span ng-bind="lang.FOOTPRINT_LABEL_DOQUIT" ng-show="fp.statusId == const.memberStatus.pending || fp.statusId == const.memberStatus.confirmed" class="text-underline" ng-click="doQuit(fp)"></span>
             </div>
         </div>

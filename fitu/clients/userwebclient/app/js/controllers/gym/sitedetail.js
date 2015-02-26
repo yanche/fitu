@@ -135,6 +135,11 @@
                     $scope.msgVisibles = data.list;
                     $scope.loadingMsg = false;
                 }
+            })
+            .catch(function (err) {
+                if ($scope.currentMsgPage == pg) {
+                    $scope.loadingMsg = false;
+                }
             });
         };
         $scope.$watch('currentMsgPage', function (newVal, oldVal) {

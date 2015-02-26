@@ -17,6 +17,11 @@
                         $scope.visibles = data.list;
                         $scope.loading = false;
                     }
+                })
+                .catch(function (err) {
+                    if ($scope.currentPage == newVal) {
+                        $scope.loading = false;
+                    }
                 });
             }
         });

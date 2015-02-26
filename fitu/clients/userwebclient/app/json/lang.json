@@ -100,6 +100,8 @@
     "FOOTPRINT_LABEL_QUIT": "已退出",
     "FOOTPRINT_LABEL_PENDING": "待确认",
     "FOOTPRINT_LABEL_CONFIRMED": "已确认",
+    "FOOTPRINT_LABEL_PAID": "已支付",
+    "FOOTPRINT_LABEL_UNPAID": "未支付",
     "FOOTPRINT_LABEL_DOQUIT": "我想退出",
     "FOOTPRINT_LABEL_ACT": "活动",
     "FOOTPRINT_LABEL_NORECORDS": "你还没有参加过活动哦。择个良辰吉日和我们一起动起来吧！",
@@ -267,6 +269,8 @@
     "VENDORDETAIL_LABEL_TAG": "类型",
     "VENDORDETAIL_MSG_404": "喔！不知为何没有找到该商户。。。",
     
+    "ACTLEAD_LABEL_PAID": "已支付",
+    "ACTLEAD_LABEL_UNPAID": "未支付",
     "ACTLEAD_LABEL_PENDING": "待确认",
     "ACTLEAD_LABEL_CONFIRMED": "已确认",
     "ACTLEAD_LABEL_NOTCONFIRM": "未确认",
@@ -289,6 +293,7 @@
     "ACTLEAD_MSG_ACTCANCEL_SUCCESS": "活动取消成功！",
     "ACTLEAD_MSG_ACTCANCEL_FAIL": "活动取消失败：未知错误。。。",
     "ACTLEAD_MSG_ERR_MEMBERSTATUS": "状态更新失败：未知错误。。。",
+    "ACTLEAD_MSG_ERR_MEMBERPAYSTATUS": "支付状态更新失败：未知错误。。。",
 
     "ACTIVITIES_MSG_NOACT": "抱歉，目前没有可以报名的（这种）活动喔。",
 

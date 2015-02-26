@@ -72,6 +72,21 @@
                 });
                 return defer.promise;
             },
+            updatePayStatus: function (memberId, payStatusId) {
+                var defer = new $q.defer();
+                $http({
+                    method: 'PUT',
+                    url: url.generate('members'),
+                    params: { id: memberId },
+                    data: { payStatusId: payStatusId }
+                }).success(function (data) {
+                    defer.resolve(data);
+                }).error(function (data, status, headers, config) {
+                    console.log(arguments);
+                    defer.reject({ data: data, status: status, headers: headers });
+                });
+                return defer.promise;
+            },
             quit: function (memId) {
                 var defer = new $q.defer();
                 $http({
