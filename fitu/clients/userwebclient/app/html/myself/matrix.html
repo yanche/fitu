@@ -30,8 +30,11 @@
                 <span ng-bind="lang.MATRIX_LABEL_SITEOPEN"></span>
                 <span ng-bind="site.open.startsOn | siteopen | datetime: const.timeAFormat"></span>
             </div>
-            <div ng-class="{'has-error': !matrixModel.startsOnProp.validate()}">
-                <input id="matrix_startsOn" type="text" class="form-control" datetime-picker ng-model="matrixModel.startsOnProp.val" />
+            <div ng-class="{'has-error': !matrixModel.startsOnProp.validate()}" class="input-group" datetime-picker after-wards="1" ng-model="matrixModel.startsOnProp.val">
+                <input id="matrix_startsOn" type="text" class="form-control" ng-model="matrixModel.startsOnProp.val" />
+                <span class="input-group-addon">
+                    <span class="fa fa-calendar"></span>
+                </span>
             </div>
         </div>
         <div class="form-group">
@@ -40,8 +43,11 @@
                 <span ng-bind="lang.MATRIX_LABEL_SITECLOSE"></span>
                 <span ng-bind="site.open.endsOn | siteopen | datetime: const.timeAFormat"></span>
             </div>
-            <div ng-class="{'has-error': !matrixModel.endsOnProp.validate()}">
-                <input id="matrix_endsOn" type="text" class="form-control" datetime-picker ng-model="matrixModel.endsOnProp.val" />
+            <div ng-class="{'has-error': !matrixModel.endsOnProp.validate()}" class="input-group" datetime-picker after-wards="1" ng-model="matrixModel.endsOnProp.val">
+                <input id="matrix_endsOn" type="text" class="form-control" ng-model="matrixModel.endsOnProp.val" />
+                <span class="input-group-addon">
+                    <span class="fa fa-calendar"></span>
+                </span>
             </div>
         </div>
         <div class="form-group">
