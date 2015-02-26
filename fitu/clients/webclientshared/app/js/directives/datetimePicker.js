@@ -4,7 +4,7 @@
         return {
             restrict: 'A',
             scope: {
-                ngModel: '=',
+                dpModel: '=',
                 afterWards: '@'
             },
             link: function (scope, element, attrs) {
@@ -15,9 +15,10 @@
                 if (scope.afterWards)
                     opt.minDate = moment().hour(0).minute(0).second(0).millisecond(0);
                 element.datetimepicker(opt);
-                    
+                
                 var dp = element.data('DateTimePicker');
-                    scope.$watch('ngModel', function (newVal, oldVal) {
+                element.on('change', function () { scope.dpModel = dp.getDate(); scope.$applyAsync(); });
+                scope.$watch('dpModel', function (newVal, oldVal) {
                     if (newVal && dp.date.format($rootScope.const.dateTimeFormat) != newVal) {
                         //console.log(newVal);
                         dp.setDate(newVal);
