@@ -57,8 +57,7 @@
     <Content Include="fitu\clients\userwebclient\app\html\gym\vendordetail.html" />
     <Content Include="fitu\clients\userwebclient\app\html\notfound\notfound.html" />
     <Content Include="fitu\clients\userwebclient_pc\app.jade" />
-    <Content Include="fitu\clients\vendorwebclient\app\css\basic.scss" />
-    <Content Include="fitu\clients\vendorwebclient\app\css\nav.scss" />
+    <Content Include="fitu\clients\webclientshared\app\css\vendorwebclient\nav.scss" />
     <Content Include="fitu\clients\vendorwebclient\app\html\admins\admins.html" />
     <Content Include="fitu\clients\vendorwebclient\app\html\profile\profile.html" />
     <Content Include="fitu\clients\vendorwebclient\app\html\siteidles\siteidles.html" />
@@ -107,7 +106,7 @@
     <Content Include="fitu\clients\webclientshared\app\css\userwebclient\basic.scss" />
     <Content Include="fitu\clients\webclientshared\app\css\userwebclient\nav.scss" />
     <Content Include="fitu\clients\userwebclient\app\html\activities\activities.html" />
-    <Content Include="fitu\clients\vendorwebclient\app\css\fitu_vd.scss" />
+    <Content Include="fitu\clients\webclientshared\app\css\vendorwebclient\fitu_vd.scss" />
     <Content Include="fitu\clients\webclientshared\app\html\directives\imageInput.html" />
     <Content Include="fitu\clients\userwebclient\app\html\myself\footprint.html" />
     <Content Include="fitu\clients\userwebclient\app\html\myself\leadership.html" />
@@ -146,6 +145,7 @@
     <Folder Include="fitu\clients\webclientshared\app\css\config\" />
     <Folder Include="fitu\clients\webclientshared\app\css\infra\" />
     <Folder Include="fitu\clients\webclientshared\app\css\extension\" />
+    <Folder Include="fitu\clients\webclientshared\app\css\vendorwebclient\" />
     <Folder Include="fitu\clients\webclientshared\app\css\webclientshared\" />
     <Folder Include="fitu\clients\webclientshared\app\css\userwebclient\" />
     <Folder Include="fitu\clients\webclientshared\app\image\" />
@@ -230,7 +230,6 @@
     <Folder Include="fitu\clients\vendorwebclient\app\" />
     <Folder Include="fitu\clients\vendorwebclient\app\json\" />
     <Folder Include="fitu\clients\vendorwebclient\app\js\" />
-    <Folder Include="fitu\clients\vendorwebclient\app\css\" />
     <Folder Include="fitu\clients\vendorwebclient\app\html\" />
   </ItemGroup>
   <ItemGroup>

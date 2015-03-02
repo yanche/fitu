@@ -57,11 +57,28 @@ var vendor1 = {
             lng: 121.451126
         }
     },
-    intro: '宛平宾馆是i户外第一个固定的周末瑜伽点喔。。。',
+    intro: '宛平宾馆',
     logoUrl: config.defaultVendorLogoUrl,
     createdOn: new Date(),
     statusId: constants.status.vendorStatus.active,
     contact: '021-54679888'
+};
+
+var vendor2 = {
+    name: '茂名南路哈达瑜伽',
+    tags: ['yg'],
+    location: {
+        address: '茂名南路1号3楼301室哈达瑜伽会馆',
+        geo: {
+            lat: 31.229618,
+            lng: 121.46726
+        }
+    },
+    intro: '哈达瑜伽',
+    logoUrl: config.defaultVendorLogoUrl,
+    createdOn: new Date(),
+    statusId: constants.status.vendorStatus.active,
+    contact: '021-62180955'
 };
 
 var site1 = {
@@ -71,7 +88,21 @@ var site1 = {
     prices: [{ amount: 36, freq: { num: 1, measure: 'h' }, people: 1, comments: '单次价格' }],
     open: { startsOn: { hour: 8, min: 0 }, endsOn: { hour: 20, min: 0 } },
     contact: '021-54679888',
-    intro: '宛平宾馆健身房是i户外第一个固定的周末瑜伽点喔。。。',
+    intro: '宛平宾馆',
+    picUrl: config.defaultSitePicUrl,
+    createdOn: new Date(),
+    fans: [],
+    statusId: constants.status.siteStatus.active
+};
+
+var site2 = {
+    name: '茂名南路哈达瑜伽',
+    tags: ['yg'],
+    location: vendor2.location,
+    prices: [{ amount: 36, freq: { num: 1, measure: 'h' }, people: 1, comments: '单次价格' }],
+    open: { startsOn: { hour: 12, min: 0 }, endsOn: { hour: 20, min: 0 } },
+    contact: '021-62180955',
+    intro: '哈达瑜伽',
     picUrl: config.defaultSitePicUrl,
     createdOn: new Date(),
     fans: [],
@@ -101,12 +132,17 @@ var start = function () {
         vendor1.createdBy = god._id;
         vendor1.ownerId = user1._id;
         vendor1.admins = [];
-        return db.vendor.insertOneVendor(vendor1);
+        vendor2.createdBy = god._id;
+        vendor2.ownerId = user1._id;
+        vendor2.admins = [];
+        return bluebird.all([db.vendor.insertOneVendor(vendor1), db.vendor.insertOneVendor(vendor2)]);
     })
-    .then(function (vendor1) {
-        site1.vendorId = vendor1._id;
-        site1.createdBy = vendor1.ownerId;
-        return db.site.insertOneSite(site1);
+    .then(function (data) {
+        site1.vendorId = data[0]._id;
+        site1.createdBy = data[0].ownerId;
+        site2.vendorId = data[1]._id;
+        site2.createdBy = data[1].ownerId;
+        return bluebird.all([db.site.insertOneSite(site1), db.site.insertOneSite(site2)]);
     })
     .then(function () {
         console.log('done');

@@ -105,6 +105,8 @@
                     { expand: true, cwd: 'bower_components', src: ['font-awesome/**'], dest: 'statics/app/css/libs' },
                     { expand: true, cwd: 'bower_components', src: ['jquery/**'], dest: 'statics/app/js/libs' },
                     { expand: true, cwd: 'bower_components/jquery-cookie', src: ['jquery.cookie.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
+                    { expand: true, cwd: 'bower_components/jquery-ui/ui/minified', src: ['autocomplete.min.js', 'widget.min.js', 'menu.min.js', 'core.min.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
+                    { expand: true, cwd: 'bower_components/jquery-ui/themes/base', src: ['*'], dest: 'statics/app/css/libs/jquery-ui', filter: 'isFile' },
                     { expand: true, cwd: 'bower_components/markdown/lib', src: ['markdown.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
                     { expand: true, cwd: 'bower_components/moment/min', src: ['moment.min.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
                     { expand: true, cwd: 'bower_components/moment/locale', src: ['zh-cn.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
