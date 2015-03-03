@@ -117,7 +117,7 @@
     }])
     .config(['$stateProvider', 'stateHelperProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', '$animateProvider', function ($stateProvider, stateHelperProvider, $urlRouterProvider, $locationProvider, $httpProvider, $animateProvider) {
         $httpProvider.defaults.withCredentials = true;
-        $locationProvider.html5Mode(true);
+        //$locationProvider.html5Mode(true);
         $animateProvider.classNameFilter(/^((?!(fa-spin)).)*$/);
         stateHelperProvider.setNestedState({
             name: 'fitu',
@@ -262,6 +262,6 @@
                 }]
             }]
         });
-        $urlRouterProvider.when('/', '/activities').otherwise('/notfound');
+        $urlRouterProvider.when('/', '/activities').when('', '/activities').otherwise('/notfound');
     }]);
 })();
