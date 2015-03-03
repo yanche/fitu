@@ -10,9 +10,16 @@
             },
             markdown: function (element, content) {
                 element.html(markdown.toHTML(content));
+                //use html4 mode
+                element.find('a').each(function () {
+                    var me = $(this);
+                    var href = me.attr('href');
+                    if (href.slice(0, 2) != '/#' && href.slice(0, 1) == '/')
+                        me.attr('href', '/#' + href);
+                });
             }
         };
-            
+        
         return {
             restrict: 'A',
             scope: {
