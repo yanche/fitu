@@ -22,9 +22,18 @@
                 <span ng-bind="activity.site.location.address"></span>
             </span>
         </div>
+        <div class="col-xs-12 paddingLR0px text-bold" ng-bind="lang.ACTDETAIL_LABEL_TRANS" ng-show="activity.site.trans.subway || activity.site.trans.bus"></div>
+        <div class="col-xs-12 paddingLR0px" ng-show="activity.site.trans.subway">
+            <i class="fa fa-subway text-highlight"></i>
+            <span ng-bind="activity.site.trans.subway"></span>
+        </div>
+        <div class="col-xs-12 paddingLR0px" ng-show="activity.site.trans.bus">
+            <i class="fa fa-bus text-highlight"></i>
+            <span ng-bind="activity.site.trans.bus"></span>
+        </div>
         <div class="col-xs-12 paddingLR0px text-bold" ng-bind="lang.ACTDETAIL_LABEL_INTRO"></div>
         <div class="col-xs-12 paddingLR0px">
-            <pre ng-bind="activity.intro" style="padding:0px;border:none;background-color:transparent;"></pre>
+            <pre ng-bind="activity.intro" class="intro-pre"></pre>
         </div>
         <div class="col-xs-12 paddingLR0px text-bold" ng-bind="lang.ACTDETAIL_LABEL_PRICE"></div>
         <div class="col-xs-12 paddingLR0px">

@@ -26,6 +26,18 @@
                     <input type="text" class="form-control" ng-model="site.model.contactProp.val" />
                 </div>
             </div>
+            <div class="form-group col-xs-6">
+                <label ng-bind="lang.SITE_LABEL_TRANS + ' - ' + lang.SITE_LABEL_TRANS_SUBWAY"></label>
+                <div ng-class="{'has-error': !site.model.subwayProp.validate()}">
+                    <input type="text" class="form-control" ng-model="site.model.subwayProp.val" />
+                </div>
+            </div>
+            <div class="form-group col-xs-6">
+                <label ng-bind="lang.SITE_LABEL_TRANS + ' - ' + lang.SITE_LABEL_TRANS_BUS"></label>
+                <div ng-class="{'has-error': !site.model.busProp.validate()}">
+                    <input type="text" class="form-control" ng-model="site.model.busProp.val" />
+                </div>
+            </div>
             <div class="form-group  col-xs-12">
                 <label ng-bind="lang.SITE_LABEL_INTRO"></label>
                 <div ng-class="{'has-error': !site.model.introProp.validate()}">
@@ -170,6 +182,18 @@
             <label class="col-xs-12 paddingLR0px" for="new_site_intro" ng-bind="lang.SITE_LABEL_INTRO"></label>
             <div ng-class="{'has-error': !siteModel.introProp.validate()}">
                 <textarea class="form-control" id="new_site_intro" ng-model="siteModel.introProp.val" style="max-width:100%;" />
+            </div>
+        </div>
+        <div class="form-group col-xs-12 paddingLR0px">
+            <label class="col-xs-12 paddingLR0px" for="new_site_trans_subway" ng-bind="lang.SITE_LABEL_TRANS + ' - ' + lang.SITE_LABEL_TRANS_SUBWAY"></label>
+            <div ng-class="{'has-error': !siteModel.subwayProp.validate()}">
+                <input type="text" class="form-control" id="new_site_trans_subway" ng-model="siteModel.subwayProp.val" />
+            </div>
+        </div>
+        <div class="form-group col-xs-12 paddingLR0px">
+            <label class="col-xs-12 paddingLR0px" for="new_site_trans_bus" ng-bind="lang.SITE_LABEL_TRANS + ' - ' + lang.SITE_LABEL_TRANS_BUS"></label>
+            <div ng-class="{'has-error': !siteModel.busProp.validate()}">
+                <input type="text" class="form-control" id="new_site_trans_bus" ng-model="siteModel.busProp.val" />
             </div>
         </div>
         <div class="form-group col-xs-12 paddingLR0px">

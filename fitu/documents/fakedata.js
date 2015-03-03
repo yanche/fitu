@@ -209,7 +209,8 @@ var site1 = {
     picUrl: config.defaultSitePicUrl,
     createdOn: new Date(),
     fans: [],
-    statusId: constants.status.siteStatus.active
+    statusId: constants.status.siteStatus.active,
+    trans: {subway: 'sub way trans', bus: 'bus trans'}
 };
 var site2 = {
     name: '某健身场地',
@@ -228,7 +229,8 @@ var site2 = {
     picUrl: config.defaultSitePicUrl,
     createdOn: new Date(),
     fans: [],
-    statusId: constants.status.siteStatus.active
+    statusId: constants.status.siteStatus.active,
+    trans: { subway: 'sub way trans 2', bus: '' }
 };
 var site3 = {
     name: '某游泳场地',

@@ -46,7 +46,8 @@
             $scope.resetAddModel = function () {
                 var init = {
                     name: '', intro: '', contact: '', location: { address: '', geo: '' }, picUrl: $rootScope.const.resources.defaultSitePic, tags: [],
-                    open: { startsOn: { hour: 10, min: 0 }, endsOn: { hour: 20, min: 0 } }, prices: [{ amount: 30, freq: { num: 1, measure: 'h' }, people: 1, comments: 'test' }]
+                    open: { startsOn: { hour: 10, min: 0 }, endsOn: { hour: 20, min: 0 } }, prices: [{ amount: 30, freq: { num: 1, measure: 'h' }, people: 1, comments: 'test' }],
+                    trans: {subway:'',bus: ''}
                 };
                 if ($scope.vendor) {
                     init.location.address = $scope.vendor.location.address;

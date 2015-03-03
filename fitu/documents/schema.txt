@@ -38,6 +38,7 @@ site
 'createdOn':,
 'fans': [],
 'statusId':,
+'trans': {'subway':'', 'bus': ''}
 }
 
 vendor

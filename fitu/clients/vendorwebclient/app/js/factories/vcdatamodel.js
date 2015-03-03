@@ -101,8 +101,10 @@
                 return arr.length > 0;
             }, function (item, optional) {
                 return item.validate(optional);
-            });
-            this.addProp(this.nameProp).addProp(this.introProp).addProp(this.addrProp).addProp(this.geoProp).addProp(this.picProp).addProp(this.tagProp).addProp(this.openStartHourProp).addProp(this.openStartMinProp).addProp(this.openEndHourProp).addProp(this.openEndMinProp).addProp(this.pricesProp);
+                });
+            this.subwayProp = new ModelProp(validate.alwaysTrue);
+            this.busProp = new ModelProp(validate.alwaysTrue);
+            this.addProp(this.nameProp).addProp(this.introProp).addProp(this.addrProp).addProp(this.geoProp).addProp(this.picProp).addProp(this.tagProp).addProp(this.openStartHourProp).addProp(this.openStartMinProp).addProp(this.openEndHourProp).addProp(this.openEndMinProp).addProp(this.pricesProp).addProp(this.subwayProp).addProp(this.busProp);
         };
         SiteModel.prototype = Object.create(DataModel.prototype);
         SiteModel.prototype.toPOJO = function () {
@@ -117,7 +119,8 @@
                 picUrl: this.picProp.val,
                 tags: [this.tagProp.val], //TODO
                 open: { startsOn: { hour: this.openStartHourProp.val, min: this.openStartMinProp.val }, endsOn: { hour: this.openEndHourProp.val, min: this.openEndMinProp.val } },
-                prices: this.pricesProp.array.map(function (p) { return p.toPOJO(); })
+                    prices: this.pricesProp.array.map(function (p) { return p.toPOJO(); }),
+                trans: {subway: this.subwayProp.val || '', bus: this.busProp.val || ''}
             };
         };
         SiteModel.prototype.init = function (data) {
@@ -136,6 +139,8 @@
                 this.openEndHourProp.init(data.open.endsOn.hour);
                 this.openEndMinProp.init(data.open.endsOn.min);
                 this.pricesProp.array = data.prices.map(function (p) { return new SitePriceModel().init(p); });
+                this.subwayProp.init(data.trans.subway);
+                this.busProp.init(data.trans.bus);
             }
             return this;
         };
