@@ -1,11 +1,12 @@
 ﻿(function () {
     angular.module('fitu', ['ngAnimate', 'ui.router', 'ui.router.stateHelper', 'fitulib', 'fituhtml'])
-    .run(['$rootScope', 'user', 'ucconst', 'lang', '$state', '$timeout', '$location', 'crypto', 'wxb', 'link', 'util', function ($rootScope, user, ucconst, lang, $state, $timeout, $location, crypto, wxb, link, util) {
+    .run(['$rootScope', 'user', 'ucconst', 'lang', '$state', '$timeout', '$location', 'crypto', 'wxb', 'link', 'util', 'note', function ($rootScope, user, ucconst, lang, $state, $timeout, $location, crypto, wxb, link, util, note) {
         var loadUser = function (obj, state, params) {
             //TODO, state transfer need optimization
             $rootScope.loadingUser = true;
             user.getLoginUser()
             .then(function (loginUser) {
+                loadPendingNotesCount();
                 $rootScope.user = loginUser;
                 $rootScope.loadingUser = false;
                 if (state) $state.gox(state, params || {});
@@ -33,8 +34,20 @@
         //try auto login
         if ($.cookie('sessionId')) loadUser();
         
+        var loadPendingNotesCount = function () {
+            note.getPendingNotesCount()
+            .then(function (data) {
+                $rootScope.pendingNotesCount = data;
+            })
+            .catch(function () {
+                console.error('failed to load pending notes count');
+                $rootScope.pendingNotesCount = { note: 0, sys: 0 };
+            });
+        };
+        
         $rootScope.$on(ucconst.events.login, loadUser);
         $rootScope.$on(ucconst.events.logout, function () { $rootScope.user = null; });
+        $rootScope.$on(ucconst.events.countPendingNote, loadPendingNotesCount); 
         
         $rootScope.lastPageSwitchTS = new Date().getTime();
             

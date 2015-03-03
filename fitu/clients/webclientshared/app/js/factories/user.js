@@ -71,7 +71,7 @@
                     defer.resolve();
                 }).error(function (data, status, headers, config) {
                     console.log(arguments);
-                        defer.reject({ data: data, status: status, headers: headers });
+                    defer.reject({ data: data, status: status, headers: headers });
                 });
                 return defer.promise;
             },

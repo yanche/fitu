@@ -24,8 +24,7 @@
                 $http({
                     method: 'GET',
                     url: url.generate('notes'),
-                    params: { recipientId: $.cookie('userId'), page: options.page, pageSize: options.pageSize },
-                    data: options.data
+                    params: { recipientId: $.cookie('userId'), page: options.page, pageSize: options.pageSize }
                 }).success(function (data) {
                     data.list = data.list.map(function (nt) {
                         nt.author.headUrl = utility.getStaticUrl(nt.author.headUrl);
@@ -44,8 +43,7 @@
                 $http({
                     method: 'GET',
                     url: url.generate('notes'),
-                    params: { authorId: $.cookie('userId'), page: options.page, pageSize: options.pageSize },
-                    data: options.data
+                    params: { authorId: $.cookie('userId'), page: options.page, pageSize: options.pageSize }
                 }).success(function (data) {
                     data.list = data.list.map(function (nt) {
                         if (nt.recipients) {
@@ -72,8 +70,35 @@
                 $http({
                     method: 'GET',
                     url: url.generate('notes'),
-                    params: { recipientId: $.cookie('userId'), page: options.page, pageSize: options.pageSize, sys: 1 },
-                    data: options.data
+                    params: { recipientId: $.cookie('userId'), page: options.page, pageSize: options.pageSize, sys: 1 }
+                }).success(function (data) {
+                    defer.resolve(data);
+                }).error(function (data, status, headers, config) {
+                    console.log(arguments);
+                    defer.reject({ data: data, status: status, headers: headers });
+                });
+                return defer.promise;
+            },
+            getPendingNotesCount: function () {
+                var defer = new $q.defer();
+                $http({
+                    method: 'GET',
+                    url: url.generate('pendingnotes'),
+                    params: { recipientId: $.cookie('userId') }
+                }).success(function (data) {
+                    defer.resolve(data);
+                }).error(function (data, status, headers, config) {
+                    console.log(arguments);
+                    defer.reject({ data: data, status: status, headers: headers });
+                });
+                return defer.promise;
+            },
+            setNoteRead: function (options) {
+                var defer = new $q.defer();
+                $http({
+                    method: 'PUT',
+                    url: url.generate('notes'),
+                    params: { id: options.id }
                 }).success(function (data) {
                     defer.resolve(data);
                 }).error(function (data, status, headers, config) {

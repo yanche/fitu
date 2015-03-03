@@ -13,8 +13,9 @@
                 <span ng-bind="note.author.personal.nickName || lang.GLOBAL_LABEL_ANONY"></span>
             </div>
             <div class="col-xs-12 paddingLR0px text-sm">
+                <span ng-hide="note.readOn" class="text-error text-bold" ng-bind="lang.NOTEINBOX_LABEL_NEW"></span>
                 <span ng-bind="note.createdOn | sensitiveDatetime"></span>
-                <i class="fa text-highlight" ng-class="{'fa-plus': !note.expanded, 'fa-minus': note.expanded}" ng-click="note.expanded = !note.expanded"></i>
+                <i class="fa text-highlight" ng-class="{'fa-plus': !note.expanded, 'fa-minus': note.expanded}" ng-click="readNote(note)"></i>
             </div>
             <div class="col-xs-12 paddingLR0px text-sm text-overflow-hidden" note-syntax target="note.body"></div>
         </div>

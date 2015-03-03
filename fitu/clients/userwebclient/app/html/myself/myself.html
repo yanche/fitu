@@ -63,7 +63,10 @@
     <div class="col-xs-12 nopadding text-bold" ng-bind="lang.MYSELF_TITLE_NOTEBOX"></div>
     <div class="col-xs-12 nopadding" style="background-color:white;text-align:center;">
         <div class="col-xs-4 paddingTB10px border-right border-bold border-bg" ui-sref="fitu.myself.noteinbox">
-            <div class="fa fa-envelope-o"></div>
+            <div>
+                <i class="fa fa-envelope-o" ng-class="{'text-error': pendingNotesCount.note}"></i>
+                <span ng-bind="pendingNotesCount.note" ng-show="pendingNotesCount.note" ng-class="{'text-error': pendingNotesCount.note}"></span>
+            </div>
             <div ng-bind="lang.MYSELF_LABEL_NOTEINBOX"></div>
         </div>
         <div class="col-xs-4 paddingTB10px" ui-sref="fitu.myself.noteoutbox">
@@ -71,7 +74,10 @@
             <div ng-bind="lang.MYSELF_LABEL_NOTEOUTBOX"></div>
         </div>
         <div class="col-xs-4 paddingTB10px border-left border-bold border-bg" ui-sref="fitu.myself.notesys">
-            <div class="fa fa-lightbulb-o"></div>
+            <div>
+                <i class="fa fa-lightbulb-o" ng-class="{'text-error': pendingNotesCount.sys}"></i>
+                <span ng-bind="pendingNotesCount.sys" ng-show="pendingNotesCount.sys" ng-class="{'text-error': pendingNotesCount.sys}"></span>
+            </div>
             <div ng-bind="lang.MYSELF_LABEL_NOTESYS"></div>
         </div>
     </div>

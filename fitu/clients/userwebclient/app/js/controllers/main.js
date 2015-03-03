@@ -1,6 +1,6 @@
 ﻿(function () {
     angular.module('fitu')
-    .controller('main', ['$scope', '$window', 'ucconst', '$timeout', function ($scope, $window, ucconst, $timeout) {
+    .controller('main', ['$scope', '$window', 'ucconst', '$timeout', 'note', function ($scope, $window, ucconst, $timeout, note) {
         $scope.goBack = function () {
             $window.history.back();
         };
@@ -18,7 +18,7 @@
             $scope.showMsg = true;
             $scope.cancelFn = options.onCancel;
             $scope.confirmFn = options.onConfirm;
-                
+            
             var ts = new Date().getTime();
             $scope.lastMsgTS = ts;
             $timeout(function () {

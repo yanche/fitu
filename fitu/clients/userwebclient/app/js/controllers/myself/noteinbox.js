@@ -28,5 +28,17 @@
         $scope.currentPage = 1;
         $scope.totalPages = 0;
         $scope.visibleCount = 3;
+        
+        $scope.readNote = function (nt) {
+            nt.expanded = !nt.expanded
+            if (nt.expanded && !nt.readOn) {
+                note.setNoteRead({ id: nt.id })
+                .then(function () {
+                    nt.readOn = 1;
+                    $scope.$emit(ucconst.events.countPendingNote);
+                })
+                .catch(function () { });
+            }
+        };
     }]);
 })();

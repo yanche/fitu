@@ -35,6 +35,8 @@ note unread count
 ##act creation, start/end datetime, utc issue
 act intro, line break issue
 
+GOD and OB cannot shoot activity
+
 ##pagination
 merge msg board
 

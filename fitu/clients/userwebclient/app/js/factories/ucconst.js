@@ -5,7 +5,8 @@
             events: {
                 login: 'login',
                 logout: 'logout',
-                showMsg:'showMsg'
+                showMsg: 'showMsg',
+                countPendingNote: 'countPendingNote'
             },
             msgType: {
                 none: 0,
