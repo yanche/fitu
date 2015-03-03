@@ -21,7 +21,7 @@
         <div class="form-group">
             <label for="matrix_intro" class="control-label" ng-bind="lang.MATRIX_LABEL_INTRO"></label>
             <div ng-class="{'has-error': !matrixModel.introProp.validate(true)}">
-                <textarea id="matrix_intro" class="form-control full-width" ng-model="matrixModel.introProp.val" />
+                <textarea id="matrix_intro" style="min-height: 100px;" class="form-control full-width" ng-model="matrixModel.introProp.val" />
             </div>
         </div>
         <div class="form-group">
@@ -86,7 +86,7 @@
                 <span ng-bind="lang.MATRIX_BTN_UPDATING" ng-show="updating"></span>
                 <span ng-bind="lang.MATRIX_BTN_UPDATE" ng-show="!updating"></span>
             </button>
-            <button class="btn btn-warning" ng-click="reset()" ng-bind="lang.MATRIX_BTN_RESET"></button>
+            <button class="btn btn-warning marginL15px" ng-click="reset()" ng-bind="lang.MATRIX_BTN_RESET"></button>
         </div>
     </div>
 </div>

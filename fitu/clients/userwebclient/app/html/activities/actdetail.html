@@ -24,8 +24,7 @@
         </div>
         <div class="col-xs-12 paddingLR0px text-bold" ng-bind="lang.ACTDETAIL_LABEL_INTRO"></div>
         <div class="col-xs-12 paddingLR0px">
-            <i class="fa fa-info text-highlight"></i>
-            <span ng-bind="activity.intro"></span>
+            <pre ng-bind="activity.intro" style="padding:0px;border:none;background-color:transparent;"></pre>
         </div>
         <div class="col-xs-12 paddingLR0px text-bold" ng-bind="lang.ACTDETAIL_LABEL_PRICE"></div>
         <div class="col-xs-12 paddingLR0px">
@@ -64,7 +63,7 @@
         </div>
         <div class="empty-xs"></div>
         <div class="col-xs-12 paddingLR0px text-bold" ng-show="util.actActive(activity) && activity.createdBy != user.id">
-            <span ng-click="link.goSignUp(activity.id)" class="text-success">
+            <span ng-click="link.goSignUp(activity.id)" class="text-success text-lg">
                 <i class="fa fa-plus"></i>
                 <span ng-bind="lang.ACTDETAIL_BTN_GOSIGNUP"></span>
             </span>
@@ -98,9 +97,9 @@
                     <span>by </span>
                     <span ng-bind="msg.author.personal.nickName || lang.GLOBAL_LABEL_ANONY" ng-click="link.goUserPreview(msg.author.id)"></span>
                     <span ng-bind="msg.createdOn | sensitiveDatetime"></span>
-                    <i class="fa fa-reply text-highlight" ng-click="replyToClick(msg)"></i>
-                    <i class="fa" ng-class="{'fa-heart text-danger': msg.like.me, 'fa-heart-o': !msg.like.me}" ng-click="likeMessage(msg)"></i>
-                    <span class="text-sm" ng-bind="msg.like.count"></span>
+                    <i class="fa fa-reply text-highlight marginL5px" ng-click="replyToClick(msg)"></i>
+                    <i class="fa marginL5px" ng-class="{'fa-heart text-danger': msg.like.me, 'fa-heart-o': !msg.like.me}" ng-click="likeMessage(msg)"></i>
+                    <span ng-bind="msg.like.count"></span>
                 </div>
             </div>
             <pagination total-pages="totalMsgPages" current-page="currentMsgPage" visible-count="visibleMsgCount" class="col-xs-12 text-right paddingLR0px"></pagination>
@@ -127,7 +126,7 @@
                     <span ng-bind="lang.ACTDETAIL_BTN_SENDINGMSG" ng-show="sendingMsg"></span>
                     <span ng-bind="lang.ACTDETAIL_BTN_SENDMSG" ng-show="!sendingMsg"></span>
                 </button>
-                <button class="btn btn-danger btn-xs" ng-show="user" ng-click="resetMsgModel()" ng-bind="lang.ACTDETAIL_BTN_RESETMSG" ng-disabled="sendingMsg"></button>
+                <button class="btn btn-danger btn-xs marginL10px" ng-show="user" ng-click="resetMsgModel()" ng-bind="lang.ACTDETAIL_BTN_RESETMSG" ng-disabled="sendingMsg"></button>
             </div>
         </div>
     </div>

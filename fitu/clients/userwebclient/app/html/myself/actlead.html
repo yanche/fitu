@@ -5,8 +5,8 @@
         <span ng-bind="activity.name"></span>
         <span>, </span>
         <span ng-bind="activity.startsOn | date"></span>
-        <i ng-show="!util.actCancel(activity)" class="fa fa-edit text-highlight" ng-click="link.goMatrix({actId: activity.id})"></i>
-        <i ng-show="util.actActive(activity)" class="fa fa-times text-danger" ng-click="cancelAct(activity)"></i>
+        <i ng-show="!util.actCancel(activity)" class="fa fa-edit text-highlight marginL5px" ng-click="link.goMatrix({actId: activity.id})"></i>
+        <i ng-show="util.actActive(activity)" class="fa fa-times text-danger marginL5px" ng-click="cancelAct(activity)"></i>
         <span ng-show="!util.actActive(activity)" ng-bind="util.actNonActiveStatus(activity)" class="text-danger"></span>
     </h4>
     <div class="paddingLR0px col-xs-12" ng-show="activity">
