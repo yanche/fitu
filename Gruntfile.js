@@ -1,46 +1,47 @@
 ﻿module.exports = function (grunt) {
     grunt.initConfig({
+        basepath: 'statics',
         concat: {
             userwebclient: {
                 files: {
-                    'statics/app/js/userwebclient/built.js': ['fitu/clients/userwebclient/app/js/*.js', 'fitu/clients/userwebclient/app/js/**/*.js']
+                    '<%= basepath %>/app/js/userwebclient/built.js': ['fitu/clients/userwebclient/app/js/*.js', 'fitu/clients/userwebclient/app/js/**/*.js']
                 }
             },
             vendor: {
                 files: {
-                    'statics/app/js/vendorwebclient/built.js': ['fitu/clients/vendorwebclient/app/js/*.js', 'fitu/clients/vendorwebclient/app/js/**/*.js']
+                    '<%= basepath %>/app/js/vendorwebclient/built.js': ['fitu/clients/vendorwebclient/app/js/*.js', 'fitu/clients/vendorwebclient/app/js/**/*.js']
                 }
             },
             admin: {
                 files: {
-                    'statics/app/js/adminwebclient/built.js': ['fitu/clients/adminwebclient/app/js/*.js', 'fitu/clients/adminwebclient/app/js/**/*.js']
+                    '<%= basepath %>/app/js/adminwebclient/built.js': ['fitu/clients/adminwebclient/app/js/*.js', 'fitu/clients/adminwebclient/app/js/**/*.js']
                 }
             },
             shared: {
                 files: {
-                    'statics/app/js/webclientshared/built.js': ['fitu/clients/webclientshared/app/js/*.js', 'fitu/clients/webclientshared/app/js/**/*.js', 'statics/app/js/webclientshared/fituhtml.js']
+                    '<%= basepath %>/app/js/webclientshared/built.js': ['fitu/clients/webclientshared/app/js/*.js', 'fitu/clients/webclientshared/app/js/**/*.js', '<%= basepath %>/app/js/webclientshared/fituhtml.js']
                 }
             }
         },
         uglify: {
             user: {
                 files: {
-                    'statics/app/js/userwebclient/built.min.js': ['statics/app/js/userwebclient/built.js']
+                    '<%= basepath %>/app/js/userwebclient/built.min.js': ['<%= basepath %>/app/js/userwebclient/built.js']
                 }
             },
             shared: {
                 files: {
-                    'statics/app/js/webclientshared/built.min.js': ['statics/app/js/webclientshared/built.js']
+                    '<%= basepath %>/app/js/webclientshared/built.min.js': ['<%= basepath %>/app/js/webclientshared/built.js']
                 }
             },
             vendor: {
                 files: {
-                    'statics/app/js/vendorwebclient/built.min.js': ['statics/app/js/vendorwebclient/built.js']
+                    '<%= basepath %>/app/js/vendorwebclient/built.min.js': ['<%= basepath %>/app/js/vendorwebclient/built.js']
                 }
             },
             admin: {
                 files: {
-                    'statics/app/js/adminwebclient/built.min.js': ['statics/app/js/adminwebclient/built.js']
+                    '<%= basepath %>/app/js/adminwebclient/built.min.js': ['<%= basepath %>/app/js/adminwebclient/built.js']
                 }
             },
         },
@@ -50,7 +51,7 @@
                         expand: true,
                         cwd: 'fitu/clients/userwebclient/app/js',
                         src: ['**'],
-                        dest: 'statics/app/js/userwebclient',
+                        dest: '<%= basepath %>/app/js/userwebclient',
                         filter: 'isFile'
                     }]
             },
@@ -59,7 +60,7 @@
                         expand: true,
                         cwd: 'fitu/clients/vendorwebclient/app/js',
                         src: ['**'],
-                        dest: 'statics/app/js/vendorwebclient',
+                        dest: '<%= basepath %>/app/js/vendorwebclient',
                         filter: 'isFile'
                     }]
             },
@@ -68,7 +69,7 @@
                         expand: true,
                         cwd: 'fitu/clients/adminwebclient/app/js',
                         src: ['**'],
-                        dest: 'statics/app/js/adminwebclient',
+                        dest: '<%= basepath %>/app/js/adminwebclient',
                         filter: 'isFile'
                     }]
             },
@@ -77,7 +78,7 @@
                         expand: true,
                         cwd: 'fitu/clients/webclientshared/app/js',
                         src: ['**'],
-                        dest: 'statics/app/js/webclientshared',
+                        dest: '<%= basepath %>/app/js/webclientshared',
                         filter: 'isFile'
                     }]
             },
@@ -86,30 +87,30 @@
                         expand: true,
                         cwd: 'fitu/clients/webclientshared/app/image',
                         src: ['**'],
-                        dest: 'statics/app/image/webclientshared',
+                        dest: '<%= basepath %>/app/image/webclientshared',
                         filter: 'isFile'
                     }]
             },
             libsjs: {
                 files: [
-                    { expand: true, cwd: 'bower_components/angular', src: ['angular.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
-                    { expand: true, cwd: 'bower_components/angular-animate', src: ['angular-animate.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
-                    { expand: true, cwd: 'bower_components/angular-i18n', src: ['angular-locale_zh-cn.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
-                    { expand: true, cwd: 'bower_components/angular-route', src: ['angular-route.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
-                    { expand: true, cwd: 'bower_components/angular-ui-router/release', src: ['angular-ui-router.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
-                    { expand: true, cwd: 'bower_components/angular-ui-router.stateHelper', src: ['statehelper.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
-                    { expand: true, cwd: 'bower_components', src: ['bootstrap/**'], dest: 'statics/app/css/libs' },
-                    { expand: true, cwd: 'bower_components/crypto.js/components', src: ['sha1.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
-                    { expand: true, cwd: 'bower_components/eonasdan-bootstrap-datetimepicker/build/js', src: ['bootstrap-datetimepicker.min.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
-                    { expand: true, cwd: 'bower_components/eonasdan-bootstrap-datetimepicker/build/css', src: ['bootstrap-datetimepicker.min.css'], dest: 'statics/app/css/libs', filter: 'isFile' },
-                    { expand: true, cwd: 'bower_components', src: ['font-awesome/**'], dest: 'statics/app/css/libs' },
-                    { expand: true, cwd: 'bower_components', src: ['jquery/**'], dest: 'statics/app/js/libs' },
-                    { expand: true, cwd: 'bower_components/jquery-cookie', src: ['jquery.cookie.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
-                    { expand: true, cwd: 'bower_components/jquery-ui/ui/minified', src: ['autocomplete.min.js', 'widget.min.js', 'menu.min.js', 'core.min.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
-                    { expand: true, cwd: 'bower_components/jquery-ui/themes/base', src: ['*'], dest: 'statics/app/css/libs/jquery-ui', filter: 'isFile' },
-                    { expand: true, cwd: 'bower_components/markdown/lib', src: ['markdown.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
-                    { expand: true, cwd: 'bower_components/moment/min', src: ['moment.min.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
-                    { expand: true, cwd: 'bower_components/moment/locale', src: ['zh-cn.js'], dest: 'statics/app/js/libs', filter: 'isFile' },
+                    { expand: true, cwd: 'bower_components/angular', src: ['angular.js'], dest: '<%= basepath %>/app/js/libs', filter: 'isFile' },
+                    { expand: true, cwd: 'bower_components/angular-animate', src: ['angular-animate.js'], dest: '<%= basepath %>/app/js/libs', filter: 'isFile' },
+                    { expand: true, cwd: 'bower_components/angular-i18n', src: ['angular-locale_zh-cn.js'], dest: '<%= basepath %>/app/js/libs', filter: 'isFile' },
+                    { expand: true, cwd: 'bower_components/angular-route', src: ['angular-route.js'], dest: '<%= basepath %>/app/js/libs', filter: 'isFile' },
+                    { expand: true, cwd: 'bower_components/angular-ui-router/release', src: ['angular-ui-router.js'], dest: '<%= basepath %>/app/js/libs', filter: 'isFile' },
+                    { expand: true, cwd: 'bower_components/angular-ui-router.stateHelper', src: ['statehelper.js'], dest: '<%= basepath %>/app/js/libs', filter: 'isFile' },
+                    { expand: true, cwd: 'bower_components', src: ['bootstrap/**'], dest: '<%= basepath %>/app/css/libs' },
+                    { expand: true, cwd: 'bower_components/crypto.js/components', src: ['sha1.js'], dest: '<%= basepath %>/app/js/libs', filter: 'isFile' },
+                    { expand: true, cwd: 'bower_components/eonasdan-bootstrap-datetimepicker/build/js', src: ['bootstrap-datetimepicker.min.js'], dest: '<%= basepath %>/app/js/libs', filter: 'isFile' },
+                    { expand: true, cwd: 'bower_components/eonasdan-bootstrap-datetimepicker/build/css', src: ['bootstrap-datetimepicker.min.css'], dest: '<%= basepath %>/app/css/libs', filter: 'isFile' },
+                    { expand: true, cwd: 'bower_components', src: ['font-awesome/**'], dest: '<%= basepath %>/app/css/libs' },
+                    { expand: true, cwd: 'bower_components', src: ['jquery/**'], dest: '<%= basepath %>/app/js/libs' },
+                    { expand: true, cwd: 'bower_components/jquery-cookie', src: ['jquery.cookie.js'], dest: '<%= basepath %>/app/js/libs', filter: 'isFile' },
+                    { expand: true, cwd: 'bower_components/jquery-ui/ui/minified', src: ['autocomplete.min.js', 'widget.min.js', 'menu.min.js', 'core.min.js'], dest: '<%= basepath %>/app/js/libs', filter: 'isFile' },
+                    { expand: true, cwd: 'bower_components/jquery-ui/themes/base', src: ['*'], dest: '<%= basepath %>/app/css/libs/jquery-ui', filter: 'isFile' },
+                    { expand: true, cwd: 'bower_components/markdown/lib', src: ['markdown.js'], dest: '<%= basepath %>/app/js/libs', filter: 'isFile' },
+                    { expand: true, cwd: 'bower_components/moment/min', src: ['moment.min.js'], dest: '<%= basepath %>/app/js/libs', filter: 'isFile' },
+                    { expand: true, cwd: 'bower_components/moment/locale', src: ['zh-cn.js'], dest: '<%= basepath %>/app/js/libs', filter: 'isFile' },
                 ]
             },
             sharedjson: {
@@ -140,7 +141,7 @@
                         expand: true,
                         cwd: 'fitu/clients/webclientshared/app/css/userwebclient',
                         src: ['*.scss'],
-                        dest: 'statics/app/css/userwebclient',
+                        dest: '<%= basepath %>/app/css/userwebclient',
                         ext: '.css'
                     }]
             },
@@ -149,7 +150,7 @@
                         expand: true,
                         cwd: 'fitu/clients/webclientshared/app/css/vendorwebclient',
                         src: ['*.scss'],
-                        dest: 'statics/app/css/vendorwebclient',
+                        dest: '<%= basepath %>/app/css/vendorwebclient',
                         ext: '.css'
                     }]
             },
@@ -158,7 +159,7 @@
                         expand: true,
                         cwd: 'fitu/clients/webclientshared/app/css/adminwebclient',
                         src: ['*.scss'],
-                        dest: 'statics/app/css/adminwebclient',
+                        dest: '<%= basepath %>/app/css/adminwebclient',
                         ext: '.css'
                     }]
             },
@@ -167,14 +168,14 @@
                         expand: true,
                         cwd: 'fitu/clients/webclientshared/app/css/webclientshared',
                         src: ['*.scss'],
-                        dest: 'statics/app/css/webclientshared',
+                        dest: '<%= basepath %>/app/css/webclientshared',
                         ext: '.css'
                     }]
             }
         },
         clean: {
-            all: ['statics/app/css', 'statics/app/js', 'statics/app/image/webclientshared'],
-            html2js: ['statics/app/js/webclientshared/fituhtml.js']
+            all: ['<%= basepath %>/app/css', '<%= basepath %>/app/js', '<%= basepath %>/app/image/webclientshared'],
+            html2js: ['<%= basepath %>/app/js/webclientshared/fituhtml.js']
         },
         html2js: {
             options: {
@@ -197,7 +198,7 @@
             },
             directives: {
                 src: ['fitu/clients/webclientshared/app/html/directives/*.html'],
-                dest: 'statics/app/js/webclientshared/fituhtml.js',
+                dest: '<%= basepath %>/app/js/webclientshared/fituhtml.js',
             }
         },
         watch: {
@@ -266,10 +267,17 @@
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-concurrent');
     grunt.loadNpmTasks('grunt-html2js');
-    grunt.registerTask('default', ['clean', 'sass', 'copy:libsjs', 'copy:sharedimg', 'html2js', 'concat', 'uglify', 'clean:html2js', 'copy:sharedjson']);
-    grunt.registerTask('prod', ['default']);
-    grunt.registerTask('dev', ['clean', 'sass', 'copy', 'html2js']);
+    grunt.registerTask('prod', ['clean', 'sass', 'copy:libsjs', 'copy:sharedimg', 'html2js', 'concat', 'uglify', 'clean:html2js', 'copy:sharedjson']);
+    grunt.registerTask('nonprod', ['clean', 'sass', 'copy', 'html2js']);
     grunt.registerTask('watchuser', ['dev', 'concurrent:watchuser']);
     grunt.registerTask('watchvendor', ['dev', 'concurrent:watchvendor']);
     grunt.registerTask('watchadmin', ['dev', 'concurrent:watchadmin']);
+    grunt.registerTask('test', function () {
+        grunt.config('basepath', 'statics_test');
+        grunt.task.run('nonprod');
+    });
+    grunt.registerTask('dev', function () {
+        grunt.config('basepath', 'statics_dev');
+        grunt.task.run('nonprod');
+    });
 };

@@ -63,7 +63,7 @@ http.createServer(httpEntry)
 });
 
 //image upload server
-var fuploader = new FileUploader({ fsBase: path.join(__dirname, '../statics'), urlBase: '/app/image/uploaded', token: config.uploadFileToken });
+var fuploader = new FileUploader({ fsBase: path.join(__dirname, '../' + config.folder4staticFiles), urlBase: '/app/image/uploaded', token: config.uploadFileToken });
 http.createServer(function (req, res) {
     var webreq = new infra.Webreq(req);
     webreq.init()
@@ -79,7 +79,7 @@ http.createServer(function (req, res) {
 });
 
 //simulate a static file service
-var fservice = new FileService({ wdir: path.join(__dirname, '../statics') });
+var fservice = new FileService({ wdir: path.join(__dirname, '../' + config.folder4staticFiles) });
 http.createServer(function (req, res) {
     var webreq = new infra.Webreq(req);
     webreq.init()

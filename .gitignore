@@ -1,6 +1,8 @@
 /bower_components
 /node_modules
 /statics
+/statics_dev
+/statics_test
 .sass-cache
 .ntvs_analysis.dat
 .ntvs_analysis.dat.tmp
