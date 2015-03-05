@@ -18,7 +18,7 @@ html(lang='zh-CN' token='abc' ng-app='fitu')
         
         script(src='http://api.map.baidu.com/api?v=2.0&ak=NMZtgy57uBz7oPB2dtPRsq6G')
         //app scripts
-        if (env == 'dev')
+        if (env != 'prod')
             link(rel='stylesheet' href='#{staticBase}/app/css/libs/bootstrap/dist/css/bootstrap.css')
             link(rel='stylesheet' href='#{staticBase}/app/css/libs/font-awesome/css/font-awesome.css')
             

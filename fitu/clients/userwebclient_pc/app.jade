@@ -10,7 +10,7 @@ html(lang='zh-CN' token='abc' ng-app='fitu')
         link(rel='icon' href='#{staticBase}/app/image/webclientshared/icon.png' type='image/ico')
 
         //app scripts
-        if (env == 'dev')
+        if (env != 'prod')
             link(rel='stylesheet' href='#{staticBase}/app/css/libs/bootstrap/dist/css/bootstrap.css')
             link(rel='stylesheet' href='#{staticBase}/app/css/libs/font-awesome/css/font-awesome.css')
         else
