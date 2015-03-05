@@ -10,9 +10,11 @@
         .then(function (data) {
             $scope.activity = data;
             $scope.loading = false;
+            $rootScope.pageTitle = lang.ACTDETAIL_TITLE + data.name;
         })
         .catch(function (err) {
             $scope.loading = false;
+            $rootScope.pageTitle = lang.TITLE_DEFAULT;
         });
         
         member.getList({ actId: ctx.actId, preview: 1, page: 0, pageSize: 6, active: 1 })

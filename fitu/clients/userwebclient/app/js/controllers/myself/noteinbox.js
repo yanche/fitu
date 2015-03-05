@@ -1,6 +1,7 @@
 ﻿(function () {
     angular.module('fitu')
-    .controller('noteinbox', ['$scope', 'note', 'pagestore', '$state', 'ucconst', function ($scope, note, pagestore, $state, ucconst) {
+    .controller('noteinbox', ['$scope', 'note', 'pagestore', '$state', 'ucconst', '$rootScope', 'lang', function ($scope, note, pagestore, $state, ucconst, $rootScope, lang) {
+        $rootScope.pageTitle = lang.NOTEINBOX_TITLE;
         var pageSize = 10;
         var notesLoadFn = function (page) {
             return note.getMyNotes_IN({ page: page, pageSize: pageSize });

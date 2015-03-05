@@ -1,6 +1,6 @@
 ﻿(function () {
     angular.module('fitu')
-    .controller('actlocation', ['$scope', '$location', 'activity', function ($scope, $location, activity) {
+    .controller('actlocation', ['$scope', '$location', 'activity', 'lang', '$rootScope', function ($scope, $location, activity, lang, $rootScope) {
         var ctx = $location.search();
         if (!ctx.actId)
             return;
@@ -10,9 +10,12 @@
         .then(function (data) {
             $scope.activity = data;
             $scope.loading = false;
-        }, function (err) {
+            $rootScope.pageTitle = lang.ACTLOC_TITLE + data.name;
+        })
+        .catch(function (err) {
             console.log(err);
             $scope.loading = false;
+            $rootScope.pageTitle = lang.TITLE_DEFAULT;
         });
     }]);
 })();

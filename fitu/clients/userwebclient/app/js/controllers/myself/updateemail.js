@@ -1,6 +1,7 @@
 ﻿(function () {
     angular.module('fitu')
     .controller('updateemail', ['$rootScope', '$scope', '$state', 'ucconst', 'ucdatamodel', 'user', 'lang', function ($rootScope, $scope, $state, ucconst, ucdatamodel, user, lang) {
+        $rootScope.pageTitle = lang.UPDATEEMAIL_TITLE;
         $scope.updateEmailModel = new ucdatamodel.UpdateLoginEmailModel();
         $scope.updating = false;
         $scope.updateEmail = function () {

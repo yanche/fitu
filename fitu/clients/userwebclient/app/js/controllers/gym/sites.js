@@ -1,8 +1,10 @@
 ﻿(function () {
     angular.module('fitu')
-    .controller('sites', ['$scope', '$location', '$state', 'pagestore', 'site', 'ucconst', 'const', function ($scope, $location, $state, pagestore, site, ucconst, constants) {
+    .controller('sites', ['$scope', '$location', '$state', 'pagestore', 'site', 'ucconst', 'const', '$rootScope', 'lang', function ($scope, $location, $state, pagestore, site, ucconst, constants, $rootScope, lang) {
         var ctx = $location.search();
         
+        $rootScope.pageTitle = lang.SITE_TITLE; 
+
         var pageSize = 5;
         var sitesLoadFn = function (page) {
             return site.getList({ page: page, pageSize: pageSize, tag: ctx.tag, siteId: ctx.siteId, vendorId: ctx.vendorId });

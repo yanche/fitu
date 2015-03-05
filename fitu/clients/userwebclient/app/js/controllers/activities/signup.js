@@ -32,10 +32,12 @@
             .then(function (data) {
                 $scope.activity = data;
                 $scope.loading = false;
+                $rootScope.pageTitle = lang.SIGNUP_TITLES + data.name;
             })
             .catch(function (err) {
                 console.log(err);
                 $scope.loading = false;
+                $rootScope.pageTitle = lang.TITLE_DEFAULT;
             });
             
             $scope.processing = false;

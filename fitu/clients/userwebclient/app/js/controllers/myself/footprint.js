@@ -1,6 +1,7 @@
 ﻿(function () {
     angular.module('fitu')
-    .controller('footprint', ['$scope', 'footprint', 'pagestore', 'member', 'const', 'lang', 'ucconst', function ($scope, footprint, pagestore, member, constants, lang, ucconst) {
+    .controller('footprint', ['$scope', 'footprint', 'pagestore', 'member', 'const', 'lang', 'ucconst', '$rootScope', function ($scope, footprint, pagestore, member, constants, lang, ucconst, $rootScope) {
+        $rootScope.pageTitle = lang.FOOTPRINT_TITLE;
         var pageSize = 5;
         var fpLoadFn = function (page) {
             return footprint.getMyself({ page: page, pageSize: pageSize });

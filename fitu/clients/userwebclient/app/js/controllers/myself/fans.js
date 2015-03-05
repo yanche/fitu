@@ -1,6 +1,7 @@
 ﻿(function () {
     angular.module('fitu')
-    .controller('fans', ['$scope', 'user', '$rootScope', 'pagestore', '$state', 'ucconst', function ($scope, user, $rootScope, pagestore, $state, ucconst) {
+    .controller('fans', ['$scope', 'user', '$rootScope', 'pagestore', '$state', 'ucconst', 'lang', function ($scope, user, $rootScope, pagestore, $state, ucconst, lang) {
+        $rootScope.pageTitle = lang.FANS_TITLE;
         var pageSize = 10;
         var fansLoadFn = function (page) {
             return user.getPreviews({ page: page, pageSize: pageSize, fansOf: $rootScope.user.id });

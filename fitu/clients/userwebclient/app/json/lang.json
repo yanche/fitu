@@ -1,4 +1,6 @@
 ﻿{
+    "TITLE_DEFAULT": "约动天下",
+
     "NAV_LABEL_ME": "我",
     "NAV_LABEL_ACTIVITY": "活动",
     "NAV_LABEL_SITEIDLES": "场馆",
@@ -37,6 +39,7 @@
     "LOGIN_MSG_ERR_UNKNOWN": "密码重置失败：未知错误。。。",
     "LOGIN_MSG_SUCCESS_RESETPWD": "密码重置成功！请查收邮箱获取密码。",
     "LOGIN_MSG_CONFIRM_RESETPWD": "确定要重置密码吗：",
+    "LOGIN_TITLE": "登陆、注册",
 
     "REGISTER_LABEL_LOGIN": "登录",
     "REGISTER_LABEL_EMAIL": "登录邮箱*",
@@ -60,6 +63,7 @@
     "UPDATEPWD_MSG_ERR_PWD": "密码修改失败：密码错误。。。",
     "UPDATEPWD_MSG_ERR_UNKNOWN": "密码修改失败：未知错误",
     "UPDATEPWD_MSG_SUCCESS": "密码修改成功！",
+    "UPDATEPWD_TITLE": "修改密码",
 
     "UPDATEEMAIL_LABEL_OLDEMAIL": "当前",
     "UPDATEEMAIL_LABEL_NEWEMAIL": "新邮箱",
@@ -71,6 +75,7 @@
     "UPDATEEMAIL_MSG_ERR_PWD": "登录邮箱修改失败：密码错误。。。",
     "UPDATEEMAIL_MSG_ERR_UNKNOWN": "登录邮箱修改失败：未知错误",
     "UPDATEEMAIL_MSG_SUCCESS": "登录邮箱修改成功！",
+    "UPDATEEMAIL_TITLE": "修改登录邮箱",
 
     "PROFILE_LABEL_HEAD": "头像",
     "PROFILE_LABEL_NICKNAME": "大名",
@@ -82,10 +87,13 @@
     "PROFILE_MSG_ERR_CONFLICT": "修改信息失败：邮箱或昵称有冲突。。。",
     "PROFILE_MSG_ERR_UNKNOWN": "修改信息失败：未知错误",
     "PROFILE_MSG_SUCCESS": "修改个人信息成功！",
+    "PROFILE_TITLE": "个人信息",
 
     "VENDOR_HEADER": "商户",
+    "VENDOR_TITLE": "商户-",
 
     "SITE_HEADER": "场地",
+    "SITE_TITLE": "场馆列表",
 
     "SITEIDLES_HEADER": "空闲场馆",
 
@@ -108,6 +116,7 @@
     "FOOTPRINT_MSG_SUCCESS_QUIT": "活动退出成功！",
     "FOOTPRINT_MSG_ERR_QUIT": "活动退出失败：未知错误。。。",
     "FOOTPRINT_MSG_CONFIRM_QUIT": "你确定要退出这个活动嘛？",
+    "FOOTPRINT_TITLE": "我的足迹",
 
     "SIGNUP_BTN_SIGNUP": "马上报名！",
     "SIGNUP_BTN_SIGNUPING": "正在报名...",
@@ -124,9 +133,11 @@
     "SIGNUP_MSG_ERR_CONFLICT": "报名失败：你已经在这个活动中报过名了哦。。。",
     "SIGNUP_MSG_ERR_UNKNOWN": "报名失败：未知错误。。。",
     "SIGNUP_MSG_SUCCESS": "活动报名成功！",
+    "SIGNUP_TITLES": "活动报名-",
 
     "LEADERSHIP_HEADER": "我带的活动",
     "LEADERSHIP_LABEL_NOACT": "你还没有组织过活动哦。择个良辰吉日带小伙伴们一起HI起来吧！",
+    "LEADERSHIP_TITLE": "我带的活动",
 
     "SENDNOTE_HEADER": "发私信",
     "SENDNOTE_LABEL_SUBJECT": "主题",
@@ -143,19 +154,23 @@
     "SENDNOTE_MSG_404": "抱歉，收信人不存在 TAT",
     "SENDNOTE_MSG_ERR_SEND": "消息发送失败：未知错误。。。",
     "SENDNOTE_MSG_SUCCESS_SEND": "消息发送成功！",
+    "SENDNOTE_TITLE": "发私信",
 
     "NOTEOUTBOX_HEADER": "发件箱",
     "NOTEOUTBOX_MSG_EMPTY": "空的哟",
     "NOTEOUTBOX_LABEL_RECIPIENT": "发送给：",
+    "NOTEOUTBOX_TITLE": "发件箱",
 
     "NOTEINBOX_HEADER": "收件箱",
     "NOTEINBOX_MSG_EMPTY": "空的哟",
     "NOTEINBOX_LABEL_RECIPIENT": "来自：",
     "NOTEINBOX_LABEL_NEW": "NEW!",
+    "NOTEINBOX_TITLE": "收件箱",
 
     "NOTESYSBOX_HEADER": "系统消息",
     "NOTESYSBOX_MSG_EMPTY": "空的哟",
     "NOTESYSBOX_LABEL_NEW": "NEW!",
+    "NOTESYSBOX_TITLE": "系统消息",
 
     "ACTDETAIL_LABEL_TIME": "活动时间：",
     "ACTDETAIL_LABEL_ADDR": "地址",
@@ -180,6 +195,7 @@
     "ACTDETAIL_MSG_404": "喔！不知为何没有找到该活动。。。",
     "ACTDETAIL_MSG_SUCCESS_NEWMSG": "留言成功！",
     "ACTDETAIL_MSG_ERR_NEWMSG_UNKNOWN": "留言失败：未知错误。。。",
+    "ACTDETAIL_TITLE": "活动详情-",
 
     "USERPREVIEW_LABEL_FAN": "已关注",
     "USERPREVIEW_LABEL_NOFAN": "未关注",
@@ -195,13 +211,16 @@
     "USERPREVIEW_MSG_ERR_FAN_UNKNOWN": "关注失败：未知错误。。。",
     "USERPREVIEW_MSG_SUCCESS_NOFAN": "取消关注成功！",
     "USERPREVIEW_MSG_ERR_NOFAN_UNKNOWN": "取消关注失败：未知错误。。。",
+    "USERPREVIEW_TITLE": "用户-",
 
     "FANS_HEADER": "我的粉丝",
     "FANS_LABEL_NOFANS": "OH！你还没有粉丝呢 \\(╯-╰)/",
+    "FANS_TITLE": "我的粉丝",
 
     "SUBCRIBEUSERS_HEADER": "我关注的用户",
     "SUBCRIBEUSERS_LABEL_NOUSERS": "你还没有关注任何用户呢~~",
     "SUBCRIBEUSERS_MSG_WHYFAN": "注：关注用户之后，一旦TA召集活动，会立即通知到你喔！",
+    "SUBCRIBEUSERS_TITLE": "我关注的用户",
 
     "SITEDETAIL_LABEL_OPENTIME": "开放时间",
     "SITEDETAIL_LABEL_ADDR": "地址",
@@ -234,11 +253,13 @@
     "SITEDETAIL_MSG_ERR_FAN_UNKNOWN": "关注场馆失败：未知错误。。。",
     "SITEDETAIL_MSG_SUCCESS_NOFAN": "取消关注成功！",
     "SITEDETAIL_MSG_ERR_NOFAN_UNKNOWN": "取消关注失败：未知错误。。。",
+    "SITEDETAIL_TITLE": "场馆详情-",
 
     "SUBCRIBESITES_HEADER": "我关注的场馆",
     "SUBCRIBESITES_LABEL_NOSITES": "你还没有关注任何场馆呢~~",
     "SUBCRIBESITES_MSG_WHYFAN": "注：关注场馆之后，一旦有人在那儿召集活动，会立即通知到你喔！",
-    
+    "SUBCRIBESITES_TITLE": "我关注的场馆",
+
     "MATRIX_HEADER": "发起活动",
     "MATRIX_HEADER_UPDATE": "编辑活动",
     "MATRIX_LABEL_SITE": "场馆",
@@ -265,13 +286,14 @@
     "MATRIX_MSG_UPDATED": "活动信息更新成功！",
     "MATRIX_MSG_ERR_CREATION_UNKNOWN": "活动发起失败：未知错误。。。",
     "MATRIX_MSG_ERR_UPDATE_UNKNOWN": "活动更新失败：未知错误",
+    "MATRIX_TITLE": "MATRIX!",
 
     "VENDORDETAIL_LABEL_INTRO": "介绍",
     "VENDORDETAIL_LABEL_CONTACT": "联系方式",
     "VENDORDETAIL_LABEL_ADDR": "地址",
     "VENDORDETAIL_LABEL_TAG": "类型",
     "VENDORDETAIL_MSG_404": "喔！不知为何没有找到该商户。。。",
-    
+
     "ACTLEAD_LABEL_PAID": "已支付",
     "ACTLEAD_LABEL_UNPAID": "未支付",
     "ACTLEAD_LABEL_PENDING": "待确认",
@@ -288,8 +310,8 @@
     "ACTLEAD_LABEL_CENSUS_FEMALE": "女",
     "ACTLEAD_LABEL_CENSUS_UNKNOWN": "未知",
     "ACTLEAD_LABEL_CENSUS_TOTAL": "总计",
-    "ACTLEAD_MSG_LOADINGACT":  "正在加载活动信息...",
-    "ACTLEAD_MSG_LOADINGMEM":  "正在加载队员信息...",
+    "ACTLEAD_MSG_LOADINGACT": "正在加载活动信息...",
+    "ACTLEAD_MSG_LOADINGMEM": "正在加载队员信息...",
     "ACTLEAD_MSG_LOADINGCENSUS": "正在加载统计信息...",
     "ACTLEAD_MSG_NOAUTH": "你不是该活动的组织者，不能查看报名活动的队员信息。。。",
     "ACTLEAD_MSG_ACTCANCEL_CONFIRM": "你确定要取消这次活动嘛？取消之后不可恢复哟。。。",
@@ -297,12 +319,16 @@
     "ACTLEAD_MSG_ACTCANCEL_FAIL": "活动取消失败：未知错误。。。",
     "ACTLEAD_MSG_ERR_MEMBERSTATUS": "状态更新失败：未知错误。。。",
     "ACTLEAD_MSG_ERR_MEMBERPAYSTATUS": "支付状态更新失败：未知错误。。。",
+    "ACTLEAD_TITLE": "我的活动-",
 
     "ACTIVITIES_MSG_NOACT": "抱歉，目前没有可以报名的（这种）活动喔。",
+    "ACTIVITIES_TITLE": "约动天下-活动列表",
 
     "SITELOC_MSG_404": "喔！不知为何没有找到该场馆。。。",
+    "SITELOC_TITLE": "场馆地址-",
 
     "ACTLOC_MSG_404": "喔！不知为何没有找到该活动。。。",
+    "ACTLOC_TITLE": "活动地址-",
 
     "NOTFOUND_MSG": "唔。。。似乎到了个奇怪的地方呢。。。",
 

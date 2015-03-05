@@ -1,6 +1,7 @@
 ﻿(function () {
     angular.module('fitu')
-    .controller('subscribedusers', ['$scope', 'user', '$rootScope', 'pagestore', '$state', 'ucconst', function ($scope, user, $rootScope, pagestore, $state, ucconst) {
+    .controller('subscribedusers', ['$scope', 'user', '$rootScope', 'pagestore', '$state', 'ucconst', 'lang', function ($scope, user, $rootScope, pagestore, $state, ucconst, lang) {
+        $rootScope.pageTitle = lang.SUBCRIBEUSERS_TITLE;
         var pageSize = 10;
         var usersLoadFn = function (page) {
             return user.getPreviews({ page: page, pageSize: pageSize, subscribedUsersOf: $rootScope.user.id });

@@ -1,6 +1,6 @@
 ﻿(function () {
     angular.module('fitu')
-    .controller('actlead', ['$scope', '$location', 'member', 'pagestore', 'activity', '$state', 'ucconst', 'const', 'lang', function ($scope, $location, member, pagestore, activity, $state, ucconst, constants, lang) {
+    .controller('actlead', ['$scope', '$location', 'member', 'pagestore', 'activity', '$state', 'ucconst', 'const', 'lang', '$rootScope', function ($scope, $location, member, pagestore, activity, $state, ucconst, constants, lang, $rootScope) {
         var ctx = $location.search();
         if (ctx.actId) {
             $scope.loadingAct = true;
@@ -8,10 +8,12 @@
             .then(function (data) {
                 $scope.activity = data;
                 $scope.loadingAct = false;
+                $rootScope.pageTitle = lang.ACTLEAD_TITLE + data.name;
             })
             .catch(function (err) {
                 console.log(err);
                 $scope.loadingAct = false;
+                $rootScope.pageTitle = lang.TITLE_DEFAULT;
             });
                 
             var loadCensus = function () {

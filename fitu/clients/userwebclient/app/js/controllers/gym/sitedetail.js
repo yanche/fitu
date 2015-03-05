@@ -10,9 +10,12 @@
         .then(function (data) {
             $scope.site = data;
             $scope.loading = false;
-        }, function (err) {
+            $rootScope.pageTitle = lang.SITEDETAIL_TITLE + data.name;
+        })
+        .catch(function (err) {
             console.log(err);
             $scope.loading = false;
+            $rootScope.pageTitle = lang.TITLE_DEFAULT;
         });
         
         if ($rootScope.user) {

@@ -1,6 +1,7 @@
 ﻿(function () {
     angular.module('fitu')
     .controller('matrix', ['$scope', '$state', 'site', '$location', 'ucconst', 'validate', '$rootScope', 'ucdatamodel', 'const', 'activity', 'lang', function ($scope, $state, site, $location, ucconst, validate, $rootScope, ucdatamodel, constants, activity, lang) {
+        $rootScope.pageTitle = lang.MATRIX_TITLE;
         var ctx = $location.search();
         if (ctx.actId) {
             $scope.loading = true;

@@ -1,6 +1,7 @@
 ﻿(function () {
     angular.module('fitu')
-    .controller('notesys', ['$scope', 'note', 'pagestore', 'ucconst', function ($scope, note, pagestore, ucconst) {
+    .controller('notesys', ['$scope', 'note', 'pagestore', 'ucconst', '$rootScope', 'lang', function ($scope, note, pagestore, ucconst, $rootScope, lang) {
+        $rootScope.pageTitle = lang.NOTESYSBOX_TITLE;
         var pageSize = 10;
         var notesLoadFn = function (page) {
             return note.getMyNotes_SYS({ page: page, pageSize: pageSize });

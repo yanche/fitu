@@ -1,6 +1,7 @@
 ﻿(function () {
     angular.module('fitu')
-    .controller('leadership', ['$scope', 'activity', 'pagestore', 'ucconst', '$state', function ($scope, activity, pagestore, ucconst, $state) {
+    .controller('leadership', ['$scope', 'activity', 'pagestore', 'ucconst', '$state', 'lang', '$rootScope', function ($scope, activity, pagestore, ucconst, $state, lang, $rootScope) {
+        $rootScope.pageTitle = lang.LEADERSHIP_TITLE;
         var pageSize = 5;
         var ldLoadFn = function (page) {
             return activity.getList({ page: page, pageSize: pageSize, lead: 1 });

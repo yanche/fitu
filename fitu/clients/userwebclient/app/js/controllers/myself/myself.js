@@ -1,6 +1,7 @@
 ﻿(function () {
     angular.module('fitu')
     .controller('myself', ['$rootScope', '$scope', '$state', 'ucconst', 'user', 'lang', function ($rootScope, $scope, $state, ucconst, user, lang) {
+        $rootScope.pageTitle = lang.MYSELF_TITLE_ME;
         $scope.logout = function () {
             user.logout()
             .then(function () {

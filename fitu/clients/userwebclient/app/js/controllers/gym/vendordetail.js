@@ -1,6 +1,6 @@
 ﻿(function () {
     angular.module('fitu')
-    .controller('vendordetail', ['$scope', 'vendor', '$location', function ($scope, vendor, $location) {
+    .controller('vendordetail', ['$scope', 'vendor', '$location', '$rootScope', 'lang', function ($scope, vendor, $location, $rootScope, lang) {
         var ctx = $location.search();
         if (!ctx.vendorId)
             return;
@@ -10,9 +10,11 @@
         .then(function (data) {
             $scope.vendor = data;
             $scope.loading = false;
-        }, function (err) {
-            console.log(err);
+            $rootScope.pageTitle = lang.VENDOR_TITLE + data.name;
+        })
+        .catch(function (err) {
             $scope.loading = false;
+            $rootScope.pageTitle = lang.TITLE_DEFAULT;
         });
     }]);
 })();

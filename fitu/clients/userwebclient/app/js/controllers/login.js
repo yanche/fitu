@@ -1,6 +1,7 @@
 ﻿(function () {
     angular.module('fitu')
     .controller('login', ['$rootScope', '$scope', '$location', '$state', 'validate', 'user', '$state', 'ucconst', 'ucdatamodel' ,'lang', function ($rootScope, $scope, $location, $state, validate, user, $state, ucconst, ucdatamodel, lang) {
+        $rootScope.pageTitle = lang.LOGIN_TITLE;
         var ctx = $location.search();
         $scope.logining = false;
         $scope.registering = false;

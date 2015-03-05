@@ -1,6 +1,7 @@
 ﻿(function () {
     angular.module('fitu')
-    .controller('subscribedsites', ['$scope', 'site', '$rootScope', 'pagestore', '$state', 'ucconst', function ($scope, site, $rootScope, pagestore, $state, ucconst) {
+    .controller('subscribedsites', ['$scope', 'site', '$rootScope', 'pagestore', '$state', 'ucconst', 'lang', function ($scope, site, $rootScope, pagestore, $state, ucconst, lang) {
+        $rootScope.pageTitle = lang.SUBCRIBESITES_TITLE;
         var pageSize = 10;
         var sitesLoadFn = function (page) {
             return site.getList({ page: page, pageSize: pageSize, subscribedSitesOf: $rootScope.user.id });

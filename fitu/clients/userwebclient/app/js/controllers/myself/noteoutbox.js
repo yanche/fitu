@@ -1,6 +1,7 @@
 ﻿(function () {
     angular.module('fitu')
-    .controller('noteoutbox', ['$scope', 'note', 'pagestore', function ($scope, note, pagestore) {
+    .controller('noteoutbox', ['$scope', 'note', 'pagestore', '$rootScope', 'lang', function ($scope, note, pagestore, $rootScope, lang) {
+        $rootScope.pageTitle = lang.NOTEOUTBOX_TITLE;
         var pageSize = 10;
         var notesLoadFn = function (page) {
             return note.getMyNotes_OUT({ page: page, pageSize: pageSize });

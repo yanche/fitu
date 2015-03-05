@@ -1,6 +1,7 @@
 ﻿(function () {
     angular.module('fitu')
     .controller('updatepwd', ['$rootScope', '$scope', '$state', 'ucconst', 'ucdatamodel', 'user', 'lang', function ($rootScope, $scope, $state, ucconst, ucdatamodel, user, lang) {
+        $rootScope.pageTitle = lang.UPDATEPWD_TITLE;
         $scope.updatePWDModel = new ucdatamodel.UpdateLoginPWDModel();
         $scope.updating = false;
         $scope.updatePWD = function () {

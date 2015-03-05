@@ -8,9 +8,11 @@
             .then(function (data) {
                 $scope.userpublic = data;
                 $scope.loading = false;
+                $rootScope.pageTitle = lang.USERPREVIEW_TITLE;
             })
             .catch(function (err) {
                 $scope.loading = false;
+                $rootScope.pageTitle = lang.TITLE_DEFAULT;
             });
             
             if ($rootScope.user) {

@@ -1,6 +1,7 @@
 ﻿(function () {
     angular.module('fitu')
-    .controller('sendnote', ['$scope', '$location', 'member', 'pagination', 'activity', 'ucdatamodel', 'note', 'user', 'ucconst', 'lang', function ($scope, $location, member, pagination, activity, ucdatamodel, note, user, ucconst, lang) {
+    .controller('sendnote', ['$scope', '$location', 'member', 'pagination', 'activity', 'ucdatamodel', 'note', 'user', 'ucconst', 'lang', '$rootScope', function ($scope, $location, member, pagination, activity, ucdatamodel, note, user, ucconst, lang, $rootScope) {
+        $rootScope.pageTitle = lang.SENDNOTE_TITLE;
         var ctx = $location.search();
         
         if (ctx.actId || ctx.recipientId) {
