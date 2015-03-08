@@ -270,7 +270,7 @@
                 controller: 'sitelocation'
             }, {
                 name: 'discovery',
-                url: '/discovery',
+                url: '/discovery?siteId',
                 templateUrl: '/app/html/gym/discovery.html',
                 controller: 'discovery'
             }]

@@ -312,12 +312,12 @@
             this.openStartMinProp = new ModelProp(validate.alwaysTrue);
             this.openEndHourProp = new ModelProp(validate.alwaysTrue);
             this.openEndMinProp = new ModelProp(validate.alwaysTrue);
-            this.priceModesProp = new ModelArrayProp(validate.alwaysTrue, function (item, optional) {
+            this.pricesProp = new ModelArrayProp(validate.alwaysTrue, function (item, optional) {
                 return item.validate(optional);
             });
             this.transSubwayProp = new ModelProp(validate.alwaysTrue);
             this.transBusProp = new ModelProp(validate.alwaysTrue);
-            this.addProp(this.nameProp).addProp(this.introProp).addProp(this.addrProp).addProp(this.geoProp).addProp(this.picProp).addProp(this.tagProp).addProp(this.openStartHourProp).addProp(this.openStartMinProp).addProp(this.openEndHourProp).addProp(this.openEndMinProp).addProp(this.priceModesProp).addProp(this.transSubwayProp).addProp(this.transBusProp);
+            this.addProp(this.nameProp).addProp(this.introProp).addProp(this.addrProp).addProp(this.geoProp).addProp(this.picProp).addProp(this.tagProp).addProp(this.openStartHourProp).addProp(this.openStartMinProp).addProp(this.openEndHourProp).addProp(this.openEndMinProp).addProp(this.pricesProp).addProp(this.transSubwayProp).addProp(this.transBusProp);
         };
         DiscoveryModel.prototype = Object.create(DataModel.prototype);
         DiscoveryModel.prototype.toLO = function () {
@@ -332,7 +332,7 @@
                 picUrl: this.picProp.val,
                 tags: [this.tagProp.val], //TODO
                 open: { startsOn: { hour: this.openStartHourProp.val, min: this.openStartMinProp.val }, endsOn: { hour: this.openEndHourProp.val, min: this.openEndMinProp.val } },
-                prices: this.priceModesProp.array.map(function (p) { return p.toLO(); }),
+                prices: this.pricesProp.array.map(function (p) { return p.toLO(); }),
                 trans: { subway: this.transSubwayProp.val || '', bus: this.transBusProp.val || '' }
             };
         };
@@ -351,7 +351,7 @@
                 this.openStartMinProp.init(data.open.startsOn.min);
                 this.openEndHourProp.init(data.open.endsOn.hour);
                 this.openEndMinProp.init(data.open.endsOn.min);
-                this.priceModesProp.array = data.priceModes.map(function (p) { return new SitePriceModel().init(p); });
+                this.pricesProp.array = data.prices.map(function (p) { return new SitePriceModel().init(p); });
                 this.transSubwayProp.init(data.trans.subway);
                 this.transBusProp.init(data.trans.bus);
             }

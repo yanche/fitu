@@ -54,7 +54,7 @@
                 <span ng-click="link.goVendorDetail(site.vendor.id)" ng-bind="site.vendor.name"></span>
             </div>
         </div>
-        <div class="col-xs-12 paddingLR0px" ng-show="user">
+        <div class="col-xs-12 paddingLR0px" ng-show="user && !site.vendor">
             <i class="fa fa-bug text-highlight"></i>
             <span ng-bind="lang.SITEDETAIL_MSG_EDIT" ng-click="link.goDiscovery({siteId: site.id})"></span>
         </div>

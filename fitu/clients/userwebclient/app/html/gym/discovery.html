@@ -1,5 +1,11 @@
 ﻿<div class="col-xs-12">
-    <h4 class="col-xs-12 paddingLR0px text-bold" ng-bind="lang.DISCOVERY_HEADER"></h4>
+    <h4 class="col-xs-12 paddingLR0px text-bold" ng-show="mode == 2" ng-bind="lang.DISCOVERY_HEADER"></h4>
+    <h4 class="col-xs-12 paddingLR0px text-bold" ng-show="mode == 1" ng-bind="lang.DISCOVERY_HEADER_UPDATE"></h4>
+    <loading class="col-xs-12 paddingLR0px" show="loading" word="lang.GLOBAL_MSG_LOADING"></loading>
+</div>
+<div class="col-xs-12 text-bold" ng-bind="lang.DISCOVERY_MSG_UPDATE_NOTFOUND" ng-show="!discoveryModel && !loading && !hasVendor"></div>
+<div class="col-xs-12 text-bold" ng-bind="lang.DISCOVERY_MSG_UPDATE_HASVENDOR" ng-show="hasVendor"></div>
+<div class="col-xs-12" ng-show="discoveryModel">
     <div class="form-group col-xs-12 paddingLR0px">
         <label for="discovery_name" class="control-label" ng-bind="lang.DISCOVERY_LABEL_NAME"></label>
         <div ng-class="{'has-error': !discoveryModel.nameProp.validate()}">
@@ -62,7 +68,7 @@
                 <span ng-bind="lang.DISCOVERY_LABEL_PRICEMODE_ADD"></span>
                 <i class="fa fa-plus" ng-click="addPriceMode()"></i>
             </div>
-            <div class="col-xs-12 paddingLR0px" style="margin-bottom: 5px;" ng-repeat="p in discoveryModel.priceModesProp.array">
+            <div class="col-xs-12 paddingLR0px" style="margin-bottom: 5px;" ng-repeat="p in discoveryModel.pricesProp.array">
                 <i class="fa fa-rmb"></i>
                 <input type="text" class="form-control" style="width:50px;display:inline-block;margin-right:5px;" ng-model="p.amountProp.val" />
                 <i class="fa fa-user"></i>
@@ -70,7 +76,7 @@
                 <i class="fa fa-clock-o"></i>
                 <input type="text" class="form-control" style="width:50px;display:inline-block;" ng-model="p.freqNumProp.val" />
                 <select style="width: 70px; display:inline-block;" class="form-control" ng-options="m.key as m.value for m in const.priceMeasure" ng-model="p.freqMeasureProp.val"></select>
-                <i class="fa fa-times" ng-click="discoveryModel.priceModesProp.array.splice($index, 1)"></i>
+                <i class="fa fa-times" ng-click="discoveryModel.pricesProp.array.splice($index, 1)"></i>
             </div>
         </div>
     </div>
@@ -94,10 +100,11 @@
         <img class="img-responsive" ng-src="{{discoveryModel.picProp.val}}" style="margin-top:5px;" />
     </div>
     <div class="col-xs-12 paddingLR0px">
-        <button ng-class="{disabled: !discoveryModel.validate() || adding}" type="submit" class="btn btn-success" ng-click="reportSite()">
-            <i class="fa fa-spinner fa-spin" ng-show="adding"></i>
-            <span ng-bind="lang.DISCOVERY_BTN_REPORT" ng-show="!adding"></span>
-            <span ng-bind="lang.DISCOVERY_BTN_REPORTING" ng-show="adding"></span>
+        <button ng-class="{disabled: !discoveryModel.validate() || adding || updating}" type="submit" class="btn btn-success" ng-click="reportSite()">
+            <i class="fa fa-spinner fa-spin" ng-show="adding || updating"></i>
+            <span ng-bind="lang.DISCOVERY_BTN_REPORT" ng-show="!adding && mode == 1"></span>
+            <span ng-bind="lang.DISCOVERY_BTN_REPORT_UPDATE" ng-show="!updating && mode == 2"></span>
+            <span ng-bind="lang.DISCOVERY_BTN_REPORTING" ng-show="adding || updating"></span>
         </button>
     </div>
     <div class="empty-xs"></div>

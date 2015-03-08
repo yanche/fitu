@@ -339,8 +339,11 @@
     "LOGOUT_MSG_ERR_UNKNOWN": "退出失败：未知错误。。。",
 
     "DISCOVERY_HEADER": "发现场馆",
+    "DISCOVERY_HEADER_UPDATE": "编辑场馆",
     "DISCOVERY_TITLE": "发现场馆",
+    "DISCOVERY_TITLE_UPDATE": "编辑场馆",
     "DISCOVERY_BTN_REPORT": "发现场馆",
+    "DISCOVERY_BTN_REPORT_UPDATE": "更新场馆",
     "DISCOVERY_BTN_REPORTING": "正在上传...",
     "DISCOVERY_LABEL_NAME": "场馆名*",
     "DISCOVERY_LABEL_INTRO": "简介",
@@ -358,5 +361,9 @@
     "DISCOVERY_LABEL_GEO": "请点击地图确认位置",
     "DISCOVERY_LABEL_PIC": "照片",
     "DISCOVERY_MSG_CREATED": "成功上传了一个新场馆！",
-    "DISCOVERY_MSG_ERR_CREATE_UNKNOWN": "新场馆发现失败，未知错误 TAT"
+    "DISCOVERY_MSG_ERR_CREATE_UNKNOWN": "新场馆发现失败，未知错误 TAT",
+    "DISCOVERY_MSG_UPDATED": "场馆更新成功！",
+    "DISCOVERY_MSG_ERR_UPDATE_UNKNOWN": "场馆更新失败，未知错误 TAT",
+    "DISCOVERY_MSG_UPDATE_NOTFOUND": "此场馆貌似还不存在",
+    "DISCOVERY_MSG_UPDATE_HASVENDOR": "抱歉，暂不提供此场馆的更新功能"
 }
