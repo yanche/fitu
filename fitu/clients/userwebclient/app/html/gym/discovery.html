@@ -71,11 +71,17 @@
             <div class="col-xs-12 paddingLR0px" style="margin-bottom: 5px;" ng-repeat="p in discoveryModel.pricesProp.array">
                 <div class="col-xs-12 paddingLR0px text-bold text-sm" ng-bind="p.toLO() | price"></div>
                 <i class="fa fa-rmb"></i>
-                <input type="text" class="form-control" style="width:50px;display:inline-block;margin-right:5px;" ng-model="p.amountProp.val" />
+                <div ng-class="{'has-error': !p.amountProp.validate()}" style="width:50px;display:inline-block;margin-right:5px;">
+                    <input type="text" class="form-control" ng-model="p.amountProp.val" />
+                </div>
                 <i class="fa fa-user"></i>
-                <input type="text" class="form-control" style="width:50px;display:inline-block;margin-right:5px;" ng-model="p.peopleProp.val" />
+                <div ng-class="{'has-error': !p.peopleProp.validate()}" style="width:50px;display:inline-block;margin-right:5px;">
+                    <input type="text" class="form-control" ng-model="p.peopleProp.val" />
+                </div>
                 <i class="fa fa-clock-o"></i>
-                <input type="text" class="form-control" style="width:50px;display:inline-block;" ng-model="p.freqNumProp.val" />
+                <div ng-class="{'has-error': !p.freqNumProp.validate()}" style="width:50px;display:inline-block;margin-right:5px;">
+                    <input type="text" class="form-control" ng-model="p.freqNumProp.val" />
+                </div>
                 <select style="width: 70px; display:inline-block;" class="form-control" ng-options="m.key as m.value for m in const.priceMeasure" ng-model="p.freqMeasureProp.val"></select>
                 <i class="fa fa-times" ng-click="discoveryModel.pricesProp.array.splice($index, 1)"></i>
             </div>
