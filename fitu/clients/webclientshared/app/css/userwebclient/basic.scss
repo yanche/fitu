@@ -11,6 +11,7 @@
 
     #scrollableview {
         height: 740px;
+        width: 100%;
         overflow-y: auto;
     }
 
@@ -31,6 +32,7 @@ body {
     #viewport.site-in-pc {
         margin-left: 16.66%;
         margin-right: 16.66%;
+        width: 66.68%;
     }
 }
 
@@ -38,6 +40,7 @@ body {
     #viewport.site-in-pc {
         margin-left: 25%;
         margin-right: 25%;
+        width: 50%;
     }
 }
 
@@ -45,6 +48,7 @@ body {
     #viewport.site-in-pc {
         margin-left: 30%;
         margin-right: 30%;
+        width: 40%;
     }
 }
 
@@ -52,6 +56,7 @@ body {
     #viewport.site-in-pc {
         margin-left: 35%;
         margin-right: 35%;
+        width: 30%;
     }
 }
 
@@ -59,5 +64,6 @@ body {
     #viewport.site-in-pc {
         margin-left: 40%;
         margin-right: 40%;
+        width: 20%;
     }
 }
