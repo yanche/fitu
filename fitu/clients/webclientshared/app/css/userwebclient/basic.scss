@@ -1,5 +1,63 @@
 ﻿@import '../config/color';
 
+#viewport {
+    background-color: $color_bg;
+    float: left;
+}
+
+#viewport.site-in-pc {
+    border: 1px dashed black;
+    position: relative;
+
+    #scrollableview {
+        height: 740px;
+        overflow-y: auto;
+    }
+
+    #navbottom, #navtop, #msg-content {
+        position: absolute;
+    }
+}
+
 body {
     background-color: $color_bg;
+
+    &.site-in-pc {
+        background: white;
+    }
+}
+
+@media(min-width: 500px) {
+    #viewport.site-in-pc {
+        margin-left: 16.66%;
+        margin-right: 16.66%;
+    }
+}
+
+@media(min-width: 700px) {
+    #viewport.site-in-pc {
+        margin-left: 25%;
+        margin-right: 25%;
+    }
+}
+
+@media(min-width: 1000px) {
+    #viewport.site-in-pc {
+        margin-left: 30%;
+        margin-right: 30%;
+    }
+}
+
+@media(min-width: 1350px) {
+    #viewport.site-in-pc {
+        margin-left: 35%;
+        margin-right: 35%;
+    }
+}
+
+@media(min-width: 1800px) {
+    #viewport.site-in-pc {
+        margin-left: 40%;
+        margin-right: 40%;
+    }
 }

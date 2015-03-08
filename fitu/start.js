@@ -40,10 +40,10 @@ var httpEntry = function (req, res) {
             case 'api':
                 return api.handle(webreq);
             case 'www':
-                if (validate.userAgentMobile(webreq._raw.headers['user-agent']))
-                    return userClientService.handle(webreq);
-                else
-                    return userClientPCService.handle(webreq);
+                //if (validate.userAgentMobile(webreq._raw.headers['user-agent']))
+                return userClientService.handle(webreq);
+                //else
+                //    return userClientPCService.handle(webreq);
             case 'vendor':
                 return vendorClientService.handle(webreq);
             case 'admin':

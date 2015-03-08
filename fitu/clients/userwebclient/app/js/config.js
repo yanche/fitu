@@ -1,6 +1,7 @@
 ﻿(function () {
     angular.module('fitu', ['ngAnimate', 'ui.router', 'ui.router.stateHelper', 'fitulib', 'fituhtml'])
-    .run(['$rootScope', 'user', 'ucconst', 'lang', '$state', '$timeout', '$location', 'crypto', 'wxb', 'link', 'util', 'note', function ($rootScope, user, ucconst, lang, $state, $timeout, $location, crypto, wxb, link, util, note) {
+    .run(['$rootScope', 'user', 'ucconst', 'lang', '$state', '$timeout', '$location', 'crypto', 'wxb', 'link', 'util', 'note', 'const', function ($rootScope, user, ucconst, lang, $state, $timeout, $location, crypto, wxb, link, util, note, constant) {
+        $rootScope.mobile = constant.siteInfo.mobile;
         var loadUser = function (obj, state, params) {
             //TODO, state transfer need optimization
             $rootScope.loadingUser = true;

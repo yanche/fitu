@@ -11,7 +11,7 @@ html(lang='zh-CN' token='abc' ng-app='fitu')
         link(rel='icon' href='#{staticBase}/app/image/webclientshared/icon.png' type='image/ico')
 
         script.
-            var siteInfo = {staticBase: '#{staticBase}', apiBase: '#{apiBase}', domain: '#{domain}'};
+            var siteInfo = {staticBase: '#{staticBase}', apiBase: '#{apiBase}', domain: '#{domain}', mobile: #{mobile}};
 
         //common
         link(rel='stylesheet' href='#{staticBase}/app/css/libs/bootstrap-datetimepicker.min.css')
@@ -139,5 +139,6 @@ html(lang='zh-CN' token='abc' ng-app='fitu')
 
         link(rel='stylesheet' href='#{staticBase}/app/css/userwebclient/fitu_user.css')
         link(rel='stylesheet' href='#{staticBase}/app/css/webclientshared/fitu_sh.css')
-    body
-        div(ui-view)
+    body(ng-class="{'site-in-pc': !mobile}")
+        div#viewport(ng-class="{'site-in-pc': !mobile}")
+            div#scrollableview(ui-view)
