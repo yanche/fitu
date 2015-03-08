@@ -67,7 +67,7 @@
                 if ($rootScope.user)
                     evt.preventDefault();
             }
-            else if (toState.name.indexOf(ucconst.states.myself) >= 0) {
+            else if (toState.name.indexOf(ucconst.states.myself) >= 0 || toState.name == ucconst.states.discovery) {
                 if (!$rootScope.user) {
                     evt.preventDefault();
                     $timeout(function () {
@@ -121,6 +121,7 @@
                 case ucconst.states.sitedetail:
                 case ucconst.states.sitelocation:
                 case ucconst.states.vendordetail:
+                case ucconst.states.discovery:
                     return 'gym';
                 case ucconst.states.notfound:
                 default:
@@ -267,6 +268,11 @@
                 url: '/sitelocation?siteId',
                 templateUrl: '/app/html/gym/sitelocation.html',
                 controller: 'sitelocation'
+            }, {
+                name: 'discovery',
+                url: '/discovery',
+                templateUrl: '/app/html/gym/discovery.html',
+                controller: 'discovery'
             }]
         });
         $urlRouterProvider.when('/', '/activities').when('', '/activities').otherwise('/notfound');

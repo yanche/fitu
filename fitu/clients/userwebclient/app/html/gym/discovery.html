@@ -1,0 +1,104 @@
+﻿<div class="col-xs-12">
+    <h4 class="col-xs-12 paddingLR0px text-bold" ng-bind="lang.DISCOVERY_HEADER"></h4>
+    <div class="form-group col-xs-12 paddingLR0px">
+        <label for="discovery_name" class="control-label" ng-bind="lang.DISCOVERY_LABEL_NAME"></label>
+        <div ng-class="{'has-error': !discoveryModel.nameProp.validate()}">
+            <input type="text" class="form-control" id="discovery_name" ng-model="discoveryModel.nameProp.val" />
+        </div>
+    </div>
+    <div class="form-group col-xs-12 paddingLR0px">
+        <label for="discovery_intro" class="control-label" ng-bind="lang.DISCOVERY_LABEL_INTRO"></label>
+        <div>
+            <input type="text" class="form-control" id="discovery_intro" ng-model="discoveryModel.introProp.val" />
+        </div>
+    </div>
+    <div class="form-group col-xs-12 paddingLR0px">
+        <label for="discovery_contact" class="control-label" ng-bind="lang.DISCOVERY_LABEL_CONTACT"></label>
+        <div ng-class="{'has-error': !discoveryModel.contactProp.validate(true)}">
+            <input type="text" class="form-control" id="discovery_contact" ng-model="discoveryModel.contactProp.val" />
+        </div>
+    </div>
+    <div class="col-xs-12 paddingLR0px form-group">
+        <span class="text-bold" ng-bind="lang.DISCOVERY_LABEL_TRANS"></span>
+        <i class="fa" ng-class="{'fa-chevron-down': !transExpanded, 'fa-chevron-up': transExpanded}" ng-click="transExpanded = !transExpanded"></i>
+        <div class="paddingLR0px col-xs-12" ng-class="{_slide_down: transExpanded}" style="display:none;">
+            <div class="col-xs-12 paddingLR0px" style="margin-bottom: 5px;">
+                <label for="discovery_transsubway" class="control-label" ng-bind="lang.DISCOVERY_LABEL_TRANS_SUBWAY"></label>
+                <div>
+                    <input type="text" class="form-control" id="discovery_transsubway" ng-model="discoveryModel.transSubwayProp.val" />
+                </div>
+            </div>
+            <div class="col-xs-12 paddingLR0px" style="margin-bottom: 5px;">
+                <label for="discovery_transbus" class="control-label" ng-bind="lang.DISCOVERY_LABEL_TRANS_BUS"></label>
+                <div>
+                    <input type="text" class="form-control" id="discovery_transbus" ng-model="discoveryModel.transBusProp.val" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 paddingLR0px form-group">
+        <span class="text-bold" ng-bind="lang.DISCOVERY_LABEL_OPEN"></span>
+        <i class="fa" ng-class="{'fa-chevron-down': !openingExpanded, 'fa-chevron-up': openingExpanded}" ng-click="openingExpanded = !openingExpanded"></i>
+        <div class="paddingLR0px col-xs-12" ng-class="{_slide_down: openingExpanded}" style="display:none;">
+            <div class="col-xs-12 paddingLR0px" style="margin-bottom: 5px;">
+                <span class="text-bold" ng-bind="lang.DISCOVERY_LABEL_OPEN_STARTSON"></span>
+                <select class="form-control" style="width: 80px; display: inline-block;" ng-options="h for h in const.hour24" ng-model="discoveryModel.openStartHourProp.val"></select>
+                <span class="text-bold">:</span>
+                <select class="form-control" style="width: 80px; display: inline-block;" ng-options="m for m in const.minutesQuarter" ng-model="discoveryModel.openStartMinProp.val"></select>
+            </div>
+            <div class="col-xs-12 paddingLR0px" style="margin-bottom: 5px;">
+                <span class="text-bold" ng-bind="lang.DISCOVERY_LABEL_OPEN_ENDSON"></span>
+                <select class="form-control" style="width: 80px; display: inline-block;" ng-options="h for h in const.hour24" ng-model="discoveryModel.openEndHourProp.val"></select>
+                <span class="text-bold">:</span>
+                <select class="form-control" style="width: 80px; display: inline-block;" ng-options="m for m in const.minutesQuarter" ng-model="discoveryModel.openEndMinProp.val"></select>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 paddingLR0px form-group">
+        <span class="text-bold" ng-bind="lang.DISCOVERY_LABEL_PRICEMODE"></span>
+        <i class="fa" ng-class="{'fa-chevron-down': !priceModeExpanded, 'fa-chevron-up': priceModeExpanded}" ng-click="priceModeExpanded = !priceModeExpanded"></i>
+        <div class="paddingLR0px col-xs-12" ng-class="{_slide_down: priceModeExpanded}" style="display:none;">
+            <div class="col-xs-12 paddingLR0px">
+                <span ng-bind="lang.DISCOVERY_LABEL_PRICEMODE_ADD"></span>
+                <i class="fa fa-plus" ng-click="addPriceMode()"></i>
+            </div>
+            <div class="col-xs-12 paddingLR0px" style="margin-bottom: 5px;" ng-repeat="p in discoveryModel.priceModesProp.array">
+                <i class="fa fa-rmb"></i>
+                <input type="text" class="form-control" style="width:50px;display:inline-block;margin-right:5px;" ng-model="p.amountProp.val" />
+                <i class="fa fa-user"></i>
+                <input type="text" class="form-control" style="width:50px;display:inline-block;margin-right:5px;" ng-model="p.peopleProp.val" />
+                <i class="fa fa-clock-o"></i>
+                <input type="text" class="form-control" style="width:50px;display:inline-block;" ng-model="p.freqNumProp.val" />
+                <select style="width: 70px; display:inline-block;" class="form-control" ng-options="m.key as m.value for m in const.priceMeasure" ng-model="p.freqMeasureProp.val"></select>
+                <i class="fa fa-times" ng-click="discoveryModel.priceModesProp.array.splice($index, 1)"></i>
+            </div>
+        </div>
+    </div>
+    <div class="form-group col-xs-12 paddingLR0px">
+        <label class="col-xs-12 paddingLR0px" for="discovery_tag" ng-bind="lang.DISCOVERY_LABEL_TAG"></label>
+        <div>
+            <select class="form-control" id="discovery_tag" ng-options="t.key as t.value for t in const.tags" ng-model="discoveryModel.tagProp.val"></select>
+        </div>
+    </div>
+    <div class="form-group col-xs-12 paddingLR0px">
+        <label class="col-xs-12 paddingLR0px" for="discovery_addr" ng-bind="lang.DISCOVERY_LABEL_ADDR"></label>
+        <div ng-class="{'has-error': !discoveryModel.addrProp.validate()}">
+            <input type="text" class="form-control" id="discovery_addr" ng-model="discoveryModel.addrProp.val" ng-model-options="{debounce: {'default': 500, 'blur': 0} }" />
+        </div>
+        <span ng-show="discoveryModel.addrProp.validate() && !discoveryModel.geoProp.validate()" ng-bind="lang.DISCOVERY_LABEL_GEO" class="text-danger text-bold"></span>
+    </div>
+    <map class="form-group col-xs-12 paddingLR0px" style="height:300px;" search-by-term="true" search-term="{{discoveryModel.addrProp.val}}" lat="discoveryModel.geoProp.val.lat" lng="discoveryModel.geoProp.val.lng"></map>
+    <div class="form-group col-xs-12 paddingLR0px">
+        <label class="col-xs-12 paddingLR0px" ng-bind="lang.DISCOVERY_LABEL_PIC"></label>
+        <image-input image-bind="discoveryModel.picProp.val" image-height="120" image-width="160"></image-input>
+        <img class="img-responsive" ng-src="{{discoveryModel.picProp.val}}" style="margin-top:5px;" />
+    </div>
+    <div class="col-xs-12 paddingLR0px">
+        <button ng-class="{disabled: !discoveryModel.validate() || adding}" type="submit" class="btn btn-success" ng-click="reportSite()">
+            <i class="fa fa-spinner fa-spin" ng-show="adding"></i>
+            <span ng-bind="lang.DISCOVERY_BTN_REPORT" ng-show="!adding"></span>
+            <span ng-bind="lang.DISCOVERY_BTN_REPORTING" ng-show="adding"></span>
+        </button>
+    </div>
+    <div class="empty-xs"></div>
+</div>

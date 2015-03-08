@@ -8,7 +8,9 @@
             scope: {
                 lat: '=',
                 lng: '=',
-                needSearch: '='
+                needSearch: '@',
+                searchByTerm: '@',
+                searchTerm: '@'
             },
             link: function (scope, element, attrs) {
                 var searchArea = element.find('.searchcontainer');
@@ -23,11 +25,7 @@
                 map.addControl(new BMap.ScaleControl());
                 var marker = null;
 
-                if (scope.needSearch) {
-                    scope.search = function (term) {
-                        localSearch.search(term);
-                    };
-                    
+                if (scope.needSearch || scope.searchByTerm) {
                     var localSearch = new BMap.LocalSearch(initPoint, {
                         renderOptions: { map: map }
                     });
@@ -43,6 +41,20 @@
                         scope.lat = point.lat;
                         scope.$apply();
                     };
+                }
+                
+                if (scope.needSearch) {
+                    scope.search = function (term) {
+                        localSearch.search(term);
+                    };
+                }
+                
+                if (scope.searchByTerm) {
+                    scope.$watch('searchTerm', function (newVal) {
+                        if (newVal) {
+                            localSearch.search(newVal);
+                        }
+                    });
                 }
                 
                 var lastMarkTS = null;

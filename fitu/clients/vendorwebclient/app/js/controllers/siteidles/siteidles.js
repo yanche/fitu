@@ -57,7 +57,7 @@
             $scope.addSiteIdle = function () {
                 if ($scope.siteIdleModel.validate()) {
                     $scope.adding = true;
-                    siteidle.create(ctx.siteId, $scope.siteIdleModel.toPOJO())
+                    siteidle.create(ctx.siteId, $scope.siteIdleModel.toLO())
                     .then(function () {
                         $scope.adding = false;
                         initAddModel();

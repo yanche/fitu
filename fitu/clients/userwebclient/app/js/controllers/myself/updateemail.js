@@ -6,7 +6,7 @@
         $scope.updating = false;
         $scope.updateEmail = function () {
             if ($scope.updateEmailModel.validate()) {
-                var data = $scope.updateEmailModel.toPOJO();
+                var data = $scope.updateEmailModel.toLO();
                 $scope.updating = true;
                 user.changeEmail(data.email, data.confirm_hash_pwd)
                 .then(function () {

@@ -82,6 +82,16 @@
             },
             datetime: function (input, optional) {
                 return (input && !isNaN(new Date(input).getTime())) || (optional && isNullOrEmpty(input));
+            },
+            //latitude
+            lat: function (lat) {
+                var lat = Number(lat);
+                return !isNaN(lat) && lat >= 30 && lat <= 32;
+            },
+            //longtitude
+            lng: function (lng) {
+                var lng = Number(lng);
+                return !isNaN(lng) && lng >= 120 && lng <= 122;
             }
         };
     }]);

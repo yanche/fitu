@@ -41,6 +41,7 @@
                 sitedetail: 'fitu.sitedetail',
                 sitelocation: 'fitu.sitelocation',
                 vendordetail: 'fitu.vendordetail',
+                discovery: 'fitu.discovery',
                 notfound: 'fitu.notfound'
             }
         };

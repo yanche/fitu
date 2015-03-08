@@ -94,6 +94,7 @@
 
     "SITE_HEADER": "场地",
     "SITE_TITLE": "场馆列表",
+    "SITE_DISCOVERY": "发现",
 
     "SITEIDLES_HEADER": "空闲场馆",
 
@@ -225,6 +226,7 @@
     "SITEDETAIL_LABEL_OPENTIME": "开放时间",
     "SITEDETAIL_LABEL_ADDR": "地址",
     "SITEDETAIL_LABEL_CONTACT": "联系方式",
+    "SITEDETAIL_LABEL_CONTACT_UNKNOWN": "未知",
     "SITEDETAIL_LABEL_PRICES": "价格",
     "SITEDETAIL_LABEL_INTRO": "介绍",
     "SITEDETAIL_LABEL_VENDOR": "商户",
@@ -254,6 +256,7 @@
     "SITEDETAIL_MSG_SUCCESS_NOFAN": "取消关注成功！",
     "SITEDETAIL_MSG_ERR_NOFAN_UNKNOWN": "取消关注失败：未知错误。。。",
     "SITEDETAIL_TITLE": "场馆详情-",
+    "SITEDETAIL_MSG_EDIT": "信息不足/有误？我来补充！",
 
     "SUBCRIBESITES_HEADER": "我关注的场馆",
     "SUBCRIBESITES_LABEL_NOSITES": "你还没有关注任何场馆呢~~",
@@ -333,5 +336,27 @@
     "NOTFOUND_MSG": "唔。。。似乎到了个奇怪的地方呢。。。",
 
     "LOGOUT_MSG_SUCCESS": "退出成功！",
-    "LOGOUT_MSG_ERR_UNKNOWN": "退出失败：未知错误。。。"
+    "LOGOUT_MSG_ERR_UNKNOWN": "退出失败：未知错误。。。",
+
+    "DISCOVERY_HEADER": "发现场馆",
+    "DISCOVERY_TITLE": "发现场馆",
+    "DISCOVERY_BTN_REPORT": "发现场馆",
+    "DISCOVERY_BTN_REPORTING": "正在上传...",
+    "DISCOVERY_LABEL_NAME": "场馆名*",
+    "DISCOVERY_LABEL_INTRO": "简介",
+    "DISCOVERY_LABEL_TRANS": "交通",
+    "DISCOVERY_LABEL_TRANS_SUBWAY": "地铁",
+    "DISCOVERY_LABEL_TRANS_BUS": "公交",
+    "DISCOVERY_LABEL_CONTACT": "联系方式",
+    "DISCOVERY_LABEL_OPEN": "开放时间",
+    "DISCOVERY_LABEL_OPEN_STARTSON": "营业",
+    "DISCOVERY_LABEL_OPEN_ENDSON": "歇业",
+    "DISCOVERY_LABEL_PRICEMODE": "收费模式",
+    "DISCOVERY_LABEL_PRICEMODE_ADD": "添加",
+    "DISCOVERY_LABEL_TAG": "类型",
+    "DISCOVERY_LABEL_ADDR": "地址*（请输入并点击确认场馆位置）",
+    "DISCOVERY_LABEL_GEO": "请点击地图确认位置",
+    "DISCOVERY_LABEL_PIC": "照片",
+    "DISCOVERY_MSG_CREATED": "成功上传了一个新场馆！",
+    "DISCOVERY_MSG_ERR_CREATE_UNKNOWN": "新场馆发现失败，未知错误 TAT"
 }

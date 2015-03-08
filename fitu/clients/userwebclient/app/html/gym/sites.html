@@ -1,6 +1,10 @@
 ﻿<div class="col-xs-12">
-    <div class="col-xs-12 paddingLR0px">
+    <div class="paddingLR0px pull-left">
         <dropdown items="tags" label-name="'value'" selected-item="currentTag" change="switchTag()" style="width:100px;"></dropdown>
+    </div>
+    <div class="paddingLR0px pull-right" ng-click="link.goDiscovery()">
+        <i class="fa fa-eye"></i>
+        <span ng-bind="lang.SITE_DISCOVERY"></span>
     </div>
     <loading class="col-xs-12 paddingLR0px" show="loading" word="lang.GLOBAL_MSG_LOADING"></loading>
     <div class="col-xs-10 col-xs-offset-1 paddingLR0px paddingTB10px splitter" ng-repeat="site in visibles" ng-click="link.goSiteDetail(site.id)">
@@ -19,7 +23,7 @@
                 <i class="fa fa-map-marker text-highlight"></i>
                 <span ng-bind="site.location.address"></span>
             </div>
-            <div class="col-xs-12 paddingLR0px">
+            <div class="col-xs-12 paddingLR0px" ng-if="site.prices.length > 0">
                 <i class="fa fa-rmb text-highlight"></i>
                 <span ng-bind="site.prices[0] | price"></span>
             </div>

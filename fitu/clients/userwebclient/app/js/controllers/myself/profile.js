@@ -6,7 +6,7 @@
         $scope.updating = false;
         $scope.updateProfile = function () {
             if ($scope.profileModel.validate()) {
-                var data = $scope.profileModel.toPOJO();
+                var data = $scope.profileModel.toLO();
                 $scope.updating = true;
                 user.updateUser(data)
                 .then(function () {

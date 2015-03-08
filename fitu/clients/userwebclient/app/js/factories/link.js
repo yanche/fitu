@@ -43,6 +43,9 @@
                 options = options || {};
                 if (options.recipientId || options.actId)
                     $state.gox(ucconst.states.sendnote, { recipientId: options.recipientId, actId: options.actId, re: options.re ? 'RE:' + options.re : undefined });
+            },
+            goDiscovery: function (options) {
+                $state.gox(ucconst.states.discovery, { siteId: options ? options.siteId : null } );
             }
         };
     }]);

@@ -8,7 +8,7 @@
         $scope.loginModel = new ucdatamodel.LoginModel();
         $scope.login = function () {
             if ($scope.loginModel.validate()) {
-                var pojo = $scope.loginModel.toPOJO();
+                var pojo = $scope.loginModel.toLO();
                 $scope.logining = true;
                 user.login(pojo.email, pojo.hash_pwd)
                 .then(function () {
@@ -31,7 +31,7 @@
         $scope.register = function () {
             if ($scope.registerModel.validate()) {
                 $scope.registering = true;
-                var pojo = $scope.registerModel.toPOJO();
+                var pojo = $scope.registerModel.toLO();
                 user.create(pojo)
                 .catch(function (err) {
                     if(err.status == 409)

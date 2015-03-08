@@ -72,7 +72,7 @@
                 //TODO: data check
                 if ($scope.siteModel.validate()) {
                     $scope.adding = true;
-                    site.create(ctx.vendorId, $scope.siteModel.toPOJO())
+                    site.create(ctx.vendorId, $scope.siteModel.toLO())
                     .then(function () {
                         $scope.adding = false;
                         $scope.resetAddModel();
@@ -90,7 +90,7 @@
             $scope.updateSite = function (st) {
                 if (st && !st.updating && st.model.validate()) {
                     st.updating = true;
-                    site.update(st.id, st.model.toPOJO())
+                    site.update(st.id, st.model.toLO())
                     .then(function () {
                         st.updating = false;
                         messenger.show($rootScope.vcconst.messenger, 'success', $rootScope.lang.SITE_MSG_UPDATESUCCESS, 5000);

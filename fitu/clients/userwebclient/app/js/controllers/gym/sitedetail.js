@@ -71,7 +71,7 @@
         $scope.sendNewSiteMessage = function () {
             if ($scope.msgModel.validate() && $rootScope.user) {
                 $scope.sendingMsg = true;
-                site.createMessage({ id: ctx.siteId, message: $scope.msgModel.toPOJO().msg, replyToId: $scope.replyToMsg ? $scope.replyToMsg.id : null })
+                site.createMessage({ id: ctx.siteId, message: $scope.msgModel.toLO().msg, replyToId: $scope.replyToMsg ? $scope.replyToMsg.id : null })
                 .then(function () {
                     pageDL.refresh();
                     if ($scope.currentMsgPage == 1)

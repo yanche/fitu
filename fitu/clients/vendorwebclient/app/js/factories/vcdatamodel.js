@@ -18,7 +18,7 @@
             this.addProp(this.nameProp).addProp(this.introProp).addProp(this.addrProp).addProp(this.geoProp).addProp(this.logoProp).addProp(this.tagProp).addProp(this.contactProp);
         };
         VendorModel.prototype = Object.create(DataModel.prototype);
-        VendorModel.prototype.toPOJO = function () {
+        VendorModel.prototype.toLO = function () {
             return {
                 name: this.nameProp.val,
                 intro: this.introProp.val,
@@ -57,7 +57,7 @@
             this.addProp(this.amountProp).addProp(this.freqNumProp).addProp(this.freqMeasureProp).addProp(this.peopleProp).addProp(this.commentsProp);
         };
         SitePriceModel.prototype = Object.create(DataModel.prototype);
-        SitePriceModel.prototype.toPOJO = function () {
+        SitePriceModel.prototype.toLO = function () {
             return {
                 amount: this.amountProp.val,
                 freq: {
@@ -107,7 +107,7 @@
             this.addProp(this.nameProp).addProp(this.introProp).addProp(this.addrProp).addProp(this.geoProp).addProp(this.picProp).addProp(this.tagProp).addProp(this.openStartHourProp).addProp(this.openStartMinProp).addProp(this.openEndHourProp).addProp(this.openEndMinProp).addProp(this.pricesProp).addProp(this.subwayProp).addProp(this.busProp);
         };
         SiteModel.prototype = Object.create(DataModel.prototype);
-        SiteModel.prototype.toPOJO = function () {
+        SiteModel.prototype.toLO = function () {
             return {
                 name: this.nameProp.val,
                 intro: this.introProp.val,
@@ -119,7 +119,7 @@
                 picUrl: this.picProp.val,
                 tags: [this.tagProp.val], //TODO
                 open: { startsOn: { hour: this.openStartHourProp.val, min: this.openStartMinProp.val }, endsOn: { hour: this.openEndHourProp.val, min: this.openEndMinProp.val } },
-                    prices: this.pricesProp.array.map(function (p) { return p.toPOJO(); }),
+                    prices: this.pricesProp.array.map(function (p) { return p.toLO(); }),
                 trans: {subway: this.subwayProp.val || '', bus: this.busProp.val || ''}
             };
         };
@@ -164,7 +164,7 @@
             me.addProp(me.slotsProp).addProp(me.priceProp).addProp(me.startsOnProp).addProp(me.endsOnProp).addProp(me.tagProp);
         };
         SiteIdleModel.prototype = Object.create(DataModel.prototype);
-        SiteIdleModel.prototype.toPOJO = function () {
+        SiteIdleModel.prototype.toLO = function () {
             return {
                 slots: this.slotsProp.val,
                 price: this.priceProp.val,

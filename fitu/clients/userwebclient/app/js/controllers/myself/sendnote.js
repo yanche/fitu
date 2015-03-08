@@ -32,7 +32,7 @@
             $scope.sendNote = function () {
                 if ($scope.sendNoteModel.validate()) {
                     $scope.sending = true;
-                    note.sendNote({ actId: ctx.actId, recipientId: ctx.recipientId, data: $scope.sendNoteModel.toPOJO() })
+                    note.sendNote({ actId: ctx.actId, recipientId: ctx.recipientId, data: $scope.sendNoteModel.toLO() })
                     .then(function () {
                         $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.success, msg: lang.SENDNOTE_MSG_SUCCESS_SEND });
                         $scope.sending = false;

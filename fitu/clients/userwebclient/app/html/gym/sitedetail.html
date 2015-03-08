@@ -25,7 +25,7 @@
         <div class="col-xs-12 paddingLR0px text-bold" ng-bind="lang.SITEDETAIL_LABEL_CONTACT"></div>
         <div class="col-xs-12 paddingLR0px">
             <i class="fa fa-phone text-highlight"></i>
-            <span ng-bind="site.contact"></span>
+            <span ng-bind="site.contact || lang.SITEDETAIL_LABEL_CONTACT_UNKNOWN"></span>
         </div>
         <div class="col-xs-12 paddingLR0px text-bold" ng-bind="lang.ACTDETAIL_LABEL_TRANS" ng-show="site.trans.subway || site.trans.bus"></div>
         <div class="col-xs-12 paddingLR0px" ng-show="site.trans.subway">
@@ -36,23 +36,27 @@
             <i class="fa fa-bus text-highlight"></i>
             <span ng-bind="site.trans.bus"></span>
         </div>
-        <div class="col-xs-12 paddingLR0px text-bold" ng-bind="lang.SITEDETAIL_LABEL_PRICES"></div>
+        <div class="col-xs-12 paddingLR0px text-bold" ng-bind="lang.SITEDETAIL_LABEL_PRICES" ng-show="site.prices.length > 0"></div>
         <div class="col-xs-12 paddingLR0px" ng-repeat="p in site.prices">
             <i class="fa fa-rmb text-highlight"></i>
             <span ng-bind="p | price"></span>
         </div>
-        <div class="col-xs-12 paddingLR0px text-bold" ng-bind="lang.SITEDETAIL_LABEL_INTRO"></div>
-        <div class="col-xs-12 paddingLR0px">
+        <div class="col-xs-12 paddingLR0px text-bold" ng-bind="lang.SITEDETAIL_LABEL_INTRO" ng-show="site.intro"></div>
+        <div class="col-xs-12 paddingLR0px" ng-show="site.intro">
             <pre ng-bind="site.intro" class="intro-pre"></pre>
         </div>
-        <div class="col-xs-12 paddingLR0px text-bold" ng-bind="lang.SITEDETAIL_LABEL_VENDOR"></div>
-        <div class="col-xs-12 paddingLR0px">
+        <div class="col-xs-12 paddingLR0px text-bold" ng-bind="lang.SITEDETAIL_LABEL_VENDOR" ng-show="site.vendor"></div>
+        <div class="col-xs-12 paddingLR0px" ng-show="site.vendor">
             <div class="col-xs-1 paddingLR0px" ng-click="link.goVendorDetail(site.vendor.id)">
                 <img ng-src="{{site.vendor.logoUrl}}" class="full-width" />
             </div>
             <div class="col-xs-11 paddingLR0px paddingL10px">
                 <span ng-click="link.goVendorDetail(site.vendor.id)" ng-bind="site.vendor.name"></span>
             </div>
+        </div>
+        <div class="col-xs-12 paddingLR0px" ng-show="user">
+            <i class="fa fa-bug text-highlight"></i>
+            <span ng-bind="lang.SITEDETAIL_MSG_EDIT" ng-click="link.goDiscovery({siteId: site.id})"></span>
         </div>
         <div class="col-xs-12 paddingLR0px">
             <span class="text-bold" ng-bind="lang.SITEDETAIL_LABEL_FANSCOUNT"></span>

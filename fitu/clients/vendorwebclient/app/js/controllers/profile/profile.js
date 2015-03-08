@@ -18,7 +18,7 @@
             $scope.updateVendor = function () {
                 if ($scope.vendorModel && $scope.vendorModel.validate()) {
                     $scope.updating = true;
-                    vendor.update({ id: ctx.vendorId, data: angular.extend({}, $scope.vendorModel.toPOJO()) })
+                    vendor.update({ id: ctx.vendorId, data: angular.extend({}, $scope.vendorModel.toLO()) })
                     .then(function () {
                         load();
                         $scope.updating = false;

@@ -6,7 +6,7 @@
         $scope.updating = false;
         $scope.updatePWD = function () {
             if ($scope.updatePWDModel.validate()) {
-                var data = $scope.updatePWDModel.toPOJO();
+                var data = $scope.updatePWDModel.toLO();
                 $scope.updating = true;
                 user.changePassword(data.hash_pwd, data.confirm_hash_pwd)
                 .then(function () {

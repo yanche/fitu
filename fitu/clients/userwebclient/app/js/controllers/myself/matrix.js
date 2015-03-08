@@ -71,7 +71,7 @@
             if ($scope.matrixModel.validate()) {
                 if ($scope.activity) {
                     $scope.updating = true;
-                    activity.update({ id: $scope.activity.id, data: $scope.matrixModel.toPOJO() })
+                    activity.update({ id: $scope.activity.id, data: $scope.matrixModel.toLO() })
                     .then(function (data) {
                         $state.gox(ucconst.states.actdetail, { actId: $scope.activity.id });
                         $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.success, msg: lang.MATRIX_MSG_UPDATED });
@@ -84,7 +84,7 @@
                 }
                 else {
                     $scope.adding = true;
-                    activity.create({ siteId: ctx.siteId, data: $scope.matrixModel.toPOJO() })
+                    activity.create({ siteId: ctx.siteId, data: $scope.matrixModel.toLO() })
                     .then(function (data) {
                         if (data.id)
                             $state.gox(ucconst.states.actdetail, { actId: data.id });

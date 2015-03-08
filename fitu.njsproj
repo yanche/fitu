@@ -39,8 +39,8 @@
     <Content Include="fitu\clients\userwebclient\app\html\activities\actlocation.html" />
     <Content Include="fitu\clients\userwebclient\app\html\activities\signup.html" />
     <Content Include="fitu\clients\userwebclient\app\html\activities\userpreview.html" />
+    <Content Include="fitu\clients\userwebclient\app\html\gym\discovery.html" />
     <Content Include="fitu\clients\userwebclient\app\html\gym\sitelocation.html" />
-    <Content Include="fitu\clients\userwebclient\app\html\gym\gym.html" />
     <Content Include="fitu\clients\userwebclient\app\html\myself\actlead.html" />
     <Content Include="fitu\clients\userwebclient\app\html\myself\fans.html" />
     <Content Include="fitu\clients\userwebclient\app\html\myself\matrix.html" />
@@ -237,6 +237,7 @@
     <Compile Include="fitu\clients\adminwebclient\app\js\config.js" />
     <Compile Include="fitu\clients\adminwebclient\app\js\controllers\main.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\activities\userpreview.js" />
+    <Compile Include="fitu\clients\userwebclient\app\js\controllers\gym\discovery.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\gym\sitelocation.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\actlead.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\activities\actlocation.js" />
