@@ -37,10 +37,10 @@
                 subscribedusers: 'fitu.myself.subscribedusers',
                 subscribedsites: 'fitu.myself.subscribedsites',
                 matrix: 'fitu.myself.matrix',
-                sites: 'fitu.gym.sites',
-                sitedetail: 'fitu.gym.sitedetail',
-                sitelocation: 'fitu.gym.sitelocation',
-                vendordetail: 'fitu.gym.vendordetail',
+                sites: 'fitu.sites',
+                sitedetail: 'fitu.sitedetail',
+                sitelocation: 'fitu.sitelocation',
+                vendordetail: 'fitu.vendordetail',
                 notfound: 'fitu.notfound'
             }
         };

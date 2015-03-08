@@ -248,31 +248,25 @@
                 templateUrl: '/app/html/activities/actlocation.html',
                 controller: 'actlocation'
             },{
-                name: 'gym',
-                url: '/gym',
-                templateUrl: '/app/html/gym/gym.html',
-                abstract: true,
-                children: [{
-                    name: 'vendordetail',
-                    url: '/vendordetail?vendorId',
-                    templateUrl: '/app/html/gym/vendordetail.html',
-                    controller: 'vendordetail'
-                },{
-                    name: 'sitedetail',
-                    url: '/sitedetail?siteId',
-                    templateUrl: '/app/html/gym/sitedetail.html',
-                    controller: 'sitedetail'
-                },{
-                    name: 'sites',
-                    url: '/sites?vendorId&siteId&tag',
-                    templateUrl: '/app/html/gym/sites.html',
-                    controller: 'sites'
-                },{
-                    name: 'sitelocation',
-                    url: '/sitelocation?siteId',
-                    templateUrl: '/app/html/gym/sitelocation.html',
-                    controller: 'sitelocation'
-                }]
+                name: 'vendordetail',
+                url: '/vendordetail?vendorId',
+                templateUrl: '/app/html/gym/vendordetail.html',
+                controller: 'vendordetail'
+            },{
+                name: 'sitedetail',
+                url: '/sitedetail?siteId',
+                templateUrl: '/app/html/gym/sitedetail.html',
+                controller: 'sitedetail'
+            },{
+                name: 'sites',
+                url: '/sites?vendorId&siteId&tag',
+                templateUrl: '/app/html/gym/sites.html',
+                controller: 'sites'
+            },{
+                name: 'sitelocation',
+                url: '/sitelocation?siteId',
+                templateUrl: '/app/html/gym/sitelocation.html',
+                controller: 'sitelocation'
             }]
         });
         $urlRouterProvider.when('/', '/activities').when('', '/activities').otherwise('/notfound');
