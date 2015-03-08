@@ -204,43 +204,43 @@
         watch: {
             user_css: {
                 files: ['fitu/clients/webclientshared/app/css/config/*.scss', 'fitu/clients/webclientshared/app/css/controls/*.scss', 'fitu/clients/webclientshared/app/css/extension/*.scss', 'fitu/clients/webclientshared/app/css/infra/*.scss', 'fitu/clients/webclientshared/app/css/userwebclient/*.scss'],
-                tasks: ['sass:user']
+                tasks: ['sass_user_dev']
             },
             user_js: {
                 files: ['fitu/clients/userwebclient/app/js/**/*.js'],
-                tasks: ['copy:userjs']
+                tasks: ['copy_userjs_dev']
             },
             admin_css: {
                 files: ['fitu/clients/webclientshared/app/css/config/*.scss', 'fitu/clients/webclientshared/app/css/controls/*.scss', 'fitu/clients/webclientshared/app/css/extension/*.scss', 'fitu/clients/webclientshared/app/css/infra/*.scss', 'fitu/clients/webclientshared/app/css/adminwebclient/*.scss'],
-                tasks: ['sass:admin']
+                tasks: ['sass_admin_dev']
             },
             admin_js: {
                 files: ['fitu/clients/adminwebclient/app/js/**/*.js'],
-                tasks: ['copy:adminjs']
+                tasks: ['copy_adminjs_dev']
             },
             vendor_css: {
                 files: ['fitu/clients/webclientshared/app/css/config/*.scss', 'fitu/clients/webclientshared/app/css/controls/*.scss', 'fitu/clients/webclientshared/app/css/extension/*.scss', 'fitu/clients/webclientshared/app/css/infra/*.scss', 'fitu/clients/webclientshared/app/css/vendorwebclient/*.scss'],
-                tasks: ['sass:vendor']
+                tasks: ['sass_vendor_dev']
             },
             vendor_js: {
                 files: ['fitu/clients/vendorwebclient/app/js/**/*.js'],
-                tasks: ['copy:vendorjs']
+                tasks: ['copy_vendorjs_dev']
             },
             shared_css: {
                 files: ['fitu/clients/webclientshared/app/css/config/*.scss', 'fitu/clients/webclientshared/app/css/controls/*.scss', 'fitu/clients/webclientshared/app/css/extension/*.scss', 'fitu/clients/webclientshared/app/css/infra/*.scss', 'fitu/clients/webclientshared/app/css/webclientshared/*.scss'],
-                tasks: ['sass:shared']
+                tasks: ['sass_shared_dev']
             },
             shared_js: {
                 files: ['fitu/clients/webclientshared/app/js/**/*.js'],
-                tasks: ['copy:sharedjs']
+                tasks: ['copy_sharedjs_dev']
             },
             shared_html: {
                 files: ['fitu/clients/webclientshared/app/html/**/*.html'],
-                tasks: ['html2js:directives']
+                tasks: ['html2js_directives_dev']
             },
             shared_json: {
                 files: ['fitu/clients/webclientshared/app/json/*.json'],
-                tasks: ['copy:sharedjson']
+                tasks: ['copy_sharedjson_dev']
             },
         },
         concurrent: {
@@ -279,5 +279,45 @@
     grunt.registerTask('dev', function () {
         grunt.config('basepath', 'statics_dev');
         grunt.task.run('nonprod');
+    });
+    grunt.registerTask('sass_user_dev', function () {
+        grunt.config('basepath', 'statics_dev');
+        grunt.task.run('sass:user');
+    });
+    grunt.registerTask('copy_userjs_dev', function () {
+        grunt.config('basepath', 'statics_dev');
+        grunt.task.run('copy:userjs');
+    });
+    grunt.registerTask('sass_admin_dev', function () {
+        grunt.config('basepath', 'statics_dev');
+        grunt.task.run('sass:admin');
+    });
+    grunt.registerTask('copy_adminjs_dev', function () {
+        grunt.config('basepath', 'statics_dev');
+        grunt.task.run('copy:adminjs');
+    });
+    grunt.registerTask('sass_vendor_dev', function () {
+        grunt.config('basepath', 'statics_dev');
+        grunt.task.run('sass:vendor');
+    });
+    grunt.registerTask('copy_vendorjs_dev', function () {
+        grunt.config('basepath', 'statics_dev');
+        grunt.task.run('copy:vendorjs');
+    });
+    grunt.registerTask('sass_shared_dev', function () {
+        grunt.config('basepath', 'statics_dev');
+        grunt.task.run('sass:shared');
+    });
+    grunt.registerTask('copy_sharedjs_dev', function () {
+        grunt.config('basepath', 'statics_dev');
+        grunt.task.run('copy:sharedjs');
+    });
+    grunt.registerTask('html2js_directives_dev', function () {
+        grunt.config('basepath', 'statics_dev');
+        grunt.task.run('html2js:directives');
+    });
+    grunt.registerTask('copy_sharedjson_dev', function () {
+        grunt.config('basepath', 'statics_dev');
+        grunt.task.run('copy:sharedjson');
     });
 };
