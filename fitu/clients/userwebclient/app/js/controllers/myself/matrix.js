@@ -57,7 +57,7 @@
                 startsOn: moment().add({ days: 3 }).hour(16).minute(0).format(constants.dateTimeFormat),
                 endsOn: moment().add({ days: 3 }).hour(17).minute(0).format(constants.dateTimeFormat),
                 capacity: 5,
-                price: $scope.site.prices[0].amount,
+                price: $scope.site.prices.length > 0 ? $scope.site.prices[0].amount : 50,
                 picUrl: $scope.site.picUrl,
                 tags: $scope.site.tags
             });

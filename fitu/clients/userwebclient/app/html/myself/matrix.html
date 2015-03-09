@@ -58,7 +58,7 @@
         </div>
         <div class="form-group">
             <label for="matrix_price" class="control-label" ng-bind="lang.MATRIX_LABEL_PRICE"></label>
-            <div class="small">
+            <div class="small" ng-show="site.prices.length > 0">
                 <div ng-bind="lang.MATRIX_LABEL_SITEPRICES"></div>
                 <div ng-repeat="price in site.prices" ng-bind="price | price"></div>
             </div>
