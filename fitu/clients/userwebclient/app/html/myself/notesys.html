@@ -3,12 +3,14 @@
     <loading class="col-xs-12 paddingLR0px" show="loading" word="lang.GLOBAL_MSG_LOADING"></loading>
     <div class="col-xs-12 paddingLR0px" ng-bind="lang.NOTESYSBOX_MSG_EMPTY" ng-show="!loading && totalPages == 0"></div>
     <div class="paddingLR0px paddingTB5px col-xs-12 splitter" ng-repeat="note in visibles">
-        <div class="col-xs-12 paddingLR0px note-syntax" note-syntax target="note.subject"></div>
-        <div class="col-xs-12 paddingLR0px text-sm">
-            <span ng-hide="note.readOn" class="text-error text-bold" ng-bind="lang.NOTESYSBOX_LABEL_NEW"></span>
-            <i class="fa fa-exclamation text-danger" ng-show="note.emphasis"></i>
-            <span class="text-sm" ng-bind="note.createdOn | sensitiveDatetime"></span>
-            <i class="fa text-highlight" ng-class="{'fa-plus': !note.expanded, 'fa-minus': note.expanded}" ng-click="readNote(note)"></i>
+        <div class="col-xs-12 paddingLR0px" ng-click="readNote(note)">
+            <div class="col-xs-12 paddingLR0px note-syntax" note-syntax target="note.subject"></div>
+            <div class="col-xs-12 paddingLR0px text-sm">
+                <span ng-hide="note.readOn" class="text-error text-bold" ng-bind="lang.NOTESYSBOX_LABEL_NEW"></span>
+                <i class="fa fa-exclamation text-danger" ng-show="note.emphasis"></i>
+                <span class="text-sm" ng-bind="note.createdOn | sensitiveDatetime"></span>
+                <i class="fa text-highlight" ng-class="{'fa-plus': !note.expanded, 'fa-minus': note.expanded}"></i>
+            </div>
         </div>
         <pre ng-show="note.expanded" class="note-syntax col-xs-12" note-syntax target="note.body"></pre>
     </div>

@@ -6,7 +6,7 @@
         <div class="col-xs-2 paddingLR0px">
             <img class="full-width" ng-src="{{note.author.headUrl}}" ng-click="link.goUserPreview(note.author.id)" />
         </div>
-        <div class="col-xs-10 paddingLR0px paddingL10px">
+        <div class="col-xs-10 paddingLR0px paddingL10px" ng-click="readNote(note)">
             <div class="col-xs-12 paddingLR0px text-bold" note-syntax target="note.subject"></div>
             <div class="col-xs-12 paddingLR0px text-sm">
                 <span ng-bind="lang.NOTEINBOX_LABEL_RECIPIENT"></span>
@@ -15,7 +15,7 @@
             <div class="col-xs-12 paddingLR0px text-sm">
                 <span ng-hide="note.readOn" class="text-error text-bold" ng-bind="lang.NOTEINBOX_LABEL_NEW"></span>
                 <span ng-bind="note.createdOn | sensitiveDatetime"></span>
-                <i class="fa text-highlight" ng-class="{'fa-plus': !note.expanded, 'fa-minus': note.expanded}" ng-click="readNote(note)"></i>
+                <i class="fa text-highlight" ng-class="{'fa-plus': !note.expanded, 'fa-minus': note.expanded}"></i>
             </div>
             <div class="col-xs-12 paddingLR0px text-sm text-overflow-hidden" note-syntax target="note.body"></div>
         </div>
