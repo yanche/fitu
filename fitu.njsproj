@@ -376,6 +376,7 @@
     <Compile Include="fitu\node_modules\dbaccess\pwdreset.js" />
     <Compile Include="fitu\node_modules\dbaccess\session.js" />
     <Compile Include="fitu\node_modules\dbaccess\site.js" />
+    <Compile Include="fitu\node_modules\dbaccess\visitedUA.js" />
     <Compile Include="fitu\node_modules\dbaccess\siteidle.js" />
     <Compile Include="fitu\node_modules\dbaccess\vendor.js" />
     <Compile Include="fitu\node_modules\dbaccess\user.js" />

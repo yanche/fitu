@@ -27,13 +27,15 @@ var userClientPCService = new WebPageService({ wdir: path.join(__dirname, 'clien
 var vendorClientService = new WebPageService({ wdir: path.join(__dirname, 'clients', 'vendorwebclient') });
 var adminClientService = new WebPageService({ wdir: path.join(__dirname, 'clients', 'adminwebclient') });
 var httpEntry = function (req, res) {
+    dbaccess.visitedUA.upsertUARecord({ 'ua': req.headers['user-agent'] }, { $inc: { count: 1 } });
+
     var webreq = new infra.Webreq(req);
     webreq.init()
     .then(function () {
         var host = webreq._raw.headers.host;
         if (!validate.valuedString(host)) {
             console.log('invalid host: ' + host);
-            return extension.http.webres404();
+            host = 'www.';
         }
         var type = host.split('.')[0];
         switch (type) {
