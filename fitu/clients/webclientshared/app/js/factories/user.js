@@ -223,6 +223,20 @@
                     defer.reject({ data: data, status: status, headers: headers });
                 });
                 return defer.promise;
+                },
+            getUserCredits: function (userId) {
+                var defer = new $q.defer();
+                $http({
+                    method: 'GET',
+                    url: url.generate('credits'),
+                    params: { userId: userId }
+                }).success(function (data) {
+                    data.headUrl = utility.getStaticUrl(data.headUrl);
+                    defer.resolve(data);
+                }).error(function (data, status, headers, config) {
+                    defer.reject({ data: data, status: status, headers: headers });
+                });
+                return defer.promise;
             }
         };
     }]);

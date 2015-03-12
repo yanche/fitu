@@ -164,6 +164,7 @@
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\availability\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\footprints\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\actcensus\" />
+    <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\credits\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\pendingnotes\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\pwdreset\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\sitefans\" />
@@ -306,6 +307,7 @@
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\activities\index.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\activities\singleactivity.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\availability\index.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\credits\index.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\footprints\index.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\footprints\footprints.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\footprints\singlefootprint.js" />

@@ -13,5 +13,10 @@
                 $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.error, msg: lang.LOGOUT_MSG_ERR_UNKNOWN });
             });
         };
+        user.getUserCredits($rootScope.user.id)
+        .then(function (c) {
+            $scope.credits = c.credits;
+        })
+        .catch(function (err) { });
     }]);
 })();

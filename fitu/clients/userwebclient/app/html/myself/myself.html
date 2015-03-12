@@ -6,7 +6,11 @@
             <img ng-src="{{user.headUrl}}" style="width: 100%;" />
         </div>
         <div class="col-xs-8">
-            <div ng-bind="user.personal.nickName || lang.GLOBAL_LABEL_ANONY" class="text-lg text-bold"></div>
+            <div class="text-lg text-bold">
+                <span ng-bind="user.personal.nickName || lang.GLOBAL_LABEL_ANONY"></span>
+                <i class="fa fa-star" style="color:gold;"></i>
+                <span ng-bind="credits"></span>
+            </div>
             <div>
                 <gender-hint gender="user.personal.gender"></gender-hint>
             </div>
