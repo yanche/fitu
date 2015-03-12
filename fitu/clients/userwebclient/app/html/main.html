@@ -27,9 +27,9 @@
     </div>
     <div class="navitem" ui-sref="fitu.myself" ng-class="{selected: currentNav() =='myself'}">
         <div>
-            <i class="fa fa-gear fa-lg" ng-hide="pendingNotesCount.note + pendingNotesCount.sys"></i>
-            <i ng-show="pendingNotesCount.note + pendingNotesCount.sys > 0" class="fa fa-envelope text-error"></i>
-            <span ng-bind="pendingNotesCount.note + pendingNotesCount.sys" ng-show="pendingNotesCount.note + pendingNotesCount.sys" class="text-error"></span>
+            <i class="fa fa-gear fa-lg" ng-hide="user && (pendingNotesCount.note + pendingNotesCount.sys)"></i>
+            <i ng-show="user && (pendingNotesCount.note + pendingNotesCount.sys > 0)" class="fa fa-envelope text-error"></i>
+            <span ng-bind="pendingNotesCount.note + pendingNotesCount.sys" ng-show="user && (pendingNotesCount.note + pendingNotesCount.sys)" class="text-error"></span>
         </div>
         <div ng-bind="lang.NAV_LABEL_ME"></div>
     </div>
