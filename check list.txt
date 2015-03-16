@@ -1,0 +1,25 @@
+feature
+高优先级
+*SEO
+短信提醒、验证（服务未申请）
+微信登陆（待认证中）
+服务器日志
+*UI美化（wrapboot？）
+用户可以为自己贴标签（如羽毛球，杨浦）推荐更合适的活动
+
+低优先级
+积分系统（权重，UI提示，防刷分，积分功能），设计相关
+服务器缓存层
+图片服务器 CDN
+admin portal（site diag，statistics，admin op: delete-update）
+Android IOS APP
+活动推荐（根据地点，历史活动，关注的场馆、用户）
+
+
+bug
+*图片上传兼容性问题，当前使用base64作为图片上传格式
+
+
+task
+*prod加载所有html，同时支持dev环境html lazy loading(grunt config)
+POST UI error to server?
