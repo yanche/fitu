@@ -13,3 +13,4 @@ fitu.v12.suo
 /fitu/clients/vendorwebclient/app/json/global_lang.json
 color.txt
 *.log
+*.fitulog
