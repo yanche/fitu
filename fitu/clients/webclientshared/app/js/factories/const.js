@@ -29,7 +29,10 @@
                 { value: '台球', key: 'bl' },
                 { value: '骑行', key: 'cl' },
                 { value: '攀岩', key: 'rk' },
-                { value: '健身', key: 'ft' }
+                { value: '健身', key: 'ft' },
+                { value: '剑道', key: 'jd' },
+                { value: '散打', key: 'sd' },
+                { value: '跆拳道', key: 'tq' }
             ],
             priceMeasure: [
                 { value: '分', key: 'm' },
