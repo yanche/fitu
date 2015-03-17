@@ -185,6 +185,7 @@
     <Folder Include="fitu\node_modules\infra\" />
     <Folder Include="fitu\node_modules\models\" />
     <Folder Include="fitu\node_modules\email\" />
+    <Folder Include="fitu\node_modules\log\" />
     <Folder Include="fitu\node_modules\webpageservice\" />
     <Folder Include="fitu\clients\vendorwebclient\app\html\sites\" />
     <Folder Include="fitu\clients\vendorwebclient\app\html\statistics\" />
@@ -364,6 +365,7 @@
     <Compile Include="fitu\node_modules\const\common.js" />
     <Compile Include="fitu\node_modules\const\index.js" />
     <Compile Include="fitu\node_modules\config\index.js" />
+    <Compile Include="fitu\node_modules\const\loglevel.js" />
     <Compile Include="fitu\node_modules\const\note.js" />
     <Compile Include="fitu\node_modules\const\message.js" />
     <Compile Include="fitu\node_modules\const\mime.js" />
@@ -409,6 +411,9 @@
     <Compile Include="fitu\node_modules\fileuploader\index.js" />
     <Compile Include="fitu\node_modules\infra\index.js" />
     <Compile Include="fitu\node_modules\infra\WxSecret.js" />
+    <Compile Include="fitu\node_modules\log\entry.js" />
+    <Compile Include="fitu\node_modules\log\farm.js" />
+    <Compile Include="fitu\node_modules\log\index.js" />
     <Compile Include="fitu\node_modules\models\index.js" />
     <Compile Include="fitu\node_modules\models\User.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\config.js" />

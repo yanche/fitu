@@ -12,6 +12,7 @@ var FileService = require('fileservice');
 var WebPageService = require('webpageservice');
 var moment = require('moment');
 var validate = require('validate');
+var log = require('log');
 
 //init mongodb connection
 mongodb.MongoClient.connect(config.dbConnStr, function (err, db) {
@@ -27,6 +28,7 @@ var userClientPCService = new WebPageService({ wdir: path.join(__dirname, 'clien
 var vendorClientService = new WebPageService({ wdir: path.join(__dirname, 'clients', 'vendorwebclient') });
 var adminClientService = new WebPageService({ wdir: path.join(__dirname, 'clients', 'adminwebclient') });
 var httpEntry = function (req, res) {
+    log.info(req.headers);
     dbaccess.visitedUA.upsertUARecord({ 'ua': req.headers['user-agent'] }, { $inc: { count: 1 } });
 
     var webreq = new infra.Webreq(req);
