@@ -37,6 +37,8 @@ $size_border: 1px;
         display: none;
         width: 100%;
         padding: $size_padding_TB 0px;
+        max-height: 300px;
+        overflow-y: auto;
 
         &._dropdown_expand {
             display: block;
