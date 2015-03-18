@@ -17,6 +17,7 @@ feature
 admin portal（site diag，statistics，admin op: delete-update）
 Android IOS APP
 活动推荐（根据地点，历史活动，关注的场馆、用户）
+site update history
 
 
 bug
