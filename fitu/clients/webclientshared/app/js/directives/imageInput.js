@@ -6,7 +6,7 @@
             templateUrl: '/app/html/directives/imageInput.html',
             replace: true,
             link: function (scope, element, attrs) {
-                scope.unsupport = Boolean(FileReader);
+                scope.unsupport = !Boolean(FileReader);
 
                 scope.head = 'head' in attrs;
                 var h = Number(attrs.imageHeight), w = Number(attrs.imageWidth);
