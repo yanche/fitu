@@ -5,7 +5,9 @@
             restrict: 'E',
             templateUrl: '/app/html/directives/imageInput.html',
             replace: true,
-                link: function (scope, element, attrs) {
+            link: function (scope, element, attrs) {
+                scope.unsupport = Boolean(FileReader);
+
                 scope.head = 'head' in attrs;
                 var h = Number(attrs.imageHeight), w = Number(attrs.imageWidth);
                 var modelGet = $parse(attrs.imageBind);
@@ -13,10 +15,7 @@
                     
                 var fileinputBtn = element.find('input[type=file]');
                 fileinputBtn.bind('change', function () {
-                    if (!FileReader) {
-                        alert('浏览器不支持图片上传');
-                    }
-                    else {
+                    if (FileReader) {
                         var file = fileinputBtn[0].files[0], fileReader = new FileReader();
                         fileReader.readAsDataURL(file);
                         fileReader.onload = function (e) {

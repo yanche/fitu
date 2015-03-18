@@ -1,5 +1,5 @@
-﻿<span class="btn btn-default fileinput-button">
-    <i class="fa fa-plus"></i>
-    <span ng-bind="head ? lang.GLOBAL_BTN_IMAGEUPLOAD_1_1 : lang.GLOBAL_BTN_IMAGEUPLOAD_4_3"></span>
+﻿<span class="btn btn-default fileinput-button" ng-class="{disabled: unsupport}">
+    <i class="fa fa-plus" ng-show="!unsupport"></i>
+    <span ng-bind="unsupport ? lang.GLOBAL_BTN_UNSUPPORT : (head ? lang.GLOBAL_BTN_IMAGEUPLOAD_1_1 : lang.GLOBAL_BTN_IMAGEUPLOAD_4_3)"></span>
     <input type="file" />
 </span>

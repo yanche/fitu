@@ -7,5 +7,6 @@
     "GLOBAL_LABEL_SEXMALE":  "男",
     "GLOBAL_LABEL_SEXFEMALE": "女",
     "GLOBAL_MSG_LOADING": "正在加载...",
-    "GLOBAL_LABEL_ANONY": "匿名"
+    "GLOBAL_LABEL_ANONY": "匿名",
+    "GLOBAL_BTN_UNSUPPORT": "浏览器版本过低，无法上传图片"
 }
