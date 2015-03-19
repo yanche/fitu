@@ -1,10 +1,11 @@
 ﻿module.exports = function (grunt) {
     grunt.initConfig({
         basepath: 'statics',
+        html2js_base: 'fitu/clients/webclientshared',
         concat: {
             userwebclient: {
                 files: {
-                    '<%= basepath %>/app/js/userwebclient/built.js': ['fitu/clients/userwebclient/app/js/*.js', 'fitu/clients/userwebclient/app/js/**/*.js']
+                    '<%= basepath %>/app/js/userwebclient/built.js': ['fitu/clients/userwebclient/app/js/*.js', 'fitu/clients/userwebclient/app/js/**/*.js', '<%= basepath %>/app/js/userwebclient/fituuserhtml.js']
                 }
             },
             vendor: {
@@ -175,7 +176,7 @@
         },
         clean: {
             all: ['<%= basepath %>/app/css', '<%= basepath %>/app/js', '<%= basepath %>/app/image/webclientshared'],
-            html2js: ['<%= basepath %>/app/js/webclientshared/fituhtml.js']
+            html2js: ['<%= basepath %>/app/js/webclientshared/fituhtml.js', '<%= basepath %>/app/js/userwebclient/fituuserhtml.js']
         },
         html2js: {
             options: {
@@ -184,7 +185,7 @@
                     return '/' + moduleName;
                 },
                 singleModule: true,
-                base: 'fitu/clients/webclientshared',
+                base: '<%= html2js_base %>',
                 htmlmin: {
                     collapseBooleanAttributes: true,
                     collapseWhitespace: true,
@@ -199,6 +200,10 @@
             directives: {
                 src: ['fitu/clients/webclientshared/app/html/directives/*.html'],
                 dest: '<%= basepath %>/app/js/webclientshared/fituhtml.js',
+            },
+            user: {
+                src: ['fitu/clients/userwebclient/app/html/*.html', 'fitu/clients/userwebclient/app/html/**/*.html'],
+                dest: '<%= basepath %>/app/js/userwebclient/fituuserhtml.js',
             }
         },
         watch: {
@@ -267,8 +272,8 @@
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-concurrent');
     grunt.loadNpmTasks('grunt-html2js');
-    grunt.registerTask('prod', ['clean', 'sass', 'copy:libsjs', 'copy:sharedimg', 'html2js', 'concat', 'uglify', 'clean:html2js', 'copy:sharedjson']);
-    grunt.registerTask('nonprod', ['clean', 'sass', 'copy', 'html2js']);
+    grunt.registerTask('prod', ['clean', 'sass', 'copy:libsjs', 'copy:sharedimg', 'html2js_directives', 'html2js_user', 'concat', 'uglify', 'clean:html2js', 'copy:sharedjson']);
+    grunt.registerTask('nonprod', ['clean', 'sass', 'copy', 'html2js_directives']);
     grunt.registerTask('watchuser', ['dev', 'concurrent:watchuser']);
     grunt.registerTask('watchvendor', ['dev', 'concurrent:watchvendor']);
     grunt.registerTask('watchadmin', ['dev', 'concurrent:watchadmin']);
@@ -314,10 +319,18 @@
     });
     grunt.registerTask('html2js_directives_dev', function () {
         grunt.config('basepath', 'statics_dev');
-        grunt.task.run('html2js:directives');
+        grunt.task.run('html2js_directives');
     });
     grunt.registerTask('copy_sharedjson_dev', function () {
         grunt.config('basepath', 'statics_dev');
         grunt.task.run('copy:sharedjson');
+    });
+    grunt.registerTask('html2js_directives', function () {
+        grunt.config('html2js_base', 'fitu/clients/webclientshared');
+        grunt.task.run('html2js:directives');
+    });
+    grunt.registerTask('html2js_user', function () {
+        grunt.config('html2js_base', 'fitu/clients/userwebclient');
+        grunt.task.run('html2js:user');
     });
 };
