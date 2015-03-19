@@ -70,7 +70,7 @@
                     if (options.data.logoUrl)
                         options.data.logoUrl = utility.getRelativeUrl(options.data.logoUrl);
                     $http({
-                        method: 'PUT',
+                        method: 'POST',
                         url: url.generate('vendors'),
                         params: { id: options.id },
                         data: options.data

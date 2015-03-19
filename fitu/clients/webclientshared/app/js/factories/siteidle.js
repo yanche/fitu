@@ -63,7 +63,7 @@
             update: function (id, delta) {
                 var defer = new $q.defer();
                 $http({
-                    method: 'PUT',
+                    method: 'POST',
                     url: url.generate('siteidles'),
                     params: { id: id },
                     data: delta

@@ -117,7 +117,7 @@
                     defer.reject({ data: null, status: 0, headers: null });
                 else {
                     $http({
-                        method: 'PUT',
+                        method: 'POST',
                         url: url.generate('users'),
                         params: { id: $.cookie('userId') },
                         data : update
@@ -136,7 +136,7 @@
                     defer.reject({ data: null, status: 0, headers: null });
                 else {
                     $http({
-                        method: 'PUT',
+                        method: 'POST',
                         url: url.generate('usercredentials'),
                         params: { userId: $.cookie('userId') },
                         data: { email: email, confirm_hash_pwd: confirm_hash_pwd }
@@ -155,7 +155,7 @@
                     defer.reject({ data: null, status: 0, headers: null });
                 else {
                     $http({
-                        method: 'PUT',
+                        method: 'POST',
                         url: url.generate('usercredentials'),
                         params: { userId: $.cookie('userId') },
                         data: { hash_pwd: hash_pwd, confirm_hash_pwd: confirm_hash_pwd }

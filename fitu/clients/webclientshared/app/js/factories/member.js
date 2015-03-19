@@ -60,7 +60,7 @@
             updateStatus: function (memberId, statusId) {
                 var defer = new $q.defer();
                 $http({
-                    method: 'PUT',
+                    method: 'POST',
                     url: url.generate('members'),
                     params: { id: memberId },
                     data: { statusId: statusId }
@@ -75,7 +75,7 @@
             updatePayStatus: function (memberId, payStatusId) {
                 var defer = new $q.defer();
                 $http({
-                    method: 'PUT',
+                    method: 'POST',
                     url: url.generate('members'),
                     params: { id: memberId },
                     data: { payStatusId: payStatusId }

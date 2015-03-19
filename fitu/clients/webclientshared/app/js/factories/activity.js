@@ -87,7 +87,7 @@
                     options.data.picUrl = utility.getRelativeUrl(options.data.picUrl);
                 var defer = new $q.defer();
                 $http({
-                    method: 'PUT',
+                    method: 'POST',
                     url: url.generate('activities'),
                     data: options.data,
                     params: { id: options.id }

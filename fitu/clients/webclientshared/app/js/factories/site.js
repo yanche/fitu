@@ -77,7 +77,7 @@
                 if (delta.picUrl)
                     delta.picUrl = utility.getRelativeUrl(delta.picUrl);
                 $http({
-                    method: 'PUT',
+                    method: 'POST',
                     url: url.generate('sites'),
                     params: { id: id },
                     data: delta

@@ -96,7 +96,7 @@
             setNoteRead: function (options) {
                 var defer = new $q.defer();
                 $http({
-                    method: 'PUT',
+                    method: 'POST',
                     url: url.generate('notes'),
                     params: { id: options.id }
                 }).success(function (data) {

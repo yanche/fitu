@@ -6,7 +6,7 @@
                 options = options || {};
                 var defer = new $q.defer();
                 $http({
-                    method: 'PUT',
+                    method: 'POST',
                     url: url.generate('messages'),
                     params: { id: options.id },
                     data: { like: Boolean(options.like) }
