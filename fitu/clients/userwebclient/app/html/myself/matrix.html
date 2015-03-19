@@ -21,13 +21,13 @@
         <div class="form-group">
             <label for="matrix_intro" class="control-label" ng-bind="lang.MATRIX_LABEL_INTRO"></label>
             <div ng-class="{'has-error': !matrixModel.introProp.validate(true)}">
-                <textarea id="matrix_intro" style="min-height: 100px;" class="form-control full-width" ng-model="matrixModel.introProp.val" />
+                <textarea id="matrix_intro" style="min-height: 100px;" class="form-control full-width" ng-model="matrixModel.introProp.val"></textarea>
             </div>
         </div>
         <div class="form-group">
             <label for="matrix_tag" class="control-label" ng-bind="lang.MATRIX_LABEL_TAG"></label>
             <div>
-                <select id="matrix_tag" type="text" class="form-control" ng-model="matrixModel.tagProp.val" ng-options="t.key as t.value for t in candidateActTags" />
+                <select id="matrix_tag" type="text" class="form-control" ng-model="matrixModel.tagProp.val" ng-options="t.key as t.value for t in candidateActTags"></select>
             </div>
         </div>
         <div class="form-group">
