@@ -1,5 +1,5 @@
 ﻿(function () {
-    angular.module('fitu', ['ngAnimate', 'ui.router', 'ui.router.stateHelper', 'fitulib', 'fituhtml'])
+    angular.module('fitu', ['ngAnimate', 'ui.router', 'ui.router.stateHelper', 'fitulib', 'fituhtml', 'fituhtmluser'])
     .run(['$rootScope', 'user', 'ucconst', 'lang', '$state', '$timeout', '$location', 'crypto', 'wxb', 'link', 'util', 'note', 'const', function ($rootScope, user, ucconst, lang, $state, $timeout, $location, crypto, wxb, link, util, note, constant) {
         $rootScope.mobile = constant.siteInfo.mobile;
         var loadUser = function (obj, state, params) {

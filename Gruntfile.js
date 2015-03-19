@@ -327,10 +327,12 @@
     });
     grunt.registerTask('html2js_directives', function () {
         grunt.config('html2js_base', 'fitu/clients/webclientshared');
+        grunt.config('html2js_module', 'fituhtml');
         grunt.task.run('html2js:directives');
     });
     grunt.registerTask('html2js_user', function () {
         grunt.config('html2js_base', 'fitu/clients/userwebclient');
+        grunt.config('html2js_module', 'fituhtmluser');
         grunt.task.run('html2js:user');
     });
 };
