@@ -2,6 +2,7 @@
     grunt.initConfig({
         basepath: 'statics',
         html2js_base: 'fitu/clients/webclientshared',
+        html2js_module: 'fituhtml',
         concat: {
             userwebclient: {
                 files: {
@@ -49,48 +50,48 @@
         copy: {
             userjs: {
                 files: [{
-                        expand: true,
-                        cwd: 'fitu/clients/userwebclient/app/js',
-                        src: ['**'],
-                        dest: '<%= basepath %>/app/js/userwebclient',
-                        filter: 'isFile'
-                    }]
+                    expand: true,
+                    cwd: 'fitu/clients/userwebclient/app/js',
+                    src: ['**'],
+                    dest: '<%= basepath %>/app/js/userwebclient',
+                    filter: 'isFile'
+                }]
             },
             vendorjs: {
                 files: [{
-                        expand: true,
-                        cwd: 'fitu/clients/vendorwebclient/app/js',
-                        src: ['**'],
-                        dest: '<%= basepath %>/app/js/vendorwebclient',
-                        filter: 'isFile'
-                    }]
+                    expand: true,
+                    cwd: 'fitu/clients/vendorwebclient/app/js',
+                    src: ['**'],
+                    dest: '<%= basepath %>/app/js/vendorwebclient',
+                    filter: 'isFile'
+                }]
             },
             adminjs: {
                 files: [{
-                        expand: true,
-                        cwd: 'fitu/clients/adminwebclient/app/js',
-                        src: ['**'],
-                        dest: '<%= basepath %>/app/js/adminwebclient',
-                        filter: 'isFile'
-                    }]
+                    expand: true,
+                    cwd: 'fitu/clients/adminwebclient/app/js',
+                    src: ['**'],
+                    dest: '<%= basepath %>/app/js/adminwebclient',
+                    filter: 'isFile'
+                }]
             },
             sharedjs: {
                 files: [{
-                        expand: true,
-                        cwd: 'fitu/clients/webclientshared/app/js',
-                        src: ['**'],
-                        dest: '<%= basepath %>/app/js/webclientshared',
-                        filter: 'isFile'
-                    }]
+                    expand: true,
+                    cwd: 'fitu/clients/webclientshared/app/js',
+                    src: ['**'],
+                    dest: '<%= basepath %>/app/js/webclientshared',
+                    filter: 'isFile'
+                }]
             },
             sharedimg: {
                 files: [{
-                        expand: true,
-                        cwd: 'fitu/clients/webclientshared/app/image',
-                        src: ['**'],
-                        dest: '<%= basepath %>/app/image/webclientshared',
-                        filter: 'isFile'
-                    }]
+                    expand: true,
+                    cwd: 'fitu/clients/webclientshared/app/image',
+                    src: ['**'],
+                    dest: '<%= basepath %>/app/image/webclientshared',
+                    filter: 'isFile'
+                }]
             },
             libsjs: {
                 files: [
@@ -116,62 +117,62 @@
             },
             sharedjson: {
                 files: [{
-                        expand: true,
-                        cwd: 'fitu/clients/webclientshared/app/json',
-                        src: ['**'],
-                        dest: 'fitu/clients/userwebclient/app/json',
-                        filter: 'isFile'
-                    }, {
-                        expand: true,
-                        cwd: 'fitu/clients/webclientshared/app/json',
-                        src: ['**'],
-                        dest: 'fitu/clients/vendorwebclient/app/json',
-                        filter: 'isFile'
-                    }, {
-                        expand: true,
-                        cwd: 'fitu/clients/webclientshared/app/json',
-                        src: ['**'],
-                        dest: 'fitu/clients/adminwebclient/app/json',
-                        filter: 'isFile'
-                    }]
+                    expand: true,
+                    cwd: 'fitu/clients/webclientshared/app/json',
+                    src: ['**'],
+                    dest: 'fitu/clients/userwebclient/app/json',
+                    filter: 'isFile'
+                }, {
+                    expand: true,
+                    cwd: 'fitu/clients/webclientshared/app/json',
+                    src: ['**'],
+                    dest: 'fitu/clients/vendorwebclient/app/json',
+                    filter: 'isFile'
+                }, {
+                    expand: true,
+                    cwd: 'fitu/clients/webclientshared/app/json',
+                    src: ['**'],
+                    dest: 'fitu/clients/adminwebclient/app/json',
+                    filter: 'isFile'
+                }]
             }
         },
         sass: {
             user: {
                 files: [{
-                        expand: true,
-                        cwd: 'fitu/clients/webclientshared/app/css/userwebclient',
-                        src: ['*.scss'],
-                        dest: '<%= basepath %>/app/css/userwebclient',
-                        ext: '.css'
-                    }]
+                    expand: true,
+                    cwd: 'fitu/clients/webclientshared/app/css/userwebclient',
+                    src: ['*.scss'],
+                    dest: '<%= basepath %>/app/css/userwebclient',
+                    ext: '.css'
+                }]
             },
             vendor: {
                 files: [{
-                        expand: true,
-                        cwd: 'fitu/clients/webclientshared/app/css/vendorwebclient',
-                        src: ['*.scss'],
-                        dest: '<%= basepath %>/app/css/vendorwebclient',
-                        ext: '.css'
-                    }]
+                    expand: true,
+                    cwd: 'fitu/clients/webclientshared/app/css/vendorwebclient',
+                    src: ['*.scss'],
+                    dest: '<%= basepath %>/app/css/vendorwebclient',
+                    ext: '.css'
+                }]
             },
             admin: {
                 files: [{
-                        expand: true,
-                        cwd: 'fitu/clients/webclientshared/app/css/adminwebclient',
-                        src: ['*.scss'],
-                        dest: '<%= basepath %>/app/css/adminwebclient',
-                        ext: '.css'
-                    }]
+                    expand: true,
+                    cwd: 'fitu/clients/webclientshared/app/css/adminwebclient',
+                    src: ['*.scss'],
+                    dest: '<%= basepath %>/app/css/adminwebclient',
+                    ext: '.css'
+                }]
             },
             shared: {
                 files: [{
-                        expand: true,
-                        cwd: 'fitu/clients/webclientshared/app/css/webclientshared',
-                        src: ['*.scss'],
-                        dest: '<%= basepath %>/app/css/webclientshared',
-                        ext: '.css'
-                    }]
+                    expand: true,
+                    cwd: 'fitu/clients/webclientshared/app/css/webclientshared',
+                    src: ['*.scss'],
+                    dest: '<%= basepath %>/app/css/webclientshared',
+                    ext: '.css'
+                }]
             }
         },
         clean: {
@@ -180,7 +181,7 @@
         },
         html2js: {
             options: {
-                module: 'fituhtml',
+                module: '<%= html2js_module %>',
                 rename: function (moduleName) {
                     return '/' + moduleName;
                 },
@@ -263,7 +264,7 @@
             }
         }
     });
-    
+
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-copy');
