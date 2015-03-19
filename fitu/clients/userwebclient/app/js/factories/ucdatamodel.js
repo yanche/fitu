@@ -307,7 +307,7 @@
             this.picProp = new ModelProp(function (input, optional) {
                 return validate.picBase64(input, optional) || validate.url(input, optional);
             });
-            this.tagProp = new ModelProp(validate.alwaysTrue);
+            this.tagsProp = new ModelProp(validate.nonEmptyArray);
             this.openStartHourProp = new ModelProp(validate.alwaysTrue);
             this.openStartMinProp = new ModelProp(validate.alwaysTrue);
             this.openEndHourProp = new ModelProp(validate.alwaysTrue);
@@ -317,7 +317,7 @@
             });
             this.transSubwayProp = new ModelProp(validate.alwaysTrue);
             this.transBusProp = new ModelProp(validate.alwaysTrue);
-            this.addProp(this.nameProp).addProp(this.introProp).addProp(this.addrProp).addProp(this.geoProp).addProp(this.picProp).addProp(this.tagProp).addProp(this.openStartHourProp).addProp(this.openStartMinProp).addProp(this.openEndHourProp).addProp(this.openEndMinProp).addProp(this.pricesProp).addProp(this.transSubwayProp).addProp(this.transBusProp);
+            this.addProp(this.nameProp).addProp(this.introProp).addProp(this.addrProp).addProp(this.geoProp).addProp(this.picProp).addProp(this.tagsProp).addProp(this.openStartHourProp).addProp(this.openStartMinProp).addProp(this.openEndHourProp).addProp(this.openEndMinProp).addProp(this.pricesProp).addProp(this.transSubwayProp).addProp(this.transBusProp);
         };
         DiscoveryModel.prototype = Object.create(DataModel.prototype);
         DiscoveryModel.prototype.toLO = function () {
@@ -330,7 +330,7 @@
                     geo: this.geoProp.val
                 },
                 picUrl: this.picProp.val,
-                tags: [this.tagProp.val], //TODO
+                tags: this.tagsProp.val, //TODO
                 open: { startsOn: { hour: this.openStartHourProp.val, min: this.openStartMinProp.val }, endsOn: { hour: this.openEndHourProp.val, min: this.openEndMinProp.val } },
                 prices: this.pricesProp.array.map(function (p) { return p.toLO(); }),
                 trans: { subway: this.transSubwayProp.val || '', bus: this.transBusProp.val || '' }
@@ -346,7 +346,7 @@
                 this.addrProp.init(data.location.address);
                 this.geoProp.init(data.location.geo);
                 this.picProp.init(data.picUrl);
-                this.tagProp.init(data.tags[0]);
+                this.tagsProp.init(data.tags);
                 this.openStartHourProp.init(data.open.startsOn.hour);
                 this.openStartMinProp.init(data.open.startsOn.min);
                 this.openEndHourProp.init(data.open.endsOn.hour);

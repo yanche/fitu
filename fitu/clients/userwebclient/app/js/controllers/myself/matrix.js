@@ -42,7 +42,7 @@
         
         $scope.matrixModel = new ucdatamodel.MatrixModel();
         var initModel = function () {
-            $scope.matrixModel.init($scope.activity ? {
+            x=$scope.matrixModel.init($scope.activity ? {
                 name: $scope.activity.name,
                 intro: $scope.activity.intro,
                 startsOn: moment($scope.activity.startsOn).format(constants.dateTimeFormat),
@@ -61,6 +61,7 @@
                 picUrl: $scope.site.picUrl,
                 tags: $scope.site.tags
             });
+            $scope.candidateActTags = constants.tags.filter(function (t) { return $scope.site.tags.some(function (tg) { return tg == t.key; }) });
         };
         
         $scope.reset = function () {

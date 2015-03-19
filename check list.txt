@@ -21,9 +21,9 @@ site update history
 
 
 bug
-*图片上传兼容性问题，当前使用base64作为图片上传格式
+resolved *图片上传兼容性问题，当前使用base64作为图片上传格式
 
 
 task
-*prod加载所有html，同时支持dev环境html lazy loading(grunt config)
+resolved *prod加载所有html，同时支持dev环境html lazy loading(grunt config)
 POST UI error to server?

@@ -81,6 +81,7 @@
     <Content Include="fitu\clients\webclientshared\app\css\webclientshared\messenger.scss" />
     <Content Include="fitu\clients\webclientshared\app\css\webclientshared\sysnote.scss" />
     <Content Include="fitu\clients\webclientshared\app\css\webclientshared\table.scss" />
+    <Content Include="fitu\clients\webclientshared\app\css\webclientshared\tagpicker.scss" />
     <Content Include="fitu\clients\webclientshared\app\css\webclientshared\text.scss" />
     <Content Include="fitu\clients\webclientshared\app\html\directives\actpreview.html" />
     <Content Include="fitu\clients\webclientshared\app\html\directives\dropdown.html" />

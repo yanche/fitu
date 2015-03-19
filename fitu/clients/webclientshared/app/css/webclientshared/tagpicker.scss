@@ -1,0 +1,22 @@
+﻿
+@import '../config/color';
+
+$item_margin: 2px;
+
+.tag-picker {
+    margin-left: -$item_margin;
+    margin-right: -$item_margin;
+}
+
+.tag-picker-item {
+    display: inline-block;
+    padding: 5px 8px;
+    border-radius: 4px;
+    margin: $item_margin;
+    cursor: pointer;
+
+    &.selected {
+        background-color: $color_msg_success;
+        color: white;
+    }
+}
