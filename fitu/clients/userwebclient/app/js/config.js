@@ -117,6 +117,7 @@
                 case ucconst.states.subscribedusers:
                 case ucconst.states.subscribedsites:
                 case ucconst.states.matrix:
+                case ucconst.states.mobilevc:
                     return 'myself';
                 case ucconst.states.sites:
                 case ucconst.states.sitedetail:
@@ -223,6 +224,11 @@
                     url: '/matrix?siteId&actId',
                     templateUrl: '/app/html/myself/matrix.html',
                     controller: 'matrix'
+                }, {
+                    name: 'mobilevc',
+                    url: '/mobilevc',
+                    templateUrl: '/app/html/myself/mobilevc.html',
+                    controller: 'mobilevc'
                 }]
             },{
                 name: 'activities',

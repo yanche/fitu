@@ -1,0 +1,28 @@
+﻿<div class="col-xs-12">
+    <h4 class="col-xs-12 paddingLR0px text-bold" ng-bind="lang.MOBILEVC_HEADER"></h4>
+    <loading class="col-xs-12 paddingLR0px" show="loading" word="lang.MOBILEVC_MSG_LOADING"></loading>
+    <div class="form-group col-xs-12 paddingLR0px" ng-show="!loading">
+        <div class="empty-md"></div>
+        <label class="col-xs-12 paddingLR0px">
+            <span ng-bind="lang.MOBILEVC_LABEL_MOBILE"></span>
+            <span ng-bind="user.personal.phone"></span>
+        </label>
+        <div class="col-xs-6 paddingLR0px">
+            <input class="form-control" type="text" ng-model="vcInput" />
+        </div>
+        <div class="col-xs-6 paddingLR0px">
+            <button class="btn btn-default marginL10px" ng-click="sendSMSVC()" ng-class="{disabled: sending || sent}">
+                <span ng-bind="lang.MOBILEVC_BTN_SEND" ng-show="!sending && !sent"></span>
+                <span ng-bind="lang.MOBILEVC_BTN_SENDING" ng-show="sending"></span>
+                <span ng-bind="lang.MOBILEVC_BTN_SENT" ng-show="sent"></span>
+            </button>
+        </div>
+    </div>
+    <div class="col-xs-12 form-group paddingLR0px">
+        <button class="btn btn-success" ng-class="{disabled: !vcInput || !smsId || submitting}" ng-click="verify()">
+            <i class="fa fa-spinner fa-spin" ng-show="submitting"></i>
+            <span ng-bind="lang.MOBILEVC_BTN_SUBMIT" ng-show="!submitting"></span>
+            <span ng-bind="lang.MOBILEVC_BTN_SUBMITING" ng-show="submitting"></span>
+        </button>
+    </div>
+</div>

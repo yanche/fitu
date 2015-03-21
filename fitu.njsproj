@@ -45,6 +45,7 @@
     <Content Include="fitu\clients\userwebclient\app\html\myself\actlead.html" />
     <Content Include="fitu\clients\userwebclient\app\html\myself\fans.html" />
     <Content Include="fitu\clients\userwebclient\app\html\myself\matrix.html" />
+    <Content Include="fitu\clients\userwebclient\app\html\myself\mobilevc.html" />
     <Content Include="fitu\clients\userwebclient\app\html\myself\noteinbox.html" />
     <Content Include="fitu\clients\userwebclient\app\html\myself\noteoutbox.html" />
     <Content Include="fitu\clients\userwebclient\app\html\myself\notesys.html" />
@@ -170,6 +171,7 @@
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\pendingnotes\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\pwdreset\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\sitefans\" />
+    <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\smsvc\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\userfans\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\wx\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\notes\" />
@@ -188,6 +190,7 @@
     <Folder Include="fitu\node_modules\models\" />
     <Folder Include="fitu\node_modules\email\" />
     <Folder Include="fitu\node_modules\log\" />
+    <Folder Include="fitu\node_modules\smsproviders\" />
     <Folder Include="fitu\node_modules\webpageservice\" />
     <Folder Include="fitu\clients\vendorwebclient\app\html\sites\" />
     <Folder Include="fitu\clients\vendorwebclient\app\html\statistics\" />
@@ -248,6 +251,7 @@
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\activities\signup.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\fans.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\matrix.js" />
+    <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\mobilevc.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\myself.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\noteoutbox.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\noteinbox.js" />
@@ -347,6 +351,9 @@
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\siteidles\index.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\siteidles\singlesiteidle.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\siteidles\siteidles.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\smsvc\index.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\smsvc\singlesmsvc.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\smsvc\smsvc.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\usercontacts\index.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\usercontacts\usercontacts.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\usercredentials\index.js" />
@@ -372,6 +379,7 @@
     <Compile Include="fitu\node_modules\const\message.js" />
     <Compile Include="fitu\node_modules\const\mime.js" />
     <Compile Include="fitu\node_modules\const\site.js" />
+    <Compile Include="fitu\node_modules\const\smsvc.js" />
     <Compile Include="fitu\node_modules\const\status.js" />
     <Compile Include="fitu\node_modules\const\tags.js" />
     <Compile Include="fitu\node_modules\dbaccess\email.js" />
@@ -382,6 +390,7 @@
     <Compile Include="fitu\node_modules\dbaccess\pwdreset.js" />
     <Compile Include="fitu\node_modules\dbaccess\session.js" />
     <Compile Include="fitu\node_modules\dbaccess\site.js" />
+    <Compile Include="fitu\node_modules\dbaccess\smsvc.js" />
     <Compile Include="fitu\node_modules\dbaccess\visitedUA.js" />
     <Compile Include="fitu\node_modules\dbaccess\siteidle.js" />
     <Compile Include="fitu\node_modules\dbaccess\vendor.js" />
@@ -446,6 +455,7 @@
     <Compile Include="fitu\clients\webclientshared\app\js\factories\validate.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\factories\vendor.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\filters\memberStatus.js" />
+    <Compile Include="fitu\node_modules\smsproviders\index.js" />
     <Compile Include="fitu\node_modules\validate\site.js" />
     <Compile Include="fitu\node_modules\webpageservice\index.js" />
     <Compile Include="fitu\node_modules\validate\index.js" />

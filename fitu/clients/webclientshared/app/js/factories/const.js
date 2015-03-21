@@ -54,7 +54,8 @@
             siteStatus: { active: 300, inactive: 301 },
             vendorStatus: { active: 400, inactive: 401 },
             gender: { male: '男', female: '女' },
-            memberPayStatus: { paid: 500, unpaid: 501 }
+            memberPayStatus: { paid: 500, unpaid: 501 },
+            vcTypes: { mobileV: 'mobileV'}
         };
     }]);
 })();

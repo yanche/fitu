@@ -21,6 +21,7 @@
     "MYSELF_LABEL_UPDATEEMAIL": "修改登录",
     "MYSELF_LABEL_UPDATEPWD": "修改密码",
     "MYSELF_LABEL_LOGOUT": "退出",
+    "MYSELF_LABEL_MOBILEVC": "验证手机",
 
     "LOGIN_LABEL_REGISTER": "注册",
     "LOGIN_LABEL_EMAIL": "邮箱",
@@ -366,5 +367,15 @@
     "DISCOVERY_MSG_UPDATED": "场馆更新成功！",
     "DISCOVERY_MSG_ERR_UPDATE_UNKNOWN": "场馆更新失败，未知错误 TAT",
     "DISCOVERY_MSG_UPDATE_NOTFOUND": "此场馆貌似还不存在",
-    "DISCOVERY_MSG_UPDATE_HASVENDOR": "抱歉，暂不提供此场馆的更新功能"
+    "DISCOVERY_MSG_UPDATE_HASVENDOR": "抱歉，暂不提供此场馆的更新功能",
+
+    "MOBILEVC_TITLE": "手机验证",
+    "MOBILEVC_HEADER": "手机验证",
+    "MOBILEVC_BTN_SEND": "发送验证码",
+    "MOBILEVC_BTN_SENDING": "正在发送...",
+    "MOBILEVC_BTN_SENT": "已发送",
+    "MOBILEVC_BTN_SUBMIT": "提交",
+    "MOBILEVC_BTN_SUBMITING": "正在验证...",
+    "MOBILEVC_MSG_LOADING": "正在加载...",
+    "MOBILEVC_LABEL_MOBILE": "验证手机"
 }

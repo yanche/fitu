@@ -37,6 +37,7 @@
                 subscribedusers: 'fitu.myself.subscribedusers',
                 subscribedsites: 'fitu.myself.subscribedsites',
                 matrix: 'fitu.myself.matrix',
+                mobilevc: 'fitu.myself.mobilevc',
                 sites: 'fitu.sites',
                 sitedetail: 'fitu.sitedetail',
                 sitelocation: 'fitu.sitelocation',
