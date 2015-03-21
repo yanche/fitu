@@ -1,6 +1,6 @@
 ﻿(function () {
     angular.module('fitulib')
-    .factory('utility', ['const', '$q', function (constants, $q) {
+    .factory('utility', ['const', '$q', 'lang', function (constants, $q, lang) {
         var CachedLoader = function (fn) {
             this.pendingQ = [];
             this.loaded = false;
@@ -40,6 +40,31 @@
             this.loaded = false;
             this.result = null;
         };
+            
+        //this is a preparation for multi-lingual
+        var SmartString = function (langId) {
+            this.langId = langId;
+        };
+        SmartString.prototype.toString = function () {
+            return lang[this.langId] || '';
+        };
+        
+        var ErrorCode = function () {
+            this.map = {};
+            this.default = null;
+        };
+        ErrorCode.prototype.register = function (errcode, langId) {
+            if (errcode)
+                this.map[errcode] = new SmartString(langId);
+            else
+                this.default = new SmartString(langId);
+        };
+        ErrorCode.prototype.toErrMsg = function (errcode) {
+            if (errcode && this.map[errcode])
+                return this.map[errcode].toString();
+            else
+                return this.default ? this.default.toString() : '';
+        };
         
         return {
             getStaticUrl: function (url) {
@@ -52,7 +77,9 @@
                 else
                     return url;
             },
-            CachedLoader: CachedLoader
+            CachedLoader: CachedLoader,
+            SmartString: SmartString,
+            ErrorCode: ErrorCode
         };
     }]);
 })();

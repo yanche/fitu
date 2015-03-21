@@ -238,12 +238,26 @@
                 });
                 return defer.promise;
             },
-            mobileV: function () {
+            requestMobileVC: function () {
                 var defer = new $q.defer();
                 $http({
                     method: 'POST',
                     url: url.generate('smsvc'),
                     params: { type: constants.vcTypes.mobileV }
+                }).success(function (data) {
+                    defer.resolve(data);
+                }).error(function (data, status, headers, config) {
+                    defer.reject({ data: data, status: status, headers: headers });
+                });
+                return defer.promise;
+            },
+            claimMobileVC: function (options) {
+                var defer = new $q.defer();
+                $http({
+                    method: 'POST',
+                    url: url.generate('smsvc'),
+                    params: { type: constants.vcTypes.mobileV, id: options.id },
+                    data: { vcode: options.vcode }
                 }).success(function (data) {
                     defer.resolve(data);
                 }).error(function (data, status, headers, config) {

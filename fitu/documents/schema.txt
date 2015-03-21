@@ -17,7 +17,10 @@ users
 		'sites': []
 	}
 'fans': [],
-'mobileV':
+'mobileV': {
+phone:,
+verifiedOn:
+}
 }
 
 site
@@ -199,7 +202,7 @@ provider:,
 type:,
 createdOn:,
 userId:,
-code:,
+vcode:,
 expiredOn:,
 claimedOn:,
 }

@@ -59,7 +59,7 @@ var httpEntry = function (req, res) {
     .then(function (webres) {
         //setTimeout(function () { webres.response(res) }, 500);
         webres.response(res);
-        log.info({ type: 'req trace' }, { duration: (new Date().getTime()) - startsOn, req: webreq.toLogEntry(), res: webres.toLogEntry() });
+        log.debug({ type: 'req trace' }, { duration: (new Date().getTime()) - startsOn, req: webreq.toLogEntry(), res: webres.toLogEntry() });
     });
 };
 http.createServer(httpEntry)

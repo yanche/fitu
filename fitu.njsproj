@@ -263,6 +263,7 @@
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\myself\updateemail.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\gym\sites.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\gym\vendordetail.js" />
+    <Compile Include="fitu\clients\userwebclient\app\js\factories\ucerrcodes.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\factories\util.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\factories\link.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\factories\ucdatamodel.js" />
@@ -372,6 +373,7 @@
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\vendors\vendors.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\wx\index.js" />
     <Compile Include="fitu\node_modules\const\common.js" />
+    <Compile Include="fitu\node_modules\const\errcodes.js" />
     <Compile Include="fitu\node_modules\const\index.js" />
     <Compile Include="fitu\node_modules\config\index.js" />
     <Compile Include="fitu\node_modules\const\loglevel.js" />
@@ -456,6 +458,8 @@
     <Compile Include="fitu\clients\webclientshared\app\js\factories\vendor.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\filters\memberStatus.js" />
     <Compile Include="fitu\node_modules\smsproviders\index.js" />
+    <Compile Include="fitu\node_modules\smsproviders\smsret.js" />
+    <Compile Include="fitu\node_modules\smsproviders\yunzhixun.js" />
     <Compile Include="fitu\node_modules\validate\site.js" />
     <Compile Include="fitu\node_modules\webpageservice\index.js" />
     <Compile Include="fitu\node_modules\validate\index.js" />
