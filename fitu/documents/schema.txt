@@ -18,9 +18,9 @@ users
 	}
 'fans': [],
 'mobileV': {
-phone:,
-verifiedOn:
-}
+	phone:,
+	verifiedOn:
+	}
 }
 
 site

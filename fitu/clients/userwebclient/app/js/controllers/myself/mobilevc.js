@@ -24,6 +24,11 @@
                     $scope.submitting = false;
                     $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.success, msg: lang.MOBILEVC_MSG_CLAIM_SUCCESS });
                     $state.gox(ucconst.states.myself);
+                    //sync data 
+                    user.getLoginUser(true)
+                    .then(function (updateduser) {
+                        angular.extend($rootScope.user, updateduser);
+                    });
                 })
                 .catch(function (err) {
                     $scope.submitting = false;

@@ -57,6 +57,7 @@
                 <div class="col-xs-12 paddingLR0px">
                     <gender-hint gender="activity.creator.personal.gender"></gender-hint>
                     <span ng-bind="activity.creator.personal.nickName || lang.GLOBAL_LABEL_ANONY"></span>
+                    <i class="fa marginL5px fa-shield medal granted" ng-show="activity.creator.mobileV"></i>
                     <i class="fa marginL15px" ng-class="{'text-danger fa-heart': activity.creator.fansCount > 0, 'fa-heart-o': activity.creator.fansCount == 0}"></i>
                     <span ng-bind="activity.creator.fansCount"></span>
                 </div>

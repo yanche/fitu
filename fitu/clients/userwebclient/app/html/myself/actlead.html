@@ -71,6 +71,7 @@
             <div class="col-xs-12 paddingLR0px">
                 <span class="text-bold" ng-bind="mem.user.personal.nickName || lang.GLOBAL_LABEL_ANONY"></span>
                 <gender-hint gender="mem.user.personal.gender" class="marginL5px"></gender-hint>
+                <i class="fa marginL5px fa-shield medal granted" ng-show="mem.user.mobileV"></i>
                 <i class="fa fa-envelope-o text-highlight marginL5px" ng-click="link.goSendNote({recipientId: mem.user.id})"></i>
             </div>
             <div class="col-xs-12 paddingLR0px" ng-bind="mem.user.personal.contact"></div>

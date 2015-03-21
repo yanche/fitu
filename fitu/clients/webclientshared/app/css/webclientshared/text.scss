@@ -58,3 +58,12 @@
     font-size: $font_size_basic;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif"";
 }
+
+.medal {
+	&.granted {
+		color: $color_msg_success;
+	}
+	&.disgranted {
+		color: #999999;;
+	}
+}
