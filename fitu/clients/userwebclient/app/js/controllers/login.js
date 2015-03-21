@@ -28,6 +28,7 @@
         };
         
         $scope.registerModel = new ucdatamodel.RegisterModel();
+        $scope.registerModel.init({});
         $scope.register = function () {
             if ($scope.registerModel.validate()) {
                 $scope.registering = true;

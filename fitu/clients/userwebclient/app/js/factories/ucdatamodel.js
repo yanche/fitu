@@ -1,6 +1,6 @@
 ﻿(function () {
     angular.module('fitu')
-    .factory('ucdatamodel', ['datamodel', 'validate', 'crypto', function (datamodel, validate, crypto) {
+    .factory('ucdatamodel', ['datamodel', 'validate', 'crypto', 'const', function (datamodel, validate, crypto, constants) {
         var ModelProp = datamodel.ModelProp, ModelArrayProp = datamodel.ModelArrayProp, DataModel = datamodel.DataModel;
         
         var LoginModel = function () {
@@ -62,10 +62,10 @@
                 this.emailProp.init(data.email);
                 this.pwdProp.init(data.pwd);
                 this.pwdConfirmProp.init(data.pwd2);
-                this.nickNameProp.init(data.personal.nickName);
-                this.phoneProp.init(data.personal.phone);
-                this.contactProp.init(data.personal.contact);
-                this.genderProp.init(data.personal.gender);
+                this.nickNameProp.init(data.personal ? data.personal.nickName : '');
+                this.phoneProp.init(data.personal ? data.personal.phone : '');
+                this.contactProp.init(data.personal ? data.personal.contact : '');
+                this.genderProp.init(data.personal ? data.personal.gender : constants.gender.unknown);
             }
             return this;
         };
@@ -97,10 +97,10 @@
             if (!data)
                 DataModel.prototype.init.call();
             else {
-                this.nickNameProp.init(data.personal.nickName);
-                this.phoneProp.init(data.personal.phone);
-                this.contactProp.init(data.personal.contact);
-                this.genderProp.init(data.personal.gender);
+                this.nickNameProp.init(data.personal ? data.personal.nickName : '');
+                this.phoneProp.init(data.personal ? data.personal.phone : '');
+                this.contactProp.init(data.personal ? data.personal.contact : '');
+                this.genderProp.init(data.personal ? data.personal.gender : constants.gender.unknown);
                 this.headUrlProp.init(data.headUrl);
             }
             return this;
