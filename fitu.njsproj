@@ -33,6 +33,7 @@
   <ItemGroup>
     <Content Include=".gitignore" />
     <Content Include="bower.json" />
+    <Content Include="check list.txt" />
     <Content Include="client pages spec.docx" />
     <Content Include="fitu\clients\adminwebclient\app\html\main.html" />
     <Content Include="fitu\clients\adminwebclient\app\json\lang.json" />
