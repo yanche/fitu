@@ -34,11 +34,7 @@
         <div class="form-group">
             <label for="profile_gender" class="col-xs-3 control-label text-right" ng-bind="lang.PROFILE_LABEL_GENDER"></label>
             <div class="col-xs-7">
-                <select type="text" class="form-control" id="profile_gender" ng-model="profileModel.genderProp.val">
-                    <option value="" ng-bind="lang.GLOBAL_LABEL_SEXNON"></option>
-                    <option value="男" ng-bind="lang.GLOBAL_LABEL_SEXMALE"></option>
-                    <option value="女" ng-bind="lang.GLOBAL_LABEL_SEXFEMALE"></option>
-                </select>
+                <select type="text" class="form-control" id="profile_gender" ng-model="profileModel.genderProp.val" ng-options="k as v | gender for (k, v) in const.gender"></select>
             </div>
         </div>
         <div class="form-group">

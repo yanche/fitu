@@ -53,7 +53,8 @@
             memberStatus: { pending: 200, quit: 201, confirmed: 202 },
             siteStatus: { active: 300, inactive: 301 },
             vendorStatus: { active: 400, inactive: 401 },
-            gender: { male: '男', female: '女' },
+            gender: { male: 'male', female: 'female', unknown: 'unknown' },
+            genderList: [{key:'male',name:'male'}, { key: 'female', name: 'female' }, { key: 'unknown', name: 'unknown' }],
             memberPayStatus: { paid: 500, unpaid: 501 },
             vcTypes: { mobileV: 'mobileV'}
         };

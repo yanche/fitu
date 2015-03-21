@@ -1,6 +1,6 @@
 ﻿(function () {
     angular.module('fitulib')
-    .factory('validate', [function () {
+    .factory('validate', ['const', function (constants) {
         var emailRegex = new RegExp('^(\\w)+(\\.\\w+)*@(\\w)+((\\.\\w+)+)$');
         var phoneRegex = new RegExp('^[0-9]{11}$');
         var hashRegex = new RegExp('^[a-fA-F0-9]{32}$');
@@ -23,7 +23,7 @@
                 return phoneRegex.test(input) || (optional && isNullOrEmpty(input));
             },
             gender: function (input, optional) {
-                return input == '男' || input == '女' || (optional && isNullOrEmpty(input));
+                return input == constants.gender.male || input == constants.gender.female || input == constants.gender.unknown || (optional && isNullOrEmpty(input));
             },
             password: function (input, optional) {
                 return (isString(input) && input.length >= 6) || (optional && isNullOrEmpty(input));

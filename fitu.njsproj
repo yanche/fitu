@@ -93,10 +93,16 @@
     <Content Include="fitu\clients\webclientshared\app\html\directives\messenger.html" />
     <Content Include="fitu\clients\webclientshared\app\html\directives\pagination.html" />
     <Content Include="fitu\clients\webclientshared\app\image\actpic.jpg" />
+    <Content Include="fitu\clients\webclientshared\app\image\boy1.jpg" />
+    <Content Include="fitu\clients\webclientshared\app\image\boy2.jpg" />
+    <Content Include="fitu\clients\webclientshared\app\image\girl1.jpg" />
+    <Content Include="fitu\clients\webclientshared\app\image\girl2.jpg" />
     <Content Include="fitu\clients\webclientshared\app\image\head.jpg" />
     <Content Include="fitu\clients\webclientshared\app\image\icon.png" />
     <Content Include="fitu\clients\webclientshared\app\image\loading.gif" />
     <Content Include="fitu\clients\webclientshared\app\image\sitepic.jpg" />
+    <Content Include="fitu\clients\webclientshared\app\image\unknown1.jpg" />
+    <Content Include="fitu\clients\webclientshared\app\image\unknown2.png" />
     <Content Include="fitu\clients\webclientshared\app\image\vendorpic.jpg" />
     <Content Include="fitu doc.docx" />
     <Content Include="fitu\clients\webclientshared\app\json\global_lang.json" />
@@ -190,6 +196,7 @@
     <Folder Include="fitu\node_modules\models\" />
     <Folder Include="fitu\node_modules\email\" />
     <Folder Include="fitu\node_modules\log\" />
+    <Folder Include="fitu\node_modules\userdefaultheadpic\" />
     <Folder Include="fitu\node_modules\smsproviders\" />
     <Folder Include="fitu\node_modules\webpageservice\" />
     <Folder Include="fitu\clients\vendorwebclient\app\html\sites\" />
@@ -289,6 +296,7 @@
     <Compile Include="fitu\clients\webclientshared\app\js\factories\sitefan.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\factories\wxb.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\filters\activityDatetime.js" />
+    <Compile Include="fitu\clients\webclientshared\app\js\filters\gender.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\filters\siteopen.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\filters\price.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\factories\crypto.js" />
@@ -460,6 +468,7 @@
     <Compile Include="fitu\node_modules\smsproviders\index.js" />
     <Compile Include="fitu\node_modules\smsproviders\smsret.js" />
     <Compile Include="fitu\node_modules\smsproviders\yunzhixun.js" />
+    <Compile Include="fitu\node_modules\userdefaultheadpic\index.js" />
     <Compile Include="fitu\node_modules\validate\site.js" />
     <Compile Include="fitu\node_modules\webpageservice\index.js" />
     <Compile Include="fitu\node_modules\validate\index.js" />
