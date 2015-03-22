@@ -3,7 +3,7 @@
 
     "NAV_LABEL_ME": "我",
     "NAV_LABEL_ACTIVITY": "活动",
-    "NAV_LABEL_SITEIDLES": "场馆",
+    "NAV_LABEL_SITES": "场馆",
 
     "MYSELF_TITLE_ME": "我",
     "MYSELF_LABEL_PROFILE": "编辑资料",
@@ -96,8 +96,6 @@
     "SITE_HEADER": "场地",
     "SITE_TITLE": "场馆列表",
     "SITE_DISCOVERY": "发现",
-
-    "SITEIDLES_HEADER": "空闲场馆",
 
     "ACTIVITY_HEADER": "当前活动",
 

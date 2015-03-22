@@ -62,7 +62,6 @@
     <Content Include="fitu\clients\webclientshared\app\css\vendorwebclient\nav.scss" />
     <Content Include="fitu\clients\vendorwebclient\app\html\admins\admins.html" />
     <Content Include="fitu\clients\vendorwebclient\app\html\profile\profile.html" />
-    <Content Include="fitu\clients\vendorwebclient\app\html\siteidles\siteidles.html" />
     <Content Include="fitu\clients\vendorwebclient\app\html\login\login.html" />
     <Content Include="fitu\clients\vendorwebclient\app\html\layout.html" />
     <Content Include="fitu\clients\vendorwebclient\app\json\lang.json" />
@@ -145,10 +144,8 @@
     <Folder Include="fitu\clients\userwebclient\app\js\factories\" />
     <Folder Include="fitu\clients\vendorwebclient\app\html\admins\" />
     <Folder Include="fitu\clients\vendorwebclient\app\html\profile\" />
-    <Folder Include="fitu\clients\vendorwebclient\app\html\siteidles\" />
     <Folder Include="fitu\clients\vendorwebclient\app\html\login\" />
     <Folder Include="fitu\clients\vendorwebclient\app\js\controllers\login\" />
-    <Folder Include="fitu\clients\vendorwebclient\app\js\controllers\siteidles\" />
     <Folder Include="fitu\clients\vendorwebclient\app\js\factories\" />
     <Folder Include="fitu\clients\webclientshared\app\css\controls\" />
     <Folder Include="fitu\clients\webclientshared\app\css\config\" />
@@ -183,7 +180,6 @@
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\notes\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\vendorpreview\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\usercontacts\" />
-    <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\siteidles\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\sites\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\vendors\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\sessions\" />
@@ -276,7 +272,6 @@
     <Compile Include="fitu\clients\userwebclient\app\js\factories\ucdatamodel.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\factories\ucconst.js" />
     <Compile Include="fitu\clients\vendorwebclient\app\js\controllers\login\login.js" />
-    <Compile Include="fitu\clients\vendorwebclient\app\js\controllers\siteidles\siteidles.js" />
     <Compile Include="fitu\clients\vendorwebclient\app\js\controllers\vendor.js" />
     <Compile Include="fitu\clients\vendorwebclient\app\js\factories\vcconst.js" />
     <Compile Include="fitu\clients\vendorwebclient\app\js\factories\vcdatamodel.js" />
@@ -307,7 +302,6 @@
     <Compile Include="fitu\clients\webclientshared\app\js\factories\messenger.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\factories\note.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\factories\pagination.js" />
-    <Compile Include="fitu\clients\webclientshared\app\js\factories\siteidle.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\factories\userfan.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\factories\utility.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\filters\datetime.js" />
@@ -345,7 +339,6 @@
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\resxutil\message.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\resxutil\note.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\resxutil\site.js" />
-    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\resxutil\siteidle.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\resxutil\user.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\resxutil\usercontact.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\resxutil\usercredentials.js" />
@@ -357,9 +350,6 @@
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\sites\index.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\sites\singlesite.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\sites\sites.js" />
-    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\siteidles\index.js" />
-    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\siteidles\singlesiteidle.js" />
-    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\siteidles\siteidles.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\smsvc\index.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\smsvc\singlesmsvc.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\smsvc\smsvc.js" />
@@ -402,7 +392,6 @@
     <Compile Include="fitu\node_modules\dbaccess\site.js" />
     <Compile Include="fitu\node_modules\dbaccess\smsvc.js" />
     <Compile Include="fitu\node_modules\dbaccess\visitedUA.js" />
-    <Compile Include="fitu\node_modules\dbaccess\siteidle.js" />
     <Compile Include="fitu\node_modules\dbaccess\vendor.js" />
     <Compile Include="fitu\node_modules\dbaccess\user.js" />
     <Compile Include="fitu\node_modules\dbaccess\index.js" />

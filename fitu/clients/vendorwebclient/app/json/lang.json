@@ -59,16 +59,5 @@
     "SITE_MSG_UPDATEFAILED": "更新场馆失败 TAT",
     "SITE_MSG_UPDATESUCCESS": "更新场馆完成",
 
-    "SITEIDLE_TITLE": "闲置时间段",
-    "SITEIDLE_LABEL_SLOTS": "空闲位*",
-    "SITEIDLE_LABEL_PRICE": "单价*",
-    "SITEIDLE_LABEL_TAGS": "标签*",
-    "SITEIDLE_LABEL_STARTSON": "开始时间*",
-    "SITEIDLE_LABEL_ENDSON": "结束时间*",
-    "SITEIDLE_BTN_CREATE": "发布！",
-    "SITEIDLE_BTN_CREATING": "正在发布...",
-    "SITEIDLE_MSG_ADDFAILED": "添加场馆空闲失败 TAT",
-    "SITEIDLE_MSG_ADDSUCCESS": "添加场馆空闲完成",
-
     "STATISTICS_TITLE": "统计数据"
 }

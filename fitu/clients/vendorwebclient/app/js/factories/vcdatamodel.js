@@ -145,52 +145,10 @@
             return this;
         };
         
-        var SiteIdleModel = function () {
-            var me = this;
-            DataModel.call(me);
-            
-            me.slotsProp = new ModelProp(validate.positiveInteger);
-            me.priceProp = new ModelProp(validate.nonNegFloat);
-            me.startsOnProp = new ModelProp(function (input, optional) {
-                var date = new Date(input);
-                return (!isNaN(date.getTime()) && date.getTime() > new Date().getTime()) || (optional && validate.nullOrEmpty(input));
-            });
-            me.endsOnProp = new ModelProp(function (input, optional) {
-                var date = new Date(input), startsOn = new Date(me.startsOnProp.val);
-                if (isNaN(startsOn.getTime())) startsOn = new Date();
-                return (!isNaN(date.getTime()) && date.getTime() > startsOn.getTime()) || (optional && validate.nullOrEmpty(input));
-            });
-            me.tagProp = new ModelProp(validate.alwaysTrue);
-            me.addProp(me.slotsProp).addProp(me.priceProp).addProp(me.startsOnProp).addProp(me.endsOnProp).addProp(me.tagProp);
-        };
-        SiteIdleModel.prototype = Object.create(DataModel.prototype);
-        SiteIdleModel.prototype.toLO = function () {
-            return {
-                slots: this.slotsProp.val,
-                price: this.priceProp.val,
-                startsOn: this.startsOnProp.val,
-                endsOn: this.endsOnProp.val,
-                tags: [this.tagProp.val]
-            };
-        };
-        SiteIdleModel.prototype.init = function (data) {
-            if (!data)
-                DataModel.prototype.init.call();
-            else {
-                this.slotsProp.init(data.slots);
-                this.priceProp.init(data.price);
-                this.startsOnProp.init(data.startsOn);
-                this.endsOnProp.init(data.endsOn);
-                this.tagProp.init(data.tags[0]);
-            }
-            return this;
-        };
-        
         return {
             VendorModel: VendorModel,
             SiteModel: SiteModel,
-            SitePriceModel: SitePriceModel,
-            SiteIdleModel: SiteIdleModel
+            SitePriceModel: SitePriceModel
         };
     }]);
 })();

@@ -4,7 +4,6 @@ db.users.remove({});
 db.sites.remove({});
 db.activities.remove({});
 db.members.remove({});
-db.siteidles.remove({});
 db.vendors.remove({});
 db.sessions.remove({});
 

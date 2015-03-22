@@ -68,11 +68,6 @@
                     templateUrl: '/app/html/sites/sites.html',
                     controller: 'sites'
                 },{
-                    name: 'siteidles',
-                    url: '/siteidles?vendorId&siteId',
-                    templateUrl: '/app/html/siteidles/siteidles.html',
-                    controller: 'siteidles'
-                },{
                     name: 'statistics',
                     url: '/statistics?vendorId',
                     templateUrl: '/app/html/statistics/statistics.html',

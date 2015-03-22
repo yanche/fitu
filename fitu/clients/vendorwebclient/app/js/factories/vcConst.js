@@ -7,7 +7,6 @@
                 profile: 'fituvd.vendor.profile',
                 admins: 'fituvd.vendor.admins',
                 sites: 'fituvd.vendor.sites',
-                siteidles: 'fituvd.vendor.siteidles',
                 statistics: 'fituvd.vendor.statistics',
             },
             events: {
