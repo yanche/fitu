@@ -358,7 +358,7 @@
     "DISCOVERY_LABEL_OPEN_ENDSON": "歇业",
     "DISCOVERY_LABEL_PRICEMODE": "收费模式",
     "DISCOVERY_LABEL_PRICEMODE_ADD": "添加",
-    "DISCOVERY_LABEL_TAG": "类型",
+    "DISCOVERY_LABEL_TAG": "类型*",
     "DISCOVERY_LABEL_ADDR": "地址*（请输入并点击确认场馆位置）",
     "DISCOVERY_LABEL_GEO": "请点击地图确认位置",
     "DISCOVERY_LABEL_PIC": "照片",
