@@ -7,9 +7,12 @@
             <div class="text-xl paddingTB5px paddingLR10px text-overflow-hidden" ng-bind="activity.name"></div>
             <div class="paddingTB5px paddingLR10px text-overflow-hidden">
                 <span ng-bind="lang.ACTDETAIL_LABEL_TIME"></span>
-                <span ng-bind="activity.startsOn | datetime : const.actTimeFormat2"></span>
-                <span> ~ </span>
-                <span ng-bind="activity.endsOn | datetime : const.actTimeFormat2"></span>
+                <span ng-show="util.actActive(activity)">
+                    <span ng-bind="activity.startsOn | datetime : const.actTimeFormat2"></span>
+                    <span> ~ </span>
+                    <span ng-bind="activity.endsOn | datetime : const.actTimeFormat2"></span>
+                </span>
+                <span class="text-bold" ng-show="!util.actActive(activity)" ng-bind="util.actNonActiveStatus(activity)"></span>
             </div>
         </div>
     </div>
@@ -83,10 +86,9 @@
             <span ng-bind="activity.memberCount"></span>
             <span ng-bind="lang.ACTDETAIL_LABEL_MEMBER_2"></span>
         </div>
-        <div class="col-xs-12 paddingLR0px bg-veil" ng-show="members.length > 0 && util.actActive(activity)">
+        <div class="col-xs-12 paddingLR0px bg-veil" ng-show="members.length > 0">
             <img ng-repeat="m in members" ng-src="{{m.user.headUrl}}" class="col-xs-2 padding5px" ng-click="link.goUserPreview(m.user.id)" />
         </div>
-        <div class="col-xs-12 paddingLR0px text-bold" ng-show="!util.actActive(activity)" ng-bind="util.actNonActiveStatus(activity)"></div>
         <div class="empty-xs"></div>
         <div class="col-xs-12 padding10px bg-veil" style="border-radius:5px;" ng-show="loadingMsg || totalMsgPages > 0">
             <div class="col-xs-12 paddingLR0px text-bold marginB5px">

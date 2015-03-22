@@ -5,16 +5,17 @@
         <span ng-bind="activity.name"></span>
         <span>, </span>
         <span ng-bind="activity.startsOn | date"></span>
-        <i ng-show="!util.actCancel(activity)" class="fa fa-edit text-highlight marginL5px" ng-click="link.goMatrix({actId: activity.id})"></i>
+        <i ng-show="util.actActive(activity)" class="fa fa-edit text-highlight marginL5px" ng-click="link.goMatrix({actId: activity.id})"></i>
         <i ng-show="util.actActive(activity)" class="fa fa-times text-danger marginL5px" ng-click="cancelAct(activity)"></i>
         <span ng-show="!util.actActive(activity)" ng-bind="util.actNonActiveStatus(activity)" class="text-danger"></span>
     </h4>
     <div class="paddingLR0px col-xs-12" ng-show="activity">
-        <span class="f-left text-highlight" ng-click="link.goSendNote({actId: activity.id})" ng-show="activity.memberCount > 0">
+        <span class="f-left text-highlight marginR5px" ng-click="link.goSendNote({actId: activity.id})" ng-show="activity.memberCount > 0">
             <i class="fa fa-envelope-o"></i>
             <span ng-bind="lang.SENDNOTE_LABEL_SENDNOTEALL"></span>
         </span>
-        <span class="fa f-right text-highlight" ng-class="{'fa-angle-down': !expandCensus, 'fa-angle-up': expandCensus}" ng-click="expandCensus = !expandCensus"></span>
+        <span class="text-highlight" ng-click="link.goActDetail(activity.id)" ng-bind="lang.ACTLEAD_LABEL_GOACTDETAIL"></span>
+        <span class="fa f-right text-highlight" ng-class="{'fa-angle-down': !expandCensus, 'fa-angle-up': expandCensus}" ng-click="expandCensus = !expandCensus" ng-show="activity.memberCount > 0"></span>
     </div>
     <div style="display:none;" class="paddingLR0px col-xs-12" ng-class="{_slide_down: expandCensus}">
         <loading class="col-xs-12 paddingLR0px" show="loadingCensus" word="lang.ACTLEAD_MSG_LOADINGCENSUS"></loading>

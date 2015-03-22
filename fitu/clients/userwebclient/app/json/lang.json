@@ -299,6 +299,7 @@
     "VENDORDETAIL_LABEL_TAG": "类型",
     "VENDORDETAIL_MSG_404": "喔！不知为何没有找到该商户。。。",
 
+	"ACTLEAD_LABEL_GOACTDETAIL":"查看活动",
     "ACTLEAD_LABEL_PAID": "已支付",
     "ACTLEAD_LABEL_UNPAID": "未支付",
     "ACTLEAD_LABEL_PENDING": "待确认",
