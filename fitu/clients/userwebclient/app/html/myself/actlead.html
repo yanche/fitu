@@ -76,18 +76,11 @@
             </div>
             <div class="col-xs-12 paddingLR0px" ng-bind="mem.user.personal.contact"></div>
             <div class="col-xs-12 paddingLR0px" ng-bind="mem.user.personal.phone"></div>
-            <div class="col-xs-12 paddingLR0px" ng-show="!util.actActive(activity)">
+            <div class="col-xs-12 paddingLR0px">
                 <span ng-bind="lang.ACTLEAD_LABEL_QUIT" ng-show="mem.statusId == const.memberStatus.quit"></span>
-                <span ng-bind="lang.ACTLEAD_LABEL_NOTCONFIRM" ng-show="mem.statusId == const.memberStatus.pending"></span>
-                <span ng-bind="lang.ACTLEAD_LABEL_CONFIRMED" ng-show="mem.statusId == const.memberStatus.confirmed"></span>
-                <span ng-bind="lang.ACTLEAD_LABEL_UNPAID" ng-show="mem.payStatusId == const.memberPayStatus.unpaid"></span>
-                <span ng-bind="lang.ACTLEAD_LABEL_PAID" ng-show="mem.payStatusId == const.memberPayStatus.paid"></span>
-            </div>
-            <div class="col-xs-12 paddingLR0px" ng-show="util.actActive(activity)">
-                <span ng-bind="lang.ACTLEAD_LABEL_QUIT" ng-show="mem.statusId == const.memberStatus.quit"></span>
-                <span class="text-highlight text-underline" ng-bind="lang.ACTLEAD_LABEL_PENDING" ng-show="mem.statusId == const.memberStatus.pending" ng-click="doConfirm(mem)"></span>
+                <span ng-class="{'text-highlight text-underline': util.actActive(activity)}" ng-bind="lang.ACTLEAD_LABEL_PENDING" ng-show="mem.statusId == const.memberStatus.pending" ng-click="doConfirm(mem)"></span>
                 <span ng-bind="lang.ACTLEAD_LABEL_CONFIRMED" ng-show="mem.statusId == const.memberStatus.confirmed" ng-click="doPending(mem)"></span>
-                <span class="text-highlight text-underline" ng-bind="lang.ACTLEAD_LABEL_UNPAID" ng-show="mem.payStatusId == const.memberPayStatus.unpaid" ng-click="doPaid(mem)"></span>
+                <span ng-class="{'text-highlight text-underline': util.actActive(activity)}" ng-bind="lang.ACTLEAD_LABEL_UNPAID" ng-show="mem.payStatusId == const.memberPayStatus.unpaid" ng-click="doPaid(mem)"></span>
                 <span ng-bind="lang.ACTLEAD_LABEL_PAID" ng-show="mem.payStatusId == const.memberPayStatus.paid" ng-click="doUnpaid(mem)"></span>
             </div>
         </div>
