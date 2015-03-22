@@ -13,6 +13,18 @@
         var isNullOrEmpty = function (input) {
             return input == '' || input == null;
         };
+        var isNumber = function (n) {
+            return typeof n === 'number';
+        };
+        //min
+        //max
+        var validatorOfStringInRange = function (options) {
+            var min = isNumber(options.min) ? options.min : null;
+            var max = isNumber(options.max) ? options.max : null;
+            return function (str) {
+                return isString(str) && (max === null || str.length <= max) && (min === null || str.length >= min);
+            };
+        };
         return {
             isString: isString,
             nullOrEmpty: isNullOrEmpty,
@@ -92,7 +104,8 @@
             lng: function (lng) {
                 var lng = Number(lng);
                 return !isNaN(lng) && lng >= 120 && lng <= 122;
-            }
+            },
+            validatorOfStringInRange: validatorOfStringInRange
         };
     }]);
 })();

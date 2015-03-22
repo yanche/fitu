@@ -14,13 +14,13 @@
         </div>
         <div class="form-group">
             <label for="matrix_name" class="control-label" ng-bind="lang.MATRIX_LABEL_NAME"></label>
-            <div ng-class="{'has-error': !matrixModel.nameProp.validate(true)}">
+            <div ng-class="{'has-error': !matrixModel.nameProp.validate()}">
                 <input id="matrix_name" type="text" class="form-control" ng-model="matrixModel.nameProp.val" />
             </div>
         </div>
         <div class="form-group">
             <label for="matrix_intro" class="control-label" ng-bind="lang.MATRIX_LABEL_INTRO"></label>
-            <div ng-class="{'has-error': !matrixModel.introProp.validate(true)}">
+            <div ng-class="{'has-error': !matrixModel.introProp.validate()}">
                 <textarea id="matrix_intro" style="min-height: 100px;" class="form-control full-width" ng-model="matrixModel.introProp.val"></textarea>
             </div>
         </div>
@@ -70,6 +70,12 @@
             </div>
             <div ng-class="{'has-error': !matrixModel.priceProp.validate()}">
                 <input id="matrix_price" type="text" class="form-control" ng-model="matrixModel.priceProp.val" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="matrix_bar" class="control-label" ng-bind="lang.MATRIX_LABEL_BAR + lang.MATRIX_LABEL_BAR_TIP"></label>
+            <div ng-class="{'has-error': !matrixModel.barProp.validate(true)}">
+                <input id="matrix_bar" type="text" class="form-control" ng-model="matrixModel.barProp.val" />
             </div>
         </div>
         <div class="form-group">

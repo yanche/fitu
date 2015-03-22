@@ -42,7 +42,7 @@
         
         $scope.matrixModel = new ucdatamodel.MatrixModel();
         var initModel = function () {
-            x=$scope.matrixModel.init($scope.activity ? {
+            $scope.matrixModel.init($scope.activity ? {
                 name: $scope.activity.name,
                 intro: $scope.activity.intro,
                 startsOn: moment($scope.activity.startsOn).format(constants.dateTimeFormat),
@@ -50,7 +50,8 @@
                 capacity: $scope.activity.capacity,
                 price: $scope.activity.price,
                 picUrl: $scope.activity.picUrl,
-                tags: $scope.activity.tags
+                tags: $scope.activity.tags,
+                bar: $scope.activity.bar
             } : {
                 name: '',
                 intro: '',
@@ -59,7 +60,8 @@
                 capacity: 5,
                 price: $scope.site.prices.length > 0 ? $scope.site.prices[0].amount : 50,
                 picUrl: $scope.site.picUrl,
-                tags: $scope.site.tags
+                tags: $scope.site.tags,
+                bar: ''
             });
             $scope.candidateActTags = constants.tags.filter(function (t) { return $scope.site.tags.some(function (tg) { return tg == t.key; }) });
         };

@@ -80,7 +80,8 @@ activity
 'intro':,
 'recruitment':,
 'picUrl':,
-'capacity':
+'capacity':,
+'bar':
 }
 
 member

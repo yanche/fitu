@@ -9,7 +9,7 @@
             <span ng-bind="act.startsOn | activityDatetime : act.endsOn" ng-show="!util.actCancel(act)"></span>
             <span ng-bind="lang.ACTDETAIL_LABEL_CANCEL" ng-show="util.actCancel(act)"></span>
         </div>
-        <div class="col-xs-12 paddingLR0px">
+        <div class="col-xs-12 paddingLR0px text-overflow-hidden">
             <i class="fa fa-map-marker text-highlight"></i>
             <span ng-bind="act.site.location.address"></span>
         </div>
@@ -29,9 +29,13 @@
                 <span ng-bind="act.msgCount"></span>
             </div>
         </div>
-        <div class="col-xs-12 paddingLR0px">
+        <div class="col-xs-12 paddingLR0px text-overflow-hidden">
             <i class="fa fa-home text-highlight"></i>
             <span ng-bind="act.tags | tags"></span>
+        </div>
+        <div class="col-xs-12 paddingLR0px text-overflow-hidden" ng-show="act.bar">
+            <i class="fa fa-level-up text-highlight"></i>
+            <span ng-bind="act.bar"></span>
         </div>
     </div>
 </div>

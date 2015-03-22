@@ -12,7 +12,7 @@ resolved 短信认证用户
 resolved 默认图片（头像，pic）
 保存活动模板
 导出excel
-活动要求 detail
+resolved 活动要求 detail
 
 低优先级
 积分系统（权重，UI提示，防刷分，积分功能），设计相关

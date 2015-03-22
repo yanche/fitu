@@ -208,7 +208,11 @@
             me.priceProp = new ModelProp(validate.nonNegFloat);
             me.picUrlProp = new ModelProp(validate.alwaysTrue);
             me.tagProp = new ModelProp(validate.alwaysTrue);
-            me.addProp(me.nameProp).addProp(me.introProp).addProp(me.startsOnProp).addProp(me.endsOnProp).addProp(me.capacityProp).addProp(me.priceProp).addProp(me.picUrlProp).addProp(me.tagProp);
+            var actBarValidator = validate.validatorOfStringInRange({ max: 20 });
+            me.barProp = new ModelProp(function (input, optional) {
+                return validate.nullOrEmpty(input) || actBarValidator(input);
+            });
+            me.addProp(me.nameProp).addProp(me.introProp).addProp(me.startsOnProp).addProp(me.endsOnProp).addProp(me.capacityProp).addProp(me.priceProp).addProp(me.picUrlProp).addProp(me.tagProp).addProp(me.barProp);
         };
         MatrixModel.prototype = Object.create(DataModel.prototype);
         MatrixModel.prototype.toLO = function () {
@@ -220,7 +224,8 @@
                 capacity: this.capacityProp.val,
                 price: this.priceProp.val,
                 picUrl: this.picUrlProp.val,
-                tags: [this.tagProp.val]
+                tags: [this.tagProp.val],
+                bar: this.barProp.val
             };
         };
         MatrixModel.prototype.init = function (data) {
@@ -235,6 +240,7 @@
                 this.priceProp.init(data.price);
                 this.picUrlProp.init(data.picUrl);
                 this.tagProp.init(data.tags[0]);
+                this.barProp.init(data.bar);
             }
             return this;
         };

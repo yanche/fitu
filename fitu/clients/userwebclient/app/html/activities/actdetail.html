@@ -48,6 +48,11 @@
             <i class="fa fa-users text-highlight"></i>
             <span ng-bind="activity.capacity"></span>
         </div>
+        <div class="col-xs-12 paddingLR0px text-bold" ng-show="activity.bar" ng-bind="lang.ACTDETAIL_LABEL_BAR"></div>
+        <div class="col-xs-12 paddingLR0px" ng-show="activity.bar">
+            <i class="fa fa-level-up text-highlight"></i>
+            <span ng-bind="activity.bar"></span>
+        </div>
         <div class="col-xs-12 paddingLR0px text-bold">
             <span ng-bind="lang.ACTDETAIL_LABEL_CREATOR"></span>
             <span ng-bind="lang.ACTDETAIL_LABEL_YOURSELF" ng-show="activity.createdBy == user.id"></span>
