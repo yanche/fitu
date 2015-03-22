@@ -25,3 +25,36 @@
         color: $color_btn_disabled !important;
     }
 }
+
+.flatbtn-o {
+    cursor: pointer;
+
+    &:hover {
+        background-color: $color_btn_normal;
+		color: white;
+    }
+
+    &:active {
+        background-color: $color_btn_hover;
+		color: white;
+    }
+
+    &.disabled {
+        background-color: $color_btn_disabled !important;
+		color: white;
+    }
+}
+
+.clickable {
+	cursor: pointer;
+
+	&:hover {
+        color: $color_btn_hover;
+	}
+
+	&.remove {
+		&:hover {
+			color: $color_input_error;
+		}
+	}
+}

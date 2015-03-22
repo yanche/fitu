@@ -1,205 +1,41 @@
-﻿<div class="col-sm-6 col-xs-12" style="margin-bottom: 100px;">
-    <h3 ng-bind="lang.SITE_TITLE" class="col-xs-12 nopadding"></h3>
-    <div class="col-xs-12 nopadding text-bold text-lg borderbottom-bold" ng-show="getSiteCount() > 0">
-        <div class="col-xs-3 datacell" ng-bind="lang.SITE_LABEL_NAME"></div>
-        <div class="col-xs-3 datacell" ng-bind="lang.SITE_LABEL_INTRO"></div>
-        <div class="col-xs-3 datacell" ng-bind="lang.SITE_LABEL_ADDRESS"></div>
-        <div class="col-xs-3 datacell" ng-bind="lang.SITE_LABEL_TAGS"></div>
-    </div>
-    <div ng-repeat="site in visibles" class="col-xs-12 nopadding borderbottom">
-        <div class="col-xs-12 nopadding" ng-class="{selected: site.editing}" ng-click="site.editing = !site.editing">
-            <div class="col-xs-3 datacell" ng-bind="site.name"></div>
-            <div class="col-xs-3 datacell" ng-bind="site.intro"></div>
-            <div class="col-xs-3 datacell" ng-bind="site.location.address"></div>
-            <div class="col-xs-3 datacell" ng-bind="site.tags | tags"></div>
+﻿<div class="col-xs-12" style="margin-bottom: 100px;">
+    <h3 ng-bind="lang.SITE_TITLE" class="col-xs-12 nopadding" style="margin-bottom:30px;"></h3>
+    <div class="col-xs-2" style="max-height: 1500px;overflow-y:auto;">
+        <div ng-repeat="site in sites" ng-click="initSiteEdit(site)" class="clickable">
+            <div class="text-center text-overflow-hidden" ng-bind="site.raw.name"></div>
+            <img style="width:100%;max-width:100%;" ng-src="{{site.raw.picUrl}}" />
         </div>
-        <div role="form" class="col-xs-12 nopadding" style="padding-top:15px;background-color:#F2F2F2" ng-show="site.editing">
-            <div class="form-group  col-xs-6">
-                <label ng-bind="lang.SITE_LABEL_NAME"></label>
-                <div ng-class="{'has-error': !site.model.nameProp.validate()}">
-                    <input type="text" class="form-control" ng-model="site.model.nameProp.val" />
-                </div>
-            </div>
-            <div class="form-group col-xs-6">
-                <label ng-bind="'联系方式'"></label>
-                <div ng-class="{'has-error': !site.model.contactProp.validate(true)}">
-                    <input type="text" class="form-control" ng-model="site.model.contactProp.val" />
-                </div>
-            </div>
-            <div class="form-group col-xs-6">
-                <label ng-bind="lang.SITE_LABEL_TRANS + ' - ' + lang.SITE_LABEL_TRANS_SUBWAY"></label>
-                <div ng-class="{'has-error': !site.model.subwayProp.validate()}">
-                    <input type="text" class="form-control" ng-model="site.model.subwayProp.val" />
-                </div>
-            </div>
-            <div class="form-group col-xs-6">
-                <label ng-bind="lang.SITE_LABEL_TRANS + ' - ' + lang.SITE_LABEL_TRANS_BUS"></label>
-                <div ng-class="{'has-error': !site.model.busProp.validate()}">
-                    <input type="text" class="form-control" ng-model="site.model.busProp.val" />
-                </div>
-            </div>
-            <div class="form-group  col-xs-12">
-                <label ng-bind="lang.SITE_LABEL_INTRO"></label>
-                <div ng-class="{'has-error': !site.model.introProp.validate()}">
-                    <textarea class="form-control" ng-model="site.model.introProp.val" style="max-width:100%;"></textarea>
-                </div>
-            </div>
-            <div class="form-group col-xs-12">
-                <label class="col-xs-12 paddingLR0px" ng-bind="'开放时间'"></label>
-                <div class="col-xs-12 paddingLR0px">
-                    <label class="col-xs-12 paddingLR0px" ng-bind="'开始'"></label>
-                    <div>
-                        <div class="col-xs-4 paddingLR0px">
-                            <select class="form-control" ng-options="h for h in const.hour24" ng-model="site.model.openStartHourProp.val"></select>
-                        </div>
-                        <div class="col-xs-2 paddingLR0px text-bold text-center" style="margin-top:7px;">时</div>
-                        <div class="col-xs-4 paddingLR0px">
-                            <select class="form-control" ng-options="m for m in const.minutesQuarter" ng-model="site.model.openStartMinProp.val"></select>
-                        </div>
-                        <div class="col-xs-2 paddingLR0px text-bold text-center" style="margin-top:7px;">分</div>
-                    </div>
-                    <label class="col-xs-12 paddingLR0px" ng-bind="'结束'"></label>
-                    <div>
-                        <div class="col-xs-4 paddingLR0px">
-                            <select class="form-control" ng-options="h for h in const.hour24" ng-model="site.model.openEndHourProp.val"></select>
-                        </div>
-                        <div class="col-xs-2 paddingLR0px text-bold text-center" style="margin-top:7px;">时</div>
-                        <div class="col-xs-4 paddingLR0px">
-                            <select class="form-control" ng-options="m for m in const.minutesQuarter" ng-model="site.model.openEndMinProp.val"></select>
-                        </div>
-                        <div class="col-xs-2 paddingLR0px text-bold text-center" style="margin-top:7px;">分</div>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group col-xs-12">
-                <label>
-                    <span ng-bind="'收费模式'"></span>
-                    <i class="fa fa-plus clickable" ng-click="addPrice(site.model)"></i>
-                </label>
-                <table>
-                    <thead>
-                        <tr ng-show="site.model.pricesProp.array.length > 1">
-                            <th style="width:5%;"></th>
-                            <th style="width:19%;">价格（RMB）</th>
-                            <th style="width:19%;">时间</th>
-                            <th style="width:19%;">单位</th>
-                            <th style="width:19%;">人数</th>
-                            <th style="width:19%;">备注</th>
-                        </tr>
-                        <tr ng-show="site.model.pricesProp.array.length <= 1">
-                            <th style="width:20%;">价格（RMB）</th>
-                            <th style="width:20%;">时间</th>
-                            <th style="width:20%;">单位</th>
-                            <th style="width:20%;">人数</th>
-                            <th style="width:20%;">备注</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="price in site.model.pricesProp.array">
-                            <td ng-show="site.model.pricesProp.array.length > 1">
-                                <i class="fa fa-times clickable remove" ng-click="removePrice(site.model, $index)"></i>
-                            </td>
-                            <td>
-                                <div ng-class="{'has-error': !price.amountProp.validate()}">
-                                    <input type="text" class="form-control" ng-model="price.amountProp.val" />
-                                </div>
-                            </td>
-                            <td>
-                                <div ng-class="{'has-error': !price.freqNumProp.validate()}">
-                                    <input type="text" class="form-control" ng-model="price.freqNumProp.val" />
-                                </div>
-                            </td>
-                            <td>
-                                <select class="form-control" ng-options="price.key as price.value for price in const.priceMeasure" ng-model="price.freqMeasureProp.val"></select>
-                            </td>
-                            <td>
-                                <div ng-class="{'has-error': !price.peopleProp.validate()}">
-                                    <input type="text" class="form-control" ng-model="price.peopleProp.val" />
-                                </div>
-                            </td>
-                            <td>
-                                <div ng-class="{'has-error': !price.commentsProp.validate(true)}">
-                                    <input type="text" class="form-control" ng-model="price.commentsProp.val" />
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="form-group col-xs-6">
-                <label ng-bind="lang.SITE_LABEL_ADDRESS"></label>
-                <div ng-class="{'has-error': !site.model.addrProp.validate()}">
-                    <input type="text" class="form-control" ng-model="site.model.addrProp.val" />
-                </div>
-            </div>
-            <div class="form-group col-xs-6">
-                <label ng-bind="lang.SITE_LABEL_TAGS"></label>
-                <div>
-                    <select class="form-control" ng-options="tag.key as tag.value for tag in const.tags" ng-model="site.model.tagProp.val"></select>
-                </div>
-            </div>
-            <div class="form-group col-xs-6">
-                <label ng-bind="lang.SITE_LABEL_GEO"></label>
-                <div>
-                    <span ng-bind="lang.GLOBAL_LABEL_LONGTITUDE"></span>
-                    <span ng-bind="site.model.geoProp.val.lng"></span>
-                    <span ng-bind="lang.GLOBAL_LABEL_LATITUDE"></span>
-                    <span ng-bind="site.model.geoProp.val.lat"></span>
-                </div>
-                <map style="height:300px;" need-search="true" lat="site.model.geoProp.val.lat" lng="site.model.geoProp.val.lng"></map>
-            </div>
-            <div class="form-group col-xs-6">
-                <label ng-bind="lang.SITE_LABEL_PIC"></label>
-                <image-input image-bind="site.model.picProp.val" image-height="120" image-width="160"></image-input>
-                <img class="img-responsive" ng-src="{{site.model.picProp.val}}" style="margin-top:5px;max-width:80%;"></img>
-            </div>
-            <button ng-click="updateSite(site)" class="btn btn-default" style="position:absolute;bottom:15px;right:15px;" ng-class="{disabled: site.updating || !site.model.validate()}">
-                <i class="fa fa-spinner fa-spin" ng-show="site.updating"></i>
-                <span ng-bind="lang.SITE_BTN_UPDATE" ng-show="!site.updating"></span>
-                <span ng-bind="lang.SITE_BTN_UPDATING" ng-show="site.updating"></span>
-            </button>
-        </div>
+        <div ng-click="initSiteEdit(addedSite)" style="height:80px;border:1px dotted black;border-radius:10px;line-height:80px;" class="text-center flatbtn-o marginT15px">添加场馆</div>
     </div>
-    <div class="col-xs-12 nopadding" ng-show="getPageNavs().max > 0">
-        <ul class="pagination">
-            <li ng-class="{disabled: currentPage == 0}" ng-click="currentPage <= 0 || switchPage(0)"><span class="fa fa-angle-double-left"></span></li>
-            <li ng-class="{disabled: currentPage == 0}" ng-click="currentPage <= 0 || switchPage(currentPage - 1)"><span class="fa fa-angle-left"></span></li>
-            <li ng-repeat="pg in getPageNavs().nav" ng-class="{active: currentPage == pg}" ng-click="pg == currentPage || switchPage(pg)"><span ng-bind="pg + 1"></span></li>
-            <li ng-class="{disabled: currentPage == getPageNavs().max}" ng-click="currentPage >= getPageNavs().max || switchPage(currentPage + 1)"><span class="fa fa-angle-right"></span></li>
-            <li ng-class="{disabled: currentPage == getPageNavs().max}" ng-click="currentPage >= getPageNavs().max || switchPage(getPageNavs().max)"><span class="fa fa-angle-double-right"></span></li>
-        </ul>
-    </div>
-    <div style="margin: 10px;" ng-show="getSiteCount() == 0" ng-bind="lang.SITE_LABEL_NOSITE"></div>
-    <h4 style="margin-top: 50px;" class="col-xs-12 nopadding" ng-bind="lang.SITE_TITLE_ADDSITE"></h4>
-    <div role="form" class="col-xs-12 nopadding">
+    <div class="col-xs-10 col-sm-7 col-md-5" ng-show="editingSite">
         <div class="form-group col-xs-12 paddingLR0px">
             <label class="col-xs-12 paddingLR0px" for="new_site_name" ng-bind="lang.SITE_LABEL_NAME"></label>
-            <div ng-class="{'has-error': !siteModel.nameProp.validate()}">
-                <input type="text" class="form-control" id="new_site_name" ng-model="siteModel.nameProp.val" />
+            <div ng-class="{'has-error': !editingSite.model.nameProp.validate()}">
+                <input type="text" class="form-control" id="new_site_name" ng-model="editingSite.model.nameProp.val" />
             </div>
         </div>
         <div class="form-group col-xs-12 paddingLR0px">
             <label class="col-xs-12 paddingLR0px" for="new_site_intro" ng-bind="lang.SITE_LABEL_INTRO"></label>
-            <div ng-class="{'has-error': !siteModel.introProp.validate()}">
-                <textarea class="form-control" id="new_site_intro" ng-model="siteModel.introProp.val" style="max-width:100%;"></textarea>
+            <div ng-class="{'has-error': !editingSite.model.introProp.validate()}">
+                <textarea class="form-control" id="new_site_intro" ng-model="editingSite.model.introProp.val" style="max-width:100%;"></textarea>
             </div>
         </div>
         <div class="form-group col-xs-12 paddingLR0px">
             <label class="col-xs-12 paddingLR0px" for="new_site_trans_subway" ng-bind="lang.SITE_LABEL_TRANS + ' - ' + lang.SITE_LABEL_TRANS_SUBWAY"></label>
-            <div ng-class="{'has-error': !siteModel.subwayProp.validate()}">
-                <input type="text" class="form-control" id="new_site_trans_subway" ng-model="siteModel.subwayProp.val" />
+            <div ng-class="{'has-error': !editingSite.model.transSubwayProp.validate()}">
+                <input type="text" class="form-control" id="new_site_trans_subway" ng-model="editingSite.model.transSubwayProp.val" />
             </div>
         </div>
         <div class="form-group col-xs-12 paddingLR0px">
             <label class="col-xs-12 paddingLR0px" for="new_site_trans_bus" ng-bind="lang.SITE_LABEL_TRANS + ' - ' + lang.SITE_LABEL_TRANS_BUS"></label>
-            <div ng-class="{'has-error': !siteModel.busProp.validate()}">
-                <input type="text" class="form-control" id="new_site_trans_bus" ng-model="siteModel.busProp.val" />
+            <div ng-class="{'has-error': !editingSite.model.transBusProp.validate()}">
+                <input type="text" class="form-control" id="new_site_trans_bus" ng-model="editingSite.model.transBusProp.val" />
             </div>
         </div>
         <div class="form-group col-xs-12 paddingLR0px">
             <label class="col-xs-12 paddingLR0px" for="new_site_contact" ng-bind="'联系方式'"></label>
-            <div ng-class="{'has-error': !siteModel.contactProp.validate(true)}">
-                <input type="text" class="form-control" id="new_site_contact" ng-model="siteModel.contactProp.val" />
+            <div ng-class="{'has-error': !editingSite.model.contactProp.validate(true)}">
+                <input type="text" class="form-control" id="new_site_contact" ng-model="editingSite.model.contactProp.val" />
             </div>
         </div>
         <div class="form-group col-xs-12 paddingLR0px">
@@ -208,22 +44,22 @@
                 <label class="col-xs-12 paddingLR0px" ng-bind="'开始'"></label>
                 <div class="col-xs-12 paddingLR0px">
                     <div class="col-xs-4 paddingLR0px">
-                        <select class="form-control" ng-options="h for h in const.hour24" ng-model="siteModel.openStartHourProp.val"></select>
+                        <select class="form-control" ng-options="h for h in const.hour24" ng-model="editingSite.model.openStartHourProp.val"></select>
                     </div>
                     <div class="col-xs-2 paddingLR0px text-bold text-center" style="margin-top:7px;">时</div>
                     <div class="col-xs-4 paddingLR0px">
-                        <select class="form-control" ng-options="m for m in const.minutesQuarter" ng-model="siteModel.openStartMinProp.val"></select>
+                        <select class="form-control" ng-options="m for m in const.minutesQuarter" ng-model="editingSite.model.openStartMinProp.val"></select>
                     </div>
                     <div class="col-xs-2 paddingLR0px text-bold text-center" style="margin-top:7px;">分</div>
                 </div>
                 <label class="col-xs-12 paddingLR0px" ng-bind="'结束'"></label>
                 <div class="col-xs-12 paddingLR0px">
                     <div class="col-xs-4 paddingLR0px">
-                        <select class="form-control" ng-options="h for h in const.hour24" ng-model="siteModel.openEndHourProp.val"></select>
+                        <select class="form-control" ng-options="h for h in const.hour24" ng-model="editingSite.model.openEndHourProp.val"></select>
                     </div>
                     <div class="col-xs-2 paddingLR0px text-bold text-center" style="margin-top:7px;">时</div>
                     <div class="col-xs-4 paddingLR0px">
-                        <select class="form-control" ng-options="m for m in const.minutesQuarter" ng-model="siteModel.openEndMinProp.val"></select>
+                        <select class="form-control" ng-options="m for m in const.minutesQuarter" ng-model="editingSite.model.openEndMinProp.val"></select>
                     </div>
                     <div class="col-xs-2 paddingLR0px text-bold text-center" style="margin-top:7px;">分</div>
                 </div>
@@ -231,53 +67,46 @@
         </div>
         <div class="form-group col-xs-12 paddingLR0px">
             <label class="col-xs-12 paddingLR0px">
-                <span ng-bind="'收费模式'"></span>
-                <i class="fa fa-plus clickable" ng-click="addPrice(siteModel)"></i>
+                <span ng-bind="lang.SITE_LABEL_PRICEMODE"></span>
+                <i class="fa fa-plus clickable" ng-click="addPrice(editingSite.model)"></i>
             </label>
             <table>
                 <thead>
-                    <tr ng-show="siteModel.pricesProp.array.length > 1">
+                    <tr ng-show="editingSite.model.pricesProp.array.length > 1">
                         <th style="width:5%;"></th>
-                        <th style="width:19%;">价格（RMB）</th>
-                        <th style="width:19%;">时间</th>
-                        <th style="width:19%;">单位</th>
-                        <th style="width:19%;">人数</th>
-                        <th style="width:19%;">备注</th>
+                        <th style="width:23%" ng-bind="lang.SITE_LABEL_PRICE_CHARGE"></th>
+                        <th style="width:23%" ng-bind="lang.SITE_LABEL_PRICE_DURATION"></th>
+                        <th style="width:23%" ng-bind="lang.SITE_LABEL_PRICE_FREQ"></th>
+                        <th style="width:23%" ng-bind="lang.SITE_LABEL_PRICE_PEOPLE"></th>
                     </tr>
-                    <tr ng-show="siteModel.pricesProp.array.length <= 1">
-                        <th style="width:20%;">价格（RMB）</th>
-                        <th style="width:20%;">时间</th>
-                        <th style="width:20%;">单位</th>
-                        <th style="width:20%;">人数</th>
-                        <th style="width:20%;">备注</th>
+                    <tr ng-show="editingSite.model.pricesProp.array.length <= 1">
+                        <th style="width:25%" ng-bind="lang.SITE_LABEL_PRICE_CHARGE"></th>
+                        <th style="width:25%" ng-bind="lang.SITE_LABEL_PRICE_DURATION"></th>
+                        <th style="width:25%" ng-bind="lang.SITE_LABEL_PRICE_FREQ"></th>
+                        <th style="width:25%" ng-bind="lang.SITE_LABEL_PRICE_PEOPLE"></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="price in siteModel.pricesProp.array">
-                        <td ng-show="siteModel.pricesProp.array.length > 1">
-                            <i class="fa fa-times clickable remove" ng-click="removePrice(siteModel, $index)"></i>
+                    <tr ng-repeat="price in editingSite.model.pricesProp.array" class="marginB10px">
+                        <td ng-show="editingSite.model.pricesProp.array.length > 1" style="padding:5px 10px 5px 0px">
+                            <i class="fa fa-times clickable remove" ng-click="removePrice(editingSite.model, $index)"></i>
                         </td>
-                        <td>
+                        <td style="padding:5px 10px 5px 0px">
                             <div ng-class="{'has-error': !price.amountProp.validate()}">
                                 <input type="text" class="form-control" ng-model="price.amountProp.val" />
                             </div>
                         </td>
-                        <td>
+                        <td style="padding:5px 10px 5px 0px">
                             <div ng-class="{'has-error': !price.freqNumProp.validate()}">
                                 <input type="text" class="form-control" ng-model="price.freqNumProp.val" />
                             </div>
                         </td>
-                        <td>
+                        <td style="padding:5px 10px 5px 0px">
                             <select class="form-control" ng-options="price.key as price.value for price in const.priceMeasure" ng-model="price.freqMeasureProp.val"></select>
                         </td>
-                        <td>
+                        <td style="padding:5px 0px">
                             <div ng-class="{'has-error': !price.peopleProp.validate()}">
                                 <input type="text" class="form-control" ng-model="price.peopleProp.val" />
-                            </div>
-                        </td>
-                        <td>
-                            <div ng-class="{'has-error': !price.commentsProp.validate(true)}">
-                                <input type="text" class="form-control" ng-model="price.commentsProp.val" />
                             </div>
                         </td>
                     </tr>
@@ -286,36 +115,35 @@
         </div>
         <div class="form-group col-xs-12 paddingLR0px">
             <label class="col-xs-12 paddingLR0px" ng-bind="lang.SITE_LABEL_TAGS"></label>
-            <div>
-                <select class="form-control" ng-options="tag.key as tag.value for tag in const.tags" ng-model="siteModel.tagProp.val"></select>
+            <div class="paddingLR0px col-xs-12 tag-picker">
+                <div class="tag-picker-item" ng-class="{selected: t.selected}" ng-repeat="t in editingSite.siteTagCandidates" ng-bind="t.value" ng-click="pickSiteTag(editingSite, t)"></div>
             </div>
         </div>
         <div class="form-group col-xs-12 paddingLR0px">
             <label class="col-xs-12 paddingLR0px" for="new_site_addr" ng-bind="lang.SITE_LABEL_ADDRESS"></label>
-            <div ng-class="{'has-error': !siteModel.addrProp.validate()}">
-                <input type="text" class="form-control" id="new_site_addr" ng-model="siteModel.addrProp.val" />
+            <div ng-class="{'has-error': !editingSite.model.addrProp.validate()}">
+                <input type="text" class="form-control" id="new_site_addr" ng-model="editingSite.model.addrProp.val" />
             </div>
-        </div>
-        <div class="form-group col-xs-12 paddingLR0px">
-            <label class="col-xs-12 paddingLR0px" ng-bind="lang.SITE_LABEL_GEO"></label>
             <div>
                 <span ng-bind="lang.GLOBAL_LABEL_LONGTITUDE"></span>
-                <span ng-bind="siteModel.geoProp.val.lng"></span>
+                <span ng-bind="editingSite.model.geoLngProp.val"></span>
                 <span ng-bind="lang.GLOBAL_LABEL_LATITUDE"></span>
-                <span ng-bind="siteModel.geoProp.val.lat"></span>
+                <span ng-bind="editingSite.model.geoLatProp.val"></span>
             </div>
-            <map style="height:500px;" need-search="true" lat="siteModel.geoProp.val.lat" lng="siteModel.geoProp.val.lng"></map>
+            <map class="form-group col-xs-12 paddingLR0px" style="height: 500px;" search-by-term="true" search-term="{{editingSite.model.addrProp.val}}" lat="editingSite.model.geoLatProp.val" lng="editingSite.model.geoLngProp.val"></map>
         </div>
         <div class="form-group col-xs-12 paddingLR0px">
             <label class="col-xs-12 paddingLR0px" for="new_site_pic" ng-bind="lang.SITE_LABEL_PIC"></label>
-            <image-input image-bind="siteModel.picProp.val" image-height="120" image-width="160"></image-input>
-            <img class="img-responsive" id="profile_logo" ng-src="{{siteModel.picProp.val}}" style="margin-top:5px;"></img>
+            <image-input image-bind="editingSite.model.picProp.val" image-height="120" image-width="160"></image-input>
+            <img class="img-responsive" id="profile_logo" ng-src="{{editingSite.model.picProp.val}}" style="margin-top:5px;"></img>
         </div>
-        <button ng-click="addSite()" class="btn btn-default" ng-class="{disabled: adding || !siteModel.validate()}">
-            <i class="fa fa-spinner fa-spin" ng-show="adding"></i>
-            <span ng-bind="lang.SITE_BTN_CREATE" ng-show="!adding"></span>
-            <span ng-bind="lang.SITE_BTN_CREATING" ng-show="adding"></span>
+        <button ng-click="submitSiteEdit()" class="btn btn-success" ng-class="{disabled: adding || !editingSite.model.validate()}">
+            <i class="fa fa-spinner fa-spin" ng-show="(!editingSite.raw && adding) || (editingSite.raw && editingSite.updating)"></i>
+            <span ng-bind="lang.SITE_BTN_CREATE" ng-show="!editingSite.raw && !adding"></span>
+            <span ng-bind="lang.SITE_BTN_CREATING" ng-show="!editingSite.raw && adding"></span>
+            <span ng-bind="lang.SITE_BTN_UPDATE" ng-show="editingSite.raw && !editingSite.updating"></span>
+            <span ng-bind="lang.SITE_BTN_UPDATING" ng-show="editingSite.raw && editingSite.updating"></span>
         </button>
-        <button ng-click="resetAddModel()" class="btn btn-default" ng-bind="lang.SITE_BTN_RESET"></button>
+        <button ng-click="resetEditingModel()" class="btn btn-default" ng-bind="lang.SITE_BTN_RESET"></button>
     </div>
 </div>

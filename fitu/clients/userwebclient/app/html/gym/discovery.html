@@ -93,19 +93,15 @@
         <div class="paddingLR0px col-xs-12 tag-picker" ng-class="{_slide_down: tagPickerExpanded}" style="display:none">
             <div class="tag-picker-item" ng-class="{selected: t.selected}" ng-repeat="t in siteTagCandidates" ng-bind="t.value" ng-click="pickSiteTag(t)"></div>
         </div>
-        <!--
-        <div>
-            <select class="form-control" id="discovery_tag" ng-options="t.key as t.value for t in const.tags" ng-model="discoveryModel.tagProp.val"></select>
-        </div>-->
     </div>
     <div class="form-group col-xs-12 paddingLR0px">
         <label class="col-xs-12 paddingLR0px" for="discovery_addr" ng-bind="lang.DISCOVERY_LABEL_ADDR"></label>
         <div ng-class="{'has-error': !discoveryModel.addrProp.validate()}">
             <input type="text" class="form-control" id="discovery_addr" ng-model="discoveryModel.addrProp.val" ng-model-options="{debounce: {'default': 500, 'blur': 0} }" />
         </div>
-        <span ng-show="discoveryModel.addrProp.validate() && !discoveryModel.geoProp.validate()" ng-bind="lang.DISCOVERY_LABEL_GEO" class="text-danger text-bold"></span>
+        <span ng-show="discoveryModel.addrProp.validate() && (!discoveryModel.geoLatProp.validate() || !discoveryModel.geoLngProp.validate())" ng-bind="lang.DISCOVERY_LABEL_GEO" class="text-danger text-bold"></span>
     </div>
-    <map class="form-group col-xs-12 paddingLR0px" style="height:300px;" search-by-term="true" search-term="{{discoveryModel.addrProp.val}}" lat="discoveryModel.geoProp.val.lat" lng="discoveryModel.geoProp.val.lng"></map>
+    <map class="form-group col-xs-12 paddingLR0px" style="height:300px;" search-by-term="true" search-term="{{discoveryModel.addrProp.val}}" lat="discoveryModel.geoLatProp.val" lng="discoveryModel.geoLngProp.val"></map>
     <div class="form-group col-xs-12 paddingLR0px">
         <label class="col-xs-12 paddingLR0px" ng-bind="lang.DISCOVERY_LABEL_PIC"></label>
         <image-input image-bind="discoveryModel.picProp.val" image-height="120" image-width="160"></image-input>
