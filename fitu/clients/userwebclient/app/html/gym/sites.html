@@ -19,23 +19,17 @@
                 <span> ~ </span>
                 <span ng-bind="site.open.endsOn | siteopen | datetime : const.timeAFormat"></span>
             </div>
-            <div class="col-xs-12 paddingLR0px">
-                <i class="fa fa-map-marker text-highlight"></i>
-                <span ng-bind="site.location.address"></span>
-            </div>
             <div class="col-xs-12 paddingLR0px" ng-if="site.prices.length > 0">
                 <i class="fa fa-rmb text-highlight"></i>
                 <span ng-bind="site.prices[0] | price"></span>
             </div>
             <div class="col-xs-12 paddingLR0px">
-                <div class="col-xs-4 paddingLR0px">
-                    <i class="fa fa-home text-highlight"></i>
-                    <span ng-bind="site.tags[0] | tag"></span>
-                </div>
-                <div class="col-xs-4 paddingLR0px">
-                    <i class="fa" ng-class="{'text-danger fa-heart': site.fansCount > 0, 'fa-heart-o': site.fansCount == 0}"></i>
-                    <span ng-bind="site.fansCount"></span>
-                </div>
+                <i class="fa fa-home text-highlight"></i>
+                <span ng-bind="site.tags | tags"></span>
+            </div>
+            <div class="col-xs-12 paddingLR0px">
+                <i class="fa" ng-class="{'text-danger fa-heart': site.fansCount > 0, 'fa-heart-o': site.fansCount == 0}"></i>
+                <span ng-bind="site.fansCount"></span>
             </div>
         </div>
     </div>

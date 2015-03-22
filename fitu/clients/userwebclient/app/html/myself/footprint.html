@@ -14,7 +14,7 @@
             </div>
             <div class="col-xs-12 paddingLR0px">
                 <i class="fa fa-home text-highlight"></i>
-                <span ng-bind="fp.activity.tags[0] | tag"></span>
+                <span ng-bind="fp.activity.tags | tags"></span>
             </div>
             <div class="col-xs-12 paddingLR0px" ng-show="!util.actActive(fp.activity)" ng-bind="lang.FOOTPRINT_LABEL_ACT + util.actNonActiveStatus(fp.activity)"></div>
             <div class="col-xs-12 paddingLR0px" ng-show="util.actActive(fp.activity)">
