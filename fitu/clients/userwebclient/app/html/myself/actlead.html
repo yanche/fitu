@@ -64,6 +64,7 @@
         </table>
     </div>
     <loading class="col-xs-12 paddingLR0px" show="loadingMem" word="lang.ACTLEAD_MSG_LOADINGMEM"></loading>
+    <div class="col-xs-12 paddingLR0px text-bold" ng-bind="lang.ACTLEAD_MSG_NOMEMBER" ng-show="!loadingMem && (!visibles || visibles.length == 0)"></div>
     <div class="paddingLR0px paddingTB5px col-xs-12 splitter" ng-repeat="mem in visibles" ng-show="!loadingMem">
         <div class="col-xs-3 paddingLR0px" ng-click="link.goUserPreview(mem.user.id)">
             <img class="full-width" ng-src="{{mem.user.headUrl}}" />

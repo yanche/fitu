@@ -27,6 +27,11 @@
             <i class="fa fa-phone text-highlight"></i>
             <span ng-bind="site.contact || lang.SITEDETAIL_LABEL_CONTACT_UNKNOWN"></span>
         </div>
+        <div class="col-xs-12 paddingLR0px text-bold" ng-bind="lang.SITEDETAIL_LABEL_TAG"></div>
+        <div class="col-xs-12 paddingLR0px">
+            <i class="fa fa-soccer-ball-o text-highlight"></i>
+            <span ng-bind="site.tags | tags"></span>
+        </div>
         <div class="col-xs-12 paddingLR0px text-bold" ng-bind="lang.ACTDETAIL_LABEL_TRANS" ng-show="site.trans.subway || site.trans.bus"></div>
         <div class="col-xs-12 paddingLR0px" ng-show="site.trans.subway">
             <i class="fa fa-subway text-highlight"></i>
