@@ -192,6 +192,7 @@
     <Folder Include="fitu\node_modules\models\" />
     <Folder Include="fitu\node_modules\email\" />
     <Folder Include="fitu\node_modules\log\" />
+    <Folder Include="fitu\node_modules\externalstorage\" />
     <Folder Include="fitu\node_modules\userdefaultheadpic\" />
     <Folder Include="fitu\node_modules\smsproviders\" />
     <Folder Include="fitu\node_modules\webpageservice\" />
@@ -405,6 +406,8 @@
     <Compile Include="fitu\node_modules\extension\json.js" />
     <Compile Include="fitu\node_modules\extension\pagination.js" />
     <Compile Include="fitu\node_modules\extension\regex.js" />
+    <Compile Include="fitu\node_modules\externalstorage\azurestorage.js" />
+    <Compile Include="fitu\node_modules\externalstorage\index.js" />
     <Compile Include="fitu\node_modules\fileservice\FileCacher.js" />
     <Compile Include="fitu\node_modules\infra\WxCachedLoader.js" />
     <Compile Include="fitu\node_modules\infra\CachedLoader.js" />
