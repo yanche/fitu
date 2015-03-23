@@ -11,13 +11,13 @@ resolved 服务器日志
 resolved 短信认证用户
 resolved 默认图片（头像，pic）
 保存活动模板
-导出excel
+活动组织者，场馆的数据统计页面，导出excel
 resolved 活动要求 detail
 
 低优先级
 积分系统（权重，UI提示，防刷分，积分功能），设计相关
 服务器缓存层
-图片服务器 CDN
+图片服务器 CDN https://github.com/Azure/azure-storage-node
 admin portal（site diag，statistics，admin op: delete-update）
 Android IOS APP
 活动推荐（根据地点，历史活动，关注的场馆、用户）

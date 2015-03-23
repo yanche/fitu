@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "fitu",
   "dependencies": {
+    "azure-storage": "^0.4.3",
     "bluebird": "^2.3.11",
     "jade": "^1.8.1",
     "less": "^1.7.4",
