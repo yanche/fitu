@@ -293,6 +293,7 @@
     <Compile Include="fitu\clients\webclientshared\app\js\factories\wxb.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\filters\activityDatetime.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\filters\gender.js" />
+    <Compile Include="fitu\clients\webclientshared\app\js\filters\picUrl.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\filters\siteopen.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\filters\price.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\factories\crypto.js" />
@@ -408,6 +409,7 @@
     <Compile Include="fitu\node_modules\extension\regex.js" />
     <Compile Include="fitu\node_modules\externalstorage\azurestorage.js" />
     <Compile Include="fitu\node_modules\externalstorage\index.js" />
+    <Compile Include="fitu\node_modules\externalstorage\qiniustorage.js" />
     <Compile Include="fitu\node_modules\fileservice\FileCacher.js" />
     <Compile Include="fitu\node_modules\infra\WxCachedLoader.js" />
     <Compile Include="fitu\node_modules\infra\CachedLoader.js" />

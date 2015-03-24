@@ -10,7 +10,7 @@ users
 	},
 'email':,
 'hash_pwd':,
-'headUrl':,
+'headUrl': {path:, storage: },
 'special': 1:god, 2:ob,
 'subscribe': {
 		'users': [],
@@ -36,7 +36,7 @@ site
 'open': {'startsOn': {hour:, min: }, 'endsOn': {hour:, min: } },
 'contact':,
 'intro':,
-'picUrl':
+'picUrl': {path:, storage: },
 'vendorId':,
 'createdBy':
 'createdOn':,
@@ -55,7 +55,7 @@ vendor
 	'geo':,
 	},
 'intro':,
-'logoUrl':,
+'logoUrl': {path:, storage: },
 'ownerId':,
 'admins': [],
 'createdOn':,
@@ -79,7 +79,7 @@ activity
 'tags': [],
 'intro':,
 'recruitment':,
-'picUrl':,
+'picUrl': {path:, storage: },
 'capacity':,
 'bar':
 }

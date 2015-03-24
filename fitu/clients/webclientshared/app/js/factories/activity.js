@@ -19,12 +19,6 @@
                         active: options.active
                     }
                 }).success(function (data) {
-                    data.list = data.list.map(function (act) {
-                        act.picUrl = utility.getStaticUrl(act.picUrl);
-                        if (act.creator && act.creator.headUrl)
-                            act.creator.headUrl = utility.getStaticUrl(act.creator.headUrl);
-                        return act;
-                    });
                     defer.resolve(data);
                 }).error(function (data, status, headers, config) {
                     console.log(arguments);
