@@ -1,6 +1,7 @@
 ﻿module.exports = function (grunt) {
     grunt.initConfig({
         basepath: 'statics',
+        storagebasepath: 'storage',
         html2js_base: 'fitu/clients/webclientshared',
         html2js_module: 'fituhtml',
         concat: {
@@ -89,7 +90,7 @@
                     expand: true,
                     cwd: 'fitu/clients/webclientshared/app/image',
                     src: ['**'],
-                    dest: '<%= basepath %>/app/image/webclientshared',
+                    dest: '<%= storagebasepath %>',
                     filter: 'isFile'
                 }]
             },
@@ -176,7 +177,7 @@
             }
         },
         clean: {
-            all: ['<%= basepath %>/app/css', '<%= basepath %>/app/js', '<%= basepath %>/app/image/webclientshared'],
+            all: ['<%= basepath %>/app/css', '<%= basepath %>/app/js'],
             html2js: ['<%= basepath %>/app/js/webclientshared/fituhtml.js', '<%= basepath %>/app/js/userwebclient/fituuserhtml.js']
         },
         html2js: {
@@ -280,10 +281,12 @@
     grunt.registerTask('watchadmin', ['dev', 'concurrent:watchadmin']);
     grunt.registerTask('test', function () {
         grunt.config('basepath', 'statics_test');
+        grunt.config('storagebasepath', 'storage_test');
         grunt.task.run('nonprod');
     });
     grunt.registerTask('dev', function () {
         grunt.config('basepath', 'statics_dev');
+        grunt.config('storagebasepath', 'storage_dev');
         grunt.task.run('nonprod');
     });
     grunt.registerTask('sass_user_dev', function () {

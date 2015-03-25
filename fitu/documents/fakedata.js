@@ -13,7 +13,7 @@ var god = {
     },
     email: 'god@fitu.com',
     hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
-    headUrl: config.defaultHeadUrl,
+    headUrl: { path: config.defaultHeadUrl, storage: 'local' },
     special: 1,
     subscribe: { users: [], sites: [] },
     fans: []
@@ -27,7 +27,7 @@ var ob = {
     },
     email: 'ob@fitu.com',
     hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
-    headUrl: config.defaultHeadUrl,
+    headUrl: { path: config.defaultHeadUrl, storage: 'local' },
     special: 2,
     subscribe: { users: [], sites: [] },
     fans: []
@@ -41,7 +41,7 @@ var vdOwner1 = {
     },
     email: 'vd1@fitu.com',
     hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
-    headUrl: config.defaultHeadUrl,
+    headUrl: { path: config.defaultHeadUrl, storage: 'local' },
     special: 0,
     subscribe: { users: [], sites: [] },
     fans: []
@@ -55,7 +55,7 @@ var vdOwner2 = {
     },
     email: 'vd2@fitu.com',
     hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
-    headUrl: config.defaultHeadUrl,
+    headUrl: { path: config.defaultHeadUrl, storage: 'local' },
     special: 0,
     subscribe: { users: [], sites: [] },
     fans: []
@@ -69,7 +69,7 @@ var vdAdmin1 = {
     },
     email: 'admin1@fitu.com',
     hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
-    headUrl: config.defaultHeadUrl,
+    headUrl: { path: config.defaultHeadUrl, storage: 'local' },
     special: 0,
     subscribe: { users: [], sites: [] },
     fans: []
@@ -83,7 +83,7 @@ var vdAdmin2 = {
     },
     email: 'admin2@fitu.com',
     hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
-    headUrl: config.defaultHeadUrl,
+    headUrl: { path: config.defaultHeadUrl, storage: 'local' },
     special: 0,
     subscribe: { users: [], sites: [] },
     fans: []
@@ -97,7 +97,7 @@ var actOrganizer1 = {
     },
     email: 'organizer1@fitu.com',
     hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
-    headUrl: config.defaultHeadUrl,
+    headUrl: { path: config.defaultHeadUrl, storage: 'local' },
     special: 0,
     subscribe: { users: [], sites: [] },
     fans: []
@@ -111,7 +111,7 @@ var actOrganizer2 = {
     },
     email: 'organizer2@fitu.com',
     hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
-    headUrl: config.defaultHeadUrl,
+    headUrl: { path: config.defaultHeadUrl, storage: 'local' },
     special: 0,
     subscribe: { users: [], sites: [] },
     fans: []
@@ -125,7 +125,7 @@ var user1 = {
     },
     email: 'user1@fitu.com',
     hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
-    headUrl: config.defaultHeadUrl,
+    headUrl: { path: config.defaultHeadUrl, storage: 'local' },
     special: 0,
     subscribe: { users: [], sites: [] },
     fans: []
@@ -139,7 +139,7 @@ var user2 = {
     },
     email: 'user2@fitu.com',
     hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
-    headUrl: config.defaultHeadUrl,
+    headUrl: { path: config.defaultHeadUrl, storage: 'local' },
     special: 0,
     subscribe: { users: [], sites: [] },
     fans: []
@@ -153,7 +153,7 @@ var user3 = {
     },
     email: 'user3@fitu.com',
     hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
-    headUrl: config.defaultHeadUrl,
+    headUrl: { path: config.defaultHeadUrl, storage: 'local' },
     special: 0,
     subscribe: { users: [], sites: [] },
     fans: []
@@ -170,7 +170,7 @@ var vendor1 = {
         }
     },
     intro: 'intro for vendor 1',
-    logoUrl: config.defaultVendorLogoUrl,
+    logoUrl: { path: config.defaultVendorLogoUrl, storage: 'local' },
     createdOn: new Date(),
     statusId: constants.status.vendorStatus.active,
     contact: '15201928369'
@@ -186,7 +186,7 @@ var vendor2 = {
         }
     },
     intro: 'intro for vendor 2',
-    logoUrl: config.defaultVendorLogoUrl,
+    logoUrl: { path: config.defaultVendorLogoUrl, storage: 'local' },
     createdOn: new Date(),
     statusId: constants.status.vendorStatus.active,
     contact: '15201928369'
@@ -202,15 +202,15 @@ var site1 = {
             lng: 121.5103
         }
     },
-    prices: [{ amount: 50, freq: { num: 2, measure: 'h' }, people: 1, comments: 'test comment1' },{ amount: 5000, freq: { num: 1, measure: 'y' }, people: 1, comments: 'test comment2' }],
+    prices: [{ amount: 50, freq: { num: 2, measure: 'h' }, people: 1, comments: 'test comment1' }, { amount: 5000, freq: { num: 1, measure: 'y' }, people: 1, comments: 'test comment2' }],
     open: { startsOn: { hour: 8, min: 0 }, endsOn: { hour: 20, min: 0 } },
     contact: '15201928369',
     intro: 'intro for site 1',
-    picUrl: config.defaultSitePicUrl,
+    picUrl: { path: config.defaultSitePicUrl, storage: 'local' },
     createdOn: new Date(),
     fans: [],
     statusId: constants.status.siteStatus.active,
-    trans: {subway: 'sub way trans', bus: 'bus trans'}
+    trans: { subway: 'sub way trans', bus: 'bus trans' }
 };
 var site2 = {
     name: '某健身场地',
@@ -222,11 +222,11 @@ var site2 = {
             lng: 121.5103
         }
     },
-    prices: [{ amount: 30, freq: { num: 1, measure: 'h' }, people: 1, comments: 'test comment3' },{ amount: 3000, freq: { num: 6, measure: 'M' }, people: 1, comments: 'test comment4' }],
+    prices: [{ amount: 30, freq: { num: 1, measure: 'h' }, people: 1, comments: 'test comment3' }, { amount: 3000, freq: { num: 6, measure: 'M' }, people: 1, comments: 'test comment4' }],
     open: { startsOn: { hour: 9, min: 30 }, endsOn: { hour: 17, min: 0 } },
     contact: '15201928369',
     intro: 'intro for site 2',
-    picUrl: config.defaultSitePicUrl,
+    picUrl: { path: config.defaultSitePicUrl, storage: 'local' },
     createdOn: new Date(),
     fans: [],
     statusId: constants.status.siteStatus.active,
@@ -246,7 +246,7 @@ var site3 = {
     prices: [{ amount: 60, freq: { num: 1, measure: 'h' }, people: 1, comments: 'test comment5' }],
     open: { startsOn: { hour: 12, min: 0 }, endsOn: { hour: 23, min: 0 } },
     contact: '15201928369',
-    picUrl: config.defaultSitePicUrl,
+    picUrl: { path: config.defaultSitePicUrl, storage: 'local' },
     createdOn: new Date(),
     fans: [],
     statusId: constants.status.siteStatus.active
@@ -261,11 +261,11 @@ var site4 = {
             lng: 121.5103
         }
     },
-    prices: [{ amount: 30, freq: { num: 2, measure: 'h' }, people: 1, comments: 'test comment6' },{ amount: 200, freq: { num: 2, measure: 'h' }, people: 10, comments: 'test comment7' }],
+    prices: [{ amount: 30, freq: { num: 2, measure: 'h' }, people: 1, comments: 'test comment6' }, { amount: 200, freq: { num: 2, measure: 'h' }, people: 10, comments: 'test comment7' }],
     open: { startsOn: { hour: 10, min: 0 }, endsOn: { hour: 15, min: 45 } },
     contact: '15201928369',
     intro: 'intro for site 4',
-    picUrl: config.defaultSitePicUrl,
+    picUrl: { path: config.defaultSitePicUrl, storage: 'local' },
     createdOn: new Date(),
     fans: [],
     statusId: constants.status.siteStatus.inactive
@@ -280,7 +280,7 @@ var act1 = {
     tags: ['yg'],
     intro: 'intro for act 1',
     recruitment: [],
-    picUrl: config.defaultActivityPicUrl,
+    picUrl: { path: config.defaultActivityPicUrl, storage: 'local' },
     capacity: 10,
     statusId: constants.status.actStatus.active
 };
@@ -293,7 +293,7 @@ var act2 = {
     tags: ['ft'],
     intro: 'intro for act 2',
     recruitment: [],
-    picUrl: config.defaultActivityPicUrl,
+    picUrl: { path: config.defaultActivityPicUrl, storage: 'local' },
     capacity: 15,
     statusId: constants.status.actStatus.active
 };
@@ -306,7 +306,7 @@ var act3 = {
     tags: ['sw'],
     intro: 'intro for act 3',
     recruitment: [],
-    picUrl: config.defaultActivityPicUrl,
+    picUrl: { path: config.defaultActivityPicUrl, storage: 'local' },
     capacity: 60,
     statusId: constants.status.actStatus.active
 };
@@ -319,7 +319,7 @@ var act4 = {
     tags: ['rk'],
     intro: 'intro for act 4',
     recruitment: [],
-    picUrl: config.defaultActivityPicUrl,
+    picUrl: { path: config.defaultActivityPicUrl, storage: 'local' },
     capacity: 4,
     statusId: constants.status.actStatus.cancel
 };
@@ -439,11 +439,11 @@ var start = function () {
     })
     .then(function () {
         console.log('done');
+        process.exit();
     })
     .catch(function (err) {
         console.log(err.stack);
     });
-
 };
 
 //init mongodb connection

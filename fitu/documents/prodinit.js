@@ -13,7 +13,7 @@ var god = {
     },
     email: 'god@fitu.com',
     hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
-    headUrl: config.defaultHeadUrl,
+    headUrl: { path: config.defaultHeadUrl, storage: 'local' },
     special: 1,
     subscribe: { users: [], sites: [] },
     fans: []
@@ -27,7 +27,7 @@ var ob = {
     },
     email: 'ob@fitu.com',
     hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
-    headUrl: config.defaultHeadUrl,
+    headUrl: { path: config.defaultHeadUrl, storage: 'local' },
     special: 2,
     subscribe: { users: [], sites: [] },
     fans: []
@@ -41,7 +41,7 @@ var user1 = {
     },
     email: 'user1@fitu.com',
     hash_pwd: 'a9993e364706816aba3e25717850c26c9cd0d89d',
-    headUrl: config.defaultHeadUrl,
+    headUrl: { path: config.defaultHeadUrl, storage: 'local' },
     special: 0,
     subscribe: { users: [], sites: [] },
     fans: []
@@ -58,7 +58,7 @@ var vendor1 = {
         }
     },
     intro: '宛平宾馆',
-    logoUrl: config.defaultVendorLogoUrl,
+    logoUrl: { path: config.defaultVendorLogoUrl, storage: 'local' },
     createdOn: new Date(),
     statusId: constants.status.vendorStatus.active,
     contact: '021-54679888'
@@ -75,7 +75,7 @@ var vendor2 = {
         }
     },
     intro: '哈达瑜伽',
-    logoUrl: config.defaultVendorLogoUrl,
+    logoUrl: { path: config.defaultVendorLogoUrl, storage: 'local' },
     createdOn: new Date(),
     statusId: constants.status.vendorStatus.active,
     contact: '021-62180955'
@@ -89,7 +89,7 @@ var site1 = {
     open: { startsOn: { hour: 8, min: 0 }, endsOn: { hour: 20, min: 0 } },
     contact: '021-54679888',
     intro: '宛平宾馆',
-    picUrl: config.defaultSitePicUrl,
+    picUrl: { path: config.defaultSitePicUrl, storage: 'local' },
     createdOn: new Date(),
     fans: [],
     statusId: constants.status.siteStatus.active
@@ -103,7 +103,7 @@ var site2 = {
     open: { startsOn: { hour: 12, min: 0 }, endsOn: { hour: 20, min: 0 } },
     contact: '021-62180955',
     intro: '哈达瑜伽',
-    picUrl: config.defaultSitePicUrl,
+    picUrl: { path: config.defaultSitePicUrl, storage: 'local' },
     createdOn: new Date(),
     fans: [],
     statusId: constants.status.siteStatus.active
@@ -146,6 +146,7 @@ var start = function () {
     })
     .then(function () {
         console.log('done');
+        process.exit();
     })
     .catch(function (err) {
         console.log(err.stack);

@@ -7,7 +7,7 @@
             this.result = null;
             this.fn = fn;
         };
-        
+
         CachedLoader.prototype.load = function (refresh) {
             var me = this;
             var defer = new $q.defer();
@@ -35,12 +35,12 @@
             }
             return defer.promise;
         };
-        
+
         CachedLoader.prototype.refresh = function () {
             this.loaded = false;
             this.result = null;
         };
-            
+
         //this is a preparation for multi-lingual
         var SmartString = function (langId) {
             this.langId = langId;
@@ -48,7 +48,7 @@
         SmartString.prototype.toString = function () {
             return lang[this.langId] || '';
         };
-        
+
         var ErrorCode = function () {
             this.map = {};
             this.default = null;
@@ -65,18 +65,8 @@
             else
                 return this.default ? this.default.toString() : '';
         };
-        
+
         return {
-            getStaticUrl: function (url) {
-                return constants.siteInfo.staticBase + url;
-            },
-            getRelativeUrl: function (url) {
-                var len = constants.siteInfo.staticBase.length;
-                if (url.slice(0, len) == constants.siteInfo.staticBase)
-                    return url.substr(len);
-                else
-                    return url;
-            },
             CachedLoader: CachedLoader,
             SmartString: SmartString,
             ErrorCode: ErrorCode

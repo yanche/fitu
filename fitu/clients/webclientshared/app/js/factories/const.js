@@ -4,10 +4,10 @@
         return {
             siteInfo: siteInfo,
             resources: {
-                loadingImg: siteInfo.staticBase + '/app/image/webclientshared/loading.gif',
-                defaultSitePic: siteInfo.staticBase + '/app/image/webclientshared/sitepic.jpg',
-                defaultVendorPic: siteInfo.staticBase + '/app/image/webclientshared/vendorpic.jpg',
-                defaultActPic: siteInfo.staticBase + '/app/image/webclientshared/actpic.jpg'
+                loadingImg: siteInfo.storageBase + '/loading.gif',
+                defaultSitePic: siteInfo.storageBase + '/sitepic.jpg',
+                defaultVendorPic: siteInfo.storageBase + '/vendorpic.jpg',
+                defaultActPic: siteInfo.storageBase + '/actpic.jpg'
             },
             status: {
                 member: { queued: 10, inTeam: 20, quit: 30 }

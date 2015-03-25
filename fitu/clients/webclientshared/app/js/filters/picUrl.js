@@ -5,7 +5,7 @@
             if (!input)
                 return '';
             else if (validate.isString(input))
-                    return (input.slice(0, 4) =='http'? '' : (constants.siteInfo.staticBase + '/')) + input;
+                    return (input.slice(0, 4) =='http'? '' : (constants.siteInfo.storageBase + '/')) + input;
             else {
                 var storage = input.storage, path = input.path;
                 switch (storage) {
