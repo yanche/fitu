@@ -5,7 +5,7 @@
             if (!input)
                 return '';
             else if (validate.isString(input))
-                    return (input.slice(0, 4) =='http'? '' : constants.siteInfo.staticBase) + input;
+                    return (input.slice(0, 4) =='http'? '' : (constants.siteInfo.staticBase + '/')) + input;
             else {
                 var storage = input.storage, path = input.path;
                 switch (storage) {
@@ -13,8 +13,10 @@
                         return 'https://fitu.blob.core.chinacloudapi.cn/fituexternal/' + path;
                     case 'qiniu':
                         return 'http://7xi81w.com1.z0.glb.clouddn.com/' + path;
+                    case 'local':
+                        return constants.siteInfo.storageBase + '/' + path;
                     default:
-                        return constants.siteInfo.staticBase + path;
+                        return constants.siteInfo.storageBase + '/' + path;
                 }
             }
         };

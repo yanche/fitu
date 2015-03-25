@@ -409,6 +409,7 @@
     <Compile Include="fitu\node_modules\extension\regex.js" />
     <Compile Include="fitu\node_modules\externalstorage\azurestorage.js" />
     <Compile Include="fitu\node_modules\externalstorage\index.js" />
+    <Compile Include="fitu\node_modules\externalstorage\localstorage.js" />
     <Compile Include="fitu\node_modules\externalstorage\qiniustorage.js" />
     <Compile Include="fitu\node_modules\fileservice\FileCacher.js" />
     <Compile Include="fitu\node_modules\infra\WxCachedLoader.js" />

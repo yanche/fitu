@@ -83,13 +83,13 @@ http.createServer(function (req, res) {
     console.log('image uploading service listening at port: ' + config.imageUploaderServer.port);
 });
 
-//simulate a static file service
-var fservice = new FileService({ wdir: path.join(__dirname, '../' + config.folder4staticFiles) });
+//static file service
+var staticfservice = new FileService({ wdir: path.join(__dirname, '../' + config.folder4staticFiles) });
 http.createServer(function (req, res) {
     var webreq = new infra.Webreq(req);
     webreq.init()
     .then(function () {
-        return fservice.handle(webreq);
+        return staticfservice.handle(webreq);
     })
     .then(function (webres) {
         webres.setHeader('Access-Control-Allow-Origin', '*'); //for font files
@@ -97,7 +97,23 @@ http.createServer(function (req, res) {
     });
 })
 .listen(config.staticFileServer.port, function () {
-    console.log('file server listening at port: ' + config.staticFileServer.port);
+    console.log('static file server listening at port: ' + config.staticFileServer.port);
+});
+
+//storage file service (picture)
+var storagefservice = new FileService({ wdir: path.join(__dirname, '../' + config.folder4localStorage) });
+http.createServer(function (req, res) {
+    var webreq = new infra.Webreq(req);
+    webreq.init()
+    .then(function () {
+        return storagefservice.handle(webreq);
+    })
+    .then(function (webres) {
+        webres.response(res);
+    });
+})
+.listen(config.storageFileServer.port, function () {
+    console.log('storage file server listening at port: ' + config.storageFileServer.port);
 });
 
 var removeSessions = function () {

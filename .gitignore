@@ -3,6 +3,9 @@
 /statics
 /statics_dev
 /statics_test
+/storage
+/storage_dev
+/storage_test
 .sass-cache
 .ntvs_analysis.dat
 .ntvs_analysis.dat.tmp
