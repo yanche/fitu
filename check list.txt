@@ -13,6 +13,7 @@ resolved 默认图片（头像，pic）
 保存活动模板
 活动组织者，场馆的数据统计页面，导出excel
 resolved 活动要求 detail
+data model, delta
 
 低优先级
 积分系统（权重，UI提示，防刷分，积分功能），设计相关

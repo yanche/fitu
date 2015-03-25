@@ -1,11 +1,11 @@
 ﻿(function () {
     angular.module('fitulib')
-    .filter('picUrl', ['const', 'validate', function (constants, validate) {
+    .filter('picUrl', ['const', 'validate', 'utility', function (constants, validate, utility) {
         return function (input) {
             if (!input)
                 return '';
             else if (validate.isString(input))
-                return constants.siteInfo.staticBase + input;
+                    return (input.slice(0, 4) =='http'? '' : constants.siteInfo.staticBase) + input;
             else {
                 var storage = input.storage, path = input.path;
                 switch (storage) {

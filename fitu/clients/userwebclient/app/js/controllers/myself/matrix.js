@@ -1,6 +1,7 @@
 ﻿(function () {
     angular.module('fitu')
-    .controller('matrix', ['$scope', '$state', 'site', '$location', 'ucconst', 'validate', '$rootScope', 'ucdatamodel', 'const', 'activity', 'lang', function ($scope, $state, site, $location, ucconst, validate, $rootScope, ucdatamodel, constants, activity, lang) {
+    .controller('matrix', ['$scope', '$state', 'site', '$location', 'ucconst', 'validate', '$rootScope', 'ucdatamodel', 'const', 'activity', 'lang', '$filter', function ($scope, $state, site, $location, ucconst, validate, $rootScope, ucdatamodel, constants, activity, lang, $filter) {
+        var picUrlFilter = $filter('picUrl');
         $rootScope.pageTitle = lang.MATRIX_TITLE;
         var ctx = $location.search();
         if (ctx.actId) {
@@ -49,7 +50,7 @@
                 endsOn: moment($scope.activity.endsOn).format(constants.dateTimeFormat),
                 capacity: $scope.activity.capacity,
                 price: $scope.activity.price,
-                picUrl: $scope.activity.picUrl,
+                picUrl: picUrlFilter($scope.activity.picUrl),
                 tags: $scope.activity.tags,
                 bar: $scope.activity.bar
             } : {
@@ -59,7 +60,7 @@
                 endsOn: moment().add({ days: 3 }).hour(17).minute(0).format(constants.dateTimeFormat),
                 capacity: 5,
                 price: $scope.site.prices.length > 0 ? $scope.site.prices[0].amount : 50,
-                picUrl: $scope.site.picUrl,
+                picUrl: picUrlFilter($scope.site.picUrl),
                 tags: $scope.site.tags,
                 bar: ''
             });

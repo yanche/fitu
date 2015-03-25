@@ -2,7 +2,9 @@
     angular.module('fitu')
     .controller('profile', ['$rootScope', '$scope', '$state', 'user', 'validate', 'ucconst', 'ucdatamodel', 'lang', function ($rootScope, $scope, $state, user, validate, ucconst, ucdatamodel, lang) {
         $rootScope.pageTitle = lang.PROFILE_TITLE;
-        $scope.profileModel = new ucdatamodel.UserProfileModel().init($rootScope.user); console.info($scope.profileModel.genderProp.val);
+        var usercopy = angular.copy($rootScope.user);
+        usercopy.headUrl = $filter('picUrl')(usercopy.headUrl);
+        $scope.profileModel = new ucdatamodel.UserProfileModel().init(usercopy);
         $scope.updating = false;
         $scope.updateProfile = function () {
             if ($scope.profileModel.validate()) {

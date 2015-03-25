@@ -14,7 +14,6 @@
                         url: url.generate('users'),
                         params: { id: $.cookie('userId') }
                     }).success(function (data) {
-                        data.headUrl = utility.getStaticUrl(data.headUrl);
                         defer.resolve(data);
                     }).error(function (data, status, headers, config) {
                         $.cookie('sessionId', '', { domain: constants.siteInfo.domain, path: '/', expires: 365 * 10 })
@@ -31,7 +30,6 @@
                     url: url.generate('users'),
                     params: { id: id, preview: 1 }
                 }).success(function (data) {
-                    data.headUrl = utility.getStaticUrl(data.headUrl);
                     defer.resolve(data);
                 }).error(function (data, status, headers, config) {
                     console.log('failed to retrieve user preview: ' + status);
@@ -47,11 +45,6 @@
                     url: url.generate('users'),
                     params: { preview: 1, fansOf: options.fansOf, subscribedUsersOf: options.subscribedUsersOf, page: options.page, pageSize: options.pageSize }
                 }).success(function (data) {
-                    data.list = data.list.map(function (u) {
-                        if (u.headUrl)
-                            u.headUrl = utility.getStaticUrl(u.headUrl);
-                        return u;
-                    });
                     defer.resolve(data);
                 }).error(function (data, status, headers, config) {
                     console.log('failed to retrieve user preview: ' + status);
@@ -94,8 +87,6 @@
                 return defer.promise;
             },
             create: function (user) {
-                if (user.headUrl)
-                    user.headUrl = utility.getRelativeUrl(user.headUrl);
                 var defer = new $q.defer();
                 $http({
                     method: 'POST',
@@ -110,8 +101,6 @@
                 return defer.promise;
             },
             updateUser: function (update) {
-                if (update.headUrl)
-                    update.headUrl = utility.getRelativeUrl(update.headUrl);
                 var defer = new $q.defer();
                 if (!$.cookie('userId'))
                     defer.reject({ data: null, status: 0, headers: null });
@@ -231,7 +220,6 @@
                     url: url.generate('credits'),
                     params: { userId: userId }
                 }).success(function (data) {
-                    data.headUrl = utility.getStaticUrl(data.headUrl);
                     defer.resolve(data);
                 }).error(function (data, status, headers, config) {
                     defer.reject({ data: data, status: status, headers: headers });

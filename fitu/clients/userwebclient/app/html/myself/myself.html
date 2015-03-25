@@ -3,7 +3,7 @@
     <div class="col-xs-12 nopadding text-bold" ng-bind="lang.MYSELF_TITLE_ME "></div>
     <div class="col-xs-12 nopadding border-bottom border-bold border-bg paddingTB10px" style="background-color:white;">
         <div class="col-xs-4">
-            <img ng-src="{{user.headUrl}}" style="width: 100%;" />
+            <img ng-src="{{user.headUrl | picUrl}}" style="width: 100%;" />
         </div>
         <div class="col-xs-8">
             <div class="text-lg text-bold">

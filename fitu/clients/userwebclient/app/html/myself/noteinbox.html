@@ -4,7 +4,7 @@
     <div class="col-xs-12 paddingLR0px" ng-bind="lang.NOTEINBOX_MSG_EMPTY" ng-show="!loading && totalPages == 0"></div>
     <div class="paddingLR0px paddingTB5px col-xs-12 splitter" ng-repeat="note in visibles">
         <div class="col-xs-2 paddingLR0px">
-            <img class="full-width" ng-src="{{note.author.headUrl}}" ng-click="link.goUserPreview(note.author.id)" />
+            <img class="full-width" ng-src="{{note.author.headUrl | picUrl}}" ng-click="link.goUserPreview(note.author.id)" />
         </div>
         <div class="col-xs-10 paddingLR0px paddingL10px" ng-click="readNote(note)">
             <div class="col-xs-12 paddingLR0px text-bold" note-syntax target="note.subject"></div>

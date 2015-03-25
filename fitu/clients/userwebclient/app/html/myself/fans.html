@@ -4,7 +4,7 @@
     <div class="col-xs-12 paddingLR0px" ng-bind="lang.FANS_LABEL_NOFANS" ng-show="!loading && totalPages == 0"></div>
     <div class="paddingLR0px paddingTB5px col-xs-12 splitter" ng-repeat="fan in visibles">
         <div class="col-xs-3 paddingLR0px" ng-click="link.goUserPreview(fan.id)">
-            <img class="full-width" ng-src="{{fan.headUrl}}" />
+            <img class="full-width" ng-src="{{fan.headUrl | picUrl}}" />
         </div>
         <div class="col-xs-9 paddingLR0px paddingL10px">
             <div class="col-xs-12 paddingLR0px">

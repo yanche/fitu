@@ -4,7 +4,7 @@
     <h4 class="col-xs-12 paddingLR0px text-bold" ng-bind="userpublic.personal.nickName || lang.GLOBAL_LABEL_ANONY"></h4>
     <div class="paddingLR0px paddingTB5px col-xs-12">
         <div class="col-xs-3 paddingLR0px">
-            <img class="full-width" ng-src="{{userpublic.headUrl}}" />
+            <img class="full-width" ng-src="{{userpublic.headUrl | picUrl}}" />
         </div>
         <div class="col-xs-9 paddingLR0px paddingL10px">
             <div class="col-xs-12 paddingLR0px">

@@ -26,10 +26,6 @@
                     url: url.generate('notes'),
                     params: { recipientId: $.cookie('userId'), page: options.page, pageSize: options.pageSize }
                 }).success(function (data) {
-                    data.list = data.list.map(function (nt) {
-                        nt.author.headUrl = utility.getStaticUrl(nt.author.headUrl);
-                        return nt;
-                    });
                     defer.resolve(data);
                 }).error(function (data, status, headers, config) {
                     console.log(arguments);
@@ -45,18 +41,6 @@
                     url: url.generate('notes'),
                     params: { authorId: $.cookie('userId'), page: options.page, pageSize: options.pageSize }
                 }).success(function (data) {
-                    data.list = data.list.map(function (nt) {
-                        if (nt.recipients) {
-                            nt.recipients = nt.recipients.map(function (recp) {
-                                recp.headUrl = utility.getStaticUrl(recp.headUrl);
-                                return recp;
-                            });
-                        }
-                        if (nt.recipient) {
-                            nt.recipient.headUrl = utility.getStaticUrl(nt.recipient.headUrl);
-                        }
-                        return nt;
-                    });
                     defer.resolve(data);
                 }).error(function (data, status, headers, config) {
                     console.log(arguments);

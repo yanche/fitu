@@ -3,7 +3,7 @@
     <div class="col-xs-2" style="max-height: 1500px;overflow-y:auto;">
         <div ng-repeat="site in sites" ng-click="initSiteEdit(site)" class="clickable" style="margin-bottom:30px;">
             <div class="text-center text-overflow-hidden" ng-bind="site.raw.name"></div>
-            <img style="width:100%;max-width:100%;" ng-src="{{site.raw.picUrl}}" />
+            <img style="width:100%;max-width:100%;" ng-src="{{site.raw.picUrl | picUrl}}" />
         </div>
         <div ng-click="initSiteEdit(addedSite)" style="height:80px;border:1px dotted black;border-radius:10px;line-height:80px;" class="text-center flatbtn-o marginT15px">添加场馆</div>
     </div>

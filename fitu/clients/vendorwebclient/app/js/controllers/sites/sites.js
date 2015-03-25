@@ -1,6 +1,6 @@
 ﻿(function () {
     angular.module('fituvd')
-    .controller('sites', ['$scope', 'site', '$location', '$state', '$rootScope', 'pagination', 'messenger', '$rootScope', 'vcdatamodel', 'vendor', 'const', function ($scope, site, $location, $state, $rootScope, pagination, messenger, $rootScope, vcdatamodel, vendor, constants) {
+    .controller('sites', ['$scope', 'site', '$location', '$state', '$rootScope', 'pagination', 'messenger', '$rootScope', 'vcdatamodel', 'vendor', 'const', '$filter', function ($scope, site, $location, $state, $rootScope, pagination, messenger, $rootScope, vcdatamodel, vendor, constants, $filter) {
         var ctx = $location.search();
         if (ctx.vendorId) {
             var loadSites = function () { 
@@ -8,6 +8,7 @@
                 .then(function (data) {
                     $scope.loading = false;
                     $scope.sites = data.list.map(function (st) {
+                        st.picUrl = $filter('picUrl')(st.picUrl);
                         var ret = { raw: st, model: new vcdatamodel.DiscoveryModel() };
                         $scope.resetEditModel(ret);
                         return ret;

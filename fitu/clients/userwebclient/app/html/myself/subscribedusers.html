@@ -5,7 +5,7 @@
     <div class="col-xs-12 paddingLR0px text-sm" ng-bind="lang.SUBCRIBEUSERS_MSG_WHYFAN" ng-show="!loading && totalPages == 0"></div>
     <div class="paddingLR0px paddingTB5px col-xs-12 splitter" ng-repeat="sub in visibles">
         <div class="col-xs-3 paddingLR0px" ng-click="link.goUserPreview(sub.id)">
-            <img class="full-width" ng-src="{{sub.headUrl}}" />
+            <img class="full-width" ng-src="{{sub.headUrl | picUrl}}" />
         </div>
         <div class="col-xs-9 paddingLR0px paddingL10px">
             <div class="col-xs-12 paddingLR0px">

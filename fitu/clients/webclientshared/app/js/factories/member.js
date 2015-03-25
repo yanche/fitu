@@ -17,10 +17,6 @@
                         active: options.active
                     }
                 }).success(function (data) {
-                    data.list = data.list.map(function (mem) {
-                        if (mem.user) mem.user.headUrl = utility.getStaticUrl(mem.user.headUrl);
-                        return mem;
-                    });
                     defer.resolve(data);
                 }).error(function (data, status, headers, config) {
                     console.log(arguments);
@@ -35,7 +31,6 @@
                     url: url.generate('members'),
                     params: { id: memberId }
                 }).success(function (data) {
-                    if (data.user) data.user.headUrl = utility.getStaticUrl(data.user.headUrl);
                     defer.resolve(data);
                 }).error(function (data, status, headers, config) {
                     console.log(arguments);

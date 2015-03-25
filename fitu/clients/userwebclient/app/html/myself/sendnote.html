@@ -9,7 +9,7 @@
     <div class="col-xs-12 paddingLR0px text-bold" ng-bind="lang.SENDNOTE_MSG_404" ng-show="!loading && !recipient && !activity && !noReceiver"></div>
     <div class="col-xs-12 paddingLR0px" ng-show="!loading && recipient">
         <div class="col-xs-2 paddingLR0px">
-            <img class="full-width" ng-src="{{recipient.headUrl}}" />
+            <img class="full-width" ng-src="{{recipient.headUrl | picUrl}}" />
         </div>
         <div class="col-xs-10 paddingLR0px paddingL10px">
             <div class="col-xs-12 paddingLR0px">
@@ -26,7 +26,7 @@
     </div>
     <div class="col-xs-12 paddingLR0px" ng-show="!loading && !recipient && activity && activity.createdBy == user.id">
         <div class="col-xs-2 paddingLR0px">
-            <img class="full-width" ng-src="{{activity.picUrl}}" />
+            <img class="full-width" ng-src="{{activity.picUrl | picUrl}}" />
         </div>
         <div class="col-xs-10 paddingLR0px paddingL10px">
             <div class="col-xs-12 paddingLR0px" ng-bind="activity.name"></div>

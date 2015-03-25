@@ -33,9 +33,6 @@
                     url: url.generate('activities'),
                     params: { id: actId }
                 }).success(function (data) {
-                    data.picUrl = utility.getStaticUrl(data.picUrl);
-                    if (data.creator && data.creator.headUrl)
-                        data.creator.headUrl = utility.getStaticUrl(data.creator.headUrl);
                     defer.resolve(data);
                 }).error(function (data, status, headers, config) {
                     console.log(arguments);
@@ -59,8 +56,6 @@
             },
             create: function (options) {
                 options = options || {};
-                if (options.data && options.data.picUrl)
-                    options.data.picUrl = utility.getRelativeUrl(options.data.picUrl);
                 var defer = new $q.defer();
                 $http({
                     method: 'POST',
@@ -77,8 +72,6 @@
             },
             update: function (options) {
                 options = options || {};
-                if (options.data && options.data.picUrl)
-                    options.data.picUrl = utility.getRelativeUrl(options.data.picUrl);
                 var defer = new $q.defer();
                 $http({
                     method: 'POST',

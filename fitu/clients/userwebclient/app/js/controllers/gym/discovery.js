@@ -1,6 +1,6 @@
 ﻿(function () {
     angular.module('fitu')
-    .controller('discovery', ['$scope', '$state', 'site', '$rootScope', 'lang', 'ucdatamodel', 'ucconst', '$location', 'const', function ($scope, $state, site, $rootScope, lang, ucdatamodel, ucconst, $location, constants) {
+    .controller('discovery', ['$scope', '$state', 'site', '$rootScope', 'lang', 'ucdatamodel', 'ucconst', '$location', 'const', '$filter', function ($scope, $state, site, $rootScope, lang, ucdatamodel, ucconst, $location, constants, $filter) {
         $scope.pickSiteTag = function (t) {
             t.selected = !t.selected;
             if ($scope.discoveryModel && $scope.siteTagCandidates)
@@ -53,6 +53,7 @@
             site.getOne({ id: ctx.siteId })
             .then(function (data) {
                 if (!data.vendor) {
+                    data.picUrl = $filter('picUrl')(data.picUrl);
                     $scope.discoveryModel = new ucdatamodel.DiscoveryModel().init(data);
                     $scope.siteTagCandidates.forEach(function (t) {
                         if (data.tags.some(function (tk) { return t.key == tk; }))

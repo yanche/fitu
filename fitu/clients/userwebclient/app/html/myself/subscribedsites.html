@@ -6,7 +6,7 @@
     <div class="paddingLR0px paddingTB5px col-xs-12 splitter" ng-repeat="site in visibles" ng-click="link.goSiteDetail(site.id)">
         <div class="col-xs-12 paddingLR0px text-bold text-lg text-center text-overflow-hidden" ng-bind="site.name"></div>
         <div class="col-xs-3 paddingLR0px">
-            <img ng-src="{{site.picUrl}}" class="full-width" />
+            <img ng-src="{{site.picUrl | picUrl}}" class="full-width" />
         </div>
         <div class="col-xs-9 paddingLR0px text-sm text-overflow-hidden paddingL10px">
             <div class="col-xs-12 paddingLR0px">

@@ -17,10 +17,6 @@
                             pageSize: options.pageSize
                         }
                     }).success(function (data) {
-                        data.list = data.list.map(function (mem) {
-                            if (mem.activity) mem.activity.picUrl = utility.getStaticUrl(mem.activity.picUrl);
-                            return mem;
-                        });
                         defer.resolve(data);
                     }).error(function (data, status, headers, config) {
                         defer.reject('failed to retrieve footprints: ' + status);
@@ -35,7 +31,6 @@
                     url: url.generate('footprints'),
                     params: { id: footprintId }
                 }).success(function (data) {
-                    if (data.activity) data.activity.picUrl = utility.getStaticUrl(data.activity.picUrl);
                     defer.resolve(data);
                 }).error(function (data, status, headers, config) {
                     console.log(arguments);

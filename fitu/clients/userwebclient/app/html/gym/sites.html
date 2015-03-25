@@ -10,7 +10,7 @@
     <div class="col-xs-10 col-xs-offset-1 paddingLR0px paddingTB10px splitter" ng-repeat="site in visibles" ng-click="link.goSiteDetail(site.id)">
         <div class="col-xs-12 paddingLR0px text-bold text-lg text-center text-overflow-hidden" ng-bind="site.name"></div>
         <div class="col-xs-3 paddingLR0px">
-            <img ng-src="{{site.picUrl}}" style="width:100%;" />
+            <img ng-src="{{site.picUrl | picUrl}}" style="width:100%;" />
         </div>
         <div class="col-xs-9 paddingLR0px small text-overflow-hidden" style="padding-left: 10px;">
             <div class="col-xs-12 paddingLR0px">

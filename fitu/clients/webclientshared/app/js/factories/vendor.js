@@ -15,7 +15,6 @@
                         active: 1
                     }
                 }).success(function (data) {
-                    data.list = data.list.map(function (vd) { vd.logoUrl = utility.getStaticUrl(vd.logoUrl); return vd; });
                     defer.resolve(data);
                 }).error(function (data, status, headers, config) {
                     console.log(arguments);
@@ -35,7 +34,6 @@
                         active: 1
                     }
                 }).success(function (data) {
-                    data.list = data.list.map(function (vd) { vd.logoUrl = utility.getStaticUrl(vd.logoUrl); return vd; });
                     defer.resolve(data);
                 }).error(function (data, status, headers, config) {
                     console.log(arguments);
@@ -52,7 +50,6 @@
                         url: url.generate(options.preview ? 'vendorpreview' : 'vendors'),
                         params: { id: options.id }
                     }).success(function (data) {
-                        data.logoUrl = utility.getStaticUrl(data.logoUrl);
                         defer.resolve(data);
                     }).error(function (data, status, headers, config) {
                         console.log(arguments);
@@ -67,8 +64,6 @@
                 options = options || {};
                 var defer = new $q.defer();
                 if (options.id || options.data) {
-                    if (options.data.logoUrl)
-                        options.data.logoUrl = utility.getRelativeUrl(options.data.logoUrl);
                     $http({
                         method: 'POST',
                         url: url.generate('vendors'),

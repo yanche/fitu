@@ -1,6 +1,6 @@
 ﻿<div id="vendorswitchpanel" ng-class="{show: vendors.length > 1 && showVendorSwitchPanel}" style="overflow-y:auto;">
     <div class="item" ng-class="{current: currentVendor == vd}" ng-repeat="vd in vendors" ng-click="switchVendor(vd)">
-        <img class="image" style="width: 100%; max-width: 100%;" ng-src="{{vd.logoUrl}}" />
+        <img class="image" style="width: 100%; max-width: 100%;" ng-src="{{vd.logoUrl | picUrl}}" />
         <span class="name text-overflow-hidden" ng-bind="vd.name"></span>
         <span class="hint4current">
             <i class="fa fa-check"></i>
@@ -10,7 +10,7 @@
 <div id="vendorswitchmodal" ng-click="showVendorSwitchPanel = !showVendorSwitchPanel" ng-show="vendors.length > 1 && showVendorSwitchPanel"></div>
 <div id="mainnav" ng-show="vendors.length > 0">
     <div ng-click="showVendorSwitchPanel = !showVendorSwitchPanel">
-        <img ng-src="{{currentVendor.logoUrl}}" class="img-responsive" />
+        <img ng-src="{{currentVendor.logoUrl | picUrl}}" class="img-responsive" />
     </div>
     <div style="height: 50px;"></div>
     <div class="item" ng-class="{current: state.current.name == vcconst.states.profile}" ng-click="goProfile()">
