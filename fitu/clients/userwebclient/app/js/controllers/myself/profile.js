@@ -1,6 +1,6 @@
 ﻿(function () {
     angular.module('fitu')
-    .controller('profile', ['$rootScope', '$scope', '$state', 'user', 'validate', 'ucconst', 'ucdatamodel', 'lang', function ($rootScope, $scope, $state, user, validate, ucconst, ucdatamodel, lang) {
+    .controller('profile', ['$rootScope', '$scope', '$state', 'user', 'validate', 'ucconst', 'ucdatamodel', 'lang', '$filter', function ($rootScope, $scope, $state, user, validate, ucconst, ucdatamodel, lang, $filter) {
         $rootScope.pageTitle = lang.PROFILE_TITLE;
         var usercopy = angular.copy($rootScope.user);
         usercopy.headUrl = $filter('picUrl')(usercopy.headUrl);

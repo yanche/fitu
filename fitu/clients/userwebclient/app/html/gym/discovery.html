@@ -110,8 +110,8 @@
     <div class="col-xs-12 paddingLR0px">
         <button ng-class="{disabled: !discoveryModel.validate() || adding || updating}" type="submit" class="btn btn-success" ng-click="reportSite()">
             <i class="fa fa-spinner fa-spin" ng-show="adding || updating"></i>
-            <span ng-bind="lang.DISCOVERY_BTN_REPORT" ng-show="!adding && mode == 1"></span>
-            <span ng-bind="lang.DISCOVERY_BTN_REPORT_UPDATE" ng-show="!updating && mode == 2"></span>
+            <span ng-bind="lang.DISCOVERY_BTN_REPORT" ng-show="!adding && mode == 2"></span>
+            <span ng-bind="lang.DISCOVERY_BTN_REPORT_UPDATE" ng-show="!updating && mode == 1"></span>
             <span ng-bind="lang.DISCOVERY_BTN_REPORTING" ng-show="adding || updating"></span>
         </button>
     </div>
