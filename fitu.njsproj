@@ -408,6 +408,7 @@
     <Compile Include="fitu\node_modules\extension\json.js" />
     <Compile Include="fitu\node_modules\extension\pagination.js" />
     <Compile Include="fitu\node_modules\extension\regex.js" />
+    <Compile Include="fitu\node_modules\extension\string.js" />
     <Compile Include="fitu\node_modules\externalstorage\azurestorage.js" />
     <Compile Include="fitu\node_modules\externalstorage\index.js" />
     <Compile Include="fitu\node_modules\externalstorage\localstorage.js" />
