@@ -267,6 +267,8 @@
 
     "MATRIX_HEADER": "发起活动",
     "MATRIX_HEADER_UPDATE": "编辑活动",
+    "MATRIX_LABEL_ACTSIB": "猜你想要组织...",
+    "MATRIX_LABEL_NOUSESIB": "我想从头开始...",
     "MATRIX_LABEL_SITE": "场馆",
     "MATRIX_LABEL_NAME": "名称*",
     "MATRIX_LABEL_INTRO": "简介*",

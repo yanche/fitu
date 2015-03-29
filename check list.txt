@@ -10,7 +10,7 @@ resolved 服务器日志
 用户标签（地点，兴趣，性别）匹配场馆，活动标签，检索活动时优先
 resolved 短信认证用户
 resolved 默认图片（头像，pic）
-保存活动模板
+resolved 保存活动模板
 活动组织者，场馆的数据统计页面，导出excel
 resolved 活动要求 detail
 data model, delta

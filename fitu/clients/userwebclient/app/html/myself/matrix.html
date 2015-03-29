@@ -7,6 +7,11 @@
     <div class="col-xs-12 paddingLR0px text-bold" ng-show="mode != 0 && !loading && mode == 1 && !activity" ng-bind="lang.MATRIX_MSG_ACT404"></div>
     <div class="col-xs-12 paddingLR0px text-bold" ng-show="mode == 1 && !loading && activity.createdBy != user.id" ng-bind="lang.MATRIX_MSG_ACT401"></div>
     <div class="col-xs-12 paddingLR0px" ng-show="mode != 0 && !loading && site && (mode == 2 || (activity && activity.createdBy == user.id))">
+        <div class="form-group" style="display:none;" ng-class="{'_slide_down': siblings && siblings.length > 0}">
+            <label class="control-label" ng-bind="lang.MATRIX_LABEL_ACTSIB"></label>
+            <div ng-repeat="sa in siblings" ng-class="{'text-bold': sibInUse == sa}" ng-bind="sa.name" ng-click="initModel(sa)"></div>
+            <div ng-bind="lang.MATRIX_LABEL_NOUSESIB" ng-show="sibInUse" ng-click="initModel()"></div>
+        </div>
         <div class="form-group">
             <label class="control-label" ng-bind="lang.MATRIX_LABEL_SITE"></label>
             <div class="text-bold" ng-bind="site.name"></div>
@@ -98,7 +103,7 @@
                 <span ng-bind="lang.MATRIX_BTN_UPDATING" ng-show="updating"></span>
                 <span ng-bind="lang.MATRIX_BTN_UPDATE" ng-show="!updating"></span>
             </button>
-            <button class="btn btn-warning marginL15px" ng-click="reset()" ng-bind="lang.MATRIX_BTN_RESET"></button>
+            <button class="btn btn-warning marginL15px" ng-click="initModel()" ng-bind="lang.MATRIX_BTN_RESET"></button>
         </div>
     </div>
 </div>
