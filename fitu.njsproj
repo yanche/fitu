@@ -310,6 +310,7 @@
     <Compile Include="fitu\clients\webclientshared\app\js\filters\sensitiveDatetime.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\filters\tags.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\filters\wordbarrier.js" />
+    <Compile Include="fitu\documents\db script re-pic-storage.js" />
     <Compile Include="fitu\documents\fakedata.js" />
     <Compile Include="fitu\documents\prodinit.js" />
     <Compile Include="fitu\node_modules\api\node_modules\imageUpload\index.js" />
