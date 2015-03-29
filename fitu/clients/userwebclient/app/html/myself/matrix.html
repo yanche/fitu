@@ -9,8 +9,14 @@
     <div class="col-xs-12 paddingLR0px" ng-show="mode != 0 && !loading && site && (mode == 2 || (activity && activity.createdBy == user.id))">
         <div class="form-group" style="display:none;" ng-class="{'_slide_down': siblings && siblings.length > 0}">
             <label class="control-label" ng-bind="lang.MATRIX_LABEL_ACTSIB"></label>
-            <div ng-repeat="sa in siblings" ng-class="{'text-bold': sibInUse == sa}" ng-bind="sa.name" ng-click="initModel(sa)"></div>
-            <div ng-bind="lang.MATRIX_LABEL_NOUSESIB" ng-show="sibInUse" ng-click="initModel()"></div>
+            <div ng-repeat="sa in siblings" ng-class="{'text-bold': sibInUse == sa}">
+                <i class="fa fa-tags text-highlight"></i>
+                <span ng-bind="sa.name" ng-click="initModel(sa)"></span>
+            </div>
+            <div ng-show="sibInUse">
+                <i class="fa fa-refresh text-error"></i>
+                <span ng-bind="lang.MATRIX_LABEL_NOUSESIB" ng-click="initModel()"></span>
+            </div>
         </div>
         <div class="form-group">
             <label class="control-label" ng-bind="lang.MATRIX_LABEL_SITE"></label>
