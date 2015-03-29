@@ -35,6 +35,18 @@
     <Content Include="bower.json" />
     <Content Include="check list.txt" />
     <Content Include="client pages spec.docx" />
+    <Content Include="fitu\clients\adminwebclient\app\html\dataop\activity.html" />
+    <Content Include="fitu\clients\adminwebclient\app\html\dataop\site.html" />
+    <Content Include="fitu\clients\adminwebclient\app\html\dataop\vendor.html" />
+    <Content Include="fitu\clients\adminwebclient\app\html\dataop\user.html" />
+    <Content Include="fitu\clients\adminwebclient\app\html\dataop\dataop.html" />
+    <Content Include="fitu\clients\adminwebclient\app\html\dataprint\dataprint.html" />
+    <Content Include="fitu\clients\adminwebclient\app\html\dataprint\siteprint.html" />
+    <Content Include="fitu\clients\adminwebclient\app\html\dataprint\userprint.html" />
+    <Content Include="fitu\clients\adminwebclient\app\html\dataprint\vendorprint.html" />
+    <Content Include="fitu\clients\adminwebclient\app\html\dataprint\activityprint.html" />
+    <Content Include="fitu\clients\adminwebclient\app\html\login\login.html" />
+    <Content Include="fitu\clients\adminwebclient\app\html\logs\logs.html" />
     <Content Include="fitu\clients\adminwebclient\app\html\main.html" />
     <Content Include="fitu\clients\adminwebclient\app\json\lang.json" />
     <Content Include="fitu\clients\userwebclient\app\html\activities\actlocation.html" />
@@ -59,6 +71,7 @@
     <Content Include="fitu\clients\userwebclient\app\html\gym\vendordetail.html" />
     <Content Include="fitu\clients\userwebclient\app\html\notfound\notfound.html" />
     <Content Include="fitu\clients\userwebclient_pc\app.jade" />
+    <Content Include="fitu\clients\webclientshared\app\css\adminwebclient\fitu_ad.scss" />
     <Content Include="fitu\clients\webclientshared\app\css\vendorwebclient\nav.scss" />
     <Content Include="fitu\clients\vendorwebclient\app\html\admins\admins.html" />
     <Content Include="fitu\clients\vendorwebclient\app\html\profile\profile.html" />
@@ -134,7 +147,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="fitu\" />
+    <Folder Include="fitu\clients\adminwebclient\app\html\dataop\" />
+    <Folder Include="fitu\clients\adminwebclient\app\html\login\" />
+    <Folder Include="fitu\clients\adminwebclient\app\html\dataprint\" />
+    <Folder Include="fitu\clients\adminwebclient\app\html\logs\" />
     <Folder Include="fitu\clients\adminwebclient\app\js\controllers\" />
+    <Folder Include="fitu\clients\adminwebclient\app\js\controllers\dataprint\" />
+    <Folder Include="fitu\clients\adminwebclient\app\js\controllers\logs\" />
+    <Folder Include="fitu\clients\adminwebclient\app\js\controllers\dataop\" />
+    <Folder Include="fitu\clients\adminwebclient\app\js\controllers\login\" />
+    <Folder Include="fitu\clients\adminwebclient\app\js\factories\" />
     <Folder Include="fitu\clients\userwebclient\app\html\notfound\" />
     <Folder Include="fitu\clients\userwebclient_pc\" />
     <Folder Include="fitu\clients\userwebclient\app\html\gym\" />
@@ -151,6 +173,7 @@
     <Folder Include="fitu\clients\webclientshared\app\css\config\" />
     <Folder Include="fitu\clients\webclientshared\app\css\infra\" />
     <Folder Include="fitu\clients\webclientshared\app\css\extension\" />
+    <Folder Include="fitu\clients\webclientshared\app\css\adminwebclient\" />
     <Folder Include="fitu\clients\webclientshared\app\css\vendorwebclient\" />
     <Folder Include="fitu\clients\webclientshared\app\css\webclientshared\" />
     <Folder Include="fitu\clients\webclientshared\app\css\userwebclient\" />
@@ -232,7 +255,6 @@
     <Folder Include="fitu\clients\webclientshared\app\js\filters\" />
     <Folder Include="fitu\clients\adminwebclient\" />
     <Folder Include="fitu\clients\adminwebclient\app\" />
-    <Folder Include="fitu\clients\adminwebclient\app\css\" />
     <Folder Include="fitu\clients\adminwebclient\app\html\" />
     <Folder Include="fitu\clients\adminwebclient\app\json\" />
     <Folder Include="fitu\clients\adminwebclient\app\js\" />
@@ -246,7 +268,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="fitu\clients\adminwebclient\app\js\config.js" />
+    <Compile Include="fitu\clients\adminwebclient\app\js\controllers\dataop\activity.js" />
+    <Compile Include="fitu\clients\adminwebclient\app\js\controllers\dataop\dataop.js" />
+    <Compile Include="fitu\clients\adminwebclient\app\js\controllers\dataop\site.js" />
+    <Compile Include="fitu\clients\adminwebclient\app\js\controllers\dataop\user.js" />
+    <Compile Include="fitu\clients\adminwebclient\app\js\controllers\dataop\vendor.js" />
+    <Compile Include="fitu\clients\adminwebclient\app\js\controllers\dataprint\activityprint.js" />
+    <Compile Include="fitu\clients\adminwebclient\app\js\controllers\dataprint\dataprint.js" />
+    <Compile Include="fitu\clients\adminwebclient\app\js\controllers\dataprint\siteprint.js" />
+    <Compile Include="fitu\clients\adminwebclient\app\js\controllers\dataprint\userprint.js" />
+    <Compile Include="fitu\clients\adminwebclient\app\js\controllers\dataprint\vendorprint.js" />
+    <Compile Include="fitu\clients\adminwebclient\app\js\controllers\login\login.js" />
+    <Compile Include="fitu\clients\adminwebclient\app\js\controllers\logs\logs.js" />
     <Compile Include="fitu\clients\adminwebclient\app\js\controllers\main.js" />
+    <Compile Include="fitu\clients\adminwebclient\app\js\factories\adconst.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\activities\userpreview.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\gym\discovery.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\gym\sitelocation.js" />

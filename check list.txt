@@ -18,7 +18,7 @@ data model, delta
 低优先级
 积分系统（权重，UI提示，防刷分，积分功能），设计相关
 服务器缓存层
-图片服务器 CDN https://github.com/Azure/azure-storage-node
+resolved 图片服务器 CDN https://github.com/Azure/azure-storage-node
 admin portal（site diag，statistics，admin op: delete-update）
 Android IOS APP
 活动推荐（根据地点，历史活动，关注的场馆、用户）

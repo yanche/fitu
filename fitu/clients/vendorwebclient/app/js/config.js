@@ -22,8 +22,8 @@
                 if (!validate.nonEmptyArray($rootScope.vendors)) {
                     evt.preventDefault();
                     $timeout(function () {
-						var ctx = $location.search();
-						ctx.state = toState.name;
+                        var ctx = $location.search();
+                        ctx.state = toState.name;
                         $state.gox(vcconst.states.login, ctx);
                     });
                 }

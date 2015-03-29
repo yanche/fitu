@@ -177,7 +177,7 @@
             }
         },
         clean: {
-            all: ['<%= basepath %>/app/css', '<%= basepath %>/app/js'],
+            all: ['<%= basepath %>'],
             html2js: ['<%= basepath %>/app/js/webclientshared/fituhtml.js', '<%= basepath %>/app/js/userwebclient/fituuserhtml.js']
         },
         html2js: {
