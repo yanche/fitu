@@ -1,22 +1,22 @@
 ﻿(function () {
     angular.module('fitulib')
-    .filter('picUrl', ['const', 'validate', 'utility', function (constants, validate, utility) {
+    .filter('picUrl', ['const', 'validate', 'utility', 'url', function (constants, validate, utility, url) {
         return function (input) {
             if (!input)
                 return '';
             else if (validate.isString(input))
-                    return (input.slice(0, 4) =='http'? '' : (constants.siteInfo.storageBase + '/')) + input;
+                    return url.join((input.slice(0, 4) =='http'? '' : constants.siteInfo.storageBase), input);
             else {
                 var storage = input.storage, path = input.path;
                 switch (storage) {
                     case 'azure':
-                        return 'https://fitu.blob.core.chinacloudapi.cn/fituexternal/' + path;
+                        return url.join('https://fitu.blob.core.chinacloudapi.cn/fituexternal/', path);
                     case 'qiniu':
-                        return 'http://7xi81w.com1.z0.glb.clouddn.com/' + path;
+                        return url.join('http://7xi81w.com1.z0.glb.clouddn.com/', path);
                     case 'local':
-                        return constants.siteInfo.storageBase + '/' + path;
+                        return url.join(constants.siteInfo.storageBase, path);
                     default:
-                        return constants.siteInfo.storageBase + '/' + path;
+                        return url.join(constants.siteInfo.storageBase, path);
                 }
             }
         };
