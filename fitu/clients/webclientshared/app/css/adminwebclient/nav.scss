@@ -1,0 +1,53 @@
+﻿$size_mainnav_width: 100px;
+$size_switchvendorpanel_width: 150px;
+$color_bg: #21242F;
+$color_dark: #444444;
+$color_light: #F2F2F2;
+
+#mainnav {
+	z-index: 1020;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	bottom: 0px;
+	width: $size_mainnav_width;
+	background-color: $color_bg;
+
+	.item {
+		height: 150px;
+		border-top: 1px solid $color_dark;
+		color: $color_dark;
+
+		&.last {
+			border-bottom: 1px solid $color_dark;
+		}
+
+		&.current {
+			color: $color_light;
+			border-left: 5px solid #2CA5FF;
+
+			&:hover {
+				cursor: auto;
+			}
+
+			.content {
+				margin-left: -5px;
+			}
+		}
+
+		&:hover {
+			cursor: pointer;
+			color: $color_light;
+		}
+
+		.content {
+			margin-top: 45px;
+			text-align: center;
+		}
+
+		.icon {
+			font-size: 40px;
+			margin-bottom: 10px;
+		}
+	}
+}

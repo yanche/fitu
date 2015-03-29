@@ -13,7 +13,6 @@
             $state.gox(vcconst.states.login, ctx);
         });
         $rootScope.$on('$stateChangeStart', function (evt, toState, toParams, fromState, fromParams) {
-            console.log('state chaging from: ' + $state.href(fromState.name, toParams) + ', to: ' + $state.href(toState.name, toParams));
             if (toState.name == vcconst.states.login) {
                 if (validate.nonEmptyArray($rootScope.vendors))
                     evt.preventDefault();

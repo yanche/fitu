@@ -1,2 +1,21 @@
 ﻿{
+	"LOGIN_MSG_AUTHN": "登录失败",
+	"LOGIN_MSG_AUTHZ": "登录失败，没有权限",
+	"LOGIN_LABEL_EMAIL": "邮箱",
+	"LOGIN_LABEL_PASSWORD": "密码",
+	"LOGIN_BTN_LOGIN": "登陆",
+	"LOGIN_BTN_LOGINING": "正在登陆...",
+	"LOGIN_BTN_LOADING": "正在加载...",
+
+	"LOGOUT_MSG_FAILED": "注销失败",
+
+	"NAV_LABEL_DATAOP": "数据操作",
+	"NAV_LABEL_DATAPRINT": "数据分析",
+	"NAV_LABEL_LOGS": "日志",
+
+	"LOGS_HEADER": "日志",
+
+	"DATAOP_HEADER": "数据操作",
+
+	"DATAPRINT_HEADER": "数据分析"
 }

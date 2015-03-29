@@ -1,11 +1,10 @@
 ﻿(function () {
     angular.module('fituvd')
-    .controller('vendor', ['$scope', '$state', '$rootScope', '$location', 'validate', 'utility', 'vcconst', 'user', 'messenger', function ($scope, $state, $rootScope, $location, validate, utility, vcconst, user, messenger) {
-        console.log('vendor controller initializing');
+    .controller('vendor', ['$scope', '$state', '$rootScope', '$location', 'validate', 'utility', 'vcconst', 'user', 'messenger', 'lang', function ($scope, $state, $rootScope, $location, validate, utility, vcconst, user, messenger, lang) {
         var ctx = $location.search();
-        
+
         $scope.state = $state;
-        
+
         if (!ctx.vendorId) {
             ctx.vendorId = $rootScope.vendors[0].id;
             $state.gox($state.current.name, ctx);
@@ -22,7 +21,7 @@
                 $rootScope.currentVendor = vendor;
             }
         };
-        
+
         $scope.goProfile = function () {
             $state.gox(vcconst.states.profile, ctx);
         };
@@ -30,11 +29,11 @@
         $scope.goAdmins = function () {
             $state.gox(vcconst.states.admins, ctx);
         };
-        
+
         $scope.goSites = function () {
             $state.gox(vcconst.states.sites, ctx);
         };
-        
+
         $scope.goStatistics = function () {
             $state.gox(vcconst.states.statistics, ctx);
         };
@@ -43,11 +42,11 @@
             user.logout()
             .then(function () {
                 $scope.$emit(vcconst.events.logout);
-                messenger.show($rootScope.vcconst.messenger, 'success', $rootScope.lang.LOGOUT_MSG_SUCCESS, 5000);
+                messenger.show(vcconst.messenger, 'success', lang.LOGOUT_MSG_SUCCESS, 5000);
             })
             .catch(function (err) {
                 console.log(err);
-                messenger.show($rootScope.vcconst.messenger, 'error', $rootScope.lang.LOGOUT_MSG_FAILED, 5000);
+                messenger.show(vcconst.messenger, 'error', lang.LOGOUT_MSG_FAILED, 5000);
             });
         };
 

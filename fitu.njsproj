@@ -45,6 +45,7 @@
     <Content Include="fitu\clients\adminwebclient\app\html\dataprint\userprint.html" />
     <Content Include="fitu\clients\adminwebclient\app\html\dataprint\vendorprint.html" />
     <Content Include="fitu\clients\adminwebclient\app\html\dataprint\activityprint.html" />
+    <Content Include="fitu\clients\adminwebclient\app\html\layout.html" />
     <Content Include="fitu\clients\adminwebclient\app\html\login\login.html" />
     <Content Include="fitu\clients\adminwebclient\app\html\logs\logs.html" />
     <Content Include="fitu\clients\adminwebclient\app\html\main.html" />
@@ -72,6 +73,7 @@
     <Content Include="fitu\clients\userwebclient\app\html\notfound\notfound.html" />
     <Content Include="fitu\clients\userwebclient_pc\app.jade" />
     <Content Include="fitu\clients\webclientshared\app\css\adminwebclient\fitu_ad.scss" />
+    <Content Include="fitu\clients\webclientshared\app\css\adminwebclient\nav.scss" />
     <Content Include="fitu\clients\webclientshared\app\css\vendorwebclient\nav.scss" />
     <Content Include="fitu\clients\vendorwebclient\app\html\admins\admins.html" />
     <Content Include="fitu\clients\vendorwebclient\app\html\profile\profile.html" />
@@ -268,6 +270,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="fitu\clients\adminwebclient\app\js\config.js" />
+    <Compile Include="fitu\clients\adminwebclient\app\js\controllers\admin.js" />
     <Compile Include="fitu\clients\adminwebclient\app\js\controllers\dataop\activity.js" />
     <Compile Include="fitu\clients\adminwebclient\app\js\controllers\dataop\dataop.js" />
     <Compile Include="fitu\clients\adminwebclient\app\js\controllers\dataop\site.js" />

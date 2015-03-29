@@ -9,7 +9,6 @@
         $scope.login = function () {
             if ($scope.loginModel.validate()) {
                 var pojo = $scope.loginModel.toLO();
-                $scope.logining = true;
                 user.login(pojo.email, pojo.hash_pwd)
                 .then(function () {
                     var params = angular.extend({}, ctx);
@@ -24,6 +23,7 @@
                     console.log('登录失败！');
                     $scope.logining = false;
                 });
+                $scope.logining = true;
             }
         };
         
@@ -31,7 +31,6 @@
         $scope.registerModel.init({});
         $scope.register = function () {
             if ($scope.registerModel.validate()) {
-                $scope.registering = true;
                 var pojo = $scope.registerModel.toLO();
                 user.create(pojo)
                 .catch(function (err) {
@@ -67,6 +66,7 @@
                         $scope.$emit(ucconst.events.showMsg, { msgType: ucconst.msgType.success, msg: lang.REGISTER_MSG_SUCCESS });
                     }
                 });
+                $scope.registering = true;
             }
         };
         

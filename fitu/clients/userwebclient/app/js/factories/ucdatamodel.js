@@ -3,30 +3,6 @@
     .factory('ucdatamodel', ['datamodel', 'validate', 'crypto', 'const', function (datamodel, validate, crypto, constants) {
         var ModelProp = datamodel.ModelProp, ModelArrayProp = datamodel.ModelArrayProp, DataModel = datamodel.DataModel;
         
-        var LoginModel = function () {
-            DataModel.call(this);
-            
-            this.emailProp = new ModelProp(validate.email);
-            this.pwdProp = new ModelProp(validate.valuedString);
-            this.addProp(this.emailProp).addProp(this.pwdProp);
-        };
-        LoginModel.prototype = Object.create(DataModel.prototype);
-        LoginModel.prototype.toLO = function () {
-            return {
-                email: this.emailProp.val,
-                hash_pwd: crypto.sha1(this.pwdProp.val)
-            };
-        };
-        LoginModel.prototype.init = function (data) {
-            if (!data)
-                DataModel.prototype.init.call();
-            else {
-                this.emailProp.init(data.email);
-                this.pwdProp.init(data.pwd);
-            }
-            return this;
-        };
-        
         var RegisterModel = function () {
             var me = this;
             DataModel.call(me);
@@ -266,7 +242,7 @@
         };
 
         return {
-            LoginModel: LoginModel,
+            LoginModel: datamodel.LoginModel,
             RegisterModel: RegisterModel,
             UserProfileModel: UserProfileModel,
             UpdateLoginEmailModel: UpdateLoginEmailModel,

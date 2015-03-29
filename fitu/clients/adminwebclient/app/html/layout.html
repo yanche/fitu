@@ -1,0 +1,24 @@
+﻿<div id="mainnav" ng-show="godOrOb">
+    <div class="item" ng-class="{current: state.current.name == adconst.states.logs}" ng-click="goLogs()">
+        <div class="content">
+            <i class="fa fa-info icon"></i>
+            <div ng-bind="lang.NAV_LABEL_LOGS"></div>
+        </div>
+    </div>
+    <div class="item" ng-class="{current: state.current.name == adconst.states.dataprint}" ng-click="goDataPrint()">
+        <div class="content">
+            <i class="fa fa-info icon"></i>
+            <div ng-bind="lang.NAV_LABEL_DATAPRINT"></div>
+        </div>
+    </div>
+    <div class="item" ng-class="{current: state.current.name == adconst.states.dataop}" ng-click="goDataOP()">
+        <div class="content">
+            <i class="fa fa-info icon"></i>
+            <div ng-bind="lang.NAV_LABEL_DATAOP"></div>
+        </div>
+    </div>
+    <div style="position:fixed;bottom:15px;left:15px;">
+        <span ng-click="logout()" class="fa fa-sign-out fa-lg" style="cursor:pointer;color:white;"></span>
+    </div>
+</div>
+<div style="margin-left: 150px;" ui-view ng-show="godOrOb"></div>
