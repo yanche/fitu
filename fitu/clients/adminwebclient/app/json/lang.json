@@ -17,5 +17,9 @@
 
 	"DATAOP_HEADER": "数据操作",
 
-	"DATAPRINT_HEADER": "数据分析"
+	"DATAPRINT_HEADER": "数据分析",
+	"DATAPRINT_ACT_HEADER": "活动发起",
+	"DATAPRINT_USER_HEADER": "注册用户",
+	"DATAPRINT_SITE_HEADER": "场馆发现",
+	"DATAPRINT_VENDOR_HEADER": "商户入驻"
 }

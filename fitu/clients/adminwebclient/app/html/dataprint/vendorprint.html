@@ -1,1 +1,6 @@
-﻿<div ng-controller="vendorprint"></div>
+﻿<div class="col-xs-12">
+    <h5 class="col-xs-12 paddingLR0px text-bold" ng-bind="lang.DATAPRINT_VENDOR_HEADER"></h5>
+</div>
+<div ng-controller="vendorprint">
+    <line-chart line-chart-data="data" line-chart-options="options" canvas-width="canvasWidth" canvas-height="canvasHeight"></line-chart>
+</div>

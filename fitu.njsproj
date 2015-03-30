@@ -196,6 +196,7 @@
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\footprints\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\actcensus\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\credits\" />
+    <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\dataprint\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\pendingnotes\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\pwdreset\" />
     <Folder Include="fitu\node_modules\api\node_modules\resources\node_modules\sitefans\" />
@@ -285,6 +286,7 @@
     <Compile Include="fitu\clients\adminwebclient\app\js\controllers\logs\logs.js" />
     <Compile Include="fitu\clients\adminwebclient\app\js\controllers\main.js" />
     <Compile Include="fitu\clients\adminwebclient\app\js\factories\adconst.js" />
+    <Compile Include="fitu\clients\adminwebclient\app\js\factories\dataprint.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\activities\userpreview.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\gym\discovery.js" />
     <Compile Include="fitu\clients\userwebclient\app\js\controllers\gym\sitelocation.js" />
@@ -317,6 +319,7 @@
     <Compile Include="fitu\clients\webclientshared\app\js\animation\slideDown.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\directives\dropdown.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\directives\genderHint.js" />
+    <Compile Include="fitu\clients\webclientshared\app\js\directives\lineChart.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\directives\noteSyntax.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\directives\actpreview.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\directives\autoComplete.js" />
@@ -359,6 +362,8 @@
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\activities\singleactivity.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\availability\index.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\credits\index.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\dataprint\dataprintutil.js" />
+    <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\dataprint\index.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\footprints\index.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\footprints\footprints.js" />
     <Compile Include="fitu\node_modules\api\node_modules\resources\node_modules\footprints\singlefootprint.js" />

@@ -114,6 +114,8 @@
                     { expand: true, cwd: 'bower_components/markdown/lib', src: ['markdown.js'], dest: '<%= basepath %>/app/js/libs', filter: 'isFile' },
                     { expand: true, cwd: 'bower_components/moment/min', src: ['moment.min.js'], dest: '<%= basepath %>/app/js/libs', filter: 'isFile' },
                     { expand: true, cwd: 'bower_components/moment/locale', src: ['zh-cn.js'], dest: '<%= basepath %>/app/js/libs', filter: 'isFile' },
+                    { expand: true, cwd: 'bower_components/d3', src: ['d3.min.js'], dest: '<%= basepath %>/app/js/libs', filter: 'isFile' },
+                    { expand: true, cwd: 'bower_components/chartjs', src: ['Chart.min.js'], dest: '<%= basepath %>/app/js/libs', filter: 'isFile' },
                 ]
             },
             sharedjson: {
