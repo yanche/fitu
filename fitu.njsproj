@@ -219,6 +219,7 @@
     <Folder Include="fitu\node_modules\email\" />
     <Folder Include="fitu\node_modules\log\" />
     <Folder Include="fitu\node_modules\externalstorage\" />
+    <Folder Include="fitu\node_modules\wechatlogin\" />
     <Folder Include="fitu\node_modules\userdefaultheadpic\" />
     <Folder Include="fitu\node_modules\smsproviders\" />
     <Folder Include="fitu\node_modules\webpageservice\" />
@@ -515,6 +516,7 @@
     <Compile Include="fitu\node_modules\logaccess\index.js" />
     <Compile Include="fitu\clients\vendorwebclient\app\js\config.js" />
     <Compile Include="fitu\clients\webclientshared\app\js\fitulib.js" />
+    <Compile Include="fitu\node_modules\wechatlogin\index.js" />
     <Compile Include="fitu\start.js" />
     <Compile Include="Gruntfile.js" />
     <Compile Include="fitu\node_modules\infra\Webres.js" />
