@@ -13,6 +13,7 @@ var WebPageService = require('webpageservice');
 var moment = require('moment');
 var validate = require('validate');
 var log = require('log');
+var wechatlogin = require('wechatlogin');
 
 //init mongodb connection
 mongodb.MongoClient.connect(config.dbConnStr, function (err, db) {
@@ -39,6 +40,12 @@ var httpEntry = function (req, res) {
             console.log('invalid host: ' + host);
             host = 'www.';
         }
+
+        //yanche: i dont want this, use something like wechatlogin.1dong.me to distinguish, domain change need to be approved by wechat
+        if (req.url.indexOf('/wechatlogin') == 0) {
+            return wechatlogin.handle(webreq);
+        }
+
         var type = host.split('.')[0];
         switch (type) {
             case 'api':

@@ -15,6 +15,8 @@
                         return url.join('http://7xi81w.com1.z0.glb.clouddn.com/', path);
                     case 'local':
                         return url.join(constants.siteInfo.storageBase, path);
+                    case 'raw':
+                        return path;
                     default:
                         return url.join(constants.siteInfo.storageBase, path);
                 }

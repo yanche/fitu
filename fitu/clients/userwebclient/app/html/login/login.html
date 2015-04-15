@@ -26,6 +26,7 @@
                     <span ng-bind="lang.LOGIN_BTN_LOADING" ng-show="loadingUser"></span>
                     <span ng-bind="lang.LOGIN_BTN_REGISTERING" ng-show="registering"></span>
                 </button>
+                <button class="btn btn-success" ng-click="loginByWechat()" ng-bind="lang.LOGIN_BTN_LOGINBYWECHAT"></button>
                 <span class="flatbtn text-sm marginL10px text-underline" ng-class="{disabled: !loginModel.emailProp.validate() || resetingPwd}" ng-click="resetPwd()">
                     <span ng-bind="lang.LOGIN_BTN_RESETPWD" ng-show="!resetingPwd"></span>
                     <span ng-bind="lang.LOGIN_BTN_RESETINGPWD" ng-show="resetingPwd"></span>

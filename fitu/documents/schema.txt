@@ -20,7 +20,10 @@ users
 'mobileV': {
 	phone:,
 	verifiedOn:
-	}
+	},
+'wechatOpenId': '',
+'lastWechatAuthPrint': {},
+'wechatUserInfo':
 }
 
 site
