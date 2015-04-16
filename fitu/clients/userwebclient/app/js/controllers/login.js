@@ -128,7 +128,7 @@
 
         $scope.loginByWechat = function () {
             var url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx1da5b1b0cc1f5bda&redirect_uri=' + encodeURIComponent(constants.siteInfo.wechatCallback) + '&response_type=code&scope=snsapi_login&state=abc#wechat_redirect';
-            $window.location.url = url;
+            $window.location = url;
         };
     }]);
 })();
