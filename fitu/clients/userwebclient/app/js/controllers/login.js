@@ -1,6 +1,6 @@
 ﻿(function () {
     angular.module('fitu')
-    .controller('login', ['$rootScope', '$scope', '$location', '$state', 'validate', 'user', '$state', 'ucconst', 'ucdatamodel' ,'lang', 'const', function ($rootScope, $scope, $location, $state, validate, user, $state, ucconst, ucdatamodel, lang, constants) {
+    .controller('login', ['$rootScope', '$scope', '$location', '$state', 'validate', 'user', '$state', 'ucconst', 'ucdatamodel' ,'lang', 'const', '$window', function ($rootScope, $scope, $location, $state, validate, user, $state, ucconst, ucdatamodel, lang, constants, $window) {
         $rootScope.pageTitle = lang.LOGIN_TITLE;
         var ctx = $location.search();
         $scope.logining = false;
@@ -128,7 +128,7 @@
 
         $scope.loginByWechat = function () {
             var url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx1da5b1b0cc1f5bda&redirect_uri=' + encodeURIComponent(constants.siteInfo.wechatCallback) + '&response_type=code&scope=snsapi_login&state=abc#wechat_redirect';
-            console.log(url);
+            $window.location.url = url;
         };
     }]);
 })();

@@ -3,6 +3,8 @@
     .controller('updatepwd', ['$rootScope', '$scope', '$state', 'ucconst', 'ucdatamodel', 'user', 'lang', function ($rootScope, $scope, $state, ucconst, ucdatamodel, user, lang) {
         $rootScope.pageTitle = lang.UPDATEPWD_TITLE;
         $scope.updatePWDModel = new ucdatamodel.UpdateLoginPWDModel();
+        if ($rootScope.user.wechatInit)
+            $scope.updatePWDModel.oldPwdProp.val = 'wechatInit';
         $scope.updating = false;
         $scope.updatePWD = function () {
             if ($scope.updatePWDModel.validate()) {
@@ -10,6 +12,7 @@
                 $scope.updating = true;
                 user.changePassword(data.hash_pwd, data.confirm_hash_pwd)
                 .then(function () {
+                    $rootScope.user.wechatInit = false;
                     //$scope.updatePWDModel.init();
                     $state.gox(ucconst.states.myself);
                     $scope.updating = false;

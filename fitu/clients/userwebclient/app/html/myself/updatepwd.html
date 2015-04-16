@@ -1,7 +1,7 @@
 ﻿<div class="col-xs-12">
     <div class="empty-md"></div>
     <form class="form-horizontal col-xs-12 nopadding" role="form">
-        <div class="form-group">
+        <div class="form-group" ng-show="!user.wechatInit">
             <label for="updatepwd_oldpwd" class="col-xs-3 control-label text-right" ng-bind="lang.UPDATEPWD_LABEL_OLDPWD"></label>
             <div class="col-xs-8">
                 <input type="password" class="form-control" id="updatepwd_oldpwd" ng-model="updatePWDModel.oldPwdProp.val" />

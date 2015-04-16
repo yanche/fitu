@@ -3,6 +3,8 @@
     .controller('updateemail', ['$rootScope', '$scope', '$state', 'ucconst', 'ucdatamodel', 'user', 'lang', function ($rootScope, $scope, $state, ucconst, ucdatamodel, user, lang) {
         $rootScope.pageTitle = lang.UPDATEEMAIL_TITLE;
         $scope.updateEmailModel = new ucdatamodel.UpdateLoginEmailModel();
+        if ($rootScope.user.wechatInit)
+            $scope.updateEmailModel.pwdProp.val = 'wechatInit';
         $scope.updating = false;
         $scope.updateEmail = function () {
             if ($scope.updateEmailModel.validate()) {
