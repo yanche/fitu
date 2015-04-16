@@ -2,6 +2,7 @@
     angular.module('fitu', ['ngAnimate', 'ui.router', 'ui.router.stateHelper', 'fitulib', 'fituhtml', 'fituhtmluser'])
     .run(['$rootScope', 'user', 'ucconst', 'lang', '$state', '$timeout', '$location', 'crypto', 'wxb', 'link', 'util', 'note', 'const', function ($rootScope, user, ucconst, lang, $state, $timeout, $location, crypto, wxb, link, util, note, constant) {
         $rootScope.mobile = constant.siteInfo.mobile;
+        $rootScope.inWx = 'WeixinJSBridge' in window;
         var loadUser = function (obj, state, params) {
             //TODO, state transfer need optimization
             $rootScope.loadingUser = true;

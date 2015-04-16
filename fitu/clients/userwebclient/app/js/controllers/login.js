@@ -26,7 +26,7 @@
                 $scope.logining = true;
             }
         };
-        
+
         $scope.registerModel = new ucdatamodel.RegisterModel();
         $scope.registerModel.init({});
         $scope.register = function () {
