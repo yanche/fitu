@@ -41,11 +41,6 @@ var httpEntry = function (req, res) {
             host = 'www.';
         }
 
-        //yanche: i dont want this, use something like wechatlogin.1dong.me to distinguish, domain change need to be approved by wechat
-        if (req.url.indexOf('/wechatlogin') == 0) {
-            return wechatlogin.handle(webreq);
-        }
-
         var type = host.split('.')[0];
         switch (type) {
             case 'api':
@@ -59,6 +54,8 @@ var httpEntry = function (req, res) {
                 return vendorClientService.handle(webreq);
             case 'admin':
                 return adminClientService.handle(webreq);
+            case 'wechatlogin':
+                return wechatlogin.handle(webreq);
             default:
                 return extension.http.webres404();
         }
