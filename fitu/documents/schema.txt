@@ -23,7 +23,8 @@ users
 	},
 'wechatOpenId': '',
 'lastWechatAuthPrint': {},
-'wechatUserInfo':
+'wechatUserInfo':,
+'createdOn':
 }
 
 site
