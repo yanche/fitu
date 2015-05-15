@@ -9,3 +9,11 @@
 
 # install ruby for SASS compiling
 
+# to start up
+cd ./fitu
+node start.js prod|dev|test
+local visit to www.fitu.com
+
+# main config file
+./fitu/node_modules/config/index.js 
+
